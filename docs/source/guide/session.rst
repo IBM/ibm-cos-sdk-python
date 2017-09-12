@@ -17,7 +17,6 @@ The ``boto3`` module acts as a proxy to the default session, which is
 created automatically when needed. Example default session use::
 
     # Using the default session
-    sqs = boto3.client('sqs')
     s3 = boto3.resource('s3')
 
 Custom Session
@@ -28,5 +27,4 @@ resources from it::
     # Creating your own session
     session = boto3.session.Session()
 
-    sqs = session.client('sqs')
     s3 = session.resource('s3')

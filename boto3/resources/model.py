@@ -242,7 +242,7 @@ class ResourceModel(object):
     on resources, see :ref:`guide_resources`.
 
     :type name: string
-    :param name: The name of this resource, e.g. ``sqs`` or ``Queue``
+    :param name: The name of this resource
     :type definition: dict
     :param definition: The JSON definition
     :type resource_defs: dict

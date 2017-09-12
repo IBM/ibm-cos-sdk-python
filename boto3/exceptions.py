@@ -80,30 +80,3 @@ class S3TransferFailedError(Boto3Error):
 class S3UploadFailedError(Boto3Error):
     pass
 
-
-class DynamoDBOperationNotSupportedError(Boto3Error):
-    """Raised for operantions that are not supported for an operand"""
-    def __init__(self, operation, value):
-        msg = (
-            '%s operation cannot be applied to value %s of type %s directly. '
-            'Must use AttributeBase object methods (i.e. Attr().eq()). to '
-            'generate ConditionBase instances first.' %
-            (operation, value, type(value)))
-        Exception.__init__(self, msg)
-
-# FIXME: Backward compatibility
-DynanmoDBOperationNotSupportedError = DynamoDBOperationNotSupportedError
-
-
-class DynamoDBNeedsConditionError(Boto3Error):
-    """Raised when input is not a condition"""
-    def __init__(self, value):
-        msg = (
-            'Expecting a ConditionBase object. Got %s of type %s. '
-            'Use AttributeBase object methods (i.e. Attr().eq()). to '
-            'generate ConditionBase instances.' % (value, type(value)))
-        Exception.__init__(self, msg)
-
-
-class DynamoDBNeedsKeyConditionError(Boto3Error):
-    pass

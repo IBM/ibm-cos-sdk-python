@@ -186,18 +186,8 @@ class ResourceCollection(object):
         page size and item count limit.
 
         This method returns an iterable generator which yields
-        individual resource instances. Example use::
+        individual resource instances. 
 
-            # Iterate through items
-            >>> for queue in sqs.queues.all():
-            ...     print(queue.url)
-            'https://url1'
-            'https://url2'
-
-            # Convert to list
-            >>> queues = list(sqs.queues.all())
-            >>> len(queues)
-            2
         """
         return self._clone()
 
@@ -208,18 +198,7 @@ class ResourceCollection(object):
         typically used to filter the results.
 
         This method returns an iterable generator which yields
-        individual resource instances. Example use::
-
-            # Iterate through items
-            >>> for queue in sqs.queues.filter(Param='foo'):
-            ...     print(queue.url)
-            'https://url1'
-            'https://url2'
-
-            # Convert to list
-            >>> queues = list(sqs.queues.filter(Param='foo'))
-            >>> len(queues)
-            2
+        individual resource instances. 
 
         :rtype: :py:class:`ResourceCollection`
         """
@@ -269,11 +248,6 @@ class CollectionManager(object):
 
         >>> for bucket in s3.buckets.all():
         ...     print(bucket.name)
-
-    Get only some items via filtering::
-
-        >>> for queue in sqs.queues.filter(QueueNamePrefix='AWS'):
-        ...     print(queue.url)
 
     Get whole pages of items:
 
@@ -371,9 +345,9 @@ class CollectionFactory(object):
         Loads a collection from a model, creating a new
         :py:class:`CollectionManager` subclass
         with the correct properties and methods, named based on the service
-        and resource name, e.g. ec2.InstanceCollectionManager. It also
-        creates a new :py:class:`ResourceCollection` subclass which is used
-        by the new manager class.
+        and resource name. It also creates a new 
+        :py:class:`ResourceCollection` subclass which is used by the new
+        new manager class.
 
         :type resource_name: string
         :param resource_name: Name of the resource to look up. For services,

@@ -12,10 +12,10 @@ and expose a similar API. A collection seamlessly handles pagination for
 you, making it possible to easily iterate over all items from all pages of
 data. Example of a collection::
 
-    # SQS list all queues
-    sqs = boto3.resource('sqs')
-    for queue in sqs.queues.all():
-        print(queue.url)
+    # S3 list all objects
+    s3 = boto3.resource('s3')
+    for object in s3.Bucket('my-bucket').objects.all():
+        print(object)
 
 When Collections Make Requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,40 +54,6 @@ the results::
    Behind the scenes, the above example will call ``ListBuckets``,
    ``ListObjects``, and ``HeadObject`` many times. If you have a large
    number of S3 objects then this could incur a significant cost.
-
-Chainability
-------------
-Collection methods are chainable. They return copies of the collection
-rather than modifying the collection, including a deep copy of any
-associated operation parameters. For example, this allows you
-to build up multiple collections from a base which they all have
-in common::
-
-    # EC2 find instances
-    ec2 = boto3.resource('ec2')
-    base = ec2.instances.filter(InstanceIds=['id1', 'id2', 'id3'])
-
-    filters = [{
-        'name': 'tenancy',
-        'value': 'dedicated'
-    }]
-    filtered1 = base.filter(Filters=filters)
-
-    # Note, this does NOT modify the filters in ``filtered1``!
-    filters.append({'name': 'instance-type', 'value': 't1.micro'})
-    filtered2 = base.filter(Filters=filters)
-
-    print('All instances:')
-    for instance in base:
-        print(instance.id)
-
-    print('Dedicated instances:')
-    for instance in filtered1:
-        print(instance.id)
-
-    print('Dedicated micro instances:')
-    for instance in filtered2:
-        print(instance.id)
 
 Limiting Results
 ----------------

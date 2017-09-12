@@ -47,7 +47,7 @@ class TestBoto3(unittest.TestCase):
     def test_client_creates_default_session(self, setup_session):
         boto3.DEFAULT_SESSION = None
 
-        boto3.client('sqs')
+        boto3.client('s3')
 
         self.assertTrue(setup_session.called,
             'setup_default_session not called')
@@ -59,7 +59,7 @@ class TestBoto3(unittest.TestCase):
     def test_client_uses_existing_session(self, setup_session):
         boto3.DEFAULT_SESSION = self.Session()
 
-        boto3.client('sqs')
+        boto3.client('s3')
 
         self.assertFalse(setup_session.called,
             'setup_default_session should not have been called')
@@ -69,17 +69,17 @@ class TestBoto3(unittest.TestCase):
     def test_client_passes_through_arguments(self):
         boto3.DEFAULT_SESSION = self.Session()
 
-        boto3.client('sqs', region_name='us-west-2', verify=False)
+        boto3.client('s3', region_name='us-west-2', verify=False)
 
         boto3.DEFAULT_SESSION.client.assert_called_with(
-            'sqs', region_name='us-west-2', verify=False)
+            's3', region_name='us-west-2', verify=False)
 
     @mock.patch('boto3.setup_default_session',
                 wraps=boto3.setup_default_session)
     def test_resource_creates_default_session(self, setup_session):
         boto3.DEFAULT_SESSION = None
 
-        boto3.resource('sqs')
+        boto3.resource('s3')
 
         self.assertTrue(setup_session.called,
             'setup_default_session not called')
@@ -91,7 +91,7 @@ class TestBoto3(unittest.TestCase):
     def test_resource_uses_existing_session(self, setup_session):
         boto3.DEFAULT_SESSION = self.Session()
 
-        boto3.resource('sqs')
+        boto3.resource('s3')
 
         self.assertFalse(setup_session.called,
             'setup_default_session should not have been called')
@@ -101,7 +101,7 @@ class TestBoto3(unittest.TestCase):
     def test_resource_passes_through_arguments(self):
         boto3.DEFAULT_SESSION = self.Session()
 
-        boto3.resource('sqs', region_name='us-west-2', verify=False)
+        boto3.resource('s3', region_name='us-west-2', verify=False)
 
         boto3.DEFAULT_SESSION.resource.assert_called_with(
-            'sqs', region_name='us-west-2', verify=False)
+            's3', region_name='us-west-2', verify=False)

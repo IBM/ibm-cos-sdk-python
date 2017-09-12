@@ -121,7 +121,7 @@ Boto 3 lacks the grant shortcut methods present in Boto 2.x, but it is still fai
     bucket.add_email_grant('READ', 'user@domain.tld')
 
     # Boto 3
-    bucket.Acl.put(GrantRead='emailAddress=user@domain.tld')
+    bucket.Acl().put(GrantRead='emailAddress=user@domain.tld')
 
 Key Metadata
 ------------

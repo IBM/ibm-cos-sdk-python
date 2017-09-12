@@ -16,8 +16,8 @@ import logging
 from boto3.session import Session
 
 
-__author__ = 'Amazon Web Services'
-__version__ = '1.4.4'
+__author__ = 'IBM'
+__version__ = '1.0.0'
 
 
 # The default Boto3 session; autoloaded when needed.

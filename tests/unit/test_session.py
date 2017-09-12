@@ -212,7 +212,7 @@ class TestSession(BaseTestCase):
 
     def test_create_client(self):
         session = Session(region_name='us-east-1')
-        client = session.client('sqs', region_name='us-west-2')
+        client = session.client('s3', region_name='us-west-2')
 
         self.assertTrue(client,
                         'No low-level client was returned')
@@ -221,10 +221,10 @@ class TestSession(BaseTestCase):
         bc_session = self.bc_session_cls.return_value
 
         session = Session(region_name='us-east-1')
-        session.client('sqs', region_name='us-west-2')
+        session.client('s3', region_name='us-west-2')
 
         bc_session.create_client.assert_called_with(
-            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
+            's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name='us-west-2', api_version=None,
             config=None)
@@ -240,10 +240,10 @@ class TestSession(BaseTestCase):
         session.resource_factory.load_from_definition = mock.Mock()
         session.client = mock.Mock()
 
-        session.resource('sqs', verify=False)
+        session.resource('s3', verify=False)
 
         session.client.assert_called_with(
-            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
+            's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=False, region_name=None, api_version='2014-11-02',
             config=mock.ANY)
@@ -263,10 +263,10 @@ class TestSession(BaseTestCase):
         session.client = mock.Mock()
         config = Config(signature_version='v4')
 
-        session.resource('sqs', config=config)
+        session.resource('s3', config=config)
 
         session.client.assert_called_with(
-            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
+            's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name=None, api_version='2014-11-02',
             config=mock.ANY)
@@ -286,10 +286,10 @@ class TestSession(BaseTestCase):
         session.client = mock.Mock()
         config = Config(signature_version='v4', user_agent_extra='foo')
 
-        session.resource('sqs', config=config)
+        session.resource('s3', config=config)
 
         session.client.assert_called_with(
-            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
+            's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name=None, api_version='2014-11-02',
             config=mock.ANY)
@@ -307,10 +307,10 @@ class TestSession(BaseTestCase):
         session = Session(botocore_session=mock_bc_session)
         session.resource_factory.load_from_definition = mock.Mock()
 
-        session.resource('sqs')
+        session.resource('s3')
 
         loader.load_service_model.assert_called_with(
-            'sqs', 'resources-1', None)
+            's3', 'resources-1', None)
 
     def test_bad_resource_name(self):
         mock_bc_session = mock.Mock()
@@ -320,15 +320,15 @@ class TestSession(BaseTestCase):
         )
         mock_bc_session.get_component.return_value = loader
         loader.list_available_services.return_value = ['good-resource']
-        mock_bc_session.get_available_services.return_value = ['sqs']
+        mock_bc_session.get_available_services.return_value = ['s3']
 
         session = Session(botocore_session=mock_bc_session)
         with self.assertRaises(ResourceNotExistsError) as e:
-            session.resource('sqs')
+            session.resource('s3')
         err_msg = str(e.exception)
         # 1. should say the resource doesn't exist.
         self.assertIn('resource does not exist', err_msg)
-        self.assertIn('sqs', err_msg)
+        self.assertIn('s3', err_msg)
         # 2. Should list available resources you can choose.
         self.assertIn('good-resource', err_msg)
         # 3. Should list client if available.

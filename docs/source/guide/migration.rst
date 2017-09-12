@@ -9,7 +9,7 @@ code can be migrated over as needed, piece by piece.
 
 High Level Concepts
 -------------------
-Boto 2.x modules are typically split into two categories, those which include a high-level object-oriented interface and those which include only a low-level interface which matches the underlying Amazon Web Services API. Some modules are completely high-level (like Amazon S3 or EC2), some include high-level code on top of a low-level connection (like Amazon DynamoDB), and others are 100% low-level (like Amazon Elastic Transcoder).
+Boto 2.x modules are typically split into two categories, those which include a high-level object-oriented interface and those which include only a low-level interface which matches the underlying Amazon Web Services API. Some modules are completely high-level (like Amazon S3), some include high-level code on top of a low-level connection, and others are 100% low-level.
 
 In Boto 3 this general low-level and high-level concept hasn't changed much, but there are two important points to understand.
 
@@ -21,7 +21,7 @@ A side effect of having all the services generated from JSON files is that there
 
 Resource Objects
 ~~~~~~~~~~~~~~~~
-Second, while every service now uses the runtime-generated low-level client, some services additionally have high-level generated objects that we refer to as ``Resources``. The lower-level is comparable to Boto 2.x layer 1 connection objects in that they provide a one to one mapping of API operations and return low-level responses. The higher level is comparable to the high-level customizations from Boto 2.x: an S3 ``Key``, an EC2 ``Instance``, and a DynamoDB ``Table`` are all considered resources in Boto 3. Just like a Boto 2.x ``S3Connection``'s ``list_buckets`` will return ``Bucket`` objects, the Boto 3 resource interface provides actions and collections that return resources. Some services may also have hand-written customizations built on top of the runtime-generated high-level resources (such as utilities for working with S3 multipart uploads).
+Second, while every service now uses the runtime-generated low-level client, some services additionally have high-level generated objects that we refer to as ``Resources``. The lower-level is comparable to Boto 2.x layer 1 connection objects in that they provide a one to one mapping of API operations and return low-level responses. The higher level is comparable to the high-level customizations from Boto 2.x: an S3 ``Key`` is considered resources in Boto 3. Just like a Boto 2.x ``S3Connection``'s ``list_buckets`` will return ``Bucket`` objects, the Boto 3 resource interface provides actions and collections that return resources. Some services may also have hand-written customizations built on top of the runtime-generated high-level resources (such as utilities for working with S3 multipart uploads).
 
 ::
 
@@ -61,4 +61,3 @@ Services
    :maxdepth: 2
 
    migrations3
-   migrationec2

@@ -14,9 +14,8 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
 
 
 requires = [
-    'botocore>=1.5.0,<1.6.0',
-    'jmespath>=0.7.1,<1.0.0',
-    's3transfer>=0.1.10,<0.2.0'
+    'ibm-cos-sdk-core>=1.0.0,==1.0.*',
+    'ibm-cos-sdk-s3transfer>=1.0.0,==1.0.*'
 ]
 
 
@@ -26,12 +25,12 @@ def get_version():
 
 
 setup(
-    name='boto3',
+    name='ibm-cos-sdk',
     version=get_version(),
-    description='The AWS SDK for Python',
+    description='IBM SDK for Python',
     long_description=open('README.rst').read(),
-    author='Amazon Web Services',
-    url='https://github.com/boto/boto3',
+    author='IBM',
+    url='https://github.com/ibm/ibm-cos-sdk-python',
     scripts=[],
     packages=find_packages(exclude=['tests*']),
     package_data={

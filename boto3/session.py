@@ -11,6 +11,16 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
+# Copyright 2017 IBM Corp. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+# the License. You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+# an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations under the License.
 import copy
 import os
 
@@ -38,6 +48,19 @@ class Session(object):
     :param aws_session_token: AWS temporary session token
     :type region_name: string
     :param region_name: Default region when creating new connections
+    :type api_key_id: str
+    :param api_key_id: IBM api key used for IAM authentication.
+    :type service_instance_id: str
+    :param service_instance_id: Service Instance ID used for
+        PUT bucket and GET service requests.
+    :type auth_endpoint: str
+    :param auth_endpoint: URL used for IAM authentication.
+    :type token_manager: TokenManager
+    :param token_manager: custom token manager to use.
+    :type auth_function: function
+    :param auth_function: function that does custom authentication
+        and returns json with token, refresh token, expiry time
+        and token type.
     :type botocore_session: botocore.session.Session
     :param botocore_session: Use this Botocore session instead of creating
                              a new default one.
@@ -47,6 +70,8 @@ class Session(object):
     """
     def __init__(self, aws_access_key_id=None, aws_secret_access_key=None,
                  aws_session_token=None, region_name=None,
+                 ibm_api_key_id=None, ibm_service_instance_id=None, ibm_auth_endpoint=None,
+                 auth_function=None, token_manager=None,
                  botocore_session=None, profile_name=None):
         if botocore_session is not None:
             self._session = botocore_session
@@ -68,9 +93,12 @@ class Session(object):
         if profile_name is not None:
             self._session.set_config_variable('profile', profile_name)
 
-        if aws_access_key_id or aws_secret_access_key or aws_session_token:
+        if ibm_api_key_id or auth_function or token_manager or aws_access_key_id or aws_secret_access_key or aws_session_token:
             self._session.set_credentials(
-                aws_access_key_id, aws_secret_access_key, aws_session_token)
+                access_key=aws_access_key_id, secret_key=aws_secret_access_key, token=aws_session_token,
+                ibm_api_key_id=ibm_api_key_id, ibm_service_instance_id=ibm_service_instance_id, 
+                ibm_auth_endpoint=ibm_auth_endpoint,
+                auth_function=auth_function, token_manager=token_manager)
 
         if region_name is not None:
             self._session.set_config_variable('region', region_name)
@@ -184,14 +212,16 @@ class Session(object):
 
     def client(self, service_name, region_name=None, api_version=None,
                use_ssl=True, verify=None, endpoint_url=None,
-               aws_access_key_id=None, aws_secret_access_key=None,
-               aws_session_token=None, config=None):
+               aws_access_key_id=None, aws_secret_access_key=None, aws_session_token=None, 
+               ibm_api_key_id=None, ibm_service_instance_id=None, ibm_auth_endpoint=None,
+               auth_function=None, token_manager=None,
+               config=None):
         """
         Create a low-level service client by name.
 
         :type service_name: string
-        :param service_name: The name of a service, e.g. 's3' or 'ec2'. You
-            can get a list of available services via
+        :param service_name: The name of a service, e.g. 's3'. You can
+            get a list of available services via
             :py:meth:`get_available_services`.
 
         :type region_name: string
@@ -243,6 +273,24 @@ class Session(object):
         :param aws_session_token: The session token to use when creating
             the client.  Same semantics as aws_access_key_id above.
 
+        :type api_key_id: str
+        :param api_key_id: IBM api key used for IAM authentication.
+
+        :type service_instance_id: str
+        :param service_instance_id: Service Instance ID used for
+            PUT bucket and GET service requests.
+
+        :type auth_endpoint: str
+        :param auth_endpoint: URL used for IAM authentication.
+
+        :type token_manager: TokenManager
+        :param token_manager: custom token manager to use.
+
+        :type auth_function: function
+        :param auth_function: function that does custom authentication
+            and returns json with token, refresh token, expiry time
+            and token type.
+
         :type config: botocore.client.Config
         :param config: Advanced client configuration options. If region_name
             is specified in the client config, its value will take precedence
@@ -260,18 +308,23 @@ class Session(object):
             use_ssl=use_ssl, verify=verify, endpoint_url=endpoint_url,
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
-            aws_session_token=aws_session_token, config=config)
+            aws_session_token=aws_session_token, 
+            ibm_api_key_id=ibm_api_key_id, ibm_service_instance_id=ibm_service_instance_id,
+            ibm_auth_endpoint=ibm_auth_endpoint, auth_function=auth_function,            
+            token_manager=token_manager, config=config)
 
     def resource(self, service_name, region_name=None, api_version=None,
                  use_ssl=True, verify=None, endpoint_url=None,
-                 aws_access_key_id=None, aws_secret_access_key=None,
-                 aws_session_token=None, config=None):
+                 aws_access_key_id=None, aws_secret_access_key=None, aws_session_token=None, 
+                 ibm_api_key_id=None, ibm_service_instance_id=None, ibm_auth_endpoint=None,
+                 auth_function=None, token_manager=None,
+                 config=None):
         """
         Create a resource service client by name.
 
         :type service_name: string
-        :param service_name: The name of a service, e.g. 's3' or 'ec2'. You
-            can get a list of available services via
+        :param service_name: The name of a service, e.g. 's3'.  You can
+            get a list of available services via
             :py:meth:`get_available_resources`.
 
         :type region_name: string
@@ -322,6 +375,24 @@ class Session(object):
         :type aws_session_token: string
         :param aws_session_token: The session token to use when creating
             the client.  Same semantics as aws_access_key_id above.
+
+        :type api_key_id: str
+        :param api_key_id: IBM api key used for IAM authentication.
+
+        :type service_instance_id: str
+        :param service_instance_id: Service Instance ID used for
+            PUT bucket and GET service requests.
+
+        :type auth_endpoint: str
+        :param auth_endpoint: URL used for IAM authentication.
+
+        :type token_manager: TokenManager
+        :param token_manager: custom token manager to use.
+
+        :type auth_function: function
+        :param auth_function: function that does custom authentication
+            and returns json with token, refresh token, expiry time
+            and token type.
 
         :type config: botocore.client.Config
         :param config: Advanced client configuration options. If region_name
@@ -386,7 +457,13 @@ class Session(object):
             use_ssl=use_ssl, verify=verify, endpoint_url=endpoint_url,
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
-            aws_session_token=aws_session_token, config=config)
+            aws_session_token=aws_session_token,
+            ibm_api_key_id=ibm_api_key_id,
+            ibm_service_instance_id=ibm_service_instance_id,
+            ibm_auth_endpoint=ibm_auth_endpoint, 
+            auth_function=auth_function, 
+            token_manager=token_manager,
+            config=config)
         service_model = client.meta.service_model
 
         # Create a ServiceContext object to serve as a reference to
@@ -426,27 +503,3 @@ class Session(object):
             'creating-resource-class.s3.ObjectSummary',
             boto3.utils.lazy_call(
                 'boto3.s3.inject.inject_object_summary_methods'))
-
-        # DynamoDb customizations
-        self._session.register(
-            'creating-resource-class.dynamodb',
-            boto3.utils.lazy_call(
-                'boto3.dynamodb.transform.register_high_level_interface'),
-            unique_id='high-level-dynamodb')
-        self._session.register(
-            'creating-resource-class.dynamodb.Table',
-            boto3.utils.lazy_call(
-                'boto3.dynamodb.table.register_table_methods'),
-            unique_id='high-level-dynamodb-table')
-
-        # EC2 Customizations
-        self._session.register(
-            'creating-resource-class.ec2.ServiceResource',
-            boto3.utils.lazy_call(
-                'boto3.ec2.createtags.inject_create_tags'))
-
-        self._session.register(
-            'creating-resource-class.ec2.Instance',
-            boto3.utils.lazy_call(
-                'boto3.ec2.deletetags.inject_delete_tags',
-                event_emitter=self.events))
