@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>S3 Customization Reference &mdash; ibm-cos-sdk 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ibm-cos-sdk 1.0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Customization References" href="index.html" />
+    <link rel="prev" title="Customization References" href="index.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Customization References"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">ibm-cos-sdk 1.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Customization References</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../index.html" class="text-logo">ibm-cos-sdk 1.0.1 documentation</a><div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">Available Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core References</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Customization References</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">S3 Customization Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#s3-transfers">S3 Transfers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../index.html">Docs</a></li>
+              
+                <li><a href="index.html">Customization References</a></li>
+              
+              <li>S3 Customization Reference</li>
+            </ol>
+          </div>
+          
+<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+          <div class="document clearer body">
+            
+  <div class="section" id="s3-customization-reference">
+<span id="ref-custom-s3"></span><h1>S3 Customization Reference<a class="headerlink" href="#s3-customization-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="s3-transfers">
+<h2>S3 Transfers<a class="headerlink" href="#s3-transfers" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All classes documented below are considered public and thus will not be
+exposed to breaking changes. If a class from the <tt class="docutils literal"><span class="pre">boto3.s3.transfer</span></tt>
+module is not documented below, it is considered internal and users
+should be very cautious in directly using them because breaking changes may
+be introduced from version to version of the library.</p>
+</div>
+<dl class="class">
+<dt id="boto3.s3.transfer.TransferConfig">
+<em class="property">class </em><tt class="descclassname">boto3.s3.transfer.</tt><tt class="descname">TransferConfig</tt><big>(</big><em>multipart_threshold=8388608</em>, <em>max_concurrency=10</em>, <em>multipart_chunksize=8388608</em>, <em>num_download_attempts=5</em>, <em>max_io_queue=100</em>, <em>io_chunksize=262144</em>, <em>use_threads=True</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#TransferConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.TransferConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration object for managed S3 transfers</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>multipart_threshold</strong> -- The transfer size threshold for which
+multipart uploads, downloads, and copies will automatically be
+triggered.</li>
+<li><strong>max_concurrency</strong> -- The maximum number of threads that will be
+making requests to perform a transfer. If <tt class="docutils literal"><span class="pre">use_threads</span></tt> is
+set to <tt class="docutils literal"><span class="pre">False</span></tt>, the value provided is ignored as the transfer
+will only ever use the main thread.</li>
+<li><strong>multipart_chunksize</strong> -- The partition size of each part for a
+multipart transfer.</li>
+<li><strong>num_download_attempts</strong> -- The number of download attempts that
+will be retried upon errors with downloading an object in S3.
+Note that these retries account for errors that occur when
+streaming  down the data from s3 (i.e. socket errors and read
+timeouts that occur after recieving an OK response from s3).
+Other retryable exceptions such as throttling errors and 5xx
+errors are already retried by botocore (this default is 5). This
+does not take into account the number of exceptions retried by
+botocore.</li>
+<li><strong>max_io_queue</strong> -- The maximum amount of read parts that can be
+queued in memory to be written for a download. The size of each
+of these read parts is at most the size of <tt class="docutils literal"><span class="pre">io_chunksize</span></tt>.</li>
+<li><strong>io_chunksize</strong> -- The max size of each chunk in the io queue.
+Currently, this is size used when <tt class="docutils literal"><span class="pre">read</span></tt> is called on the
+downloaded stream as well.</li>
+<li><strong>use_threads</strong> -- If True, threads will be used when performing
+S3 transfers. If False, no threads will be used in
+performing transfers: all logic will be ran in the main thread.</li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="boto3.s3.transfer.TransferConfig.ALIAS">
+<tt class="descname">ALIAS</tt><em class="property"> = {'max_concurrency': 'max_request_concurrency', 'max_io_queue': 'max_io_queue_size'}</em><a class="headerlink" href="#boto3.s3.transfer.TransferConfig.ALIAS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="boto3.s3.transfer.S3Transfer">
+<em class="property">class </em><tt class="descclassname">boto3.s3.transfer.</tt><tt class="descname">S3Transfer</tt><big>(</big><em>client=None</em>, <em>config=None</em>, <em>osutil=None</em>, <em>manager=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#S3Transfer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.S3Transfer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">
+<tt class="descname">ALLOWED_DOWNLOAD_ARGS</tt><em class="property"> = ['VersionId', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'RequestPayer']</em><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
+<tt class="descname">ALLOWED_UPLOAD_ARGS</tt><em class="property"> = ['ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl', 'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata', 'RequestPayer', 'ServerSideEncryption', 'StorageClass', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'SSEKMSKeyId', 'WebsiteRedirectLocation']</em><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="boto3.s3.transfer.S3Transfer.download_file">
+<tt class="descname">download_file</tt><big>(</big><em>bucket</em>, <em>key</em>, <em>filename</em>, <em>extra_args=None</em>, <em>callback=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#S3Transfer.download_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.download_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download an S3 object to a file.</p>
+<p>Variants have also been injected into S3 client, Bucket and Object.
+You don't have to use S3Transfer.download_file() directly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="boto3.s3.transfer.S3Transfer.upload_file">
+<tt class="descname">upload_file</tt><big>(</big><em>filename</em>, <em>bucket</em>, <em>key</em>, <em>callback=None</em>, <em>extra_args=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#S3Transfer.upload_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.upload_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload a file to an S3 object.</p>
+<p>Variants have also been injected into S3 client, Bucket and Object.
+You don't have to use S3Transfer.upload_file() directly.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">Customization References</a>
+      </div>
+    
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Customization References"
+             >previous</a> |</li>
+        <li><a href="../../index.html">ibm-cos-sdk 1.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Customization References</a> &raquo;</li> 
+      </ul>
+    </div>
+
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 IBM. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+<script type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script>
+<script type="text/javascript">
+s.prop66 = 'AWS SDK for Python (boto3)';
+s.eVar66 = 'D=c66';
+s.prop65 = 'API Reference';
+s.eVar65 = 'D=c65';
+var s_code = s.t();
+if (s_code) document.write(s_code);
+</script>
+  </body>
+</html>

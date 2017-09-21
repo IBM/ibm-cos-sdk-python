@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>ibm-cos-sdk Reference &mdash; ibm-cos-sdk 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ibm-cos-sdk 1.0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Core References" href="index.html" />
+    <link rel="next" title="Collections Reference" href="collections.html" />
+    <link rel="prev" title="Core References" href="index.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="collections.html" title="Collections Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Core References"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">ibm-cos-sdk 1.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core References</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../index.html" class="text-logo">ibm-cos-sdk 1.0.1 documentation</a><div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../services/index.html">Available Services</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core References</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html">Collections Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources.html">Resources Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session.html">Session Reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../customizations/index.html">Customization References</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../index.html">Docs</a></li>
+              
+                <li><a href="index.html">Core References</a></li>
+              
+              <li>ibm-cos-sdk Reference</li>
+            </ol>
+          </div>
+          
+<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+          <div class="document clearer body">
+            
+  <div class="section" id="ibm-cos-sdk-reference">
+<span id="ref-core-init"></span><h1>ibm-cos-sdk Reference<a class="headerlink" href="#ibm-cos-sdk-reference" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-boto3"></span><dl class="class">
+<dt id="boto3.NullHandler">
+<em class="property">class </em><tt class="descclassname">boto3.</tt><tt class="descname">NullHandler</tt><big>(</big><em>level=0</em><big>)</big><a class="reference internal" href="../../_modules/boto3.html#NullHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.NullHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the instance - basically setting the formatter to None
+and the filter list to empty.</p>
+<dl class="method">
+<dt id="boto3.NullHandler.emit">
+<tt class="descname">emit</tt><big>(</big><em>record</em><big>)</big><a class="reference internal" href="../../_modules/boto3.html#NullHandler.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="boto3.client">
+<tt class="descclassname">boto3.</tt><tt class="descname">client</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/boto3.html#client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a low-level service client by name using the default session.</p>
+<p>See <a class="reference internal" href="session.html#boto3.session.Session.client" title="boto3.session.Session.client"><tt class="xref py py-meth docutils literal"><span class="pre">boto3.session.Session.client()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boto3.resource">
+<tt class="descclassname">boto3.</tt><tt class="descname">resource</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/boto3.html#resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a resource service client by name using the default session.</p>
+<p>See <a class="reference internal" href="session.html#boto3.session.Session.resource" title="boto3.session.Session.resource"><tt class="xref py py-meth docutils literal"><span class="pre">boto3.session.Session.resource()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="boto3.set_stream_logger">
+<tt class="descclassname">boto3.</tt><tt class="descname">set_stream_logger</tt><big>(</big><em>name='boto3'</em>, <em>level=10</em>, <em>format_string=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3.html#set_stream_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.set_stream_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a stream handler for the given name and level to the logging module.
+By default, this logs all boto3 messages to <tt class="docutils literal"><span class="pre">stdout</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">boto3</span><span class="o">.</span><span class="n">set_stream_logger</span><span class="p">(</span><span class="s1">&#39;boto3.resources&#39;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string</em>) -- Log name</li>
+<li><strong>level</strong> (<em>int</em>) -- Logging level, e.g. <tt class="docutils literal"><span class="pre">logging.INFO</span></tt></li>
+<li><strong>format_string</strong> (<em>str</em>) -- Log message format</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="boto3.setup_default_session">
+<tt class="descclassname">boto3.</tt><tt class="descname">setup_default_session</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/boto3.html#setup_default_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.setup_default_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up a default session, passing through any parameters to the session
+constructor. There is no need to call this unless you wish to pass custom
+parameters, because a default session will be created for you.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">Core References</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="collections.html" title="next chapter (use the right arrow)">Collections Reference</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="collections.html" title="Collections Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Core References"
+             >previous</a> |</li>
+        <li><a href="../../index.html">ibm-cos-sdk 1.0.1 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Core References</a> &raquo;</li> 
+      </ul>
+    </div>
+
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 IBM. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+<script type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script>
+<script type="text/javascript">
+s.prop66 = 'AWS SDK for Python (boto3)';
+s.eVar66 = 'D=c66';
+s.prop65 = 'API Reference';
+s.eVar65 = 'D=c65';
+var s_code = s.t();
+if (s_code) document.write(s_code);
+</script>
+  </body>
+</html>

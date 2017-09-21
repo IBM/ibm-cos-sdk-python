@@ -1,0 +1,664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>boto3.session &mdash; ibm-cos-sdk 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="ibm-cos-sdk 1.0.1 documentation" href="../../index.html" />
+    <link rel="up" title="boto3" href="../boto3.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">ibm-cos-sdk 1.0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../boto3.html" accesskey="U">boto3</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../index.html" class="text-logo">ibm-cos-sdk 1.0.1 documentation</a><div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/services/index.html">Available Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/core/index.html">Core References</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/customizations/index.html">Customization References</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../index.html">Docs</a></li>
+              
+                <li><a href="../index.html">Module code</a></li>
+              
+                <li><a href="../boto3.html">boto3</a></li>
+              
+              <li>boto3.session</li>
+            </ol>
+          </div>
+          
+<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+          <div class="document clearer body">
+            
+  <h1>Source code for boto3.session</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c1"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c1"># the License is located at</span>
+<span class="c1">#</span>
+<span class="c1"># http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c1"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c1"># language governing permissions and limitations under the License.</span>
+
+<span class="c1"># Copyright 2017 IBM Corp. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with</span>
+<span class="c1"># the License. You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on</span>
+<span class="c1"># an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations under the License.</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">botocore.session</span>
+<span class="kn">from</span> <span class="nn">botocore.client</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">botocore.exceptions</span> <span class="kn">import</span> <span class="n">DataNotFoundError</span><span class="p">,</span> <span class="n">UnknownServiceError</span>
+
+<span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">boto3.utils</span>
+<span class="kn">from</span> <span class="nn">boto3.exceptions</span> <span class="kn">import</span> <span class="n">ResourceNotExistsError</span><span class="p">,</span> <span class="n">UnknownAPIVersionError</span>
+
+<span class="kn">from</span> <span class="nn">.resources.factory</span> <span class="kn">import</span> <span class="n">ResourceFactory</span>
+
+
+<div class="viewcode-block" id="Session"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session">[docs]</a><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A session stores configuration state and allows you to create service</span>
+<span class="sd">    clients and resources.</span>
+
+<span class="sd">    :type aws_access_key_id: string</span>
+<span class="sd">    :param aws_access_key_id: AWS access key ID</span>
+<span class="sd">    :type aws_secret_access_key: string</span>
+<span class="sd">    :param aws_secret_access_key: AWS secret access key</span>
+<span class="sd">    :type aws_session_token: string</span>
+<span class="sd">    :param aws_session_token: AWS temporary session token</span>
+<span class="sd">    :type region_name: string</span>
+<span class="sd">    :param region_name: Default region when creating new connections</span>
+<span class="sd">    :type api_key_id: str</span>
+<span class="sd">    :param api_key_id: IBM api key used for IAM authentication.</span>
+<span class="sd">    :type service_instance_id: str</span>
+<span class="sd">    :param service_instance_id: Service Instance ID used for</span>
+<span class="sd">        PUT bucket and GET service requests.</span>
+<span class="sd">    :type auth_endpoint: str</span>
+<span class="sd">    :param auth_endpoint: URL used for IAM authentication.</span>
+<span class="sd">    :type token_manager: TokenManager</span>
+<span class="sd">    :param token_manager: custom token manager to use.</span>
+<span class="sd">    :type auth_function: function</span>
+<span class="sd">    :param auth_function: function that does custom authentication</span>
+<span class="sd">        and returns json with token, refresh token, expiry time</span>
+<span class="sd">        and token type.</span>
+<span class="sd">    :type botocore_session: botocore.session.Session</span>
+<span class="sd">    :param botocore_session: Use this Botocore session instead of creating</span>
+<span class="sd">                             a new default one.</span>
+<span class="sd">    :type profile_name: string</span>
+<span class="sd">    :param profile_name: The name of a profile to use. If not given, then</span>
+<span class="sd">                         the default profile is used.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">auth_function</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">botocore_session</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">profile_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">botocore_session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">botocore_session</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Create a new default session</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">botocore</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_session</span><span class="p">()</span>
+
+        <span class="c1"># Setup custom user-agent string if it isn&#39;t already customized</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_name</span> <span class="o">==</span> <span class="s1">&#39;Botocore&#39;</span><span class="p">:</span>
+            <span class="n">botocore_info</span> <span class="o">=</span> <span class="s1">&#39;Botocore/{0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_version</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_extra</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_extra</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">botocore_info</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_extra</span> <span class="o">=</span> <span class="n">botocore_info</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_name</span> <span class="o">=</span> <span class="s1">&#39;Boto3&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">user_agent_version</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">__version__</span>
+
+        <span class="k">if</span> <span class="n">profile_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">set_config_variable</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="n">profile_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">ibm_api_key_id</span> <span class="ow">or</span> <span class="n">auth_function</span> <span class="ow">or</span> <span class="n">token_manager</span> <span class="ow">or</span> <span class="n">aws_access_key_id</span> <span class="ow">or</span> <span class="n">aws_secret_access_key</span> <span class="ow">or</span> <span class="n">aws_session_token</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span>
+                <span class="n">access_key</span><span class="o">=</span><span class="n">aws_access_key_id</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="n">aws_secret_access_key</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span>
+                <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span> 
+                <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span>
+                <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">region_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">set_config_variable</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="n">region_name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">resource_factory</span> <span class="o">=</span> <span class="n">ResourceFactory</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s1">&#39;event_emitter&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setup_loader</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_register_default_handlers</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;{0}(region_name={1})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_config_variable</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)))</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Session.profile_name"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.profile_name">[docs]</a>    <span class="k">def</span> <span class="nf">profile_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The **read-only** profile name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">profile</span> <span class="ow">or</span> <span class="s1">&#39;default&#39;</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Session.region_name"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.region_name">[docs]</a>    <span class="k">def</span> <span class="nf">region_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The **read-only** region name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_config_variable</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Session.events"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.events">[docs]</a>    <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The event emitter for a session</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s1">&#39;event_emitter&#39;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Session.available_profiles"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.available_profiles">[docs]</a>    <span class="k">def</span> <span class="nf">available_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The profiles available to the session credentials</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">available_profiles</span>
+</div>
+    <span class="k">def</span> <span class="nf">_setup_loader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Setup loader paths so that we can load resources.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s1">&#39;data_loader&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">search_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Session.get_available_services"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.get_available_services">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_services</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a list of available services that can be loaded as low-level</span>
+<span class="sd">        clients via :py:meth:`Session.client`.</span>
+
+<span class="sd">        :rtype: list</span>
+<span class="sd">        :return: List of service names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_services</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Session.get_available_resources"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.get_available_resources">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a list of available services that can be loaded as resource</span>
+<span class="sd">        clients via :py:meth:`Session.resource`.</span>
+
+<span class="sd">        :rtype: list</span>
+<span class="sd">        :return: List of service names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">list_available_services</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s1">&#39;resources-1&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Session.get_available_partitions"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.get_available_partitions">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Lists the available partitions</span>
+
+<span class="sd">        :rtype: list</span>
+<span class="sd">        :return: Returns a list of partition names (e.g., [&quot;aws&quot;, &quot;aws-cn&quot;])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_partitions</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Session.get_available_regions"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.get_available_regions">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_regions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">partition_name</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">,</span>
+                              <span class="n">allow_non_regional</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Lists the region and endpoint names of a particular partition.</span>
+
+<span class="sd">        :type service_name: string</span>
+<span class="sd">        :param service_name: Name of a service to list endpoint for (e.g., s3).</span>
+
+<span class="sd">        :type partition_name: string</span>
+<span class="sd">        :param partition_name: Name of the partition to limit endpoints to.</span>
+<span class="sd">            (e.g., aws for the public AWS endpoints, aws-cn for AWS China</span>
+<span class="sd">            endpoints, aws-us-gov for AWS GovCloud (US) Endpoints, etc.)</span>
+
+<span class="sd">        :type allow_non_regional: bool</span>
+<span class="sd">        :param allow_non_regional: Set to True to include endpoints that are</span>
+<span class="sd">             not regional endpoints (e.g., s3-external-1,</span>
+<span class="sd">             fips-us-gov-west-1, etc).</span>
+
+<span class="sd">        :return: Returns a list of endpoint names (e.g., [&quot;us-east-1&quot;]).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_regions</span><span class="p">(</span>
+            <span class="n">service_name</span><span class="o">=</span><span class="n">service_name</span><span class="p">,</span> <span class="n">partition_name</span><span class="o">=</span><span class="n">partition_name</span><span class="p">,</span>
+            <span class="n">allow_non_regional</span><span class="o">=</span><span class="n">allow_non_regional</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Session.get_credentials"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.get_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the :class:`botocore.credential.Credential` object</span>
+<span class="sd">        associated with this session.  If the credentials have not</span>
+<span class="sd">        yet been loaded, this will attempt to load them.  If they</span>
+<span class="sd">        have already been loaded, this will return the cached</span>
+<span class="sd">        credentials.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Session.client"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.client">[docs]</a>    <span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+               <span class="n">use_ssl</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+               <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+               <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+               <span class="n">auth_function</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+               <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a low-level service client by name.</span>
+
+<span class="sd">        :type service_name: string</span>
+<span class="sd">        :param service_name: The name of a service, e.g. &#39;s3&#39;. You can</span>
+<span class="sd">            get a list of available services via</span>
+<span class="sd">            :py:meth:`get_available_services`.</span>
+
+<span class="sd">        :type region_name: string</span>
+<span class="sd">        :param region_name: The name of the region associated with the client.</span>
+<span class="sd">            A client is associated with a single region.</span>
+
+<span class="sd">        :type api_version: string</span>
+<span class="sd">        :param api_version: The API version to use.  By default, botocore will</span>
+<span class="sd">            use the latest API version when creating a client.  You only need</span>
+<span class="sd">            to specify this parameter if you want to use a previous API version</span>
+<span class="sd">            of the client.</span>
+
+<span class="sd">        :type use_ssl: boolean</span>
+<span class="sd">        :param use_ssl: Whether or not to use SSL.  By default, SSL is used.</span>
+<span class="sd">            Note that not all services support non-ssl connections.</span>
+
+<span class="sd">        :type verify: boolean/string</span>
+<span class="sd">        :param verify: Whether or not to verify SSL certificates.  By default</span>
+<span class="sd">            SSL certificates are verified.  You can provide the following</span>
+<span class="sd">            values:</span>
+
+<span class="sd">            * False - do not validate SSL certificates.  SSL will still be</span>
+<span class="sd">              used (unless use_ssl is False), but SSL certificates</span>
+<span class="sd">              will not be verified.</span>
+<span class="sd">            * path/to/cert/bundle.pem - A filename of the CA cert bundle to</span>
+<span class="sd">              uses.  You can specify this argument if you want to use a</span>
+<span class="sd">              different CA cert bundle than the one used by botocore.</span>
+
+<span class="sd">        :type endpoint_url: string</span>
+<span class="sd">        :param endpoint_url: The complete URL to use for the constructed</span>
+<span class="sd">            client. Normally, botocore will automatically construct the</span>
+<span class="sd">            appropriate URL to use when communicating with a service.  You</span>
+<span class="sd">            can specify a complete URL (including the &quot;http/https&quot; scheme)</span>
+<span class="sd">            to override this behavior.  If this value is provided,</span>
+<span class="sd">            then ``use_ssl`` is ignored.</span>
+
+<span class="sd">        :type aws_access_key_id: string</span>
+<span class="sd">        :param aws_access_key_id: The access key to use when creating</span>
+<span class="sd">            the client.  This is entirely optional, and if not provided,</span>
+<span class="sd">            the credentials configured for the session will automatically</span>
+<span class="sd">            be used.  You only need to provide this argument if you want</span>
+<span class="sd">            to override the credentials used for this specific client.</span>
+
+<span class="sd">        :type aws_secret_access_key: string</span>
+<span class="sd">        :param aws_secret_access_key: The secret key to use when creating</span>
+<span class="sd">            the client.  Same semantics as aws_access_key_id above.</span>
+
+<span class="sd">        :type aws_session_token: string</span>
+<span class="sd">        :param aws_session_token: The session token to use when creating</span>
+<span class="sd">            the client.  Same semantics as aws_access_key_id above.</span>
+
+<span class="sd">        :type api_key_id: str</span>
+<span class="sd">        :param api_key_id: IBM api key used for IAM authentication.</span>
+
+<span class="sd">        :type service_instance_id: str</span>
+<span class="sd">        :param service_instance_id: Service Instance ID used for</span>
+<span class="sd">            PUT bucket and GET service requests.</span>
+
+<span class="sd">        :type auth_endpoint: str</span>
+<span class="sd">        :param auth_endpoint: URL used for IAM authentication.</span>
+
+<span class="sd">        :type token_manager: TokenManager</span>
+<span class="sd">        :param token_manager: custom token manager to use.</span>
+
+<span class="sd">        :type auth_function: function</span>
+<span class="sd">        :param auth_function: function that does custom authentication</span>
+<span class="sd">            and returns json with token, refresh token, expiry time</span>
+<span class="sd">            and token type.</span>
+
+<span class="sd">        :type config: botocore.client.Config</span>
+<span class="sd">        :param config: Advanced client configuration options. If region_name</span>
+<span class="sd">            is specified in the client config, its value will take precedence</span>
+<span class="sd">            over environment variables and configuration values, but not over</span>
+<span class="sd">            a region_name value passed explicitly to the method. See</span>
+<span class="sd">            `botocore config documentation</span>
+<span class="sd">            &lt;https://botocore.readthedocs.io/en/stable/reference/config.html&gt;`_</span>
+<span class="sd">            for more details.</span>
+
+<span class="sd">        :return: Service client instance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">create_client</span><span class="p">(</span>
+            <span class="n">service_name</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="n">region_name</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">use_ssl</span><span class="o">=</span><span class="n">use_ssl</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">verify</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="n">endpoint_url</span><span class="p">,</span>
+            <span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">aws_access_key_id</span><span class="p">,</span>
+            <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">aws_secret_access_key</span><span class="p">,</span>
+            <span class="n">aws_session_token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span> 
+            <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span>
+            <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span> <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span>            
+            <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Session.resource"><a class="viewcode-back" href="../../reference/core/session.html#boto3.session.Session.resource">[docs]</a>    <span class="k">def</span> <span class="nf">resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">use_ssl</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+                 <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">auth_function</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a resource service client by name.</span>
+
+<span class="sd">        :type service_name: string</span>
+<span class="sd">        :param service_name: The name of a service, e.g. &#39;s3&#39;.  You can</span>
+<span class="sd">            get a list of available services via</span>
+<span class="sd">            :py:meth:`get_available_resources`.</span>
+
+<span class="sd">        :type region_name: string</span>
+<span class="sd">        :param region_name: The name of the region associated with the client.</span>
+<span class="sd">            A client is associated with a single region.</span>
+
+<span class="sd">        :type api_version: string</span>
+<span class="sd">        :param api_version: The API version to use.  By default, botocore will</span>
+<span class="sd">            use the latest API version when creating a client.  You only need</span>
+<span class="sd">            to specify this parameter if you want to use a previous API version</span>
+<span class="sd">            of the client.</span>
+
+<span class="sd">        :type use_ssl: boolean</span>
+<span class="sd">        :param use_ssl: Whether or not to use SSL.  By default, SSL is used.</span>
+<span class="sd">            Note that not all services support non-ssl connections.</span>
+
+<span class="sd">        :type verify: boolean/string</span>
+<span class="sd">        :param verify: Whether or not to verify SSL certificates.  By default</span>
+<span class="sd">            SSL certificates are verified.  You can provide the following</span>
+<span class="sd">            values:</span>
+
+<span class="sd">            * False - do not validate SSL certificates.  SSL will still be</span>
+<span class="sd">              used (unless use_ssl is False), but SSL certificates</span>
+<span class="sd">              will not be verified.</span>
+<span class="sd">            * path/to/cert/bundle.pem - A filename of the CA cert bundle to</span>
+<span class="sd">              uses.  You can specify this argument if you want to use a</span>
+<span class="sd">              different CA cert bundle than the one used by botocore.</span>
+
+<span class="sd">        :type endpoint_url: string</span>
+<span class="sd">        :param endpoint_url: The complete URL to use for the constructed</span>
+<span class="sd">            client. Normally, botocore will automatically construct the</span>
+<span class="sd">            appropriate URL to use when communicating with a service.  You</span>
+<span class="sd">            can specify a complete URL (including the &quot;http/https&quot; scheme)</span>
+<span class="sd">            to override this behavior.  If this value is provided,</span>
+<span class="sd">            then ``use_ssl`` is ignored.</span>
+
+<span class="sd">        :type aws_access_key_id: string</span>
+<span class="sd">        :param aws_access_key_id: The access key to use when creating</span>
+<span class="sd">            the client.  This is entirely optional, and if not provided,</span>
+<span class="sd">            the credentials configured for the session will automatically</span>
+<span class="sd">            be used.  You only need to provide this argument if you want</span>
+<span class="sd">            to override the credentials used for this specific client.</span>
+
+<span class="sd">        :type aws_secret_access_key: string</span>
+<span class="sd">        :param aws_secret_access_key: The secret key to use when creating</span>
+<span class="sd">            the client.  Same semantics as aws_access_key_id above.</span>
+
+<span class="sd">        :type aws_session_token: string</span>
+<span class="sd">        :param aws_session_token: The session token to use when creating</span>
+<span class="sd">            the client.  Same semantics as aws_access_key_id above.</span>
+
+<span class="sd">        :type api_key_id: string</span>
+<span class="sd">        :param api_key_id: IBM api key used for IAM authentication.</span>
+
+<span class="sd">        :type service_instance_id: string</span>
+<span class="sd">        :param service_instance_id: Service Instance ID used for</span>
+<span class="sd">            PUT bucket and GET service requests.</span>
+
+<span class="sd">        :type auth_endpoint: string</span>
+<span class="sd">        :param auth_endpoint: URL used for IAM authentication.</span>
+
+<span class="sd">        :type token_manager: TokenManager</span>
+<span class="sd">        :param token_manager: custom token manager to use.</span>
+
+<span class="sd">        :type auth_function: function</span>
+<span class="sd">        :param auth_function: function that does custom authentication</span>
+<span class="sd">            and returns json with token, refresh token, expiry time</span>
+<span class="sd">            and token type.</span>
+
+<span class="sd">        :type config: botocore.client.Config</span>
+<span class="sd">        :param config: Advanced client configuration options. If region_name</span>
+<span class="sd">            is specified in the client config, its value will take precedence</span>
+<span class="sd">            over environment variables and configuration values, but not over</span>
+<span class="sd">            a region_name value passed explicitly to the method.  If</span>
+<span class="sd">            user_agent_extra is specified in the client config, it overrides</span>
+<span class="sd">            the default user_agent_extra provided by the resource API. See</span>
+<span class="sd">            `botocore config documentation</span>
+<span class="sd">            &lt;https://botocore.readthedocs.io/en/stable/reference/config.html&gt;`_</span>
+<span class="sd">            for more details.</span>
+
+<span class="sd">        :return: Subclass of :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">resource_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">load_service_model</span><span class="p">(</span>
+                <span class="n">service_name</span><span class="p">,</span> <span class="s1">&#39;resources-1&#39;</span><span class="p">,</span> <span class="n">api_version</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">UnknownServiceError</span><span class="p">:</span>
+            <span class="n">available</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_available_resources</span><span class="p">()</span>
+            <span class="n">has_low_level_client</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">service_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_available_services</span><span class="p">())</span>
+            <span class="k">raise</span> <span class="n">ResourceNotExistsError</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">available</span><span class="p">,</span>
+                                         <span class="n">has_low_level_client</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">DataNotFoundError</span><span class="p">:</span>
+            <span class="c1"># This is because we&#39;ve provided an invalid API version.</span>
+            <span class="n">available_api_versions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">list_api_versions</span><span class="p">(</span>
+                <span class="n">service_name</span><span class="p">,</span> <span class="s1">&#39;resources-1&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">UnknownAPIVersionError</span><span class="p">(</span>
+                <span class="n">service_name</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">available_api_versions</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">api_version</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c1"># Even though botocore&#39;s load_service_model() can handle</span>
+            <span class="c1"># using the latest api_version if not provided, we need</span>
+            <span class="c1"># to track this api_version in boto3 in order to ensure</span>
+            <span class="c1"># we&#39;re pairing a resource model with a client model</span>
+            <span class="c1"># of the same API version.  It&#39;s possible for the latest</span>
+            <span class="c1"># API version of a resource model in boto3 to not be</span>
+            <span class="c1"># the same API version as a service model in botocore.</span>
+            <span class="c1"># So we need to look up the api_version if one is not</span>
+            <span class="c1"># provided to ensure we load the same API version of the</span>
+            <span class="c1"># client.</span>
+            <span class="c1">#</span>
+            <span class="c1"># Note: This is relying on the fact that</span>
+            <span class="c1">#   loader.load_service_model(..., api_version=None)</span>
+            <span class="c1"># and loader.determine_latest_version(..., &#39;resources-1&#39;)</span>
+            <span class="c1"># both load the same api version of the file.</span>
+            <span class="n">api_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">determine_latest_version</span><span class="p">(</span>
+                <span class="n">service_name</span><span class="p">,</span> <span class="s1">&#39;resources-1&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Creating a new resource instance requires the low-level client</span>
+        <span class="c1"># and service model, the resource version and resource JSON data.</span>
+        <span class="c1"># We pass these to the factory and get back a class, which is</span>
+        <span class="c1"># instantiated on top of the low-level client.</span>
+        <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">user_agent_extra</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">user_agent_extra</span> <span class="o">=</span> <span class="s1">&#39;Resource&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">user_agent_extra</span><span class="o">=</span><span class="s1">&#39;Resource&#39;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">(</span>
+            <span class="n">service_name</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="n">region_name</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">use_ssl</span><span class="o">=</span><span class="n">use_ssl</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">verify</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="n">endpoint_url</span><span class="p">,</span>
+            <span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">aws_access_key_id</span><span class="p">,</span>
+            <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">aws_secret_access_key</span><span class="p">,</span>
+            <span class="n">aws_session_token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span>
+            <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span>
+            <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span>
+            <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span> 
+            <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span> 
+            <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">service_model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_model</span>
+
+        <span class="c1"># Create a ServiceContext object to serve as a reference to</span>
+        <span class="c1"># important read-only information about the general service.</span>
+        <span class="n">service_context</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">ServiceContext</span><span class="p">(</span>
+                <span class="n">service_name</span><span class="o">=</span><span class="n">service_name</span><span class="p">,</span> <span class="n">service_model</span><span class="o">=</span><span class="n">service_model</span><span class="p">,</span>
+                <span class="n">resource_json_definitions</span><span class="o">=</span><span class="n">resource_model</span><span class="p">[</span><span class="s1">&#39;resources&#39;</span><span class="p">],</span>
+                <span class="n">service_waiter_model</span><span class="o">=</span><span class="n">boto3</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">LazyLoadedWaiterModel</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">api_version</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Create the service resource class.</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_factory</span><span class="o">.</span><span class="n">load_from_definition</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">service_name</span><span class="p">,</span>
+            <span class="n">single_resource_json_definition</span><span class="o">=</span><span class="n">resource_model</span><span class="p">[</span><span class="s1">&#39;service&#39;</span><span class="p">],</span>
+            <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_register_default_handlers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># S3 customizations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+            <span class="s1">&#39;creating-client-class.s3&#39;</span><span class="p">,</span>
+            <span class="n">boto3</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">lazy_call</span><span class="p">(</span>
+                <span class="s1">&#39;boto3.s3.inject.inject_s3_transfer_methods&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+            <span class="s1">&#39;creating-resource-class.s3.Bucket&#39;</span><span class="p">,</span>
+            <span class="n">boto3</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">lazy_call</span><span class="p">(</span>
+                <span class="s1">&#39;boto3.s3.inject.inject_bucket_methods&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+            <span class="s1">&#39;creating-resource-class.s3.Object&#39;</span><span class="p">,</span>
+            <span class="n">boto3</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">lazy_call</span><span class="p">(</span>
+                <span class="s1">&#39;boto3.s3.inject.inject_object_methods&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+            <span class="s1">&#39;creating-resource-class.s3.ObjectSummary&#39;</span><span class="p">,</span>
+            <span class="n">boto3</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">lazy_call</span><span class="p">(</span>
+                <span class="s1">&#39;boto3.s3.inject.inject_object_summary_methods&#39;</span><span class="p">))</span></div>
+</pre></div>
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">ibm-cos-sdk 1.0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../boto3.html" >boto3</a> &raquo;</li> 
+      </ul>
+    </div>
+
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 IBM. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+<script type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script>
+<script type="text/javascript">
+s.prop66 = 'AWS SDK for Python (boto3)';
+s.eVar66 = 'D=c66';
+s.prop65 = 'API Reference';
+s.eVar65 = 'D=c65';
+var s_code = s.t();
+if (s_code) document.write(s_code);
+</script>
+  </body>
+</html>

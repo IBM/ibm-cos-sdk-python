@@ -1,0 +1,25 @@
+.. _ref_custom_s3:
+
+==========================
+S3 Customization Reference
+==========================
+
+S3 Transfers
+------------
+
+.. note::
+
+   All classes documented below are considered public and thus will not be
+   exposed to breaking changes. If a class from the ``boto3.s3.transfer``
+   module is not documented below, it is considered internal and users
+   should be very cautious in directly using them because breaking changes may
+   be introduced from version to version of the library.
+
+
+.. autoclass:: boto3.s3.transfer.TransferConfig
+   :members:
+   :undoc-members:
+
+.. autoclass:: boto3.s3.transfer.S3Transfer
+   :members:
+   :undoc-members:
