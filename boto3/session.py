@@ -376,14 +376,14 @@ class Session(object):
         :param aws_session_token: The session token to use when creating
             the client.  Same semantics as aws_access_key_id above.
 
-        :type api_key_id: str
+        :type api_key_id: string
         :param api_key_id: IBM api key used for IAM authentication.
 
-        :type service_instance_id: str
+        :type service_instance_id: string
         :param service_instance_id: Service Instance ID used for
             PUT bucket and GET service requests.
 
-        :type auth_endpoint: str
+        :type auth_endpoint: string
         :param auth_endpoint: URL used for IAM authentication.
 
         :type token_manager: TokenManager

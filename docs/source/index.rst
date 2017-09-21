@@ -1,31 +1,15 @@
-.. Boto3 documentation master file, created by
-   sphinx-quickstart on Wed Sep  3 11:11:30 2014.
+.. ibm-cos-sdk documentation master file, created by
+   sphinx-quickstart on Sep 13 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Boto 3 Documentation
+ibm-cos-sdk Documentation
 ====================
-Boto is the Amazon Web Services (AWS) SDK for Python, which allows Python
-developers to write software that makes use of Amazon services like S3.
-Boto provides an easy to use, object-oriented API as well as low-level
+ibm-cos-sdk is the IBM COS SDK for Python, which allows Python
+developers to write software that makes use of IBM's COS service.
+
+ibm-cos-sdk provides an easy to use, object-oriented API as well as low-level
 direct service access.
-
-
-Quickstart
-----------
-
-.. toctree::
-   :maxdepth: 2
-
-   guide/quickstart
-
-User Guide
-----------
-
-.. toctree::
-
-   guide/index
-
 
 
 API Reference

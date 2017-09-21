@@ -33,7 +33,7 @@ Then, from a Python interpreter:
 
 .. code-block:: python
 
-    >>> import ibm-cos-sdk
+    >>> import boto3
     >>> cos = boto3.resource('s3')
     >>> for bucket in cos.buckets.all():
             print(bucket.name)

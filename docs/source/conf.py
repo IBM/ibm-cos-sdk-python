@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# Boto3 documentation build configuration file, created by
-# sphinx-quickstart on Wed Sep  3 11:11:30 2014.
+# ibm-cos-sdk documentation build configuration file, created by
+# sphinx-quickstart on Sep 13 2017.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -50,8 +50,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Boto 3 Docs'
-copyright = '2014, Amazon.com, Inc.'
+project = 'ibm-cos-sdk'
+copyright = '2017 IBM'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -212,8 +212,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Boto3.tex', 'Boto3 Documentation',
-   'Amazon.com, Inc.', 'manual'),
+  ('index', 'Boto3.tex', 'ibm-cos-sdk Documentation',
+   'IBM', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -242,8 +242,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'boto3', 'Boto3 Documentation',
-     ['Amazon.com, Inc.'], 1)
+    ('index', 'ibm-cos-sdk', 'ibm-cos-sdk documentation',
+     ['IBM'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -256,8 +256,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Boto3', 'Boto3 Documentation',
-   'Amazon.com, Inc.', 'Boto3', 'One line description of project.',
+  ('index', 'ibm-cos-sdk', 'ibm-cos-sdk documentation',
+   'IBM', 'ibm-cos-sdk', 'One line description of project.',
    'Miscellaneous'),
 ]
 

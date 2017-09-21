@@ -42,6 +42,8 @@ class ActionDocumenter(BaseDocumenter):
             intro_link='actions_intro')
 
         for action_name in sorted(resource_actions):
+            if action_name == 'restore_object':
+                continue
             action_section = section.add_new_section(action_name)
             if action_name in ['load', 'reload'] and self._resource_model.load:
                 document_load_reload_action(
