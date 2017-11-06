@@ -246,9 +246,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -316,9 +313,6 @@ Client
   .. py:method:: complete_multipart_upload(**kwargs)
 
     Completes a multipart upload by assembling previously uploaded parts.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_    
-
 
     **Request Syntax** 
     ::
@@ -480,9 +474,6 @@ Client
   .. py:method:: copy_object(**kwargs)
 
     Creates a copy of an object that is already stored in Amazon S3.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -734,9 +725,6 @@ Client
 
     Creates a new bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -826,9 +814,6 @@ Client
     **Note:** After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
 
     
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
-
 
     **Request Syntax** 
     ::
@@ -1018,9 +1003,6 @@ Client
 
     Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1037,9 +1019,6 @@ Client
   .. py:method:: delete_bucket_analytics_configuration(**kwargs)
 
     Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketAnalyticsConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -1063,9 +1042,6 @@ Client
 
     Deletes the cors configuration information set for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1082,9 +1058,6 @@ Client
   .. py:method:: delete_bucket_inventory_configuration(**kwargs)
 
     Deletes an inventory configuration (identified by the inventory ID) from the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketInventoryConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -1108,9 +1081,6 @@ Client
 
     Deletes the lifecycle configuration from the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1127,9 +1097,6 @@ Client
   .. py:method:: delete_bucket_metrics_configuration(**kwargs)
 
     Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketMetricsConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -1153,9 +1120,6 @@ Client
 
     Deletes the policy from the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1172,9 +1136,6 @@ Client
   .. py:method:: delete_bucket_replication(**kwargs)
 
     Deletes the replication configuration from the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketReplication>`_    
-
 
     **Request Syntax** 
     ::
@@ -1193,9 +1154,6 @@ Client
 
     Deletes the tags from the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1213,9 +1171,6 @@ Client
 
     This operation removes the website configuration from the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1232,9 +1187,6 @@ Client
   .. py:method:: delete_object(**kwargs)
 
     Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -1300,9 +1252,6 @@ Client
 
     Removes the tag-set from an existing object.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1348,9 +1297,6 @@ Client
   .. py:method:: delete_objects(**kwargs)
 
     This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_    
-
 
     **Request Syntax** 
     ::
@@ -1631,9 +1577,6 @@ Client
 
     Returns the accelerate configuration of a bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAccelerateConfiguration>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1669,9 +1612,6 @@ Client
   .. py:method:: get_bucket_acl(**kwargs)
 
     Gets the access control policy for the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAcl>`_    
-
 
     **Request Syntax** 
     ::
@@ -1760,9 +1700,6 @@ Client
   .. py:method:: get_bucket_analytics_configuration(**kwargs)
 
     Gets an analytics configuration for the bucket (specified by the analytics configuration ID).
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAnalyticsConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -1909,9 +1846,6 @@ Client
 
     Returns the cors configuration for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketCors>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -1999,9 +1933,6 @@ Client
   .. py:method:: get_bucket_inventory_configuration(**kwargs)
 
     Returns an inventory configuration (identified by the inventory ID) from the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketInventoryConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -2116,9 +2047,6 @@ Client
 
     Returns the region the bucket resides in.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -2154,9 +2082,6 @@ Client
   .. py:method:: get_bucket_metrics_configuration(**kwargs)
 
     Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketMetricsConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -2259,9 +2184,6 @@ Client
 
     Returns the replication configuration of a bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketReplication>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -2342,9 +2264,6 @@ Client
 
     Returns the request payment configuration of a bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketRequestPayment>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -2380,9 +2299,6 @@ Client
   .. py:method:: get_bucket_tagging(**kwargs)
 
     Returns the tag set associated with the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketTagging>`_    
-
 
     **Request Syntax** 
     ::
@@ -2436,9 +2352,6 @@ Client
 
     Returns the versioning state of a bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketVersioning>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -2478,9 +2391,6 @@ Client
   .. py:method:: get_object(**kwargs)
 
     Retrieves objects from Amazon S3.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -2727,9 +2637,6 @@ Client
 
     Returns the access control list (ACL) of an object.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAcl>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -2837,9 +2744,6 @@ Client
 
     Returns the tag-set of an object.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -2905,9 +2809,6 @@ Client
   .. py:method:: get_object_torrent(**kwargs)
 
     Return torrent files from a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTorrent>`_    
-
 
     **Request Syntax** 
     ::
@@ -2985,9 +2886,6 @@ Client
 
     This operation is useful to determine if a bucket exists and you have permission to access it.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -3004,9 +2902,6 @@ Client
   .. py:method:: head_object(**kwargs)
 
     The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -3211,9 +3106,6 @@ Client
 
     Lists the analytics configurations for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketAnalyticsConfigurations>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -3377,9 +3269,6 @@ Client
 
     Returns a list of inventory configurations for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketInventoryConfigurations>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -3511,9 +3400,6 @@ Client
 
     Lists the metrics configurations for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketMetricsConfigurations>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -3633,9 +3519,6 @@ Client
 
     Returns a list of all buckets owned by the authenticated sender of the request.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -3643,7 +3526,7 @@ Client
           IBMServiceInstanceId='string'
       )
     :type IBMServiceInstanceId: string
-    :param IBMServiceInstanceId: 
+    :param IBMServiceInstanceId: The owning storage account. All buckets owned by this storage account are returned.
 
     
     
@@ -3701,9 +3584,6 @@ Client
   .. py:method:: list_multipart_uploads(**kwargs)
 
     This operation lists in-progress multipart uploads.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
-
 
     **Request Syntax** 
     ::
@@ -3878,9 +3758,6 @@ Client
   .. py:method:: list_object_versions(**kwargs)
 
     Returns metadata about all of the versions of objects in a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_    
-
 
     **Request Syntax** 
     ::
@@ -4096,9 +3973,6 @@ Client
 
     Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -4254,9 +4128,6 @@ Client
   .. py:method:: list_objects_v2(**kwargs)
 
     Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2>`_    
-
 
     **Request Syntax** 
     ::
@@ -4432,9 +4303,6 @@ Client
 
     Lists the parts that have been uploaded for a specific multipart upload.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -4592,9 +4460,6 @@ Client
 
     Sets the accelerate configuration of an existing bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAccelerateConfiguration>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -4622,9 +4487,6 @@ Client
   .. py:method:: put_bucket_acl(**kwargs)
 
     Sets the permissions on a bucket using access control lists (ACL).
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_    
-
 
     **Request Syntax** 
     ::
@@ -4735,9 +4597,6 @@ Client
   .. py:method:: put_bucket_analytics_configuration(**kwargs)
 
     Sets an analytics configuration for the bucket (specified by the analytics configuration ID).
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAnalyticsConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -4870,9 +4729,6 @@ Client
 
     Sets the cors configuration for a bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -4953,9 +4809,6 @@ Client
   .. py:method:: put_bucket_inventory_configuration(**kwargs)
 
     Adds an inventory configuration (identified by the inventory ID) from the bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketInventoryConfiguration>`_    
-
 
     **Request Syntax** 
     ::
@@ -5056,9 +4909,6 @@ Client
 
     Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketMetricsConfiguration>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5146,9 +4996,6 @@ Client
 
     Creates a new replication configuration (or replaces an existing one, if present).
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5215,9 +5062,6 @@ Client
 
     Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5245,9 +5089,6 @@ Client
   .. py:method:: put_bucket_tagging(**kwargs)
 
     Sets the tags for a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging>`_    
-
 
     **Request Syntax** 
     ::
@@ -5293,9 +5134,6 @@ Client
 
     Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5332,9 +5170,6 @@ Client
   .. py:method:: put_object(**kwargs)
 
     Adds an object to a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -5536,9 +5371,6 @@ Client
 
     uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5683,9 +5515,6 @@ Client
 
     Sets the supplied tag-set to an object that already exists in a bucket
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5829,9 +5658,6 @@ Client
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -5938,9 +5764,6 @@ Client
   .. py:method:: upload_part_copy(**kwargs)
 
     Uploads a part by copying data from an existing object as data source.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy>`_    
-
 
     **Request Syntax** 
     ::
@@ -6126,9 +5949,6 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_multipart_uploads`.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
-
 
     **Request Syntax** 
     ::
@@ -6337,9 +6157,6 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_object_versions`.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_    
-
 
     **Request Syntax** 
     ::
@@ -6589,9 +6406,6 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_objects`.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -6794,9 +6608,6 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_objects_v2`.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2>`_    
-
 
     **Request Syntax** 
     ::
@@ -7014,9 +6825,6 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_parts`.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
-
 
     **Request Syntax** 
     ::
@@ -7238,9 +7046,6 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -7268,9 +7073,6 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -7297,9 +7099,6 @@ The available waiters are:
   .. py:method:: wait(**kwargs)
 
     Polls :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -7388,9 +7187,6 @@ The available waiters are:
   .. py:method:: wait(**kwargs)
 
     Polls :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -7544,9 +7340,6 @@ Service Resource
   .. py:method:: create_bucket(**kwargs)
 
     Creates a new bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
-
 
     **Request Syntax** 
     ::
@@ -7818,9 +7611,6 @@ Service Resource
 
       Creates an iterable of all Bucket resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -7835,9 +7625,6 @@ Service Resource
 
       Creates an iterable of all Bucket resources in the collection filtered by kwargs passed to method.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -7845,7 +7632,7 @@ Service Resource
             IBMServiceInstanceId='string'
         )
       :type IBMServiceInstanceId: string
-      :param IBMServiceInstanceId: 
+      :param IBMServiceInstanceId: The owning storage account. All buckets owned by this storage account are returned.
 
       
       
@@ -7856,9 +7643,6 @@ Service Resource
     .. py:method:: limit(**kwargs)
 
       Creates an iterable up to a specified amount of Bucket resources in the collection.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
-
 
       **Request Syntax** 
       ::
@@ -7878,9 +7662,6 @@ Service Resource
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all Bucket resources in the collection, but limits the number of items returned by each service call by the specified amount.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
-
 
       **Request Syntax** 
       ::
@@ -8100,9 +7881,6 @@ Bucket
 
     Creates a new bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -8180,9 +7958,6 @@ Bucket
 
     Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -8194,9 +7969,6 @@ Bucket
   .. py:method:: delete_objects(**kwargs)
 
     This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_    
-
 
     **Request Syntax** 
     ::
@@ -8398,9 +8170,6 @@ Bucket
   .. py:method:: put_object(**kwargs)
 
     Adds an object to a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -8748,9 +8517,6 @@ Bucket
 
       Creates an iterable of all MultipartUpload resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -8764,9 +8530,6 @@ Bucket
     .. py:method:: filter(**kwargs)
 
       Creates an iterable of all MultipartUpload resources in the collection filtered by kwargs passed to method.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
-
 
       **Request Syntax** 
       ::
@@ -8812,9 +8575,6 @@ Bucket
 
       Creates an iterable up to a specified amount of MultipartUpload resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -8833,9 +8593,6 @@ Bucket
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all MultipartUpload resources in the collection, but limits the number of items returned by each service call by the specified amount.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
-
 
       **Request Syntax** 
       ::
@@ -8860,9 +8617,6 @@ Bucket
 
       Creates an iterable of all ObjectVersion resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -8876,9 +8630,6 @@ Bucket
     .. py:method:: delete(**kwargs)
 
       This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_      
-
 
       **Request Syntax** 
       ::
@@ -8977,9 +8728,6 @@ Bucket
 
       Creates an iterable of all ObjectVersion resources in the collection filtered by kwargs passed to method.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -9024,9 +8772,6 @@ Bucket
 
       Creates an iterable up to a specified amount of ObjectVersion resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -9045,9 +8790,6 @@ Bucket
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all ObjectVersion resources in the collection, but limits the number of items returned by each service call by the specified amount.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_      
-
 
       **Request Syntax** 
       ::
@@ -9072,9 +8814,6 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -9088,9 +8827,6 @@ Bucket
     .. py:method:: delete(**kwargs)
 
       This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_      
-
 
       **Request Syntax** 
       ::
@@ -9189,9 +8925,6 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection filtered by kwargs passed to method.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -9236,9 +8969,6 @@ Bucket
 
       Creates an iterable up to a specified amount of ObjectSummary resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -9257,9 +8987,6 @@ Bucket
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all ObjectSummary resources in the collection, but limits the number of items returned by each service call by the specified amount.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
-
 
       **Request Syntax** 
       ::
@@ -9287,9 +9014,6 @@ Bucket
 
     Waits until this Bucket is exists. This method calls :py:meth:`S3.Waiter.bucket_exists.wait` which polls. :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -9300,9 +9024,6 @@ Bucket
   .. py:method:: wait_until_not_exists()
 
     Waits until this Bucket is not exists. This method calls :py:meth:`S3.Waiter.bucket_not_exists.wait` which polls. :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
-
 
     **Request Syntax** 
     ::
@@ -9449,9 +9170,6 @@ BucketAcl
 
     Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -9462,9 +9180,6 @@ BucketAcl
   .. py:method:: put(**kwargs)
 
     Sets the permissions on a bucket using access control lists (ACL).
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_    
-
 
     **Request Syntax** 
     ::
@@ -9570,9 +9285,6 @@ BucketAcl
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
 
     **Request Syntax** 
 
@@ -9722,9 +9434,6 @@ BucketCors
 
     Deletes the cors configuration information set for the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -9748,9 +9457,6 @@ BucketCors
 
     Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the BucketCors resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -9761,9 +9467,6 @@ BucketCors
   .. py:method:: put(**kwargs)
 
     Sets the cors configuration for a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_    
-
 
     **Request Syntax** 
     ::
@@ -9840,9 +9543,6 @@ BucketCors
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the BucketCors resource. Note that the load and reload methods are the same method and can be used interchangeably.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
 
     **Request Syntax** 
 
@@ -9964,9 +9664,6 @@ BucketRequestPayment
 
     Calls :py:meth:`S3.Client.get_bucket_request_payment` to update the attributes of the BucketRequestPayment resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -9977,9 +9674,6 @@ BucketRequestPayment
   .. py:method:: put(**kwargs)
 
     Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketRequestPayment>`_    
-
 
     **Request Syntax** 
     ::
@@ -10003,9 +9697,6 @@ BucketRequestPayment
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_request_payment` to update the attributes of the BucketRequestPayment resource. Note that the load and reload methods are the same method and can be used interchangeably.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
 
     **Request Syntax** 
 
@@ -10130,9 +9821,6 @@ BucketTagging
 
     Deletes the tags from the bucket.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -10156,9 +9844,6 @@ BucketTagging
 
     Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the BucketTagging resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -10169,9 +9854,6 @@ BucketTagging
   .. py:method:: put(**kwargs)
 
     Sets the tags for a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketTagging>`_    
-
 
     **Request Syntax** 
     ::
@@ -10211,9 +9893,6 @@ BucketTagging
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the BucketTagging resource. Note that the load and reload methods are the same method and can be used interchangeably.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
 
     **Request Syntax** 
 
@@ -10339,9 +10018,6 @@ BucketVersioning
 
     Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -10371,9 +10047,6 @@ BucketVersioning
 
     Calls :py:meth:`S3.Client.get_bucket_versioning` to update the attributes of the BucketVersioning resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -10384,9 +10057,6 @@ BucketVersioning
   .. py:method:: put(**kwargs)
 
     Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
-
 
     **Request Syntax** 
     ::
@@ -10420,9 +10090,6 @@ BucketVersioning
 
     Calls :py:meth:`S3.Client.get_bucket_versioning` to update the attributes of the BucketVersioning resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -10433,9 +10100,6 @@ BucketVersioning
   .. py:method:: suspend(**kwargs)
 
     Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketVersioning>`_    
-
 
     **Request Syntax** 
     ::
@@ -10643,9 +10307,6 @@ MultipartUpload
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -10681,9 +10342,6 @@ MultipartUpload
   .. py:method:: complete(**kwargs)
 
     Completes a multipart upload by assembling previously uploaded parts.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_    
-
 
     **Request Syntax** 
     ::
@@ -10784,9 +10442,6 @@ MultipartUpload
 
       Creates an iterable of all MultipartUploadPart resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -10800,9 +10455,6 @@ MultipartUpload
     .. py:method:: filter(**kwargs)
 
       Creates an iterable of all MultipartUploadPart resources in the collection filtered by kwargs passed to method.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
-
 
       **Request Syntax** 
       ::
@@ -10833,9 +10485,6 @@ MultipartUpload
 
       Creates an iterable up to a specified amount of MultipartUploadPart resources in the collection.
 
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
-
-
       **Request Syntax** 
       ::
 
@@ -10854,9 +10503,6 @@ MultipartUpload
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all MultipartUploadPart resources in the collection, but limits the number of items returned by each service call by the specified amount.
-
-      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
-
 
       **Request Syntax** 
       ::
@@ -10998,9 +10644,6 @@ MultipartUploadPart
   .. py:method:: copy_from(**kwargs)
 
     Uploads a part by copying data from an existing object as data source.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy>`_    
-
 
     **Request Syntax** 
     ::
@@ -11152,9 +10795,6 @@ MultipartUploadPart
     **Note:** After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
 
     
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_    
-
 
     **Request Syntax** 
     ::
@@ -11668,9 +11308,6 @@ Object
 
     Creates a copy of an object that is already stored in Amazon S3.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -11911,9 +11548,6 @@ Object
 
     Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -12020,9 +11654,6 @@ Object
   .. py:method:: get(**kwargs)
 
     Retrieves objects from Amazon S3.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -12278,9 +11909,6 @@ Object
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -12406,9 +12034,6 @@ Object
 
     Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -12419,9 +12044,6 @@ Object
   .. py:method:: put(**kwargs)
 
     Adds an object to a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -12613,9 +12235,6 @@ Object
 
     Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -12742,9 +12361,6 @@ Object
 
     Waits until this Object is exists. This method calls :py:meth:`S3.Waiter.object_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -12811,9 +12427,6 @@ Object
   .. py:method:: wait_until_not_exists(**kwargs)
 
     Waits until this Object is not exists. This method calls :py:meth:`S3.Waiter.object_not_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -13034,9 +12647,6 @@ ObjectAcl
 
     Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the ObjectAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
-
     **Request Syntax** 
 
     ::
@@ -13047,9 +12657,6 @@ ObjectAcl
   .. py:method:: put(**kwargs)
 
     uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl>`_    
-
 
     **Request Syntax** 
     ::
@@ -13184,9 +12791,6 @@ ObjectAcl
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the ObjectAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
-
 
     **Request Syntax** 
 
@@ -13380,9 +12984,6 @@ ObjectSummary
   .. py:method:: copy_from(**kwargs)
 
     Creates a copy of an object that is already stored in Amazon S3.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -13624,9 +13225,6 @@ ObjectSummary
 
     Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -13680,9 +13278,6 @@ ObjectSummary
   .. py:method:: get(**kwargs)
 
     Retrieves objects from Amazon S3.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -13938,9 +13533,6 @@ ObjectSummary
 
     
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -14072,9 +13664,6 @@ ObjectSummary
   .. py:method:: put(**kwargs)
 
     Adds an object to a bucket.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -14339,9 +13928,6 @@ ObjectSummary
 
     Waits until this ObjectSummary is exists. This method calls :py:meth:`S3.Waiter.object_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -14408,9 +13994,6 @@ ObjectSummary
   .. py:method:: wait_until_not_exists(**kwargs)
 
     Waits until this ObjectSummary is not exists. This method calls :py:meth:`S3.Waiter.object_not_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -14647,9 +14230,6 @@ ObjectVersion
 
     Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
 
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
-
-
     **Request Syntax** 
     ::
 
@@ -14698,9 +14278,6 @@ ObjectVersion
   .. py:method:: get(**kwargs)
 
     Retrieves objects from Amazon S3.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
-
 
     **Request Syntax** 
     ::
@@ -14942,9 +14519,6 @@ ObjectVersion
   .. py:method:: head(**kwargs)
 
     The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
-
-    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
-
 
     **Request Syntax** 
     ::
