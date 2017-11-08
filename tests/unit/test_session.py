@@ -72,7 +72,8 @@ class TestSession(BaseTestCase):
         self.assertTrue(bc_session.set_credentials.called,
                         'Botocore session set_credentials not called from constructor')
         bc_session.set_credentials.assert_called_with(
-            'key', 'secret', 'token')
+            access_key='key', secret_key='secret', token='token', auth_function=None, 
+            token_manager=None, ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
 
     def test_can_get_credentials(self):
         access_key = 'foo'
@@ -136,27 +137,27 @@ class TestSession(BaseTestCase):
         # Here we get the underlying Botocore session, create a Boto 3
         # session, and ensure that the user-agent is modified as expected
         bc_session = self.bc_session_cls.return_value
-        bc_session.user_agent_name = 'Botocore'
+        bc_session.user_agent_name = 'ibm-cos-sdk-python-core'
         bc_session.user_agent_version = '0.68.0'
         bc_session.user_agent_extra = ''
 
         Session(botocore_session=bc_session)
 
-        self.assertEqual(bc_session.user_agent_name, 'Boto3')
+        self.assertEqual(bc_session.user_agent_name, 'ibm-cos-sdk-python')
         self.assertEqual(bc_session.user_agent_version, __version__)
-        self.assertEqual(bc_session.user_agent_extra, 'Botocore/0.68.0')
+        self.assertEqual(bc_session.user_agent_extra, 'ibm-cos-sdk-python-core/0.68.0')
 
     def test_user_agent_extra(self):
         # This test is the same as above, but includes custom extra content
         # which must still be in the final modified user-agent.
         bc_session = self.bc_session_cls.return_value
-        bc_session.user_agent_name = 'Botocore'
+        bc_session.user_agent_name = 'ibm-cos-sdk-python-core'
         bc_session.user_agent_version = '0.68.0'
         bc_session.user_agent_extra = 'foo'
 
         Session(botocore_session=bc_session)
 
-        self.assertEqual(bc_session.user_agent_extra, 'foo Botocore/0.68.0')
+        self.assertEqual(bc_session.user_agent_extra, 'foo ibm-cos-sdk-python-core/0.68.0')
 
     def test_custom_user_agent(self):
         # This test ensures that a customized user-agent is left untouched.
@@ -227,7 +228,8 @@ class TestSession(BaseTestCase):
             's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name='us-west-2', api_version=None,
-            config=None)
+            config=None, ibm_api_key_id=None, ibm_service_instance_id=None,
+            ibm_auth_endpoint=None, auth_function=None, token_manager=None)
 
     def test_create_resource_with_args(self):
         mock_bc_session = mock.Mock()
@@ -246,7 +248,8 @@ class TestSession(BaseTestCase):
             's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=False, region_name=None, api_version='2014-11-02',
-            config=mock.ANY)
+            config=mock.ANY, auth_function=None, token_manager=None,
+            ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
         client_config = session.client.call_args[1]['config']
         self.assertEqual(client_config.user_agent_extra, 'Resource')
         self.assertEqual(client_config.signature_version, None)
@@ -269,7 +272,8 @@ class TestSession(BaseTestCase):
             's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name=None, api_version='2014-11-02',
-            config=mock.ANY)
+            config=mock.ANY, auth_function=None, token_manager=None,
+            ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
         client_config = session.client.call_args[1]['config']
         self.assertEqual(client_config.user_agent_extra, 'Resource')
         self.assertEqual(client_config.signature_version, 'v4')
@@ -292,7 +296,8 @@ class TestSession(BaseTestCase):
             's3', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name=None, api_version='2014-11-02',
-            config=mock.ANY)
+            config=mock.ANY, auth_function=None, token_manager=None,
+            ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
         client_config = session.client.call_args[1]['config']
         self.assertEqual(client_config.user_agent_extra, 'foo')
         self.assertEqual(client_config.signature_version, 'v4')

@@ -80,14 +80,14 @@ class Session(object):
             self._session = botocore.session.get_session()
 
         # Setup custom user-agent string if it isn't already customized
-        if self._session.user_agent_name == 'Botocore':
-            botocore_info = 'Botocore/{0}'.format(
+        if self._session.user_agent_name == 'ibm-cos-sdk-python-core':
+            botocore_info = 'ibm-cos-sdk-python-core/{0}'.format(
                 self._session.user_agent_version)
             if self._session.user_agent_extra:
                 self._session.user_agent_extra += ' ' + botocore_info
             else:
                 self._session.user_agent_extra = botocore_info
-            self._session.user_agent_name = 'Boto3'
+            self._session.user_agent_name = 'ibm-cos-sdk-python'
             self._session.user_agent_version = boto3.__version__
 
         if profile_name is not None:

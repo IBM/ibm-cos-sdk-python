@@ -17,3 +17,11 @@ Features
 --------
 * Doc updates for IBM COS
 
+1.0.2
+=====
+
+Features
+--------
+* Updated user agent 
+* Doc updates
+

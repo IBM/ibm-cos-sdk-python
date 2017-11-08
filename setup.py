@@ -28,7 +28,7 @@ setup(
     name='ibm-cos-sdk',
     version=get_version(),
     description='IBM SDK for Python',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     author='IBM',
     url='https://github.com/ibm/ibm-cos-sdk-python',
     scripts=[],
