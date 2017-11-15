@@ -25,3 +25,10 @@ Features
 * Updated user agent 
 * Doc updates
 
+1.1.0
+=====
+
+Features
+--------
+* Added support for Key Protect
+
