@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>boto3.s3.transfer &mdash; ibm-cos-sdk 1.1.0 documentation</title>
+    <title>ibm_boto3.s3.transfer &mdash; ibm-cos-sdk 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,8 +32,8 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 1.1.0 documentation" href="../../../index.html" />
-    <link rel="up" title="boto3" href="../../boto3.html" />
+    <link rel="top" title="ibm-cos-sdk 2.0.0 documentation" href="../../../index.html" />
+    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
 
@@ -48,9 +48,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../boto3.html" accesskey="U">boto3</a> &raquo;</li> 
+          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 1.1.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.0.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -105,16 +105,16 @@
               
                 <li><a href="../../index.html">Module code</a></li>
               
-                <li><a href="../../boto3.html">boto3</a></li>
+                <li><a href="../../ibm_boto3.html">ibm_boto3</a></li>
               
-              <li>boto3.s3.transfer</li>
+              <li>ibm_boto3.s3.transfer</li>
             </ol>
           </div>
           
 <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
           <div class="document clearer body">
             
-  <h1>Source code for boto3.s3.transfer</h1><div class="highlight"><pre>
+  <h1>Source code for ibm_boto3.s3.transfer</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
@@ -136,7 +136,7 @@
 <span class="sd">  a file is over a specific size threshold</span>
 <span class="sd">* Uploading/downloading a file in parallel</span>
 <span class="sd">* Progress callbacks to monitor transfers</span>
-<span class="sd">* Retries.  While botocore handles retries for streaming uploads,</span>
+<span class="sd">* Retries.  While ibm_botocore handles retries for streaming uploads,</span>
 <span class="sd">  it is not possible for it to handle retries for streaming</span>
 <span class="sd">  downloads.  This module handles retries for both cases so</span>
 <span class="sd">  you don&#39;t need to implement any retry logic yourself.</span>
@@ -162,7 +162,7 @@
 
 <span class="sd">.. code-block:: python</span>
 
-<span class="sd">    client = boto3.client(&#39;s3&#39;, &#39;us-west-2&#39;)</span>
+<span class="sd">    client = ibm_boto3.client(&#39;s3&#39;, &#39;us-west-2&#39;)</span>
 <span class="sd">    transfer = S3Transfer(client)</span>
 <span class="sd">    # Upload /tmp/myfile to s3://bucket/key</span>
 <span class="sd">    transfer.upload_file(&#39;/tmp/myfile&#39;, &#39;bucket&#39;, &#39;key&#39;)</span>
@@ -228,7 +228,7 @@
 
 <span class="sd">.. code-block:: python</span>
 
-<span class="sd">    client = boto3.client(&#39;s3&#39;, &#39;us-west-2&#39;)</span>
+<span class="sd">    client = ibm_boto3.client(&#39;s3&#39;, &#39;us-west-2&#39;)</span>
 <span class="sd">    config = TransferConfig(</span>
 <span class="sd">        multipart_threshold=8 * 1024 * 1024,</span>
 <span class="sd">        max_concurrency=10,</span>
@@ -239,17 +239,17 @@
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
-<span class="kn">from</span> <span class="nn">botocore.compat</span> <span class="kn">import</span> <span class="n">six</span>
-<span class="kn">from</span> <span class="nn">s3transfer.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span> <span class="k">as</span> \
+<span class="kn">from</span> <span class="nn">ibm_botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
+<span class="kn">from</span> <span class="nn">ibm_botocore.compat</span> <span class="kn">import</span> <span class="n">six</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span> <span class="k">as</span> \
     <span class="n">S3TransferRetriesExceededError</span>
-<span class="kn">from</span> <span class="nn">s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferConfig</span> <span class="k">as</span> <span class="n">S3TransferConfig</span>
-<span class="kn">from</span> <span class="nn">s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferManager</span>
-<span class="kn">from</span> <span class="nn">s3transfer.futures</span> <span class="kn">import</span> <span class="n">NonThreadedExecutor</span>
-<span class="kn">from</span> <span class="nn">s3transfer.subscribers</span> <span class="kn">import</span> <span class="n">BaseSubscriber</span>
-<span class="kn">from</span> <span class="nn">s3transfer.utils</span> <span class="kn">import</span> <span class="n">OSUtils</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferConfig</span> <span class="k">as</span> <span class="n">S3TransferConfig</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferManager</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.futures</span> <span class="kn">import</span> <span class="n">NonThreadedExecutor</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.subscribers</span> <span class="kn">import</span> <span class="n">BaseSubscriber</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.utils</span> <span class="kn">import</span> <span class="n">OSUtils</span>
 
-<span class="kn">from</span> <span class="nn">boto3.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span><span class="p">,</span> <span class="n">S3UploadFailedError</span>
+<span class="kn">from</span> <span class="nn">ibm_boto3.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span><span class="p">,</span> <span class="n">S3UploadFailedError</span>
 
 
 <span class="n">KB</span> <span class="o">=</span> <span class="mi">1024</span>
@@ -259,16 +259,16 @@
 <span class="k">def</span> <span class="nf">create_transfer_manager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Creates a transfer manager based on configuration</span>
 
-<span class="sd">    :type client: boto3.client</span>
+<span class="sd">    :type client: ibm_boto3.client</span>
 <span class="sd">    :param client: The S3 client to use</span>
 
-<span class="sd">    :type config: boto3.s3.transfer.TransferConfig</span>
+<span class="sd">    :type config: ibm_boto3.s3.transfer.TransferConfig</span>
 <span class="sd">    :param config: The transfer config to use</span>
 
-<span class="sd">    :type osutil: s3transfer.utils.OSUtils</span>
+<span class="sd">    :type osutil: ibm_s3transfer.utils.OSUtils</span>
 <span class="sd">    :param osutil: The os utility to use</span>
 
-<span class="sd">    :rtype: s3transfer.manager.TransferManager</span>
+<span class="sd">    :rtype: ibm_s3transfer.manager.TransferManager</span>
 <span class="sd">    :returns: A transfer manager based on parameters provided</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">executor_cls</span> <span class="o">=</span> <span class="bp">None</span>
@@ -277,7 +277,7 @@
     <span class="k">return</span> <span class="n">TransferManager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">,</span> <span class="n">executor_cls</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="TransferConfig"><a class="viewcode-back" href="../../../reference/customizations/s3.html#boto3.s3.transfer.TransferConfig">[docs]</a><span class="k">class</span> <span class="nc">TransferConfig</span><span class="p">(</span><span class="n">S3TransferConfig</span><span class="p">):</span>
+<div class="viewcode-block" id="TransferConfig"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">[docs]</a><span class="k">class</span> <span class="nc">TransferConfig</span><span class="p">(</span><span class="n">S3TransferConfig</span><span class="p">):</span>
     <span class="n">ALIAS</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;max_concurrency&#39;</span><span class="p">:</span> <span class="s1">&#39;max_request_concurrency&#39;</span><span class="p">,</span>
         <span class="s1">&#39;max_io_queue&#39;</span><span class="p">:</span> <span class="s1">&#39;max_io_queue_size&#39;</span>
@@ -311,9 +311,9 @@
 <span class="sd">            streaming  down the data from s3 (i.e. socket errors and read</span>
 <span class="sd">            timeouts that occur after recieving an OK response from s3).</span>
 <span class="sd">            Other retryable exceptions such as throttling errors and 5xx</span>
-<span class="sd">            errors are already retried by botocore (this default is 5). This</span>
+<span class="sd">            errors are already retried by ibm_botocore (this default is 5). This</span>
 <span class="sd">            does not take into account the number of exceptions retried by</span>
-<span class="sd">            botocore.</span>
+<span class="sd">            ibm_botocore.</span>
 
 <span class="sd">        :param max_io_queue: The maximum amount of read parts that can be</span>
 <span class="sd">            queued in memory to be written for a download. The size of each</span>
@@ -351,14 +351,14 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">ALLOWED_DOWNLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_DOWNLOAD_ARGS</span>
     <span class="n">ALLOWED_UPLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_UPLOAD_ARGS</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">client</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">manager</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s1">&#39;Either a boto3.Client or s3transfer.manager.TransferManager &#39;</span>
+                <span class="s1">&#39;Either a ibm_boto3.Client or ibm_s3transfer.manager.TransferManager &#39;</span>
                 <span class="s1">&#39;must be provided&#39;</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="n">manager</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">([</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">]):</span>
@@ -375,7 +375,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span> <span class="o">=</span> <span class="n">create_transfer_manager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">)</span>
 
-<div class="viewcode-block" id="S3Transfer.upload_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#boto3.s3.transfer.S3Transfer.upload_file">[docs]</a>    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
+<div class="viewcode-block" id="S3Transfer.upload_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">[docs]</a>    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
                     <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Upload a file to an S3 object.</span>
 
@@ -399,7 +399,7 @@
                 <span class="s2">&quot;Failed to upload </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
                     <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span> <span class="n">e</span><span class="p">))</span>
 </div>
-<div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+<div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                       <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Download an S3 object to a file.</span>
 
@@ -415,9 +415,9 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
         <span class="c1"># This is for backwards compatibility where when retries are</span>
-        <span class="c1"># exceeded we need to throw the same error from boto3 instead of</span>
-        <span class="c1"># s3transfer&#39;s built in RetriesExceededError as current users are</span>
-        <span class="c1"># catching the boto3 one instead of the s3transfer exception to do</span>
+        <span class="c1"># exceeded we need to throw the same error from ibm_boto3 instead of</span>
+        <span class="c1"># ibm_s3transfer&#39;s built in RetriesExceededError as current users are</span>
+        <span class="c1"># catching the ibm_boto3 one instead of the ibm_s3transfer exception to do</span>
         <span class="c1"># their own retries.</span>
         <span class="k">except</span> <span class="n">S3TransferRetriesExceededError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">RetriesExceededError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">last_exception</span><span class="p">)</span>
@@ -461,9 +461,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../boto3.html" >boto3</a> &raquo;</li> 
+          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
     </div>
 

@@ -4,6 +4,6 @@
 Collections Reference
 =====================
 
-.. automodule:: boto3.resources.collection
+.. automodule:: ibm_boto3.resources.collection
    :members:
    :undoc-members:

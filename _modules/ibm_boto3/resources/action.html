@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>boto3.resources.action &mdash; ibm-cos-sdk 1.1.0 documentation</title>
+    <title>ibm_boto3.resources.action &mdash; ibm-cos-sdk 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,8 +32,8 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 1.1.0 documentation" href="../../../index.html" />
-    <link rel="up" title="boto3" href="../../boto3.html" />
+    <link rel="top" title="ibm-cos-sdk 2.0.0 documentation" href="../../../index.html" />
+    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
 
@@ -48,9 +48,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../boto3.html" accesskey="U">boto3</a> &raquo;</li> 
+          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 1.1.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.0.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -105,16 +105,16 @@
               
                 <li><a href="../../index.html">Module code</a></li>
               
-                <li><a href="../../boto3.html">boto3</a></li>
+                <li><a href="../../ibm_boto3.html">ibm_boto3</a></li>
               
-              <li>boto3.resources.action</li>
+              <li>ibm_boto3.resources.action</li>
             </ol>
           </div>
           
 <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
           <div class="document clearer body">
             
-  <h1>Source code for boto3.resources.action</h1><div class="highlight"><pre>
+  <h1>Source code for ibm_boto3.resources.action</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
@@ -130,20 +130,20 @@
 
 <span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="kn">from</span> <span class="nn">botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
+<span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
 
 <span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">create_request_parameters</span>
 <span class="kn">from</span> <span class="nn">.response</span> <span class="kn">import</span> <span class="n">RawHandler</span><span class="p">,</span> <span class="n">ResourceHandler</span>
 <span class="kn">from</span> <span class="nn">.model</span> <span class="kn">import</span> <span class="n">Action</span>
 
-<span class="kn">from</span> <span class="nn">boto3.docs.docstring</span> <span class="kn">import</span> <span class="n">ActionDocstring</span>
-<span class="kn">from</span> <span class="nn">boto3.utils</span> <span class="kn">import</span> <span class="n">inject_attribute</span>
+<span class="kn">from</span> <span class="nn">ibm_boto3.docs.docstring</span> <span class="kn">import</span> <span class="n">ActionDocstring</span>
+<span class="kn">from</span> <span class="nn">ibm_boto3.utils</span> <span class="kn">import</span> <span class="n">inject_attribute</span>
 
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ServiceAction"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.action.ServiceAction">[docs]</a><span class="k">class</span> <span class="nc">ServiceAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ServiceAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.ServiceAction">[docs]</a><span class="k">class</span> <span class="nc">ServiceAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a callable action on a resource, for example</span>
 <span class="sd">    ``s3.Bucket(&#39;foo&#39;).delete()``.</span>
@@ -204,7 +204,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="BatchAction"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.action.BatchAction">[docs]</a><span class="k">class</span> <span class="nc">BatchAction</span><span class="p">(</span><span class="n">ServiceAction</span><span class="p">):</span>
+<div class="viewcode-block" id="BatchAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.BatchAction">[docs]</a><span class="k">class</span> <span class="nc">BatchAction</span><span class="p">(</span><span class="n">ServiceAction</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An action which operates on a batch of items in a collection, typically</span>
 <span class="sd">    a single page of results from the collection&#39;s underlying service</span>
@@ -276,7 +276,7 @@
         <span class="k">return</span> <span class="n">responses</span>
 
 </div>
-<div class="viewcode-block" id="WaiterAction"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.action.WaiterAction">[docs]</a><span class="k">class</span> <span class="nc">WaiterAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="WaiterAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.WaiterAction">[docs]</a><span class="k">class</span> <span class="nc">WaiterAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a callable waiter action on a resource, for example</span>
 <span class="sd">    ``s3.Bucket(&#39;foo&#39;).wait_until_bucket_exists()``.</span>
@@ -321,7 +321,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Response: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="CustomModeledAction"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.action.CustomModeledAction">[docs]</a><span class="k">class</span> <span class="nc">CustomModeledAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomModeledAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction">[docs]</a><span class="k">class</span> <span class="nc">CustomModeledAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A custom, modeled action to inject into a resource.&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_name</span><span class="p">,</span> <span class="n">action_model</span><span class="p">,</span>
                  <span class="n">function</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">):</span>
@@ -347,7 +347,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">function</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">emitter</span> <span class="o">=</span> <span class="n">event_emitter</span>
 
-<div class="viewcode-block" id="CustomModeledAction.inject"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.action.CustomModeledAction.inject">[docs]</a>    <span class="k">def</span> <span class="nf">inject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_attributes</span><span class="p">,</span> <span class="n">service_context</span><span class="p">,</span> <span class="n">event_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomModeledAction.inject"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction.inject">[docs]</a>    <span class="k">def</span> <span class="nf">inject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_attributes</span><span class="p">,</span> <span class="n">service_context</span><span class="p">,</span> <span class="n">event_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">resource_name</span> <span class="o">=</span> <span class="n">event_name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">action</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="p">{})</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
@@ -375,9 +375,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../boto3.html" >boto3</a> &raquo;</li> 
+          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
     </div>
 

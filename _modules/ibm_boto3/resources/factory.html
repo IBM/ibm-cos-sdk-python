@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>boto3.resources.factory &mdash; ibm-cos-sdk 1.1.0 documentation</title>
+    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,8 +32,8 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 1.1.0 documentation" href="../../../index.html" />
-    <link rel="up" title="boto3" href="../../boto3.html" />
+    <link rel="top" title="ibm-cos-sdk 2.0.0 documentation" href="../../../index.html" />
+    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
 
@@ -48,9 +48,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../boto3.html" accesskey="U">boto3</a> &raquo;</li> 
+          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 1.1.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.0.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -105,16 +105,16 @@
               
                 <li><a href="../../index.html">Module code</a></li>
               
-                <li><a href="../../boto3.html">boto3</a></li>
+                <li><a href="../../ibm_boto3.html">ibm_boto3</a></li>
               
-              <li>boto3.resources.factory</li>
+              <li>ibm_boto3.resources.factory</li>
             </ol>
           </div>
           
 <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
           <div class="document clearer body">
             
-  <h1>Source code for boto3.resources.factory</h1><div class="highlight"><pre>
+  <h1>Source code for ibm_boto3.resources.factory</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
@@ -144,7 +144,7 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ResourceFactory"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.factory.ResourceFactory">[docs]</a><span class="k">class</span> <span class="nc">ResourceFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourceFactory"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">[docs]</a><span class="k">class</span> <span class="nc">ResourceFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory to create new :py:class:`~boto3.resources.base.ServiceResource`</span>
 <span class="sd">    classes from a :py:class:`~boto3.resources.model.ResourceModel`. There are</span>
@@ -155,7 +155,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_collection_factory</span> <span class="o">=</span> <span class="n">CollectionFactory</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_emitter</span> <span class="o">=</span> <span class="n">emitter</span>
 
-<div class="viewcode-block" id="ResourceFactory.load_from_definition"><a class="viewcode-back" href="../../../reference/core/resources.html#boto3.resources.factory.ResourceFactory.load_from_definition">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span>
+<div class="viewcode-block" id="ResourceFactory.load_from_definition"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory.load_from_definition">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span>
                              <span class="n">single_resource_json_definition</span><span class="p">,</span> <span class="n">service_context</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads a resource from a model, creating a new</span>
@@ -667,9 +667,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../boto3.html" >boto3</a> &raquo;</li> 
+          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
     </div>
 

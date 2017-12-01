@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 Customization Reference &mdash; ibm-cos-sdk 1.1.0 documentation</title>
+    <title>S3 Customization Reference &mdash; ibm-cos-sdk 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 1.1.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.0.0 documentation" href="../../index.html" />
     <link rel="up" title="Customization References" href="index.html" />
     <link rel="prev" title="Customization References" href="index.html" />
   
@@ -52,7 +52,7 @@
         <li class="right" >
           <a href="index.html" title="Customization References"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Customization References</a> &raquo;</li> 
       </ul>
     </div>
@@ -63,7 +63,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 1.1.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.0.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -134,8 +134,8 @@ should be very cautious in directly using them because breaking changes may
 be introduced from version to version of the library.</p>
 </div>
 <dl class="class">
-<dt id="boto3.s3.transfer.TransferConfig">
-<em class="property">class </em><tt class="descclassname">boto3.s3.transfer.</tt><tt class="descname">TransferConfig</tt><big>(</big><em>multipart_threshold=8388608</em>, <em>max_concurrency=10</em>, <em>multipart_chunksize=8388608</em>, <em>num_download_attempts=5</em>, <em>max_io_queue=100</em>, <em>io_chunksize=262144</em>, <em>use_threads=True</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#TransferConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.TransferConfig" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.TransferConfig">
+<em class="property">class </em><tt class="descclassname">ibm_boto3.s3.transfer.</tt><tt class="descname">TransferConfig</tt><big>(</big><em>multipart_threshold=8388608</em>, <em>max_concurrency=10</em>, <em>multipart_chunksize=8388608</em>, <em>num_download_attempts=5</em>, <em>max_io_queue=100</em>, <em>io_chunksize=262144</em>, <em>use_threads=True</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#TransferConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.TransferConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configuration object for managed S3 transfers</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
@@ -154,9 +154,9 @@ Note that these retries account for errors that occur when
 streaming  down the data from s3 (i.e. socket errors and read
 timeouts that occur after recieving an OK response from s3).
 Other retryable exceptions such as throttling errors and 5xx
-errors are already retried by botocore (this default is 5). This
+errors are already retried by ibm_botocore (this default is 5). This
 does not take into account the number of exceptions retried by
-botocore.</li>
+ibm_botocore.</li>
 <li><strong>max_io_queue</strong> -- The maximum amount of read parts that can be
 queued in memory to be written for a download. The size of each
 of these read parts is at most the size of <tt class="docutils literal"><span class="pre">io_chunksize</span></tt>.</li>
@@ -170,36 +170,36 @@ performing transfers: all logic will be ran in the main thread.</li>
 </dd>
 </dl>
 <dl class="attribute">
-<dt id="boto3.s3.transfer.TransferConfig.ALIAS">
-<tt class="descname">ALIAS</tt><em class="property"> = {'max_concurrency': 'max_request_concurrency', 'max_io_queue': 'max_io_queue_size'}</em><a class="headerlink" href="#boto3.s3.transfer.TransferConfig.ALIAS" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.TransferConfig.ALIAS">
+<tt class="descname">ALIAS</tt><em class="property"> = {'max_concurrency': 'max_request_concurrency', 'max_io_queue': 'max_io_queue_size'}</em><a class="headerlink" href="#ibm_boto3.s3.transfer.TransferConfig.ALIAS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="boto3.s3.transfer.S3Transfer">
-<em class="property">class </em><tt class="descclassname">boto3.s3.transfer.</tt><tt class="descname">S3Transfer</tt><big>(</big><em>client=None</em>, <em>config=None</em>, <em>osutil=None</em>, <em>manager=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#S3Transfer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.S3Transfer" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.S3Transfer">
+<em class="property">class </em><tt class="descclassname">ibm_boto3.s3.transfer.</tt><tt class="descname">S3Transfer</tt><big>(</big><em>client=None</em>, <em>config=None</em>, <em>osutil=None</em>, <em>manager=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">
-<tt class="descname">ALLOWED_DOWNLOAD_ARGS</tt><em class="property"> = ['VersionId', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'RequestPayer']</em><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">
+<tt class="descname">ALLOWED_DOWNLOAD_ARGS</tt><em class="property"> = ['VersionId', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'RequestPayer']</em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
-<tt class="descname">ALLOWED_UPLOAD_ARGS</tt><em class="property"> = ['ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl', 'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata', 'RequestPayer', 'ServerSideEncryption', 'StorageClass', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'SSEKMSKeyId', 'WebsiteRedirectLocation']</em><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
+<tt class="descname">ALLOWED_UPLOAD_ARGS</tt><em class="property"> = ['ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl', 'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata', 'RequestPayer', 'ServerSideEncryption', 'StorageClass', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'SSEKMSKeyId', 'WebsiteRedirectLocation']</em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="boto3.s3.transfer.S3Transfer.download_file">
-<tt class="descname">download_file</tt><big>(</big><em>bucket</em>, <em>key</em>, <em>filename</em>, <em>extra_args=None</em>, <em>callback=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#S3Transfer.download_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.download_file" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.S3Transfer.download_file">
+<tt class="descname">download_file</tt><big>(</big><em>bucket</em>, <em>key</em>, <em>filename</em>, <em>extra_args=None</em>, <em>callback=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer.download_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.download_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download an S3 object to a file.</p>
 <p>Variants have also been injected into S3 client, Bucket and Object.
 You don't have to use S3Transfer.download_file() directly.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="boto3.s3.transfer.S3Transfer.upload_file">
-<tt class="descname">upload_file</tt><big>(</big><em>filename</em>, <em>bucket</em>, <em>key</em>, <em>callback=None</em>, <em>extra_args=None</em><big>)</big><a class="reference internal" href="../../_modules/boto3/s3/transfer.html#S3Transfer.upload_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#boto3.s3.transfer.S3Transfer.upload_file" title="Permalink to this definition">¶</a></dt>
+<dt id="ibm_boto3.s3.transfer.S3Transfer.upload_file">
+<tt class="descname">upload_file</tt><big>(</big><em>filename</em>, <em>bucket</em>, <em>key</em>, <em>callback=None</em>, <em>extra_args=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer.upload_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.upload_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload a file to an S3 object.</p>
 <p>Variants have also been injected into S3 client, Bucket and Object.
 You don't have to use S3Transfer.upload_file() directly.</p>
@@ -237,7 +237,7 @@ You don't have to use S3Transfer.upload_file() directly.</p>
         <li class="right" >
           <a href="index.html" title="Customization References"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Customization References</a> &raquo;</li> 
       </ul>
     </div>

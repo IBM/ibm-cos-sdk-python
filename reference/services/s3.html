@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 &mdash; ibm-cos-sdk 1.1.0 documentation</title>
+    <title>S3 &mdash; ibm-cos-sdk 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 1.1.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.0.0 documentation" href="../../index.html" />
     <link rel="up" title="Available Services" href="index.html" />
     <link rel="next" title="Core References" href="../core/index.html" />
     <link rel="prev" title="Available Services" href="index.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="index.html" title="Available Services"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Available Services</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 1.1.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.0.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -172,9 +172,9 @@
 <dt id="S3.Client">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">Client</tt><a class="headerlink" href="#S3.Client" title="Permalink to this definition">¶</a></dt>
 <dd><p>A low-level client representing Amazon Simple Storage Service (S3):</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>These are the available methods:</p>
@@ -390,8 +390,8 @@ call <tt class="docutils literal"><span class="pre">client.get_paginator(&quot;c
 <p>This is a managed transfer which will perform a multipart copy in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">copy_source</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;mybucket&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;mykey&#39;</span>
@@ -412,12 +412,12 @@ that the <tt class="docutils literal"><span class="pre">VersionId</span></tt> ke
 client operation</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the copy.</li>
-<li><strong>SourceClient</strong> (<em>botocore or boto3 Client</em>) -- The client to be used for operation that
+<li><strong>SourceClient</strong> (<em>ibm_botocore or ibm_boto3 Client</em>) -- The client to be used for operation that
 may happen at the source object. For example, this client is
 used for the head_object that determines the size of the copy.
 If no client is provided, the current client is used as the client
 for the source object.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 copy.</li>
 </ul>
 </dd>
@@ -569,7 +569,9 @@ copy.</li>
     <span class="n">GrantReadACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantWrite</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantWriteACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
-    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">IBMSSEKPEncryptionAlgorithm</span><span class="o">=</span><span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
+    <span class="n">IBMSSEKPCustomerRootKeyCrn</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -587,6 +589,8 @@ copy.</li>
 <li><strong>GrantWrite</strong> (<em>string</em>) -- Allows grantee to create, overwrite, and delete any object in the bucket.</li>
 <li><strong>GrantWriteACP</strong> (<em>string</em>) -- Allows grantee to write the ACL for the applicable bucket.</li>
 <li><strong>IBMServiceInstanceId</strong> (<em>string</em>) -- The storage account who will be the owner of the bucket.</li>
+<li><strong>IBMSSEKPEncryptionAlgorithm</strong> (<em>string</em>) -- The encryption algorithm that will be used for objects stored in the newly created bucket. Defaults to 'AES256'</li>
+<li><strong>IBMSSEKPCustomerRootKeyCrn</strong> (<em>string</em>) -- Container for describing the KMS-KP Key CRN.</li>
 </ul>
 </dd>
 <dt class="field-name">Return type</dt><dd class="field-body"><p class="first">dict</p>
@@ -1079,8 +1083,8 @@ copy.</li>
 <tt class="descname">download_file</tt><big>(</big><em>Bucket</em>, <em>Key</em>, <em>Filename</em>, <em>ExtraArgs=None</em>, <em>Callback=None</em>, <em>Config=None</em><big>)</big><a class="headerlink" href="#S3.Client.download_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download an S3 object to a file.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">,</span> <span class="s1">&#39;hello.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp/hello.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1097,8 +1101,8 @@ except that parameters are capitalized. Detailed examples can be found at
 <p>This is a managed transfer which will perform a multipart download in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">s3</span><span class="o">.</span><span class="n">download_fileobj</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">,</span> <span class="s1">&#39;mykey&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
@@ -1114,7 +1118,7 @@ implement the <cite>write</cite> method and must accept bytes.</li>
 client operation.</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the download.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 download.</li>
 </ul>
 </dd>
@@ -2169,7 +2173,22 @@ check if an operation is pageable.</dd>
 </div>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><strong>Bucket</strong> (<em>string</em>) -- <strong>[REQUIRED]</strong></dd>
-<dt class="field-name">Returns</dt><dd class="field-body">None</dd>
+<dt class="field-name">Return type</dt><dd class="field-body">dict</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><strong>Response Syntax</strong><div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;IBMSSEKPEnabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="o">|</span><span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;IBMSSEKPCrkId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Structure</strong></p>
+<ul class="simple">
+<li><em>(dict) --</em><ul>
+<li><strong>IBMSSEKPEnabled</strong> <em>(boolean) --</em> The bucket encryption enabled or not.</li>
+<li><strong>IBMSSEKPCrkId</strong> <em>(string) --</em> CRK ID of the Bucket encryption</li>
+</ul>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
@@ -2941,6 +2960,8 @@ check if an operation is pageable.</dd>
         <span class="p">},</span>
     <span class="p">],</span>
     <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;IBMSSEKPEnabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="o">|</span><span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;IBMSSEKPCrkId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Delimiter&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;MaxKeys&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
@@ -2976,6 +2997,8 @@ check if an operation is pageable.</dd>
 </ul>
 </li>
 <li><strong>Name</strong> <em>(string) --</em></li>
+<li><strong>IBMSSEKPEnabled</strong> <em>(boolean) --</em> The bucket encryption enabled or not.</li>
+<li><strong>IBMSSEKPCrkId</strong> <em>(string) --</em> CRK ID of the Bucket encryption</li>
 <li><strong>Prefix</strong> <em>(string) --</em></li>
 <li><strong>Delimiter</strong> <em>(string) --</em></li>
 <li><strong>MaxKeys</strong> <em>(integer) --</em></li>
@@ -4031,8 +4054,8 @@ check if an operation is pageable.</dd>
 <tt class="descname">upload_file</tt><big>(</big><em>Filename</em>, <em>Bucket</em>, <em>Key</em>, <em>ExtraArgs=None</em>, <em>Callback=None</em>, <em>Config=None</em><big>)</big><a class="headerlink" href="#S3.Client.upload_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload a file to an S3 object.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="s1">&#39;/tmp/hello.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;mybucket&#39;</span><span class="p">,</span> <span class="s1">&#39;hello.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4049,8 +4072,8 @@ except that parameters are capitalized. Detailed examples can be found at
 <p>This is a managed transfer which will perform a multipart upload in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">s3</span><span class="o">.</span><span class="n">upload_fileobj</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;mybucket&#39;</span><span class="p">,</span> <span class="s1">&#39;mykey&#39;</span><span class="p">)</span>
@@ -4066,7 +4089,7 @@ implement the <cite>read</cite> method, and must return bytes.</li>
 client operation.</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the upload.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 upload.</li>
 </ul>
 </dd>
@@ -4607,6 +4630,8 @@ upload.</li>
         <span class="p">},</span>
     <span class="p">],</span>
     <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;IBMSSEKPEnabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="o">|</span><span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;IBMSSEKPCrkId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Delimiter&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;MaxKeys&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
@@ -4648,6 +4673,10 @@ upload.</li>
 </ul>
 </li>
 <li><p class="first"><strong>Name</strong> <em>(string) --</em></p>
+</li>
+<li><p class="first"><strong>IBMSSEKPEnabled</strong> <em>(boolean) --</em> The bucket encryption enabled or not.</p>
+</li>
+<li><p class="first"><strong>IBMSSEKPCrkId</strong> <em>(string) --</em> CRK ID of the Bucket encryption</p>
 </li>
 <li><p class="first"><strong>Prefix</strong> <em>(string) --</em></p>
 </li>
@@ -5124,9 +5153,9 @@ upload.</li>
 <dt id="S3.ServiceResource">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ServiceResource</tt><a class="headerlink" href="#S3.ServiceResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing Amazon Simple Storage Service (S3):</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>These are the resource's available actions:</p>
@@ -5172,7 +5201,9 @@ For more information about actions refer to the <em class="xref std std-ref">Res
     <span class="n">GrantReadACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantWrite</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantWriteACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
-    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">IBMSSEKPEncryptionAlgorithm</span><span class="o">=</span><span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
+    <span class="n">IBMSSEKPCustomerRootKeyCrn</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -5190,6 +5221,8 @@ For more information about actions refer to the <em class="xref std std-ref">Res
 <li><strong>GrantWrite</strong> (<em>string</em>) -- Allows grantee to create, overwrite, and delete any object in the bucket.</li>
 <li><strong>GrantWriteACP</strong> (<em>string</em>) -- Allows grantee to write the ACL for the applicable bucket.</li>
 <li><strong>IBMServiceInstanceId</strong> (<em>string</em>) -- The storage account who will be the owner of the bucket.</li>
+<li><strong>IBMSSEKPEncryptionAlgorithm</strong> (<em>string</em>) -- The encryption algorithm that will be used for objects stored in the newly created bucket. Defaults to 'AES256'</li>
+<li><strong>IBMSSEKPCustomerRootKeyCrn</strong> (<em>string</em>) -- Container for describing the KMS-KP Key CRN.</li>
 </ul>
 </dd>
 <dt class="field-name">Return type</dt><dd class="field-body"><p class="first"><tt class="xref py py-class docutils literal"><span class="pre">s3.Bucket</span></tt></p>
@@ -5505,9 +5538,9 @@ For more information about collections refer to the <em class="xref std std-ref"
 <dt id="S3.Bucket">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">Bucket</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#S3.Bucket" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) Bucket:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5591,8 +5624,8 @@ For more information about actions refer to the <em class="xref std std-ref">Res
 <p>This is a managed transfer which will perform a multipart copy in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">copy_source</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;mybucket&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;mykey&#39;</span>
@@ -5613,12 +5646,12 @@ that the <tt class="docutils literal"><span class="pre">VersionId</span></tt> ke
 client operation</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the copy.</li>
-<li><strong>SourceClient</strong> (<em>botocore or boto3 Client</em>) -- The client to be used for operation that
+<li><strong>SourceClient</strong> (<em>ibm_botocore or ibm_boto3 Client</em>) -- The client to be used for operation that
 may happen at the source object. For example, this client is
 used for the head_object that determines the size of the copy.
 If no client is provided, the current client is used as the client
 for the source object.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 copy.</li>
 </ul>
 </dd>
@@ -5640,7 +5673,9 @@ copy.</li>
     <span class="n">GrantReadACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantWrite</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantWriteACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
-    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">IBMSSEKPEncryptionAlgorithm</span><span class="o">=</span><span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
+    <span class="n">IBMSSEKPCustomerRootKeyCrn</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -5657,6 +5692,8 @@ copy.</li>
 <li><strong>GrantWrite</strong> (<em>string</em>) -- Allows grantee to create, overwrite, and delete any object in the bucket.</li>
 <li><strong>GrantWriteACP</strong> (<em>string</em>) -- Allows grantee to write the ACL for the applicable bucket.</li>
 <li><strong>IBMServiceInstanceId</strong> (<em>string</em>) -- The storage account who will be the owner of the bucket.</li>
+<li><strong>IBMSSEKPEncryptionAlgorithm</strong> (<em>string</em>) -- The encryption algorithm that will be used for objects stored in the newly created bucket. Defaults to 'AES256'</li>
+<li><strong>IBMSSEKPCustomerRootKeyCrn</strong> (<em>string</em>) -- Container for describing the KMS-KP Key CRN.</li>
 </ul>
 </dd>
 <dt class="field-name">Return type</dt><dd class="field-body"><p class="first">dict</p>
@@ -5792,8 +5829,8 @@ copy.</li>
 <tt class="descname">download_file</tt><big>(</big><em>Key</em>, <em>Filename</em>, <em>ExtraArgs=None</em>, <em>Callback=None</em>, <em>Config=None</em><big>)</big><a class="headerlink" href="#S3.Bucket.download_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download an S3 object to a file.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s1">&#39;hello.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp/hello.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5810,8 +5847,8 @@ except that parameters are capitalized. Detailed examples can be found at
 <p>This is a managed transfer which will perform a multipart download in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
@@ -5827,7 +5864,7 @@ implement the <cite>write</cite> method and must accept bytes.</li>
 client operation.</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the download.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 download.</li>
 </ul>
 </dd>
@@ -5936,8 +5973,8 @@ resource.</p>
 <tt class="descname">upload_file</tt><big>(</big><em>Filename</em>, <em>Key</em>, <em>ExtraArgs=None</em>, <em>Callback=None</em>, <em>Config=None</em><big>)</big><a class="headerlink" href="#S3.Bucket.upload_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload a file to an S3 object.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="s1">&#39;/tmp/hello.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;hello.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5954,8 +5991,8 @@ except that parameters are capitalized. Detailed examples can be found at
 <p>This is a managed transfer which will perform a multipart upload in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
@@ -5971,7 +6008,7 @@ implement the <cite>read</cite> method, and must return bytes.</li>
 client operation.</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the upload.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 upload.</li>
 </ul>
 </dd>
@@ -6570,9 +6607,9 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
 <dt id="S3.BucketAcl">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketAcl</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketAcl" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) BucketAcl:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket_acl</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">BucketAcl</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6782,9 +6819,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.BucketCors">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketCors</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketCors" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) BucketCors:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket_cors</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">BucketCors</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6993,9 +7030,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.BucketRequestPayment">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketRequestPayment</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketRequestPayment" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) BucketRequestPayment:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket_request_payment</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">BucketRequestPayment</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7129,9 +7166,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.BucketTagging">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketTagging</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketTagging" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) BucketTagging:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket_tagging</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">BucketTagging</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7298,9 +7335,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.BucketVersioning">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketVersioning</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketVersioning" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) BucketVersioning:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket_versioning</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">BucketVersioning</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7487,9 +7524,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.MultipartUpload">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">MultipartUpload</tt><big>(</big><em>bucket_name</em>, <em>object_key</em>, <em>id</em><big>)</big><a class="headerlink" href="#S3.MultipartUpload" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) MultipartUpload:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">multipart_upload</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">MultipartUpload</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">,</span><span class="s1">&#39;object_key&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7819,9 +7856,9 @@ For more information about collections refer to the <em class="xref std std-ref"
 <dt id="S3.MultipartUploadPart">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">MultipartUploadPart</tt><big>(</big><em>bucket_name</em>, <em>object_key</em>, <em>multipart_upload_id</em>, <em>part_number</em><big>)</big><a class="headerlink" href="#S3.MultipartUploadPart" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) MultipartUploadPart:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">multipart_upload_part</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">MultipartUploadPart</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">,</span><span class="s1">&#39;object_key&#39;</span><span class="p">,</span><span class="s1">&#39;multipart_upload_id&#39;</span><span class="p">,</span><span class="s1">&#39;part_number&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8084,9 +8121,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.Object">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">Object</tt><big>(</big><em>bucket_name</em>, <em>key</em><big>)</big><a class="headerlink" href="#S3.Object" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) Object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="nb">object</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">,</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8393,8 +8430,8 @@ For more information about actions refer to the <em class="xref std std-ref">Res
 <p>This is a managed transfer which will perform a multipart copy in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">copy_source</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;mybucket&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;mykey&#39;</span>
@@ -8415,12 +8452,12 @@ that the <tt class="docutils literal"><span class="pre">VersionId</span></tt> ke
 client operation</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the copy.</li>
-<li><strong>SourceClient</strong> (<em>botocore or boto3 Client</em>) -- The client to be used for operation that
+<li><strong>SourceClient</strong> (<em>ibm_botocore or ibm_boto3 Client</em>) -- The client to be used for operation that
 may happen at the source object. For example, this client is
 used for the head_object that determines the size of the copy.
 If no client is provided, the current client is used as the client
 for the source object.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 copy.</li>
 </ul>
 </dd>
@@ -8600,8 +8637,8 @@ copy.</li>
 <tt class="descname">download_file</tt><big>(</big><em>Filename</em>, <em>ExtraArgs=None</em>, <em>Callback=None</em>, <em>Config=None</em><big>)</big><a class="headerlink" href="#S3.Object.download_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download an S3 object to a file.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">,</span> <span class="s1">&#39;hello.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s1">&#39;/tmp/hello.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8618,8 +8655,8 @@ except that parameters are capitalized. Detailed examples can be found at
 <p>This is a managed transfer which will perform a multipart download in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s1">&#39;mykey&#39;</span><span class="p">)</span>
 
@@ -8635,7 +8672,7 @@ implement the <cite>write</cite> method and must accept bytes.</li>
 client operation.</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the download.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 download.</li>
 </ul>
 </dd>
@@ -8985,8 +9022,8 @@ resource</dd>
 <tt class="descname">upload_file</tt><big>(</big><em>Filename</em>, <em>ExtraArgs=None</em>, <em>Callback=None</em>, <em>Config=None</em><big>)</big><a class="headerlink" href="#S3.Object.upload_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload a file to an S3 object.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">,</span> <span class="s1">&#39;hello.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="s1">&#39;/tmp/hello.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -9003,8 +9040,8 @@ except that parameters are capitalized. Detailed examples can be found at
 <p>This is a managed transfer which will perform a multipart upload in
 multiple threads if necessary.</p>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">bucket</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s1">&#39;mykey&#39;</span><span class="p">)</span>
 
@@ -9020,7 +9057,7 @@ implement the <cite>read</cite> method, and must return bytes.</li>
 client operation.</li>
 <li><strong>Callback</strong> (<em>method</em>) -- A method which takes a number of bytes transferred to
 be periodically called during the upload.</li>
-<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#boto3.s3.transfer.TransferConfig" title="boto3.s3.transfer.TransferConfig"><em>boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
+<li><strong>Config</strong> (<a class="reference internal" href="../customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig" title="ibm_boto3.s3.transfer.TransferConfig"><em>ibm_boto3.s3.transfer.TransferConfig</em></a>) -- The transfer configuration to be used when performing the
 upload.</li>
 </ul>
 </dd>
@@ -9174,9 +9211,9 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
 <dt id="S3.ObjectAcl">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ObjectAcl</tt><big>(</big><em>bucket_name</em>, <em>object_key</em><big>)</big><a class="headerlink" href="#S3.ObjectAcl" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) ObjectAcl:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">object_acl</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">ObjectAcl</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">,</span><span class="s1">&#39;object_key&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -9425,9 +9462,9 @@ For more information about sub-resources refer to the <em class="xref std std-re
 <dt id="S3.ObjectSummary">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ObjectSummary</tt><big>(</big><em>bucket_name</em>, <em>key</em><big>)</big><a class="headerlink" href="#S3.ObjectSummary" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) ObjectSummary:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">object_summary</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">ObjectSummary</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">,</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -10187,9 +10224,9 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
 <dt id="S3.ObjectVersion">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ObjectVersion</tt><big>(</big><em>bucket_name</em>, <em>object_key</em>, <em>id</em><big>)</big><a class="headerlink" href="#S3.ObjectVersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>A resource representing an Amazon Simple Storage Service (S3) ObjectVersion:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
 <span class="n">object_version</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">ObjectVersion</span><span class="p">(</span><span class="s1">&#39;bucket_name&#39;</span><span class="p">,</span><span class="s1">&#39;object_key&#39;</span><span class="p">,</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -10665,7 +10702,7 @@ For more information about sub-resources refer to the <em class="xref std std-re
         <li class="right" >
           <a href="index.html" title="Available Services"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 1.1.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.0.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Available Services</a> &raquo;</li> 
       </ul>
     </div>
