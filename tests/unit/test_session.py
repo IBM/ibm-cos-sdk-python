@@ -11,13 +11,13 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-from botocore import loaders
-from botocore.exceptions import DataNotFoundError, UnknownServiceError
-from botocore.client import Config
+from ibm_botocore import loaders
+from ibm_botocore.exceptions import DataNotFoundError, UnknownServiceError
+from ibm_botocore.client import Config
 
-from boto3 import __version__
-from boto3.exceptions import NoVersionFound, ResourceNotExistsError
-from boto3.session import Session
+from ibm_boto3 import __version__
+from ibm_boto3.exceptions import NoVersionFound, ResourceNotExistsError
+from ibm_boto3.session import Session
 from tests import mock, BaseTestCase
 
 
@@ -354,8 +354,8 @@ class TestSession(BaseTestCase):
             session.resource('bad-client')
         err_msg = str(e.exception)
         # Shouldn't mention anything about clients because
-        # 'bad-client' it not a valid boto3.client(...)
-        self.assertNotIn('boto3.client', err_msg)
+        # 'bad-client' it not a valid ibm_boto3.client(...)
+        self.assertNotIn('ibm_boto3.client', err_msg)
 
     def test_can_reach_events(self):
         mock_bc_session = self.bc_session_cls()

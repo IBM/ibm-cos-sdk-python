@@ -10,15 +10,15 @@
 # distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-from botocore.hooks import HierarchicalEmitter
-from botocore.model import ServiceModel
+from ibm_botocore.hooks import HierarchicalEmitter
+from ibm_botocore.model import ServiceModel
 
-from boto3.utils import ServiceContext
-from boto3.resources.collection import CollectionFactory, CollectionManager, \
+from ibm_boto3.utils import ServiceContext
+from ibm_boto3.resources.collection import CollectionFactory, CollectionManager, \
                                        ResourceCollection
-from boto3.resources.base import ResourceMeta
-from boto3.resources.factory import ResourceFactory
-from boto3.resources.model import Collection
+from ibm_boto3.resources.base import ResourceMeta
+from ibm_boto3.resources.factory import ResourceFactory
+from ibm_boto3.resources.model import Collection
 from tests import BaseTestCase, mock
 
 
@@ -88,7 +88,7 @@ class TestCollectionFactory(BaseTestCase):
         # manager can be chained and return a ResourceCollection as well.
         self.assertIsInstance(collection.all().all(), ResourceCollection)
 
-    @mock.patch('boto3.resources.collection.BatchAction')
+    @mock.patch('ibm_boto3.resources.collection.BatchAction')
     def test_create_batch_actions(self, action_mock):
         resource_defs = {
             'Frob': {
@@ -305,7 +305,7 @@ class TestResourceCollection(BaseTestCase):
         self.assertEqual(items[0].id, 'one')
         self.assertEqual(items[1].id, 'two')
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_filters_non_paginated(self, handler):
         self.collection_def = {
             'request': {
@@ -507,7 +507,7 @@ class TestResourceCollection(BaseTestCase):
         self.assertEqual(items[0].id, 'one')
         self.assertEqual(items[1].id, 'two')
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_filters_paginated(self, handler):
         self.client.can_paginate.return_value = True
         self.client.get_paginator.return_value.paginate.return_value = []
@@ -521,7 +521,7 @@ class TestResourceCollection(BaseTestCase):
             PaginationConfig={'PageSize': None, 'MaxItems': 2},
             Param1='foo', Param2=3)
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_filter_does_not_clobber_existing_list_values(self, handler):
         self.collection_def = {
             'request': {
@@ -558,7 +558,7 @@ class TestResourceCollection(BaseTestCase):
             ]
         )
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_page_size_param(self, handler):
         self.client.can_paginate.return_value = True
         self.client.get_paginator.return_value.paginate.return_value = []
@@ -571,7 +571,7 @@ class TestResourceCollection(BaseTestCase):
         paginator.paginate.assert_called_with(
             PaginationConfig={'PageSize': 1, 'MaxItems': None})
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_page_size_method(self, handler):
         self.client.can_paginate.return_value = True
         self.client.get_paginator.return_value.paginate.return_value = []
@@ -618,7 +618,7 @@ class TestResourceCollection(BaseTestCase):
         self.assertEqual(items[2].id, 'three')
         self.assertEqual(items[3].id, 'four')
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_chaining_copies_parameters(self, handler):
         self.client.can_paginate.return_value = True
         self.client.get_paginator.return_value.paginate.return_value = []
@@ -631,7 +631,7 @@ class TestResourceCollection(BaseTestCase):
         paginator.paginate.assert_called_with(
             PaginationConfig={'PageSize': 3, 'MaxItems': 3}, CustomArg=1)
 
-    @mock.patch('boto3.resources.collection.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.collection.ResourceHandler')
     def test_chaining_filters_does_not_clobber_list_values(self, handler):
         self.collection_def = {
             'request': {

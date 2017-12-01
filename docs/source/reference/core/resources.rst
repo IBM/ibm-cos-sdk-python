@@ -7,7 +7,7 @@ Resources Reference
 Resource Model
 --------------
 
-.. automodule:: boto3.resources.model
+.. automodule:: ibm_boto3.resources.model
    :members:
    :undoc-members:
    :inherited-members:
@@ -15,34 +15,34 @@ Resource Model
 Request Parameters
 ------------------
 
-.. automodule:: boto3.resources.params
+.. automodule:: ibm_boto3.resources.params
    :members:
    :undoc-members:
 
 Response Handlers
 -----------------
 
-.. automodule:: boto3.resources.response
+.. automodule:: ibm_boto3.resources.response
    :members:
    :undoc-members:
 
 Resource Actions
 ----------------
 
-.. automodule:: boto3.resources.action
+.. automodule:: ibm_boto3.resources.action
    :members:
    :undoc-members:
 
 Resource Base
 -------------
 
-.. automodule:: boto3.resources.base
+.. automodule:: ibm_boto3.resources.base
    :members:
    :undoc-members:
 
 Resource Factory
 ----------------
 
-.. automodule:: boto3.resources.factory
+.. automodule:: ibm_boto3.resources.factory
    :members:
    :undoc-members:

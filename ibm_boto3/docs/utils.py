@@ -14,7 +14,7 @@ import inspect
 
 import jmespath
 
-from botocore.compat import six
+from ibm_botocore.compat import six
 
 
 def get_resource_ignore_params(params):

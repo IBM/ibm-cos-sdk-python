@@ -19,7 +19,7 @@ uploads/downloads.  It handles several things for the user:
   a file is over a specific size threshold
 * Uploading/downloading a file in parallel
 * Progress callbacks to monitor transfers
-* Retries.  While botocore handles retries for streaming uploads,
+* Retries.  While ibm_botocore handles retries for streaming uploads,
   it is not possible for it to handle retries for streaming
   downloads.  This module handles retries for both cases so
   you don't need to implement any retry logic yourself.
@@ -45,7 +45,7 @@ The simplest way to use this module is:
 
 .. code-block:: python
 
-    client = boto3.client('s3', 'us-west-2')
+    client = ibm_boto3.client('s3', 'us-west-2')
     transfer = S3Transfer(client)
     # Upload /tmp/myfile to s3://bucket/key
     transfer.upload_file('/tmp/myfile', 'bucket', 'key')
@@ -111,7 +111,7 @@ transfer.  For example:
 
 .. code-block:: python
 
-    client = boto3.client('s3', 'us-west-2')
+    client = ibm_boto3.client('s3', 'us-west-2')
     config = TransferConfig(
         multipart_threshold=8 * 1024 * 1024,
         max_concurrency=10,
@@ -122,17 +122,17 @@ transfer.  For example:
 
 
 """
-from botocore.exceptions import ClientError
-from botocore.compat import six
-from s3transfer.exceptions import RetriesExceededError as \
+from ibm_botocore.exceptions import ClientError
+from ibm_botocore.compat import six
+from ibm_s3transfer.exceptions import RetriesExceededError as \
     S3TransferRetriesExceededError
-from s3transfer.manager import TransferConfig as S3TransferConfig
-from s3transfer.manager import TransferManager
-from s3transfer.futures import NonThreadedExecutor
-from s3transfer.subscribers import BaseSubscriber
-from s3transfer.utils import OSUtils
+from ibm_s3transfer.manager import TransferConfig as S3TransferConfig
+from ibm_s3transfer.manager import TransferManager
+from ibm_s3transfer.futures import NonThreadedExecutor
+from ibm_s3transfer.subscribers import BaseSubscriber
+from ibm_s3transfer.utils import OSUtils
 
-from boto3.exceptions import RetriesExceededError, S3UploadFailedError
+from ibm_boto3.exceptions import RetriesExceededError, S3UploadFailedError
 
 
 KB = 1024
@@ -142,16 +142,16 @@ MB = KB * KB
 def create_transfer_manager(client, config, osutil=None):
     """Creates a transfer manager based on configuration
 
-    :type client: boto3.client
+    :type client: ibm_boto3.client
     :param client: The S3 client to use
 
-    :type config: boto3.s3.transfer.TransferConfig
+    :type config: ibm_boto3.s3.transfer.TransferConfig
     :param config: The transfer config to use
 
-    :type osutil: s3transfer.utils.OSUtils
+    :type osutil: ibm_s3transfer.utils.OSUtils
     :param osutil: The os utility to use
 
-    :rtype: s3transfer.manager.TransferManager
+    :rtype: ibm_s3transfer.manager.TransferManager
     :returns: A transfer manager based on parameters provided
     """
     executor_cls = None
@@ -194,9 +194,9 @@ class TransferConfig(S3TransferConfig):
             streaming  down the data from s3 (i.e. socket errors and read
             timeouts that occur after recieving an OK response from s3).
             Other retryable exceptions such as throttling errors and 5xx
-            errors are already retried by botocore (this default is 5). This
+            errors are already retried by ibm_botocore (this default is 5). This
             does not take into account the number of exceptions retried by
-            botocore.
+            ibm_botocore.
 
         :param max_io_queue: The maximum amount of read parts that can be
             queued in memory to be written for a download. The size of each
@@ -241,7 +241,7 @@ class S3Transfer(object):
     def __init__(self, client=None, config=None, osutil=None, manager=None):
         if not client and not manager:
             raise ValueError(
-                'Either a boto3.Client or s3transfer.manager.TransferManager '
+                'Either a ibm_boto3.Client or ibm_s3transfer.manager.TransferManager '
                 'must be provided'
             )
         if manager and any([client, config, osutil]):
@@ -298,9 +298,9 @@ class S3Transfer(object):
         try:
             future.result()
         # This is for backwards compatibility where when retries are
-        # exceeded we need to throw the same error from boto3 instead of
-        # s3transfer's built in RetriesExceededError as current users are
-        # catching the boto3 one instead of the s3transfer exception to do
+        # exceeded we need to throw the same error from ibm_boto3 instead of
+        # ibm_s3transfer's built in RetriesExceededError as current users are
+        # catching the ibm_boto3 one instead of the ibm_s3transfer exception to do
         # their own retries.
         except S3TransferRetriesExceededError as e:
             raise RetriesExceededError(e.last_exception)

@@ -12,18 +12,18 @@
 # language governing permissions and limitations under the License.
 from tests import unittest
 
-import botocore.session
+import ibm_botocore.session
 
 
-from boto3 import utils
-import boto3.session
+from ibm_boto3 import utils
+import ibm_boto3.session
 
 
 class TestUtils(unittest.TestCase):
     def test_runtime_error_raised_when_shadowing_client_method(self):
-        botocore_session = botocore.session.get_session()
-        session = boto3.session.Session(region_name='us-west-2',
-                                        botocore_session=botocore_session)
+        botocore_session = ibm_botocore.session.get_session()
+        session = ibm_boto3.session.Session(region_name='us-west-2',
+                                            botocore_session=botocore_session)
 
         def shadows_put_object(class_attributes, **kwargs):
             utils.inject_attribute(class_attributes, 'put_object', 'invalid')

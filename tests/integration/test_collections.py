@@ -11,9 +11,9 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-import boto3.session
+import ibm_boto3.session
 
-from boto3.resources.collection import CollectionManager
+from ibm_boto3.resources.collection import CollectionManager
 
 
 # A map of services to regions that cannot use us-west-2
@@ -32,7 +32,7 @@ def test_all_collections():
     # This generator yields test functions for every collection
     # on every available resource, except those which have
     # been blacklisted.
-    session = boto3.session.Session()
+    session = ibm_boto3.session.Session()
     for service_name in session.get_available_resources():
         resource = session.resource(
             service_name,

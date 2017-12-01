@@ -15,6 +15,13 @@ For release notes, see the [CHANGELOG](CHANGELOG.md).
 * [Building from source](#building-from-source)
 * [Getting help](#getting-help)
 
+## Migrating from 1.x.x
+The 2.0 release of the SDK introduces a namespacing change that allows an application to make use of the original `boto3` library to connect to AWS resources within the same application or environment.  To migrate from 1.x to 2.0 some changes are necessary.
+
+  1. Update the `requirements.txt`, or from PyPI via `pip install -U ibm-cos-sdk`.  Verify no older versions exist with `pip list | grep ibm-cos`.
+  2. Update any import declarations from `boto3` to `ibm_boto3`.
+  3. If access to AWS APIs is needed, reinstall the original `boto3` by updating the `requirements.txt`, or from PyPI via `pip install boto3`.
+
 ## Quick start
 
 You'll need:
@@ -38,8 +45,8 @@ $ pip install ibm-cos-sdk
 Create a file `BucketList.py`, replacing your own values for API key, instance ID, and bucket name:
 
 ```python
-import boto3
-from botocore.client import Config
+import ibm_boto3
+from ibm_botocore.client import Config
 
 api_key = 'API_KEY'
 service_instance_id = 'RESOURCE_INSTANCE_ID'
@@ -49,7 +56,7 @@ service_endpoint = 'https://s3-api.us-geo.objectstorage.softlayer.net'
 new_bucket = 'NewBucket'
 new_cold_bucket = 'NewColdBucket'
 
-cos = boto3.resource('s3',
+cos = ibm_boto3.resource('s3',
                       ibm_api_key_id=api_key,
                       ibm_service_instance_id=service_instance_id,
                       ibm_auth_endpoint=auth_endpoint,

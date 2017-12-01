@@ -10,18 +10,18 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-from botocore.docs.client import ClientDocumenter
+from ibm_botocore.docs.client import ClientDocumenter
 
 
 class Boto3ClientDocumenter(ClientDocumenter):
     def _add_client_creation_example(self, section):
         section.style.start_codeblock()
         section.style.new_line()
-        section.write('import boto3')
+        section.write('import ibm_boto3')
         section.style.new_line()
         section.style.new_line()
         section.write(
-            'client = boto3.client(\'{service}\')'.format(
+            'client = ibm_boto3.client(\'{service}\')'.format(
                 service=self._service_name)
         )
         section.style.end_codeblock()

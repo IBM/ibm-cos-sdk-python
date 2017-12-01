@@ -4,6 +4,6 @@
 Session Reference
 =================
 
-.. automodule:: boto3.session
+.. automodule:: ibm_boto3.session
    :members:
    :undoc-members:

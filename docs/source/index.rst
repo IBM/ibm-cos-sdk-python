@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-ibm-cos-sdk Documentation
-====================
-ibm-cos-sdk is the IBM COS SDK for Python, which allows Python
-developers to write software that makes use of IBM's COS service.
+IBM COS SDK for Python Documentation
+===============================
+`ibm_boto3` is the IBM COS SDK for Python, which allows Python
+developers to write software that makes use of IBM's COS service.  It is a fork of the `boto3` library that has been adapted to use IBM Cloud IAM for authentication in addition to HMAC signatures (ie AWS V4 authorization headers).
 
-ibm-cos-sdk provides an easy to use, object-oriented API as well as low-level
+`ibm_boto3` provides an easy to use, object-oriented API as well as low-level
 direct service access.
 
 

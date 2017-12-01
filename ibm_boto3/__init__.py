@@ -13,11 +13,11 @@
 
 import logging
 
-from boto3.session import Session
+from ibm_boto3.session import Session
 
 
 __author__ = 'IBM'
-__version__ = '1.1.1.dev1'
+__version__ = '2.0.0'
 
 
 # The default Boto3 session; autoloaded when needed.
@@ -34,13 +34,13 @@ def setup_default_session(**kwargs):
     DEFAULT_SESSION = Session(**kwargs)
 
 
-def set_stream_logger(name='boto3', level=logging.DEBUG, format_string=None):
+def set_stream_logger(name='ibm_boto3', level=logging.DEBUG, format_string=None):
     """
     Add a stream handler for the given name and level to the logging module.
-    By default, this logs all boto3 messages to ``stdout``.
+    By default, this logs all ibm_boto3 messages to ``stdout``.
 
-        >>> import boto3
-        >>> boto3.set_stream_logger('boto3.resources', logging.INFO)
+        >>> import ibm_boto3
+        >>> ibm_boto3.set_stream_logger('ibm_boto3.resources', logging.INFO)
 
     :type name: string
     :param name: Log name
@@ -99,4 +99,4 @@ class NullHandler(logging.Handler):
         pass
 
 
-logging.getLogger('boto3').addHandler(NullHandler())
+logging.getLogger('ibm_boto3').addHandler(NullHandler())

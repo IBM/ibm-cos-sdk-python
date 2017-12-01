@@ -10,10 +10,10 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-import boto3
-from boto3.exceptions import ResourceNotExistsError
+import ibm_boto3
+from ibm_boto3.exceptions import ResourceNotExistsError
 
-import botocore.session
+import ibm_botocore.session
 from tests import unittest
 
 
@@ -23,7 +23,7 @@ def identity(self, x):
 
 class TestResourceCustomization(unittest.TestCase):
     def setUp(self):
-        self.botocore_session = botocore.session.get_session()
+        self.botocore_session = ibm_botocore.session.get_session()
 
     def add_new_method(self, name):
         def handler(class_attributes, **kwargs):
@@ -31,7 +31,7 @@ class TestResourceCustomization(unittest.TestCase):
         return handler
 
     def test_can_inject_method_onto_resource(self):
-        session = boto3.Session(botocore_session=self.botocore_session)
+        session = ibm_boto3.Session(botocore_session=self.botocore_session)
         self.botocore_session.register('creating-resource-class.s3',
                                        self.add_new_method(name='my_method'))
         resource = session.resource('s3')
@@ -46,10 +46,10 @@ class TestSessionErrorMessages(unittest.TestCase):
             '%s.*resource does not exist.' % bad_resource_name
         )
         with self.assertRaisesRegexp(ResourceNotExistsError, err_regex):
-            boto3.resource(bad_resource_name)
+            ibm_boto3.resource(bad_resource_name)
 
 
 class TestGetAvailableSubresources(unittest.TestCase):
     def test_s3_available_subresources_exists(self):
-        s3 = boto3.resource('s3')
+        s3 = ibm_boto3.resource('s3')
         self.assertTrue(hasattr(s3, 'get_available_subresources'))

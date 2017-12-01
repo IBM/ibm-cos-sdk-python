@@ -12,8 +12,8 @@
 # language governing permissions and limitations under the License.
 from nose.tools import assert_true
 
-from boto3.session import Session
-import botocore.session
+from ibm_boto3.session import Session
+import ibm_botocore.session
 
 
 def create_session():
@@ -49,7 +49,7 @@ def _test_create_client(session, service_name):
 
 
 def test_api_versions_synced_with_botocore():
-    botocore_session = botocore.session.get_session()
+    botocore_session = ibm_botocore.session.get_session()
     boto3_session = create_session()
     for service_name in boto3_session.get_available_resources():
         yield (_assert_same_api_versions, service_name,
@@ -67,6 +67,6 @@ def _assert_same_api_versions(service_name, botocore_session, boto3_session):
     if botocore_api_version != boto3_api_version:
         raise AssertionError(
             "Different latest API versions found for %s: "
-            "%s (botocore), %s (boto3)\n" % (service_name,
+            "%s (ibm_botocore), %s (boto3)\n" % (service_name,
                                              botocore_api_version,
                                              boto3_api_version))

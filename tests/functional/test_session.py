@@ -12,12 +12,12 @@
 # language governing permissions and limitations under the License.
 from tests import unittest
 
-import boto3.session
+import ibm_boto3.session
 
 
 class TestSession(unittest.TestCase):
     def setUp(self):
-        self.session = boto3.session.Session(region_name='us-west-2')
+        self.session = ibm_boto3.session.Session(region_name='us-west-2')
 
     def test_events_attribute(self):
         # Create some function to register.
@@ -34,7 +34,7 @@ class TestSession(unittest.TestCase):
         self.assertEqual(initial_list, ['my_handler called'])
 
     def test_can_access_region_property(self):
-        session = boto3.session.Session(region_name='us-west-1')
+        session = ibm_boto3.session.Session(region_name='us-west-1')
         self.assertEqual(session.region_name, 'us-west-1')
 
     def test_get_available_partitions(self):

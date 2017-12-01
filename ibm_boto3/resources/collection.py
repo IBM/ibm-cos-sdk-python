@@ -14,8 +14,8 @@
 import copy
 import logging
 
-from botocore import xform_name
-from botocore.utils import merge_dicts
+from ibm_botocore import xform_name
+from ibm_botocore.utils import merge_dicts
 
 from .action import BatchAction
 from .params import create_request_parameters
@@ -226,7 +226,7 @@ class ResourceCollection(object):
         """
         Fetch at most this many resources per service request.
 
-            >>> for obj in s3.Bucket('boto3').objects.page_size(100):
+            >>> for obj in s3.Bucket(ibm_boto3).objects.page_size(100):
             ...     print(obj.key)
 
         :type count: int
@@ -356,7 +356,7 @@ class CollectionFactory(object):
         :type service_context: :py:class:`~boto3.utils.ServiceContext`
         :param service_context: Context about the AWS service
 
-        :type event_emitter: :py:class:`~botocore.hooks.HierarchialEmitter`
+        :type event_emitter: :py:class:`~ibm_botocore.hooks.HierarchialEmitter`
         :param event_emitter: An event emitter
 
         :rtype: Subclass of :py:class:`CollectionManager`

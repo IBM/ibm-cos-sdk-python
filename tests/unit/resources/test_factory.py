@@ -10,15 +10,15 @@
 # distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-from botocore.model import DenormalizedStructureBuilder, ServiceModel
+from ibm_botocore.model import DenormalizedStructureBuilder, ServiceModel
 from tests import BaseTestCase, mock
 
-from boto3.exceptions import ResourceLoadException
-from boto3.utils import ServiceContext
-from boto3.resources.base import ServiceResource
-from boto3.resources.collection import CollectionManager
-from boto3.resources.factory import ResourceFactory
-from boto3.resources.action import WaiterAction
+from ibm_boto3.exceptions import ResourceLoadException
+from ibm_boto3.utils import ServiceContext
+from ibm_boto3.resources.base import ServiceResource
+from ibm_boto3.resources.collection import CollectionManager
+from ibm_boto3.resources.factory import ResourceFactory
+from ibm_boto3.resources.action import WaiterAction
 
 
 class BaseTestResourceFactory(BaseTestCase):
@@ -295,7 +295,7 @@ class TestResourceFactory(BaseTestResourceFactory):
         self.assertEqual(repr(queue.meta),
                          'ResourceMeta(\'test\', identifiers=[])')
 
-    @mock.patch('boto3.resources.factory.ServiceAction')
+    @mock.patch('ibm_boto3.resources.factory.ServiceAction')
     def test_resource_calls_action(self, action_cls):
         model = {
             'actions': {
@@ -314,7 +314,7 @@ class TestResourceFactory(BaseTestResourceFactory):
 
         action.assert_called_with(queue, 'arg1', arg2=2)
 
-    @mock.patch('boto3.resources.factory.ServiceAction')
+    @mock.patch('ibm_boto3.resources.factory.ServiceAction')
     def test_resource_action_clears_data(self, action_cls):
         model = {
             'load': {
@@ -342,7 +342,7 @@ class TestResourceFactory(BaseTestResourceFactory):
         # Cached data should be cleared
         self.assertIsNone(queue.meta.data)
 
-    @mock.patch('boto3.resources.factory.ServiceAction')
+    @mock.patch('ibm_boto3.resources.factory.ServiceAction')
     def test_resource_action_leaves_data(self, action_cls):
         # This model has NO load method. Cached data should
         # never be cleared since it cannot be reloaded!
@@ -367,7 +367,7 @@ class TestResourceFactory(BaseTestResourceFactory):
         # Cached data should not be cleared
         self.assertEqual(queue.meta.data, {'some': 'data'})
 
-    @mock.patch('boto3.resources.factory.ServiceAction')
+    @mock.patch('ibm_boto3.resources.factory.ServiceAction')
     def test_resource_lazy_loads_properties(self, action_cls):
         model = {
             'shape': 'TestShape',
@@ -423,7 +423,7 @@ class TestResourceFactory(BaseTestResourceFactory):
             'LastModified property returned wrong value')
         self.assertEqual(action.call_count, 1)
 
-    @mock.patch('boto3.resources.factory.ServiceAction')
+    @mock.patch('ibm_boto3.resources.factory.ServiceAction')
     def test_resource_lazy_properties_missing_load(self, action_cls):
         model = {
             'shape': 'TestShape',
@@ -456,7 +456,7 @@ class TestResourceFactory(BaseTestResourceFactory):
         with self.assertRaises(ResourceLoadException):
             resource.last_modified
 
-    @mock.patch('boto3.resources.factory.ServiceAction')
+    @mock.patch('ibm_boto3.resources.factory.ServiceAction')
     def test_resource_aliases_identifiers(self, action_cls):
         model = {
             'shape': 'TestShape',
@@ -566,7 +566,7 @@ class TestResourceFactory(BaseTestResourceFactory):
         self.assertEqual(vpcs[0].id, 'vpc1')
         self.assertEqual(vpcs[1].id, 'vpc2')
 
-    @mock.patch('boto3.resources.model.Collection')
+    @mock.patch('ibm_boto3.resources.model.Collection')
     def test_resource_loads_collections(self, mock_model):
         model = {
             'hasMany': {
@@ -615,7 +615,7 @@ class TestResourceFactory(BaseTestResourceFactory):
         self.assertTrue(hasattr(resource, 'wait_until_exists'),
             'Resource should expose resource waiter: wait_until_exists')
 
-    @mock.patch('boto3.resources.factory.WaiterAction')
+    @mock.patch('ibm_boto3.resources.factory.WaiterAction')
     def test_resource_waiter_calls_waiter_method(self, waiter_action_cls):
         model = {
             "waiters": {

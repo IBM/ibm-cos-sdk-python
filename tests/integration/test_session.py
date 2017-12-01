@@ -11,15 +11,15 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 from tests import unittest, unique_id
-import botocore.session
+import ibm_botocore.session
 
-import boto3.session
+import ibm_boto3.session
 
 
 class TestUserAgentCustomizations(unittest.TestCase):
     def setUp(self):
-        self.botocore_session = botocore.session.get_session()
-        self.session = boto3.session.Session(
+        self.botocore_session = ibm_botocore.session.get_session()
+        self.session = ibm_boto3.session.Session(
             region_name='us-west-2', botocore_session=self.botocore_session)
         self.actual_user_agent = None
         self.botocore_session.register('request-created',

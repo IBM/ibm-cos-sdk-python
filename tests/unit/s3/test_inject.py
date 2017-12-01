@@ -12,10 +12,10 @@
 # language governing permissions and limitations under the License.
 import mock
 
-from botocore.exceptions import ClientError
-from botocore.compat import six
+from ibm_botocore.exceptions import ClientError
+from ibm_botocore.compat import six
 
-from boto3.s3 import inject
+from ibm_boto3.s3 import inject
 from tests import unittest
 
 
@@ -27,7 +27,7 @@ class TestInjectTransferMethods(unittest.TestCase):
         self.assertIn('download_file', class_attributes)
 
     def test_upload_file_proxies_to_transfer_object(self):
-        with mock.patch('boto3.s3.inject.S3Transfer') as transfer:
+        with mock.patch('ibm_boto3.s3.inject.S3Transfer') as transfer:
             inject.upload_file(mock.sentinel.CLIENT,
                                Filename='filename',
                                Bucket='bucket', Key='key')
@@ -38,7 +38,7 @@ class TestInjectTransferMethods(unittest.TestCase):
                 extra_args=None, callback=None)
 
     def test_download_file_proxies_to_transfer_object(self):
-        with mock.patch('boto3.s3.inject.S3Transfer') as transfer:
+        with mock.patch('ibm_boto3.s3.inject.S3Transfer') as transfer:
             inject.download_file(
                 mock.sentinel.CLIENT,
                 Bucket='bucket', Key='key',

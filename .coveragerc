@@ -1,4 +1,4 @@
 [run]
 branch = True
 include =
-    boto3/*
+    ibm_boto3/*

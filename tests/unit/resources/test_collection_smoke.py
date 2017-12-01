@@ -10,12 +10,12 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-import botocore.session
-from botocore import xform_name
+import ibm_botocore.session
+from ibm_botocore import xform_name
 from nose.tools import assert_false
 
-from boto3.session import Session
-from boto3.resources.model import ResourceModel
+from ibm_boto3.session import Session
+from ibm_boto3.resources.model import ResourceModel
 
 
 # A list of names that are common names of a pagination parameter.
@@ -35,7 +35,7 @@ COMMON_PAGINATION_PARAM_NAMES = [
 def operation_looks_paginated(operation_model):
     """Checks whether an operation looks like it can be paginated
 
-    :type operation_model: botocore.model.OperationModel
+    :type operation_model: ibm_botocore.model.OperationModel
     :param operation_model: The model for a particular operation
 
     :returns: True if determines it can be paginated. False otherwise.
@@ -70,7 +70,7 @@ def test_all_collections_have_paginators_if_needed():
     # make it through the first page of results. So we need to make sure
     # if a collection looks like it uses a paginated operation then there
     # should be a paginator applied to it.
-    botocore_session = botocore.session.get_session()
+    botocore_session = ibm_botocore.session.get_session()
     session = Session(botocore_session=botocore_session)
     loader = botocore_session.get_component('data_loader')
     for service_name in session.get_available_resources():

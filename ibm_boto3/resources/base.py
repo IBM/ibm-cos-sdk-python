@@ -13,7 +13,7 @@
 
 import logging
 
-import boto3
+import ibm_boto3
 
 
 logger = logging.getLogger(__name__)
@@ -33,7 +33,7 @@ class ResourceMeta(object):
         #: (``list``) List of identifier names
         self.identifiers = identifiers
 
-        #: (:py:class:`~botocore.client.BaseClient`) Low-level Botocore client
+        #: (:py:class:`~ibm_botocore.client.BaseClient`) Low-level Botocore client
         self.client = client
         #: (``dict``) Loaded resource data attributes
         self.data = data
@@ -65,7 +65,7 @@ class ServiceResource(object):
     """
     A base class for resources.
 
-    :type client: botocore.client
+    :type client: ibm_botocore.client
     :param client: A low-level Botocore client instance
     """
 
@@ -94,7 +94,7 @@ class ServiceResource(object):
         if kwargs.get('client') is not None:
             self.meta.client = kwargs.get('client')
         else:
-            self.meta.client = boto3.client(self.meta.service_name)
+            self.meta.client = ibm_boto3.client(self.meta.service_name)
 
         # Allow setting identifiers as positional arguments in the order
         # in which they were defined in the ResourceJSON.

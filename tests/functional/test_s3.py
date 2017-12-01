@@ -12,17 +12,17 @@
 # language governing permissions and limitations under the License.
 from tests import unittest
 
-import botocore.stub
-from botocore.stub import Stubber
-from botocore.compat import six
+import ibm_botocore.stub
+from ibm_botocore.stub import Stubber
+from ibm_botocore.compat import six
 
-import boto3.session
-from boto3.s3.transfer import TransferConfig
+import ibm_boto3.session
+from ibm_boto3.s3.transfer import TransferConfig
 
 
 class TestS3MethodInjection(unittest.TestCase):
     def test_transfer_methods_injected_to_client(self):
-        session = boto3.session.Session(region_name='us-west-2')
+        session = ibm_boto3.session.Session(region_name='us-west-2')
         client = session.client('s3')
         self.assertTrue(hasattr(client, 'upload_file'),
                         'upload_file was not injected onto S3 client')
@@ -32,13 +32,13 @@ class TestS3MethodInjection(unittest.TestCase):
                         'copy was not injected onto S3 client')
 
     def test_bucket_resource_has_load_method(self):
-        session = boto3.session.Session(region_name='us-west-2')
+        session = ibm_boto3.session.Session(region_name='us-west-2')
         bucket = session.resource('s3').Bucket('fakebucket')
         self.assertTrue(hasattr(bucket, 'load'),
                         'load() was not injected onto S3 Bucket resource.')
 
     def test_transfer_methods_injected_to_bucket(self):
-        bucket = boto3.resource('s3').Bucket('my_bucket')
+        bucket = ibm_boto3.resource('s3').Bucket('my_bucket')
         self.assertTrue(hasattr(bucket, 'upload_file'),
                         'upload_file was not injected onto S3 bucket')
         self.assertTrue(hasattr(bucket, 'download_file'),
@@ -47,7 +47,7 @@ class TestS3MethodInjection(unittest.TestCase):
                         'copy was not injected onto S3 bucket')
 
     def test_transfer_methods_injected_to_object(self):
-        obj = boto3.resource('s3').Object('my_bucket', 'my_key')
+        obj = ibm_boto3.resource('s3').Object('my_bucket', 'my_key')
         self.assertTrue(hasattr(obj, 'upload_file'),
                         'upload_file was not injected onto S3 object')
         self.assertTrue(hasattr(obj, 'download_file'),
@@ -58,7 +58,7 @@ class TestS3MethodInjection(unittest.TestCase):
 
 class BaseTransferTest(unittest.TestCase):
     def setUp(self):
-        self.session = boto3.session.Session(
+        self.session = ibm_boto3.session.Session(
             aws_access_key_id='foo', aws_secret_access_key='bar',
             region_name='us-west-2')
         self.s3 = self.session.resource('s3')
@@ -260,7 +260,7 @@ class TestUploadFileobj(BaseTransferTest):
         expected_params = {
             "Bucket": self.bucket,
             "Key": self.key,
-            "Body": botocore.stub.ANY
+            "Body": ibm_botocore.stub.ANY
         }
         self.stubber.add_response(
             method='put_object', service_response=put_object_response,
@@ -276,7 +276,7 @@ class TestUploadFileobj(BaseTransferTest):
         expected_params = {
             "Bucket": self.bucket,
             "Key": self.key,
-            "Body": botocore.stub.ANY,
+            "Body": ibm_botocore.stub.ANY,
             "PartNumber": part_number,
             "UploadId": self.upload_id
         }
@@ -494,7 +494,7 @@ class TestDownloadFileobj(BaseTransferTest):
 
 class TestS3ObjectSummary(unittest.TestCase):
     def setUp(self):
-        self.session = boto3.session.Session(
+        self.session = ibm_boto3.session.Session(
             aws_access_key_id='foo', aws_secret_access_key='bar',
             region_name='us-west-2')
         self.s3 = self.session.resource('s3')

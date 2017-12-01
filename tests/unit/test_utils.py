@@ -14,7 +14,7 @@ import types
 from tests import unittest
 import mock
 
-from boto3 import utils
+from ibm_boto3 import utils
 
 
 class FakeModule(object):
@@ -25,15 +25,15 @@ class FakeModule(object):
 
 class TestUtils(unittest.TestCase):
     def test_lazy_call(self):
-        with mock.patch('boto3.utils.import_module') as importer:
+        with mock.patch('ibm_boto3.utils.import_module') as importer:
             importer.return_value = FakeModule
             lazy_function = utils.lazy_call(
                 'fakemodule.FakeModule.entry_point')
             self.assertEqual(lazy_function(a=1, b=2), {'a': 1, 'b': 2})
 
     def test_import_module(self):
-        module = utils.import_module('boto3.s3.transfer')
-        self.assertEqual(module.__name__, 'boto3.s3.transfer')
+        module = utils.import_module('ibm_boto3.s3.transfer')
+        self.assertEqual(module.__name__, 'ibm_boto3.s3.transfer')
         self.assertIsInstance(module, types.ModuleType)
 
     def test_inject_attributes_with_no_shadowing(self):

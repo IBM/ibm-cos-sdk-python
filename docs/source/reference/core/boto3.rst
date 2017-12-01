@@ -4,6 +4,6 @@
 ibm-cos-sdk Reference
 ===============
 
-.. automodule:: boto3
+.. automodule:: ibm_boto3
    :members:
    :undoc-members:

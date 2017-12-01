@@ -12,11 +12,11 @@
 # language governing permissions and limitations under the License.
 
 from tests import BaseTestCase, mock
-from boto3.utils import ServiceContext
-from boto3.resources.base import ResourceMeta, ServiceResource
-from boto3.resources.model import ResponseResource, Parameter
-from boto3.resources.factory import ResourceFactory
-from boto3.resources.response import build_identifiers, build_empty_response,\
+from ibm_boto3.utils import ServiceContext
+from ibm_boto3.resources.base import ResourceMeta, ServiceResource
+from ibm_boto3.resources.model import ResponseResource, Parameter
+from ibm_boto3.resources.factory import ResourceFactory
+from ibm_boto3.resources.response import build_identifiers, build_empty_response,\
                                      RawHandler, ResourceHandler
 
 
@@ -370,7 +370,7 @@ class TestResourceHandler(BaseTestCase):
         self.assertIsInstance(resource, ServiceResource,
             'No resource instance returned from handler')
 
-    @mock.patch('boto3.resources.response.build_empty_response')
+    @mock.patch('ibm_boto3.resources.response.build_empty_response')
     def test_missing_data_scalar_builds_empty_response(self, build_mock):
         self.identifier_path = 'Container.Id'
         search_path = 'Container'
@@ -431,7 +431,7 @@ class TestResourceHandler(BaseTestCase):
         self.assertIsInstance(resources[0], ServiceResource,
             'List items are not resource instances')
 
-    @mock.patch('boto3.resources.response.build_empty_response')
+    @mock.patch('ibm_boto3.resources.response.build_empty_response')
     def test_missing_data_list_builds_empty_response(self, build_mock):
         self.identifier_path = 'Container.Frobs[].Id'
         search_path = 'Container.Frobs[]'

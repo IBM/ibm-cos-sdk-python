@@ -11,9 +11,9 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-from botocore.model import DenormalizedStructureBuilder
+from ibm_botocore.model import DenormalizedStructureBuilder
 
-from boto3.resources.model import ResourceModel, Action, Collection, Waiter
+from ibm_boto3.resources.model import ResourceModel, Action, Collection, Waiter
 from tests import BaseTestCase
 
 

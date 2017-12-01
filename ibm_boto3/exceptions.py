@@ -12,7 +12,7 @@
 # language governing permissions and limitations under the License.
 
 # All exceptions in this class should subclass from Boto3Error.
-import botocore.exceptions
+import ibm_botocore.exceptions
 
 
 # All exceptions should subclass from Boto3Error in this module.
@@ -30,13 +30,13 @@ class NoVersionFound(Boto3Error):
     pass
 
 
-# We're subclassing from botocore.exceptions.DataNotFoundError
+# We're subclassing from ibm_botocore.exceptions.DataNotFoundError
 # to keep backwards compatibility with anyone that was catching
 # this low level Botocore error before this exception was
-# introduced in boto3.
+# introduced in ibm_boto3.
 # Same thing for ResourceNotExistsError below.
 class UnknownAPIVersionError(Boto3Error,
-                             botocore.exceptions.DataNotFoundError):
+                             ibm_botocore.exceptions.DataNotFoundError):
     def __init__(self, service_name, bad_api_version,
                  available_api_versions):
         msg = (
@@ -50,7 +50,7 @@ class UnknownAPIVersionError(Boto3Error,
 
 
 class ResourceNotExistsError(Boto3Error,
-                             botocore.exceptions.DataNotFoundError):
+                             ibm_botocore.exceptions.DataNotFoundError):
     """Raised when you attempt to create a resource that does not exist."""
     def __init__(self, service_name, available_services, has_low_level_client):
         msg = (
@@ -60,7 +60,7 @@ class ResourceNotExistsError(Boto3Error,
         )
         if has_low_level_client:
             msg += (
-                "\nConsider using a boto3.client('%s') instead "
+                "\nConsider using a ibm_boto3.client('%s') instead "
                 "of a resource for '%s'" % (service_name, service_name))
         # Not using super because we don't want the DataNotFoundError
         # to be called, it has a different __init__ signature.

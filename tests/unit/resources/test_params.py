@@ -11,10 +11,10 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-from boto3.exceptions import ResourceLoadException
-from boto3.resources.base import ResourceMeta, ServiceResource
-from boto3.resources.model import Request
-from boto3.resources.params import create_request_parameters, \
+from ibm_boto3.exceptions import ResourceLoadException
+from ibm_boto3.resources.base import ResourceMeta, ServiceResource
+from ibm_boto3.resources.model import Request
+from ibm_boto3.resources.params import create_request_parameters, \
                                    build_param_structure
 from tests import BaseTestCase, mock
 

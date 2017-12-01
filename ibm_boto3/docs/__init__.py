@@ -12,11 +12,11 @@
 # language governing permissions and limitations under the License.
 import os
 
-from boto3.docs.service import ServiceDocumenter
+from ibm_boto3.docs.service import ServiceDocumenter
 
 
 def generate_docs(root_dir, session):
-    """Generates the reference documentation for botocore
+    """Generates the reference documentation for ibm_botocore
 
     This will go through every available AWS service and output ReSTructured
     text files documenting each service.
@@ -25,7 +25,7 @@ def generate_docs(root_dir, session):
         service's reference documentation is loacated at
         root_dir/reference/services/service-name.rst
 
-    :param session: The boto3 session
+    :param session: The ibm_boto3 session
     """
     services_doc_path = os.path.join(root_dir, 'reference', 'services')
     if not os.path.exists(services_doc_path):

@@ -11,10 +11,10 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 
-from boto3.utils import ServiceContext
-from boto3.resources.action import BatchAction, ServiceAction, WaiterAction
-from boto3.resources.base import ResourceMeta
-from boto3.resources.model import Action, Waiter
+from ibm_boto3.utils import ServiceContext
+from ibm_boto3.resources.action import BatchAction, ServiceAction, WaiterAction
+from ibm_boto3.resources.base import ResourceMeta
+from ibm_boto3.resources.model import Action, Waiter
 from tests import BaseTestCase, mock
 
 
@@ -33,7 +33,7 @@ class TestServiceActionCall(BaseTestCase):
     def action(self):
         return Action('test', self.action_def, {})
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={})
     def test_service_action_creates_params(self, params_mock):
         resource = mock.Mock()
@@ -46,7 +46,7 @@ class TestServiceActionCall(BaseTestCase):
         self.assertTrue(params_mock.called,
             'Parameters for operation not created')
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={'bar': 'baz'})
     def test_service_action_calls_operation(self, params_mock):
         resource = mock.Mock()
@@ -62,9 +62,9 @@ class TestServiceActionCall(BaseTestCase):
         self.assertEqual(response, 'response',
             'Unexpected low-level response data returned')
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={})
-    @mock.patch('boto3.resources.action.RawHandler')
+    @mock.patch('ibm_boto3.resources.action.RawHandler')
     def test_service_action_calls_raw_handler(self, handler_mock, params_mock):
         resource = mock.Mock()
         resource.meta = ResourceMeta('test', client=mock.Mock())
@@ -80,9 +80,9 @@ class TestServiceActionCall(BaseTestCase):
         handler_mock.assert_called_with(None)
         handler_mock.return_value.assert_called_with(resource, {}, 'response')
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={})
-    @mock.patch('boto3.resources.action.ResourceHandler')
+    @mock.patch('ibm_boto3.resources.action.ResourceHandler')
     def test_service_action_calls_resource_handler(self, handler_mock, params_mock):
         self.action_def['resource'] = {
             'type': 'Frob',
@@ -139,7 +139,7 @@ class TestWaiterActionCall(BaseTestCase):
     def waiter(self):
         return Waiter('test', self.waiter_def)
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={})
     def test_service_waiter_creates_params(self, params_mock):
         resource = mock.Mock()
@@ -152,7 +152,7 @@ class TestWaiterActionCall(BaseTestCase):
         self.assertTrue(params_mock.called,
             'Parameters for operation not created')
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={'bar': 'baz'})
     def test_service_action_calls_operation(self, params_mock):
         resource = mock.Mock()
@@ -227,7 +227,7 @@ class TestBatchActionCall(BaseTestCase):
             ]
         })
 
-    @mock.patch('boto3.resources.action.create_request_parameters',
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters',
                 return_value={})
     def test_batch_action_skips_operation(self, crp_mock):
         # In this test we have an item from the collection, but no
@@ -248,7 +248,7 @@ class TestBatchActionCall(BaseTestCase):
         crp_mock.assert_called_with(item, model.request, params={}, index=0)
         client.get_frobs.assert_not_called()
 
-    @mock.patch('boto3.resources.action.create_request_parameters')
+    @mock.patch('ibm_boto3.resources.action.create_request_parameters')
     def test_batch_action_calls_operation(self, crp_mock):
         # In this test we have an item and parameters, so the call
         # to the batch operation should be made.

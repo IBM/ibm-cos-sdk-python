@@ -13,15 +13,15 @@
 from tests import unittest
 
 import mock
-from s3transfer.manager import TransferManager
-from s3transfer.futures import NonThreadedExecutor
+from ibm_s3transfer.manager import TransferManager
+from ibm_s3transfer.futures import NonThreadedExecutor
 
-from boto3.exceptions import RetriesExceededError
-from boto3.exceptions import S3UploadFailedError
-from boto3.s3.transfer import create_transfer_manager
-from boto3.s3.transfer import S3Transfer
-from boto3.s3.transfer import OSUtils, TransferConfig, ProgressCallbackInvoker
-from boto3.s3.transfer import ClientError, S3TransferRetriesExceededError
+from ibm_boto3.exceptions import RetriesExceededError
+from ibm_boto3.exceptions import S3UploadFailedError
+from ibm_boto3.s3.transfer import create_transfer_manager
+from ibm_boto3.s3.transfer import S3Transfer
+from ibm_boto3.s3.transfer import OSUtils, TransferConfig, ProgressCallbackInvoker
+from ibm_boto3.s3.transfer import ClientError, S3TransferRetriesExceededError
 
 
 class TestCreateTransferManager(unittest.TestCase):
@@ -29,7 +29,7 @@ class TestCreateTransferManager(unittest.TestCase):
         client = object()
         config = TransferConfig()
         osutil = OSUtils()
-        with mock.patch('boto3.s3.transfer.TransferManager') as manager:
+        with mock.patch('ibm_boto3.s3.transfer.TransferManager') as manager:
             create_transfer_manager(client, config, osutil)
             self.assertEqual(
                 manager.call_args,
@@ -41,7 +41,7 @@ class TestCreateTransferManager(unittest.TestCase):
         config = TransferConfig()
         config.use_threads = False
         with mock.patch(
-                'boto3.s3.transfer.TransferManager') as manager:
+                'ibm_boto3.s3.transfer.TransferManager') as manager:
             create_transfer_manager(client, config)
             self.assertEqual(
                 manager.call_args,

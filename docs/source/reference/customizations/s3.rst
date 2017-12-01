@@ -16,10 +16,10 @@ S3 Transfers
    be introduced from version to version of the library.
 
 
-.. autoclass:: boto3.s3.transfer.TransferConfig
+.. autoclass:: ibm_boto3.s3.transfer.TransferConfig
    :members:
    :undoc-members:
 
-.. autoclass:: boto3.s3.transfer.S3Transfer
+.. autoclass:: ibm_boto3.s3.transfer.S3Transfer
    :members:
    :undoc-members:

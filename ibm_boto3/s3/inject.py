@@ -10,12 +10,12 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-from botocore.exceptions import ClientError
+from ibm_botocore.exceptions import ClientError
 
-from boto3.s3.transfer import create_transfer_manager
-from boto3.s3.transfer import TransferConfig, S3Transfer
-from boto3.s3.transfer import ProgressCallbackInvoker
-from boto3 import utils
+from ibm_boto3.s3.transfer import create_transfer_manager
+from ibm_boto3.s3.transfer import TransferConfig, S3Transfer
+from ibm_boto3.s3.transfer import ProgressCallbackInvoker
+from ibm_boto3 import utils
 
 
 def inject_s3_transfer_methods(class_attributes, **kwargs):
@@ -92,8 +92,8 @@ def upload_file(self, Filename, Bucket, Key, ExtraArgs=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         s3.meta.client.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
 
     Similar behavior as S3Transfer's upload_file() method,
@@ -112,8 +112,8 @@ def download_file(self, Bucket, Key, Filename, ExtraArgs=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         s3.meta.client.download_file('mybucket', 'hello.txt', '/tmp/hello.txt')
 
     Similar behavior as S3Transfer's download_file() method,
@@ -132,8 +132,8 @@ def bucket_upload_file(self, Filename, Key,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         s3.Bucket('mybucket').upload_file('/tmp/hello.txt', 'hello.txt')
 
     Similar behavior as S3Transfer's upload_file() method,
@@ -151,8 +151,8 @@ def bucket_download_file(self, Key, Filename,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         s3.Bucket('mybucket').download_file('hello.txt', '/tmp/hello.txt')
 
     Similar behavior as S3Transfer's download_file() method,
@@ -170,8 +170,8 @@ def object_upload_file(self, Filename,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         s3.Object('mybucket', 'hello.txt').upload_file('/tmp/hello.txt')
 
     Similar behavior as S3Transfer's upload_file() method,
@@ -189,8 +189,8 @@ def object_download_file(self, Filename,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         s3.Object('mybucket', 'hello.txt').download_file('/tmp/hello.txt')
 
     Similar behavior as S3Transfer's download_file() method,
@@ -211,8 +211,8 @@ def copy(self, CopySource, Bucket, Key, ExtraArgs=None, Callback=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         copy_source = {
             'Bucket': 'mybucket',
             'Key': 'mykey'
@@ -240,14 +240,14 @@ def copy(self, CopySource, Bucket, Key, ExtraArgs=None, Callback=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the copy.
 
-    :type SourceClient: botocore or boto3 Client
+    :type SourceClient: ibm_botocore or ibm_boto3 Client
     :param SourceClient: The client to be used for operation that
         may happen at the source object. For example, this client is
         used for the head_object that determines the size of the copy.
         If no client is provided, the current client is used as the client
         for the source object.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         copy.
     """
@@ -276,8 +276,8 @@ def bucket_copy(self, CopySource, Key, ExtraArgs=None, Callback=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         copy_source = {
             'Bucket': 'mybucket',
             'Key': 'mykey'
@@ -303,14 +303,14 @@ def bucket_copy(self, CopySource, Key, ExtraArgs=None, Callback=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the copy.
 
-    :type SourceClient: botocore or boto3 Client
+    :type SourceClient: ibm_botocore or ibm_boto3 Client
     :param SourceClient: The client to be used for operation that
         may happen at the source object. For example, this client is
         used for the head_object that determines the size of the copy.
         If no client is provided, the current client is used as the client
         for the source object.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         copy.
     """
@@ -328,8 +328,8 @@ def object_copy(self, CopySource, ExtraArgs=None, Callback=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         copy_source = {
             'Bucket': 'mybucket',
             'Key': 'mykey'
@@ -353,14 +353,14 @@ def object_copy(self, CopySource, ExtraArgs=None, Callback=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the copy.
 
-    :type SourceClient: botocore or boto3 Client
+    :type SourceClient: ibm_botocore or ibm_boto3 Client
     :param SourceClient: The client to be used for operation that
         may happen at the source object. For example, this client is
         used for the head_object that determines the size of the copy.
         If no client is provided, the current client is used as the client
         for the source object.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         copy.
     """
@@ -381,8 +381,8 @@ def upload_fileobj(self, Fileobj, Bucket, Key, ExtraArgs=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.client('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.client('s3')
 
         with open('filename', 'rb') as data:
             s3.upload_fileobj(data, 'mybucket', 'mykey')
@@ -405,7 +405,7 @@ def upload_fileobj(self, Fileobj, Bucket, Key, ExtraArgs=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the upload.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         upload.
     """
@@ -438,8 +438,8 @@ def bucket_upload_fileobj(self, Fileobj, Key, ExtraArgs=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         bucket = s3.Bucket('mybucket')
 
         with open('filename', 'rb') as data:
@@ -460,7 +460,7 @@ def bucket_upload_fileobj(self, Fileobj, Key, ExtraArgs=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the upload.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         upload.
     """
@@ -480,8 +480,8 @@ def object_upload_fileobj(self, Fileobj, ExtraArgs=None, Callback=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         bucket = s3.Bucket('mybucket')
         obj = bucket.Object('mykey')
 
@@ -500,7 +500,7 @@ def object_upload_fileobj(self, Fileobj, ExtraArgs=None, Callback=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the upload.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         upload.
     """
@@ -520,8 +520,8 @@ def download_fileobj(self, Bucket, Key, Fileobj, ExtraArgs=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.client('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.client('s3')
 
         with open('filename', 'wb') as data:
             s3.download_fileobj('mybucket', 'mykey', data)
@@ -544,7 +544,7 @@ def download_fileobj(self, Bucket, Key, Fileobj, ExtraArgs=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the download.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         download.
     """
@@ -577,8 +577,8 @@ def bucket_download_fileobj(self, Key, Fileobj, ExtraArgs=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         bucket = s3.Bucket('mybucket')
 
         with open('filename', 'wb') as data:
@@ -599,7 +599,7 @@ def bucket_download_fileobj(self, Key, Fileobj, ExtraArgs=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the download.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         download.
     """
@@ -619,8 +619,8 @@ def object_download_fileobj(self, Fileobj, ExtraArgs=None, Callback=None,
 
     Usage::
 
-        import boto3
-        s3 = boto3.resource('s3')
+        import ibm_boto3
+        s3 = ibm_boto3.resource('s3')
         bucket = s3.Bucket('mybucket')
         obj = bucket.Object('mykey')
 
@@ -639,7 +639,7 @@ def object_download_fileobj(self, Fileobj, ExtraArgs=None, Callback=None,
     :param Callback: A method which takes a number of bytes transferred to
         be periodically called during the download.
 
-    :type Config: boto3.s3.transfer.TransferConfig
+    :type Config: ibm_boto3.s3.transfer.TransferConfig
     :param Config: The transfer configuration to be used when performing the
         download.
     """

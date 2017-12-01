@@ -15,7 +15,7 @@ import random
 import sys
 import time
 
-from botocore.compat import six
+from ibm_botocore.compat import six
 
 
 # The unittest module got a significant overhaul
@@ -59,7 +59,7 @@ class BaseTestCase(unittest.TestCase):
     any actual calls to Botocore.
     """
     def setUp(self):
-        self.bc_session_patch = mock.patch('botocore.session.Session')
+        self.bc_session_patch = mock.patch('ibm_botocore.session.Session')
         self.bc_session_cls = self.bc_session_patch.start()
 
         loader = self.bc_session_cls.return_value.get_component.return_value
@@ -69,7 +69,7 @@ class BaseTestCase(unittest.TestCase):
         # We also need to patch the global default session.
         # Otherwise it could be a cached real session came from previous
         # "functional" or "integration" tests.
-        patch_global_session = mock.patch('boto3.DEFAULT_SESSION')
+        patch_global_session = mock.patch('ibm_boto3.DEFAULT_SESSION')
         patch_global_session.start()
         self.addCleanup(patch_global_session.stop)
 

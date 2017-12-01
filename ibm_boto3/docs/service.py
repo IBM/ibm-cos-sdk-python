@@ -12,25 +12,25 @@
 # language governing permissions and limitations under the License.
 import os
 
-import boto3
-from botocore.exceptions import DataNotFoundError
-from botocore.docs.service import ServiceDocumenter as BaseServiceDocumenter
-from botocore.docs.bcdoc.restdoc import DocumentStructure
+import ibm_boto3
+from ibm_botocore.exceptions import DataNotFoundError
+from ibm_botocore.docs.service import ServiceDocumenter as BaseServiceDocumenter
+from ibm_botocore.docs.bcdoc.restdoc import DocumentStructure
 
-from boto3.utils import ServiceContext
-from boto3.docs.client import Boto3ClientDocumenter
-from boto3.docs.resource import ResourceDocumenter
-from boto3.docs.resource import ServiceResourceDocumenter
+from ibm_boto3.utils import ServiceContext
+from ibm_boto3.docs.client import Boto3ClientDocumenter
+from ibm_boto3.docs.resource import ResourceDocumenter
+from ibm_boto3.docs.resource import ServiceResourceDocumenter
 
 
 class ServiceDocumenter(BaseServiceDocumenter):
     # The path used to find examples
-    EXAMPLE_PATH = os.path.join(os.path.dirname(boto3.__file__), 'examples')
+    EXAMPLE_PATH = os.path.join(os.path.dirname(ibm_boto3.__file__), 'examples')
 
     def __init__(self, service_name, session):
         self._service_name = service_name
         self._boto3_session = session
-        # I know that this is an internal attribute, but the botocore session
+        # I know that this is an internal attribute, but the ibm_botocore session
         # is needed to load the paginator and waiter models.
         self._session = session._session
         self._client = self._boto3_session.client(service_name)

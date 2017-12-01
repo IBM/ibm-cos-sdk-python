@@ -14,7 +14,7 @@
 import re
 
 import jmespath
-from botocore import xform_name
+from ibm_botocore import xform_name
 
 from ..exceptions import ResourceLoadException
 

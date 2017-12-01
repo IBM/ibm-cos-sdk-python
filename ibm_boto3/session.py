@@ -24,13 +24,13 @@
 import copy
 import os
 
-import botocore.session
-from botocore.client import Config
-from botocore.exceptions import DataNotFoundError, UnknownServiceError
+import ibm_botocore.session
+from ibm_botocore.client import Config
+from ibm_botocore.exceptions import DataNotFoundError, UnknownServiceError
 
-import boto3
-import boto3.utils
-from boto3.exceptions import ResourceNotExistsError, UnknownAPIVersionError
+import ibm_boto3
+import ibm_boto3.utils
+from ibm_boto3.exceptions import ResourceNotExistsError, UnknownAPIVersionError
 
 from .resources.factory import ResourceFactory
 
@@ -61,7 +61,7 @@ class Session(object):
     :param auth_function: function that does custom authentication
         and returns json with token, refresh token, expiry time
         and token type.
-    :type botocore_session: botocore.session.Session
+    :type botocore_session: ibm_botocore.session.Session
     :param botocore_session: Use this Botocore session instead of creating
                              a new default one.
     :type profile_name: string
@@ -77,7 +77,7 @@ class Session(object):
             self._session = botocore_session
         else:
             # Create a new default session
-            self._session = botocore.session.get_session()
+            self._session = ibm_botocore.session.get_session()
 
         # Setup custom user-agent string if it isn't already customized
         if self._session.user_agent_name == 'ibm-cos-sdk-python-core':
@@ -88,7 +88,7 @@ class Session(object):
             else:
                 self._session.user_agent_extra = botocore_info
             self._session.user_agent_name = 'ibm-cos-sdk-python'
-            self._session.user_agent_version = boto3.__version__
+            self._session.user_agent_version = ibm_boto3.__version__
 
         if profile_name is not None:
             self._session.set_config_variable('profile', profile_name)
@@ -202,7 +202,7 @@ class Session(object):
 
     def get_credentials(self):
         """
-        Return the :class:`botocore.credential.Credential` object
+        Return the :class:`ibm_botocore.credential.Credential` object
         associated with this session.  If the credentials have not
         yet been loaded, this will attempt to load them.  If they
         have already been loaded, this will return the cached
@@ -229,7 +229,7 @@ class Session(object):
             A client is associated with a single region.
 
         :type api_version: string
-        :param api_version: The API version to use.  By default, botocore will
+        :param api_version: The API version to use.  By default, ibm_botocore will
             use the latest API version when creating a client.  You only need
             to specify this parameter if you want to use a previous API version
             of the client.
@@ -248,11 +248,11 @@ class Session(object):
               will not be verified.
             * path/to/cert/bundle.pem - A filename of the CA cert bundle to
               uses.  You can specify this argument if you want to use a
-              different CA cert bundle than the one used by botocore.
+              different CA cert bundle than the one used by ibm_botocore.
 
         :type endpoint_url: string
         :param endpoint_url: The complete URL to use for the constructed
-            client. Normally, botocore will automatically construct the
+            client. Normally, ibm_botocore will automatically construct the
             appropriate URL to use when communicating with a service.  You
             can specify a complete URL (including the "http/https" scheme)
             to override this behavior.  If this value is provided,
@@ -291,13 +291,13 @@ class Session(object):
             and returns json with token, refresh token, expiry time
             and token type.
 
-        :type config: botocore.client.Config
+        :type config: ibm_botocore.client.Config
         :param config: Advanced client configuration options. If region_name
             is specified in the client config, its value will take precedence
             over environment variables and configuration values, but not over
             a region_name value passed explicitly to the method. See
-            `botocore config documentation
-            <https://botocore.readthedocs.io/en/stable/reference/config.html>`_
+            `ibm_botocore config documentation
+            <https://ibm_botocore.readthedocs.io/en/stable/reference/config.html>`_
             for more details.
 
         :return: Service client instance
@@ -332,7 +332,7 @@ class Session(object):
             A client is associated with a single region.
 
         :type api_version: string
-        :param api_version: The API version to use.  By default, botocore will
+        :param api_version: The API version to use.  By default, ibm_botocore will
             use the latest API version when creating a client.  You only need
             to specify this parameter if you want to use a previous API version
             of the client.
@@ -351,11 +351,11 @@ class Session(object):
               will not be verified.
             * path/to/cert/bundle.pem - A filename of the CA cert bundle to
               uses.  You can specify this argument if you want to use a
-              different CA cert bundle than the one used by botocore.
+              different CA cert bundle than the one used by ibm_botocore.
 
         :type endpoint_url: string
         :param endpoint_url: The complete URL to use for the constructed
-            client. Normally, botocore will automatically construct the
+            client. Normally, ibm_botocore will automatically construct the
             appropriate URL to use when communicating with a service.  You
             can specify a complete URL (including the "http/https" scheme)
             to override this behavior.  If this value is provided,
@@ -394,18 +394,18 @@ class Session(object):
             and returns json with token, refresh token, expiry time
             and token type.
 
-        :type config: botocore.client.Config
+        :type config: ibm_botocore.client.Config
         :param config: Advanced client configuration options. If region_name
             is specified in the client config, its value will take precedence
             over environment variables and configuration values, but not over
             a region_name value passed explicitly to the method.  If
             user_agent_extra is specified in the client config, it overrides
             the default user_agent_extra provided by the resource API. See
-            `botocore config documentation
-            <https://botocore.readthedocs.io/en/stable/reference/config.html>`_
+            `ibm_botocore config documentation
+            <https://ibm_botocore.readthedocs.io/en/stable/reference/config.html>`_
             for more details.
 
-        :return: Subclass of :py:class:`~boto3.resources.base.ServiceResource`
+        :return: Subclass of :py:class:`~ibm_boto3.resources.base.ServiceResource`
         """
         try:
             resource_model = self._loader.load_service_model(
@@ -424,13 +424,13 @@ class Session(object):
                 service_name, api_version, ', '.join(available_api_versions))
 
         if api_version is None:
-            # Even though botocore's load_service_model() can handle
+            # Even though ibm_botocore's load_service_model() can handle
             # using the latest api_version if not provided, we need
-            # to track this api_version in boto3 in order to ensure
+            # to track this api_version in ibm_boto3 in order to ensure
             # we're pairing a resource model with a client model
             # of the same API version.  It's possible for the latest
-            # API version of a resource model in boto3 to not be
-            # the same API version as a service model in botocore.
+            # API version of a resource model in ibm_boto3 to not be
+            # the same API version as a service model in ibm_botocore.
             # So we need to look up the api_version if one is not
             # provided to ensure we load the same API version of the
             # client.
@@ -468,10 +468,10 @@ class Session(object):
 
         # Create a ServiceContext object to serve as a reference to
         # important read-only information about the general service.
-        service_context = boto3.utils.ServiceContext(
+        service_context = ibm_boto3.utils.ServiceContext(
                 service_name=service_name, service_model=service_model,
                 resource_json_definitions=resource_model['resources'],
-                service_waiter_model=boto3.utils.LazyLoadedWaiterModel(
+                service_waiter_model=ibm_boto3.utils.LazyLoadedWaiterModel(
                     self._session, service_name, api_version)
         )
 
@@ -489,17 +489,17 @@ class Session(object):
         # S3 customizations
         self._session.register(
             'creating-client-class.s3',
-            boto3.utils.lazy_call(
-                'boto3.s3.inject.inject_s3_transfer_methods'))
+            ibm_boto3.utils.lazy_call(
+                'ibm_boto3.s3.inject.inject_s3_transfer_methods'))
         self._session.register(
             'creating-resource-class.s3.Bucket',
-            boto3.utils.lazy_call(
-                'boto3.s3.inject.inject_bucket_methods'))
+            ibm_boto3.utils.lazy_call(
+                'ibm_boto3.s3.inject.inject_bucket_methods'))
         self._session.register(
             'creating-resource-class.s3.Object',
-            boto3.utils.lazy_call(
-                'boto3.s3.inject.inject_object_methods'))
+            ibm_boto3.utils.lazy_call(
+                'ibm_boto3.s3.inject.inject_object_methods'))
         self._session.register(
             'creating-resource-class.s3.ObjectSummary',
-            boto3.utils.lazy_call(
-                'boto3.s3.inject.inject_object_summary_methods'))
+            ibm_boto3.utils.lazy_call(
+                'ibm_boto3.s3.inject.inject_object_summary_methods'))

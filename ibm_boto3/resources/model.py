@@ -25,7 +25,7 @@ classes as well as by the documentation generator.
 
 import logging
 
-from botocore import xform_name
+from ibm_botocore import xform_name
 
 
 logger = logging.getLogger(__name__)
@@ -292,7 +292,7 @@ class ResourceModel(object):
             # Get the final name for an action named 'id'
             name = renames.get(('action', 'id'), 'id')
 
-        :type shape: botocore.model.Shape
+        :type shape: ibm_botocore.model.Shape
         :param shape: The underlying shape for this resource.
         """
         # Meta is a reserved name for resources
@@ -398,7 +398,7 @@ class ResourceModel(object):
                 'some_name': ('SomeName', <Shape...>)
             }
 
-        :type shape: botocore.model.Shape
+        :type shape: ibm_botocore.model.Shape
         :param shape: The underlying shape for this resource.
         :rtype: dict
         :return: Mapping of resource attributes.

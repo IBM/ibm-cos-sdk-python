@@ -2,4 +2,4 @@ include CONTRIBUTING.rst
 include README.md
 include LICENSE
 include requirements.txt
-recursive-include boto3/data *.json
+recursive-include ibm_boto3/data *.json

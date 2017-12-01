@@ -10,21 +10,21 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
-from botocore import xform_name
-from botocore.docs.utils import get_official_service_name
+from ibm_botocore import xform_name
+from ibm_botocore.docs.utils import get_official_service_name
 
-from boto3.docs.base import BaseDocumenter
-from boto3.docs.action import ActionDocumenter
-from boto3.docs.waiter import WaiterResourceDocumenter
-from boto3.docs.collection import CollectionDocumenter
-from boto3.docs.subresource import SubResourceDocumenter
-from boto3.docs.attr import document_attribute
-from boto3.docs.attr import document_identifier
-from boto3.docs.attr import document_reference
-from boto3.docs.utils import get_identifier_args_for_signature
-from boto3.docs.utils import get_identifier_values_for_example
-from boto3.docs.utils import get_identifier_description
-from boto3.docs.utils import add_resource_type_overview
+from ibm_boto3.docs.base import BaseDocumenter
+from ibm_boto3.docs.action import ActionDocumenter
+from ibm_boto3.docs.waiter import WaiterResourceDocumenter
+from ibm_boto3.docs.collection import CollectionDocumenter
+from ibm_boto3.docs.subresource import SubResourceDocumenter
+from ibm_boto3.docs.attr import document_attribute
+from ibm_boto3.docs.attr import document_identifier
+from ibm_boto3.docs.attr import document_reference
+from ibm_boto3.docs.utils import get_identifier_args_for_signature
+from ibm_boto3.docs.utils import get_identifier_values_for_example
+from ibm_boto3.docs.utils import get_identifier_description
+from ibm_boto3.docs.utils import add_resource_type_overview
 
 
 class ResourceDocumenter(BaseDocumenter):
@@ -82,11 +82,11 @@ class ResourceDocumenter(BaseDocumenter):
     def _add_example(self, section, identifier_names):
         section.style.start_codeblock()
         section.style.new_line()
-        section.write('import boto3')
+        section.write('import ibm_boto3')
         section.style.new_line()
         section.style.new_line()
         section.write(
-            '%s = boto3.resource(\'%s\')' % (
+            '%s = ibm_boto3.resource(\'%s\')' % (
                 self._service_name, self._service_name)
         )
         section.style.new_line()
@@ -250,10 +250,10 @@ class ServiceResourceDocumenter(ResourceDocumenter):
     def _add_example(self, section, identifier_names):
         section.style.start_codeblock()
         section.style.new_line()
-        section.write('import boto3')
+        section.write('import ibm_boto3')
         section.style.new_line()
         section.style.new_line()
         section.write(
-            '%s = boto3.resource(\'%s\')' % (
+            '%s = ibm_boto3.resource(\'%s\')' % (
                 self._service_name, self._service_name))
         section.style.end_codeblock()

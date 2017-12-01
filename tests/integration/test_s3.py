@@ -21,15 +21,15 @@ import datetime
 import logging
 
 from tests import unittest, unique_id
-from botocore.compat import six
-from botocore.client import Config
+from ibm_botocore.compat import six
+from ibm_botocore.client import Config
 
-import boto3.session
-import boto3.s3.transfer
+import ibm_boto3.session
+import ibm_boto3.s3.transfer
 
 
 urlopen = six.moves.urllib.request.urlopen
-LOG = logging.getLogger('boto3.tests.integration')
+LOG = logging.getLogger('ibm_boto3.tests.integration')
 
 
 def assert_files_equal(first, second):
@@ -62,7 +62,7 @@ _DEFAULT_REGION = 'us-west-2'
 
 
 def setup_module():
-    s3 = boto3.client('s3')
+    s3 = ibm_boto3.client('s3')
     waiter = s3.get_waiter('bucket_exists')
     params = {
         'Bucket': _SHARED_BUCKET,
@@ -81,7 +81,7 @@ def setup_module():
 
 
 def clear_out_bucket(bucket, region, delete_bucket=False):
-    s3 = boto3.client('s3', region_name=region)
+    s3 = ibm_boto3.client('s3', region_name=region)
     page = s3.get_paginator('list_objects')
     # Use pages paired with batch delete_objects().
     for page in page.paginate(Bucket=bucket):
@@ -168,7 +168,7 @@ class TestS3Resource(unittest.TestCase):
         self.region = _DEFAULT_REGION
         self.bucket_name = _SHARED_BUCKET
         clear_out_bucket(self.bucket_name, self.region)
-        self.session = boto3.session.Session(region_name=self.region)
+        self.session = ibm_boto3.session.Session(region_name=self.region)
         self.s3 = self.session.resource('s3')
         self.bucket = self.s3.Bucket(self.bucket_name)
 
@@ -284,12 +284,12 @@ class TestS3Resource(unittest.TestCase):
 
 
 class TestS3Transfers(unittest.TestCase):
-    """Tests for the high level boto3.s3.transfer module."""
+    """Tests for the high level ibm_boto3.s3.transfer module."""
     def setUp(self):
         self.region = _DEFAULT_REGION
         self.bucket_name = _SHARED_BUCKET
         clear_out_bucket(self.bucket_name, self.region)
-        self.session = boto3.session.Session(region_name=self.region)
+        self.session = ibm_boto3.session.Session(region_name=self.region)
         self.client = self.session.client('s3', self.region)
         self.files = FileCreator()
         self.progress = 0
@@ -317,8 +317,8 @@ class TestS3Transfers(unittest.TestCase):
             waiter.wait(**params)
 
     def create_s3_transfer(self, config=None):
-        return boto3.s3.transfer.S3Transfer(self.client,
-                                            config=config)
+        return ibm_boto3.s3.transfer.S3Transfer(self.client,
+                                                config=config)
 
     def assert_has_public_read_acl(self, response):
         grants = response['Grants']
@@ -352,7 +352,7 @@ class TestS3Transfers(unittest.TestCase):
         # actually be read from when using the stubber and therefore the
         # progress callbacks will not be invoked.
         chunksize = 5 * (1024 ** 2)
-        config = boto3.s3.transfer.TransferConfig(
+        config = ibm_boto3.s3.transfer.TransferConfig(
             multipart_chunksize=chunksize,
             multipart_threshold=chunksize,
             max_concurrency=1
@@ -383,7 +383,7 @@ class TestS3Transfers(unittest.TestCase):
         self.assertEqual(fileobj.getvalue(), b'beach')
 
     def test_upload_below_threshold(self):
-        config = boto3.s3.transfer.TransferConfig(
+        config = ibm_boto3.s3.transfer.TransferConfig(
             multipart_threshold=2 * 1024 * 1024)
         transfer = self.create_s3_transfer(config)
         filename = self.files.create_file_with_size(
@@ -395,7 +395,7 @@ class TestS3Transfers(unittest.TestCase):
         self.assertTrue(self.object_exists('foo.txt'))
 
     def test_upload_above_threshold(self):
-        config = boto3.s3.transfer.TransferConfig(
+        config = ibm_boto3.s3.transfer.TransferConfig(
             multipart_threshold=2 * 1024 * 1024)
         transfer = self.create_s3_transfer(config)
         filename = self.files.create_file_with_size(
@@ -406,7 +406,7 @@ class TestS3Transfers(unittest.TestCase):
         self.assertTrue(self.object_exists('20mb.txt'))
 
     def test_upload_file_above_threshold_with_acl(self):
-        config = boto3.s3.transfer.TransferConfig(
+        config = ibm_boto3.s3.transfer.TransferConfig(
             multipart_threshold=5 * 1024 * 1024)
         transfer = self.create_s3_transfer(config)
         filename = self.files.create_file_with_size(
@@ -427,7 +427,7 @@ class TestS3Transfers(unittest.TestCase):
             'SSECustomerKey': key_bytes,
             'SSECustomerAlgorithm': 'AES256',
         }
-        config = boto3.s3.transfer.TransferConfig(
+        config = ibm_boto3.s3.transfer.TransferConfig(
             multipart_threshold=5 * 1024 * 1024)
         transfer = self.create_s3_transfer(config)
         filename = self.files.create_file_with_size(
@@ -476,7 +476,7 @@ class TestS3Transfers(unittest.TestCase):
         client = self.session.client(
             's3', self.region,
             config=Config(signature_version='s3v4'))
-        transfer = boto3.s3.transfer.S3Transfer(client)
+        transfer = ibm_boto3.s3.transfer.S3Transfer(client)
         filename = self.files.create_file_with_size(
             '10mb.txt', filesize=10 * 1024 * 1024)
         transfer.upload_file(filename, self.bucket_name,
@@ -497,7 +497,7 @@ class TestS3Transfers(unittest.TestCase):
         self.assert_has_public_read_acl(response)
 
     def test_can_configure_threshold(self):
-        config = boto3.s3.transfer.TransferConfig(
+        config = ibm_boto3.s3.transfer.TransferConfig(
             multipart_threshold=6 * 1024 * 1024
         )
         transfer = self.create_s3_transfer(config)
@@ -638,16 +638,16 @@ class TestS3Transfers(unittest.TestCase):
         # This is just a smoke test to make sure that
         # setting use_threads to False has no issues transferring files as
         # the non-threaded implementation is ran under the same integration
-        # and functional tests in s3transfer as the normal threaded
+        # and functional tests in ibm_s3transfer as the normal threaded
         # implementation
         #
         # The methods used are arbitrary other than one of the methods
         # use ``boto3.s3.transfer.S3Transfer`` and the other should be
-        # using ``s3transfer.manager.TransferManager`` directly
+        # using ``ibm_s3transfer.manager.TransferManager`` directly
         content = b'my content'
         filename = self.files.create_file('myfile', content.decode('utf-8'))
         key = 'foo'
-        config = boto3.s3.transfer.TransferConfig(use_threads=False)
+        config = ibm_boto3.s3.transfer.TransferConfig(use_threads=False)
 
         self.client.upload_file(
             Bucket=self.bucket_name, Key=key, Filename=filename,
@@ -688,7 +688,7 @@ class TestCustomS3BucketLoad(unittest.TestCase):
         self.region = _DEFAULT_REGION
         self.bucket_name = _SHARED_BUCKET
         clear_out_bucket(self.bucket_name, self.region)
-        self.session = boto3.session.Session(region_name=self.region)
+        self.session = ibm_boto3.session.Session(region_name=self.region)
         self.s3 = self.session.resource('s3')
 
     def test_can_access_buckets_creation_date(self):

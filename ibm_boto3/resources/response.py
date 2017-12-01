@@ -12,7 +12,7 @@
 # language governing permissions and limitations under the License.
 
 import jmespath
-from botocore import xform_name
+from ibm_botocore import xform_name
 
 from .params import get_data_member
 
@@ -87,7 +87,7 @@ def build_empty_response(search_path, operation_name, service_model):
     :param search_path: JMESPath expression to search in the response
     :type operation_name: string
     :param operation_name: Name of the underlying service operation.
-    :type service_model: :ref:`botocore.model.ServiceModel`
+    :type service_model: :ref:`ibm_botocore.model.ServiceModel`
     :param service_model: The Botocore service model
     :rtype: dict, list, or None
     :return: An appropriate empty value
