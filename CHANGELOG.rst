@@ -33,9 +33,15 @@ Features
 * Added support for Key Protect
 
 2.0.0
-====
+=====
 
 Features
 --------
 * Namespace changes
 
+2.0.1
+=====
+
+Features
+--------
+* IAM Resiliency Support
