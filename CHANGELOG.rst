@@ -32,3 +32,10 @@ Features
 --------
 * Added support for Key Protect
 
+1.1.1
+=====
+
+Features
+--------
+* IAM Resiliency Support
+

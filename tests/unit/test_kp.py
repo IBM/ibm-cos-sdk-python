@@ -41,7 +41,7 @@ class TestKeyProtect(unittest.TestCase):
             # Will fail because of invalid ibm_auth_endpoint, but we will prove that IBMSSEKMS* can be specified
             client.create_bucket(Bucket='Doesntmatter', IBMSSEKMSEncryptionAlgorithm='AES256', IBMSSEKMSCustomerRootKeyCrn=self.crn)
         except Exception as ex:
-            self.assertEqual(True, str(ex).startswith('Invalid URL'))
+            self.assertEqual(True, str(ex).startswith('Parameter validation failed'))
 
     def test_key_protect_create_bucket_can_specify_only_crn(self):
         client = self._get_client()
@@ -49,4 +49,4 @@ class TestKeyProtect(unittest.TestCase):
             # Will fail because of invalid ibm_auth_endpoint, but we will prove that only IBMSSEKMSEncryptionAlgorithm can be specified
             client.create_bucket(Bucket='Doesntmatter', IBMSSEKMSCustomerRootKeyCrn='ROOTKEYCRN')
         except Exception as ex:
-            self.assertEqual(True, str(ex).startswith('Invalid URL'))
+            self.assertEqual(True, str(ex).startswith('Parameter validation failed'))
