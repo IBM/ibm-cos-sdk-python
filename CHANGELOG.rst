@@ -45,3 +45,11 @@ Features
 Features
 --------
 * IAM Resiliency Support
+
+2.0.2
+=====
+
+Features
+--------
+* Doc Updates
+
