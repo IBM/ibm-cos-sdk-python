@@ -42,28 +42,38 @@ class Session(object):
 
     :type aws_access_key_id: string
     :param aws_access_key_id: AWS access key ID
+    
     :type aws_secret_access_key: string
     :param aws_secret_access_key: AWS secret access key
+    
     :type aws_session_token: string
     :param aws_session_token: AWS temporary session token
+    
     :type region_name: string
     :param region_name: Default region when creating new connections
-    :type api_key_id: str
-    :param api_key_id: IBM api key used for IAM authentication.
-    :type service_instance_id: str
-    :param service_instance_id: Service Instance ID used for
+    
+    :type ibm_api_key_id: str
+    :param ibm_api_key_id: IBM api key used for IAM authentication.
+    
+    :type ibm_service_instance_id: str
+    :param ibm_service_instance_id: Service Instance ID used for
         PUT bucket and GET service requests.
-    :type auth_endpoint: str
-    :param auth_endpoint: URL used for IAM authentication.
+        
+    :type ibm_auth_endpoint: str
+    :param ibm_auth_endpoint: URL used for IAM authentication.
+    
     :type token_manager: TokenManager
     :param token_manager: custom token manager to use.
+    
     :type auth_function: function
     :param auth_function: function that does custom authentication
         and returns json with token, refresh token, expiry time
         and token type.
+        
     :type botocore_session: ibm_botocore.session.Session
     :param botocore_session: Use this Botocore session instead of creating
                              a new default one.
+                             
     :type profile_name: string
     :param profile_name: The name of a profile to use. If not given, then
                          the default profile is used.
@@ -96,7 +106,7 @@ class Session(object):
         if ibm_api_key_id or auth_function or token_manager or aws_access_key_id or aws_secret_access_key or aws_session_token:
             self._session.set_credentials(
                 access_key=aws_access_key_id, secret_key=aws_secret_access_key, token=aws_session_token,
-                ibm_api_key_id=ibm_api_key_id, ibm_service_instance_id=ibm_service_instance_id, 
+                ibm_api_key_id=ibm_api_key_id, ibm_service_instance_id=ibm_service_instance_id,
                 ibm_auth_endpoint=ibm_auth_endpoint,
                 auth_function=auth_function, token_manager=token_manager)
 
@@ -212,7 +222,7 @@ class Session(object):
 
     def client(self, service_name, region_name=None, api_version=None,
                use_ssl=True, verify=None, endpoint_url=None,
-               aws_access_key_id=None, aws_secret_access_key=None, aws_session_token=None, 
+               aws_access_key_id=None, aws_secret_access_key=None, aws_session_token=None,
                ibm_api_key_id=None, ibm_service_instance_id=None, ibm_auth_endpoint=None,
                auth_function=None, token_manager=None,
                config=None):
@@ -273,15 +283,15 @@ class Session(object):
         :param aws_session_token: The session token to use when creating
             the client.  Same semantics as aws_access_key_id above.
 
-        :type api_key_id: str
-        :param api_key_id: IBM api key used for IAM authentication.
+        :type ibm_api_key_id: str
+        :param ibm_api_key_id: IBM api key used for IAM authentication.
 
-        :type service_instance_id: str
-        :param service_instance_id: Service Instance ID used for
+        :type ibm_service_instance_id: str
+        :param ibm_service_instance_id: Service Instance ID used for
             PUT bucket and GET service requests.
 
-        :type auth_endpoint: str
-        :param auth_endpoint: URL used for IAM authentication.
+        :type ibm_auth_endpoint: str
+        :param ibm_auth_endpoint: URL used for IAM authentication.
 
         :type token_manager: TokenManager
         :param token_manager: custom token manager to use.
@@ -308,14 +318,14 @@ class Session(object):
             use_ssl=use_ssl, verify=verify, endpoint_url=endpoint_url,
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
-            aws_session_token=aws_session_token, 
+            aws_session_token=aws_session_token,
             ibm_api_key_id=ibm_api_key_id, ibm_service_instance_id=ibm_service_instance_id,
-            ibm_auth_endpoint=ibm_auth_endpoint, auth_function=auth_function,            
+            ibm_auth_endpoint=ibm_auth_endpoint, auth_function=auth_function,
             token_manager=token_manager, config=config)
 
     def resource(self, service_name, region_name=None, api_version=None,
                  use_ssl=True, verify=None, endpoint_url=None,
-                 aws_access_key_id=None, aws_secret_access_key=None, aws_session_token=None, 
+                 aws_access_key_id=None, aws_secret_access_key=None, aws_session_token=None,
                  ibm_api_key_id=None, ibm_service_instance_id=None, ibm_auth_endpoint=None,
                  auth_function=None, token_manager=None,
                  config=None):
@@ -376,15 +386,15 @@ class Session(object):
         :param aws_session_token: The session token to use when creating
             the client.  Same semantics as aws_access_key_id above.
 
-        :type api_key_id: string
-        :param api_key_id: IBM api key used for IAM authentication.
+        :type ibm_api_key_id: string
+        :param ibm_api_key_id: IBM api key used for IAM authentication.
 
-        :type service_instance_id: string
-        :param service_instance_id: Service Instance ID used for
+        :type ibm_service_instance_id: string
+        :param ibm_service_instance_id: Service Instance ID used for
             PUT bucket and GET service requests.
 
-        :type auth_endpoint: string
-        :param auth_endpoint: URL used for IAM authentication.
+        :type ibm_auth_endpoint: string
+        :param ibm_auth_endpoint: URL used for IAM authentication.
 
         :type token_manager: TokenManager
         :param token_manager: custom token manager to use.
@@ -460,8 +470,8 @@ class Session(object):
             aws_session_token=aws_session_token,
             ibm_api_key_id=ibm_api_key_id,
             ibm_service_instance_id=ibm_service_instance_id,
-            ibm_auth_endpoint=ibm_auth_endpoint, 
-            auth_function=auth_function, 
+            ibm_auth_endpoint=ibm_auth_endpoint,
+            auth_function=auth_function,
             token_manager=token_manager,
             config=config)
         service_model = client.meta.service_model
