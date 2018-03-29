@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.session &mdash; ibm-cos-sdk 2.0.2 documentation</title>
+    <title>ibm_boto3.session &mdash; ibm-cos-sdk 2.1.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.0.2',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.0.2 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.1.0 documentation" href="../../index.html" />
     <link rel="up" title="ibm_boto3" href="../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.0.2 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.1.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >Module code</a> &raquo;</li>
           <li><a href="../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.0.2 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.1.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -159,28 +159,38 @@
 
 <span class="sd">    :type aws_access_key_id: string</span>
 <span class="sd">    :param aws_access_key_id: AWS access key ID</span>
+<span class="sd">    </span>
 <span class="sd">    :type aws_secret_access_key: string</span>
 <span class="sd">    :param aws_secret_access_key: AWS secret access key</span>
+<span class="sd">    </span>
 <span class="sd">    :type aws_session_token: string</span>
 <span class="sd">    :param aws_session_token: AWS temporary session token</span>
+<span class="sd">    </span>
 <span class="sd">    :type region_name: string</span>
 <span class="sd">    :param region_name: Default region when creating new connections</span>
-<span class="sd">    :type api_key_id: str</span>
-<span class="sd">    :param api_key_id: IBM api key used for IAM authentication.</span>
-<span class="sd">    :type service_instance_id: str</span>
-<span class="sd">    :param service_instance_id: Service Instance ID used for</span>
+<span class="sd">    </span>
+<span class="sd">    :type ibm_api_key_id: str</span>
+<span class="sd">    :param ibm_api_key_id: IBM api key used for IAM authentication.</span>
+<span class="sd">    </span>
+<span class="sd">    :type ibm_service_instance_id: str</span>
+<span class="sd">    :param ibm_service_instance_id: Service Instance ID used for</span>
 <span class="sd">        PUT bucket and GET service requests.</span>
-<span class="sd">    :type auth_endpoint: str</span>
-<span class="sd">    :param auth_endpoint: URL used for IAM authentication.</span>
+<span class="sd">        </span>
+<span class="sd">    :type ibm_auth_endpoint: str</span>
+<span class="sd">    :param ibm_auth_endpoint: URL used for IAM authentication.</span>
+<span class="sd">    </span>
 <span class="sd">    :type token_manager: TokenManager</span>
 <span class="sd">    :param token_manager: custom token manager to use.</span>
+<span class="sd">    </span>
 <span class="sd">    :type auth_function: function</span>
 <span class="sd">    :param auth_function: function that does custom authentication</span>
 <span class="sd">        and returns json with token, refresh token, expiry time</span>
 <span class="sd">        and token type.</span>
+<span class="sd">        </span>
 <span class="sd">    :type botocore_session: ibm_botocore.session.Session</span>
 <span class="sd">    :param botocore_session: Use this Botocore session instead of creating</span>
 <span class="sd">                             a new default one.</span>
+<span class="sd">                             </span>
 <span class="sd">    :type profile_name: string</span>
 <span class="sd">    :param profile_name: The name of a profile to use. If not given, then</span>
 <span class="sd">                         the default profile is used.</span>
@@ -213,7 +223,7 @@
         <span class="k">if</span> <span class="n">ibm_api_key_id</span> <span class="ow">or</span> <span class="n">auth_function</span> <span class="ow">or</span> <span class="n">token_manager</span> <span class="ow">or</span> <span class="n">aws_access_key_id</span> <span class="ow">or</span> <span class="n">aws_secret_access_key</span> <span class="ow">or</span> <span class="n">aws_session_token</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span>
                 <span class="n">access_key</span><span class="o">=</span><span class="n">aws_access_key_id</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="n">aws_secret_access_key</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span>
-                <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span> 
+                <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span>
                 <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span>
                 <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">)</span>
 
@@ -329,7 +339,7 @@
 </div>
 <div class="viewcode-block" id="Session.client"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.client">[docs]</a>    <span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                <span class="n">use_ssl</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-               <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+               <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                <span class="n">auth_function</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
@@ -390,15 +400,15 @@
 <span class="sd">        :param aws_session_token: The session token to use when creating</span>
 <span class="sd">            the client.  Same semantics as aws_access_key_id above.</span>
 
-<span class="sd">        :type api_key_id: str</span>
-<span class="sd">        :param api_key_id: IBM api key used for IAM authentication.</span>
+<span class="sd">        :type ibm_api_key_id: str</span>
+<span class="sd">        :param ibm_api_key_id: IBM api key used for IAM authentication.</span>
 
-<span class="sd">        :type service_instance_id: str</span>
-<span class="sd">        :param service_instance_id: Service Instance ID used for</span>
+<span class="sd">        :type ibm_service_instance_id: str</span>
+<span class="sd">        :param ibm_service_instance_id: Service Instance ID used for</span>
 <span class="sd">            PUT bucket and GET service requests.</span>
 
-<span class="sd">        :type auth_endpoint: str</span>
-<span class="sd">        :param auth_endpoint: URL used for IAM authentication.</span>
+<span class="sd">        :type ibm_auth_endpoint: str</span>
+<span class="sd">        :param ibm_auth_endpoint: URL used for IAM authentication.</span>
 
 <span class="sd">        :type token_manager: TokenManager</span>
 <span class="sd">        :param token_manager: custom token manager to use.</span>
@@ -425,14 +435,14 @@
             <span class="n">use_ssl</span><span class="o">=</span><span class="n">use_ssl</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">verify</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="n">endpoint_url</span><span class="p">,</span>
             <span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">aws_access_key_id</span><span class="p">,</span>
             <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">aws_secret_access_key</span><span class="p">,</span>
-            <span class="n">aws_session_token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span> 
+            <span class="n">aws_session_token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span>
             <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span>
-            <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span> <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span>            
+            <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span> <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span>
             <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="Session.resource"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.resource">[docs]</a>    <span class="k">def</span> <span class="nf">resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">api_version</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">use_ssl</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">endpoint_url</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> 
+                 <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">aws_session_token</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">auth_function</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">token_manager</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
@@ -493,15 +503,15 @@
 <span class="sd">        :param aws_session_token: The session token to use when creating</span>
 <span class="sd">            the client.  Same semantics as aws_access_key_id above.</span>
 
-<span class="sd">        :type api_key_id: string</span>
-<span class="sd">        :param api_key_id: IBM api key used for IAM authentication.</span>
+<span class="sd">        :type ibm_api_key_id: string</span>
+<span class="sd">        :param ibm_api_key_id: IBM api key used for IAM authentication.</span>
 
-<span class="sd">        :type service_instance_id: string</span>
-<span class="sd">        :param service_instance_id: Service Instance ID used for</span>
+<span class="sd">        :type ibm_service_instance_id: string</span>
+<span class="sd">        :param ibm_service_instance_id: Service Instance ID used for</span>
 <span class="sd">            PUT bucket and GET service requests.</span>
 
-<span class="sd">        :type auth_endpoint: string</span>
-<span class="sd">        :param auth_endpoint: URL used for IAM authentication.</span>
+<span class="sd">        :type ibm_auth_endpoint: string</span>
+<span class="sd">        :param ibm_auth_endpoint: URL used for IAM authentication.</span>
 
 <span class="sd">        :type token_manager: TokenManager</span>
 <span class="sd">        :param token_manager: custom token manager to use.</span>
@@ -577,8 +587,8 @@
             <span class="n">aws_session_token</span><span class="o">=</span><span class="n">aws_session_token</span><span class="p">,</span>
             <span class="n">ibm_api_key_id</span><span class="o">=</span><span class="n">ibm_api_key_id</span><span class="p">,</span>
             <span class="n">ibm_service_instance_id</span><span class="o">=</span><span class="n">ibm_service_instance_id</span><span class="p">,</span>
-            <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span> 
-            <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span> 
+            <span class="n">ibm_auth_endpoint</span><span class="o">=</span><span class="n">ibm_auth_endpoint</span><span class="p">,</span>
+            <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span>
             <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">,</span>
             <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
         <span class="n">service_model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_model</span>
@@ -636,7 +646,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.0.2 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.1.0 documentation</a> &raquo;</li>
           <li><a href="../index.html" >Module code</a> &raquo;</li>
           <li><a href="../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
