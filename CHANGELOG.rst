@@ -56,3 +56,10 @@ Features
 * Configurable Verify SSL flag for Token Fetching
 * Doc updates
 
+1.2.1
+=====
+
+Features
+--------
+* Remove references to versioning
+* Fix credential check fails when full IAM details not supplied

@@ -169,14 +169,6 @@
             ]
           }
         },
-        "Versioning": {
-          "resource": {
-            "type": "BucketVersioning",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" }
-            ]
-          }
-        },
         "Website": {
           "resource": {
             "type": "BucketWebsite",
@@ -202,23 +194,6 @@
               { "target": "Id", "source": "response", "path": "Uploads[].UploadId" }
             ],
             "path": "Uploads[]"
-          }
-        },
-        "ObjectVersions": {
-          "request": {
-            "operation": "ListObjectVersions",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "Name" }
-            ]
-          },
-          "resource": {
-            "type": "ObjectVersion",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" },
-              { "target": "ObjectKey", "source": "response", "path": "[Versions,DeleteMarkers]|[].Key" },
-              { "target": "Id", "source": "response", "path": "[Versions,DeleteMarkers]|[].VersionId" }
-            ],
-            "path": "[Versions,DeleteMarkers]|[]"
           }
         },
         "Objects": {
@@ -337,102 +312,6 @@
             "operation": "PutBucketRequestPayment",
             "params": [
               { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        }
-      },
-      "has": {
-        "Bucket": {
-          "resource": {
-            "type": "Bucket",
-            "identifiers": [
-              { "target": "Name", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        }
-      }
-    },
-    "BucketTagging": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
-      "shape": "GetBucketTaggingOutput",
-      "load": {
-        "request": {
-          "operation": "GetBucketTagging",
-          "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-          ]
-        },
-        "path": "@"
-      },
-      "actions": {
-        "Delete": {
-          "request": {
-            "operation": "DeleteBucketTagging",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        },
-        "Put": {
-          "request": {
-            "operation": "PutBucketTagging",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        }
-      },
-      "has": {
-        "Bucket": {
-          "resource": {
-            "type": "Bucket",
-            "identifiers": [
-              { "target": "Name", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        }
-      }
-    },
-    "BucketVersioning": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
-      "shape": "GetBucketVersioningOutput",
-      "load": {
-        "request": {
-          "operation": "GetBucketVersioning",
-          "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-          ]
-        },
-        "path": "@"
-      },
-      "actions": {
-        "Enable": {
-          "request": {
-            "operation": "PutBucketVersioning",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "VersioningConfiguration.Status", "source": "string", "value": "Enabled" }
-            ]
-          }
-        },
-        "Put": {
-          "request": {
-            "operation": "PutBucketVersioning",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        },
-        "Suspend": {
-          "request": {
-            "operation": "PutBucketVersioning",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "VersioningConfiguration.Status", "source": "string", "value": "Suspended" }
             ]
           }
         }
@@ -712,16 +591,6 @@
               { "target": "Id", "source": "input" }
             ]
           }
-        },
-        "Version": {
-          "resource": {
-            "type": "ObjectVersion",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
-              { "target": "ObjectKey", "source": "identifier", "name": "Key" },
-              { "target": "Id", "source": "input" }
-            ]
-          }
         }
       }
     },
@@ -895,79 +764,6 @@
             "identifiers": [
               { "target": "BucketName", "source": "identifier", "name": "BucketName" },
               { "target": "Key", "source": "identifier", "name": "Key" }
-            ]
-          }
-        },
-        "Version": {
-          "resource": {
-            "type": "ObjectVersion",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
-              { "target": "ObjectKey", "source": "identifier", "name": "Key" },
-              { "target": "Id", "source": "input" }
-            ]
-          }
-        }
-      }
-    },
-    "ObjectVersion": {
-      "identifiers": [
-        { "name": "BucketName" },
-        { "name": "ObjectKey" },
-        { "name": "Id" }
-      ],
-      "shape": "ObjectVersion",
-      "actions": {
-        "Delete": {
-          "request": {
-            "operation": "DeleteObject",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "VersionId", "source": "identifier", "name": "Id" }
-            ]
-          }
-        },
-        "Get": {
-          "request": {
-            "operation": "GetObject",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "VersionId", "source": "identifier", "name": "Id" }
-            ]
-          }
-        },
-        "Head": {
-          "request": {
-            "operation": "HeadObject",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "VersionId", "source": "identifier", "name": "Id" }
-            ]
-          }
-        }
-      },
-      "batchActions": {
-        "Delete": {
-          "request": {
-            "operation": "DeleteObjects",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
-              { "target": "Delete.Objects[*].Key", "source": "identifier", "name": "ObjectKey" },
-              { "target": "Delete.Objects[*].VersionId", "source": "identifier", "name": "Id" }
-            ]
-          }
-        }
-      },
-      "has": {
-        "Object": {
-          "resource": {
-            "type": "Object",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "BucketName" },
-              { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }
         }
