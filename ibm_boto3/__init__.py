@@ -17,7 +17,7 @@ from ibm_boto3.session import Session
 
 
 __author__ = 'IBM'
-__version__ = '2.1.1.dev1'
+__version__ = '2.1.1'
 
 
 # The default Boto3 session; autoloaded when needed.
