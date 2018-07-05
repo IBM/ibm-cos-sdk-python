@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3 &mdash; ibm-cos-sdk 2.1.1 documentation</title>
+    <title>ibm_boto3 &mdash; ibm-cos-sdk 2.1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.1',
+        VERSION:     '2.1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.1.1 documentation" href="../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.1.2 documentation" href="../index.html" />
     <link rel="up" title="Module code" href="index.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">ibm-cos-sdk 2.1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -59,7 +59,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../index.html" class="text-logo">ibm-cos-sdk 2.1.1 documentation</a><div class="sidebar-block">
+    ../index.html" class="text-logo">ibm-cos-sdk 2.1.2 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -112,29 +112,29 @@
           <div class="document clearer body">
             
   <h1>Source code for ibm_boto3</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
-<span class="c1">#</span>
-<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
-<span class="c1"># may not use this file except in compliance with the License. A copy of</span>
-<span class="c1"># the License is located at</span>
-<span class="c1">#</span>
-<span class="c1"># http://aws.amazon.com/apache2.0/</span>
-<span class="c1">#</span>
-<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is</span>
-<span class="c1"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
-<span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
-<span class="c1"># language governing permissions and limitations under the License.</span>
+<span class="c"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c"># the License is located at</span>
+<span class="c">#</span>
+<span class="c"># http://aws.amazon.com/apache2.0/</span>
+<span class="c">#</span>
+<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c"># language governing permissions and limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="kn">from</span> <span class="nn">ibm_boto3.session</span> <span class="kn">import</span> <span class="n">Session</span>
 
 
-<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;IBM&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;2.1.1&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;IBM&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s">&#39;2.1.2&#39;</span>
 
 
-<span class="c1"># The default Boto3 session; autoloaded when needed.</span>
+<span class="c"># The default Boto3 session; autoloaded when needed.</span>
 <span class="n">DEFAULT_SESSION</span> <span class="o">=</span> <span class="bp">None</span>
 
 
@@ -148,7 +148,7 @@
     <span class="n">DEFAULT_SESSION</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="set_stream_logger"><a class="viewcode-back" href="../reference/core/boto3.html#ibm_boto3.set_stream_logger">[docs]</a><span class="k">def</span> <span class="nf">set_stream_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">format_string</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="set_stream_logger"><a class="viewcode-back" href="../reference/core/boto3.html#ibm_boto3.set_stream_logger">[docs]</a><span class="k">def</span> <span class="nf">set_stream_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;ibm_boto3&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">format_string</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add a stream handler for the given name and level to the logging module.</span>
 <span class="sd">    By default, this logs all ibm_boto3 messages to ``stdout``.</span>
@@ -164,7 +164,7 @@
 <span class="sd">    :param format_string: Log message format</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">format_string</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">format_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2"> [</span><span class="si">%(levelname)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+        <span class="n">format_string</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%(asctime)s</span><span class="s"> </span><span class="si">%(name)s</span><span class="s"> [</span><span class="si">%(levelname)s</span><span class="s">] </span><span class="si">%(message)s</span><span class="s">&quot;</span>
 
     <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
@@ -206,14 +206,14 @@
     <span class="k">return</span> <span class="n">_get_default_session</span><span class="p">()</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
-<span class="c1"># Set up logging to ``/dev/null`` like a library is supposed to.</span>
-<span class="c1"># http://docs.python.org/3.3/howto/logging.html#configuring-logging-for-a-library</span></div>
+<span class="c"># Set up logging to ``/dev/null`` like a library is supposed to.</span>
+<span class="c"># http://docs.python.org/3.3/howto/logging.html#configuring-logging-for-a-library</span></div>
 <div class="viewcode-block" id="NullHandler"><a class="viewcode-back" href="../reference/core/boto3.html#ibm_boto3.NullHandler">[docs]</a><span class="k">class</span> <span class="nc">NullHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
 <div class="viewcode-block" id="NullHandler.emit"><a class="viewcode-back" href="../reference/core/boto3.html#ibm_boto3.NullHandler.emit">[docs]</a>    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
         <span class="k">pass</span>
 
 </div></div>
-<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">NullHandler</span><span class="p">())</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">NullHandler</span><span class="p">())</span>
 </pre></div>
 
           </div>
@@ -230,7 +230,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">ibm-cos-sdk 2.1.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
           <li><a href="index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>
