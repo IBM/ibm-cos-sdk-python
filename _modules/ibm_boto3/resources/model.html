@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.model &mdash; ibm-cos-sdk 2.1.1 documentation</title>
+    <title>ibm_boto3.resources.model &mdash; ibm-cos-sdk 2.1.2 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.1.1',
+        VERSION:     '2.1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.1.1 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.1.2 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.1.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.1.1 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.1.2 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -115,18 +115,18 @@
           <div class="document clearer body">
             
   <h1>Source code for ibm_boto3.resources.model</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
-<span class="c1">#</span>
-<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
-<span class="c1"># may not use this file except in compliance with the License. A copy of</span>
-<span class="c1"># the License is located at</span>
-<span class="c1">#</span>
-<span class="c1"># http://aws.amazon.com/apache2.0/</span>
-<span class="c1">#</span>
-<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is</span>
-<span class="c1"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
-<span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
-<span class="c1"># language governing permissions and limitations under the License.</span>
+<span class="c"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c"># the License is located at</span>
+<span class="c">#</span>
+<span class="c"># http://aws.amazon.com/apache2.0/</span>
+<span class="c">#</span>
+<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c"># language governing permissions and limitations under the License.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">The models defined in this file represent the resource JSON description</span>
@@ -145,7 +145,7 @@
 <span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
 
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="Identifier"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Identifier">[docs]</a><span class="k">class</span> <span class="nc">Identifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -155,8 +155,8 @@
 <span class="sd">    :type name: string</span>
 <span class="sd">    :param name: The name of the identifier</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="c1">#: (``string``) The name of the identifier</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="c">#: (``string``) The name of the identifier</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">member_name</span> <span class="o">=</span> <span class="n">member_name</span>
 
@@ -172,22 +172,22 @@
 <span class="sd">    :type resource_defs: dict</span>
 <span class="sd">    :param resource_defs: All resources defined in the service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
 
-        <span class="c1">#: (``string``) The name of the action</span>
+        <span class="c">#: (``string``) The name of the action</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="c1">#: (:py:class:`Request`) This action&#39;s request or ``None``</span>
+        <span class="c">#: (:py:class:`Request`) This action&#39;s request or ``None``</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="s1">&#39;request&#39;</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">,</span> <span class="p">{}))</span>
-        <span class="c1">#: (:py:class:`ResponseResource`) This action&#39;s resource or ``None``</span>
+        <span class="k">if</span> <span class="s">&#39;request&#39;</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;request&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="c">#: (:py:class:`ResponseResource`) This action&#39;s resource or ``None``</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="s1">&#39;resource&#39;</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="n">ResponseResource</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resource&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+        <span class="k">if</span> <span class="s">&#39;resource&#39;</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="n">ResponseResource</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;resource&#39;</span><span class="p">,</span> <span class="p">{}),</span>
                                              <span class="n">resource_defs</span><span class="p">)</span>
-        <span class="c1">#: (``string``) The JMESPath search path or ``None``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+        <span class="c">#: (``string``) The JMESPath search path or ``None``</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">)</span>
 
 </div>
 <div class="viewcode-block" id="DefinitionWithParams"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams">[docs]</a><span class="k">class</span> <span class="nc">DefinitionWithParams</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -199,7 +199,7 @@
 <span class="sd">    :type definition: dict</span>
 <span class="sd">    :param definition: The JSON definition</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
 
     <span class="nd">@property</span>
@@ -211,7 +211,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;params&#39;</span><span class="p">,</span> <span class="p">[]):</span>
             <span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Parameter</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">params</span>
@@ -230,22 +230,22 @@
 <span class="sd">    :type source: string</span>
 <span class="sd">    :param source: The source name, e.g. ``Url``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c1">#: (``string``) The destination parameter name</span>
+        <span class="c">#: (``string``) The destination parameter name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
-        <span class="c1">#: (``string``) Where the source is defined</span>
+        <span class="c">#: (``string``) Where the source is defined</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source</span>
-        <span class="c1">#: (``string``) The name of the source, if given</span>
+        <span class="c">#: (``string``) The name of the source, if given</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="c1">#: (``string``) The JMESPath query of the source</span>
+        <span class="c">#: (``string``) The JMESPath query of the source</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
-        <span class="c1">#: (``string|int|float|bool``) The source constant value</span>
+        <span class="c">#: (``string|int|float|bool``) The source constant value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
 
-        <span class="c1"># Complain if we encounter any unknown values.</span>
+        <span class="c"># Complain if we encounter any unknown values.</span>
         <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Unknown parameter options found: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Unknown parameter options found: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
 </div>
 <div class="viewcode-block" id="Request"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Request">[docs]</a><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
@@ -255,11 +255,11 @@
 <span class="sd">    :type definition: dict</span>
 <span class="sd">    :param definition: The JSON definition</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Request</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Request</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
 
-        <span class="c1">#: (``string``) The name of the low-level service operation</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;operation&#39;</span><span class="p">)</span>
+        <span class="c">#: (``string``) The name of the low-level service operation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;operation&#39;</span><span class="p">)</span>
 
 </div>
 <div class="viewcode-block" id="Waiter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Waiter">[docs]</a><span class="k">class</span> <span class="nc">Waiter</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
@@ -271,16 +271,16 @@
 <span class="sd">    :type definition: dict</span>
 <span class="sd">    :param definition: The JSON definition</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">PREFIX</span> <span class="o">=</span> <span class="s1">&#39;WaitUntil&#39;</span>
+    <span class="n">PREFIX</span> <span class="o">=</span> <span class="s">&#39;WaitUntil&#39;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Waiter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Waiter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
 
-        <span class="c1">#: (``string``) The name of this waiter</span>
+        <span class="c">#: (``string``) The name of this waiter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
-        <span class="c1">#: (``string``) The name of the underlying event waiter</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">waiter_name</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;waiterName&#39;</span><span class="p">)</span>
+        <span class="c">#: (``string``) The name of the underlying event waiter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waiter_name</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;waiterName&#39;</span><span class="p">)</span>
 
 </div>
 <div class="viewcode-block" id="ResponseResource"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource">[docs]</a><span class="k">class</span> <span class="nc">ResponseResource</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -292,15 +292,15 @@
 <span class="sd">    :type resource_defs: dict</span>
 <span class="sd">    :param resource_defs: All resources defined in the service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span> <span class="o">=</span> <span class="n">resource_defs</span>
 
-        <span class="c1">#: (``string``) The name of the response resource type</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span>
+        <span class="c">#: (``string``) The name of the response resource type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;type&#39;</span><span class="p">)</span>
 
-        <span class="c1">#: (``string``) The JMESPath search query or ``None``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+        <span class="c">#: (``string``) The JMESPath search query or ``None``</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResponseResource.identifiers"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.identifiers">[docs]</a>    <span class="k">def</span> <span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -311,7 +311,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
             <span class="n">identifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="n">Parameter</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">))</span>
 
@@ -365,15 +365,15 @@
 <span class="sd">    :type resource_defs: dict</span>
 <span class="sd">    :param resource_defs: All resources defined in the service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span> <span class="o">=</span> <span class="n">resource_defs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="c1">#: (``string``) The name of this resource</span>
+        <span class="c">#: (``string``) The name of this resource</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="c1">#: (``string``) The service shape name for this resource or ``None``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
+        <span class="c">#: (``string``) The service shape name for this resource or ``None``</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;shape&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ResourceModel.load_rename_map"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">[docs]</a>    <span class="k">def</span> <span class="nf">load_rename_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -412,44 +412,44 @@
 <span class="sd">        :type shape: ibm_botocore.model.Shape</span>
 <span class="sd">        :param shape: The underlying shape for this resource.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Meta is a reserved name for resources</span>
-        <span class="n">names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span>
+        <span class="c"># Meta is a reserved name for resources</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">&#39;meta&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">):</span>
-            <span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">):</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;identifier&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="s">&#39;identifier&#39;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actions&#39;</span><span class="p">,</span> <span class="p">{}):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;actions&#39;</span><span class="p">,</span> <span class="p">{}):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;action&#39;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">ref</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_has_definition</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="c1"># Subresources require no data members, just typically</span>
-            <span class="c1"># identifiers and user input.</span>
+            <span class="c"># Subresources require no data members, just typically</span>
+            <span class="c"># identifiers and user input.</span>
             <span class="n">data_required</span> <span class="o">=</span> <span class="bp">False</span>
-            <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">ref</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">][</span><span class="s1">&#39;identifiers&#39;</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="n">identifier</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">ref</span><span class="p">[</span><span class="s">&#39;resource&#39;</span><span class="p">][</span><span class="s">&#39;identifiers&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">identifier</span><span class="p">[</span><span class="s">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;data&#39;</span><span class="p">:</span>
                     <span class="n">data_required</span> <span class="o">=</span> <span class="bp">True</span>
                     <span class="k">break</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">data_required</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;subresource&#39;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;subresource&#39;</span><span class="p">,</span>
                                               <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;reference&#39;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;hasMany&#39;</span><span class="p">,</span> <span class="p">{}):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;collection&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;hasMany&#39;</span><span class="p">,</span> <span class="p">{}):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;collection&#39;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;waiters&#39;</span><span class="p">,</span> <span class="p">{}):</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;waiters&#39;</span><span class="p">,</span> <span class="p">{}):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">Waiter</span><span class="o">.</span><span class="n">PREFIX</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span>
-                                          <span class="s1">&#39;waiter&#39;</span><span class="p">)</span>
+                                          <span class="s">&#39;waiter&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">shape</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s">&#39;attribute&#39;</span><span class="p">)</span>
 </div>
     <span class="k">def</span> <span class="nf">_load_name_with_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span>
                                  <span class="n">snake_case</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
@@ -472,14 +472,14 @@
             <span class="n">name</span> <span class="o">=</span> <span class="n">xform_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Renaming </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span><span class="p">[(</span><span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">category</span>
-            <span class="n">name</span> <span class="o">+=</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">category</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;Renaming </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span><span class="p">[(</span><span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">category</span>
+            <span class="n">name</span> <span class="o">+=</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">category</span>
 
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                <span class="c1"># This isn&#39;t good, let&#39;s raise instead of trying to keep</span>
-                <span class="c1"># renaming this value.</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Problem renaming {0} {1} to {2}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="c"># This isn&#39;t good, let&#39;s raise instead of trying to keep</span>
+                <span class="c"># renaming this value.</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Problem renaming {0} {1} to {2}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
 
         <span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -526,9 +526,9 @@
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">shape</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">snake_cased</span> <span class="o">=</span> <span class="n">xform_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">snake_cased</span> <span class="ow">in</span> <span class="n">identifier_names</span><span class="p">:</span>
-                <span class="c1"># Skip identifiers, these are set through other means</span>
+                <span class="c"># Skip identifiers, these are set through other means</span>
                 <span class="k">continue</span>
-            <span class="n">snake_cased</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">snake_cased</span><span class="p">,</span>
+            <span class="n">snake_cased</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">snake_cased</span><span class="p">,</span>
                                          <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
             <span class="n">attributes</span><span class="p">[</span><span class="n">snake_cased</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
 
@@ -543,11 +543,11 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;identifier&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-            <span class="n">member_name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;memberName&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;identifier&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">])</span>
+            <span class="n">member_name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;memberName&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">member_name</span><span class="p">:</span>
-                <span class="n">member_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">member_name</span><span class="p">)</span>
+                <span class="n">member_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">member_name</span><span class="p">)</span>
             <span class="n">identifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Identifier</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">identifiers</span>
@@ -559,10 +559,10 @@
 
 <span class="sd">        :type: :py:class:`Action` or ``None``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">)</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">action</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">action</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">)</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="s">&#39;load&#39;</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">action</span>
 </div>
@@ -575,8 +575,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">actions</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actions&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;actions&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;action&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Action</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">actions</span>
@@ -590,8 +590,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">actions</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;batchActions&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;batch_action&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;batchActions&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;batch_action&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Action</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">actions</span>
@@ -609,53 +609,53 @@
 <span class="sd">                 definitions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">:</span>
-            <span class="c1"># This is the service resource, so let us expose all of</span>
-            <span class="c1"># the defined resources as subresources.</span>
+            <span class="c"># This is the service resource, so let us expose all of</span>
+            <span class="c"># the defined resources as subresources.</span>
             <span class="n">definition</span> <span class="o">=</span> <span class="p">{}</span>
 
             <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">resource_def</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="c1"># It&#39;s possible for the service to have renamed a</span>
-                <span class="c1"># resource or to have defined multiple names that</span>
-                <span class="c1"># point to the same resource type, so we need to</span>
-                <span class="c1"># take that into account.</span>
+                <span class="c"># It&#39;s possible for the service to have renamed a</span>
+                <span class="c"># resource or to have defined multiple names that</span>
+                <span class="c"># point to the same resource type, so we need to</span>
+                <span class="c"># take that into account.</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
-                <span class="n">has_items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="n">has_items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;has&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
                 <span class="k">for</span> <span class="n">has_name</span><span class="p">,</span> <span class="n">has_def</span> <span class="ow">in</span> <span class="n">has_items</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">has_def</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resource&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">has_def</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;resource&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
                         <span class="n">definition</span><span class="p">[</span><span class="n">has_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">has_def</span>
                         <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
 
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
-                    <span class="c1"># Create a relationship definition and attach it</span>
-                    <span class="c1"># to the model, such that all identifiers must be</span>
-                    <span class="c1"># supplied by the user. It will look something like:</span>
-                    <span class="c1">#</span>
-                    <span class="c1"># {</span>
-                    <span class="c1">#   &#39;resource&#39;: {</span>
-                    <span class="c1">#     &#39;type&#39;: &#39;ResourceName&#39;,</span>
-                    <span class="c1">#     &#39;identifiers&#39;: [</span>
-                    <span class="c1">#       {&#39;target&#39;: &#39;Name1&#39;, &#39;source&#39;: &#39;input&#39;},</span>
-                    <span class="c1">#       {&#39;target&#39;: &#39;Name2&#39;, &#39;source&#39;: &#39;input&#39;},</span>
-                    <span class="c1">#       ...</span>
-                    <span class="c1">#     ]</span>
-                    <span class="c1">#   }</span>
-                    <span class="c1"># }</span>
-                    <span class="c1">#</span>
+                    <span class="c"># Create a relationship definition and attach it</span>
+                    <span class="c"># to the model, such that all identifiers must be</span>
+                    <span class="c"># supplied by the user. It will look something like:</span>
+                    <span class="c">#</span>
+                    <span class="c"># {</span>
+                    <span class="c">#   &#39;resource&#39;: {</span>
+                    <span class="c">#     &#39;type&#39;: &#39;ResourceName&#39;,</span>
+                    <span class="c">#     &#39;identifiers&#39;: [</span>
+                    <span class="c">#       {&#39;target&#39;: &#39;Name1&#39;, &#39;source&#39;: &#39;input&#39;},</span>
+                    <span class="c">#       {&#39;target&#39;: &#39;Name2&#39;, &#39;source&#39;: &#39;input&#39;},</span>
+                    <span class="c">#       ...</span>
+                    <span class="c">#     ]</span>
+                    <span class="c">#   }</span>
+                    <span class="c"># }</span>
+                    <span class="c">#</span>
                     <span class="n">fake_has</span> <span class="o">=</span> <span class="p">{</span>
-                        <span class="s1">&#39;resource&#39;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-                            <span class="s1">&#39;identifiers&#39;</span><span class="p">:</span> <span class="p">[]</span>
+                        <span class="s">&#39;resource&#39;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                            <span class="s">&#39;identifiers&#39;</span><span class="p">:</span> <span class="p">[]</span>
                         <span class="p">}</span>
                     <span class="p">}</span>
 
-                    <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">resource_def</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
-                        <span class="n">fake_has</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">][</span><span class="s1">&#39;identifiers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                            <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="n">identifier</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="s1">&#39;input&#39;</span>
+                    <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">resource_def</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+                        <span class="n">fake_has</span><span class="p">[</span><span class="s">&#39;resource&#39;</span><span class="p">][</span><span class="s">&#39;identifiers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                            <span class="s">&#39;target&#39;</span><span class="p">:</span> <span class="n">identifier</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">],</span> <span class="s">&#39;source&#39;</span><span class="p">:</span> <span class="s">&#39;input&#39;</span>
                         <span class="p">})</span>
 
                     <span class="n">definition</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_has</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">definition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">definition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;has&#39;</span><span class="p">,</span> <span class="p">{})</span>
 
         <span class="k">return</span> <span class="n">definition</span>
 
@@ -672,14 +672,14 @@
 
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_has_definition</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">subresources</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;subresource&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;subresource&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;reference&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;reference&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">)</span>
 
             <span class="n">data_required</span> <span class="o">=</span> <span class="bp">False</span>
             <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">identifier</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">identifier</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s">&#39;data&#39;</span><span class="p">:</span>
                     <span class="n">data_required</span> <span class="o">=</span> <span class="bp">True</span>
                     <span class="k">break</span>
 
@@ -717,8 +717,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">collections</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;hasMany&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;collection&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;hasMany&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;collection&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">collections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Collection</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">collections</span>
@@ -732,8 +732,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">waiters</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;waiters&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;waiter&#39;</span><span class="p">,</span> <span class="n">Waiter</span><span class="o">.</span><span class="n">PREFIX</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;waiters&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s">&#39;waiter&#39;</span><span class="p">,</span> <span class="n">Waiter</span><span class="o">.</span><span class="n">PREFIX</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">waiters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Waiter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">waiters</span></div></div>
@@ -753,7 +753,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.1.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
