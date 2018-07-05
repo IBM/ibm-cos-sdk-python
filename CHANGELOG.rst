@@ -70,3 +70,10 @@ Features
 --------
 * Remove references to versioning
 * Fix credential check fails when full IAM details not supplied
+
+2.1.2
+=====
+
+Features 
+--------
+* 38204: Bug fixes
