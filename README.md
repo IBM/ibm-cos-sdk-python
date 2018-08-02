@@ -9,7 +9,7 @@ Cloud Object Storage](https://console.bluemix.net/docs/services/cloud-object-sto
 * [Python API reference documentation](https://ibm.github.io/ibm-cos-sdk-python)
 * [REST API reference documentation](https://console.bluemix.net/docs/services/cloud-object-storage/api-reference/about-api.html)
 
-For release notes, see the [CHANGELOG](CHANGELOG.md).
+For release notes, see the [CHANGELOG](CHANGELOG.rst).
 
 * [Example code](#example-code)
 * [Building from source](#building-from-source)
