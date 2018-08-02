@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>ibm_boto3.resources.response &mdash; ibm-cos-sdk 2.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="ibm-cos-sdk 2.1.2 documentation" href="../../../index.html" />
+    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.1.2 documentation</a><div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/services/index.html">Available Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/core/index.html">Core References</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/customizations/index.html">Customization References</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../../index.html">Docs</a></li>
+              
+                <li><a href="../../index.html">Module code</a></li>
+              
+                <li><a href="../../ibm_boto3.html">ibm_boto3</a></li>
+              
+              <li>ibm_boto3.resources.response</li>
+            </ol>
+          </div>
+          
+<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+          <div class="document clearer body">
+            
+  <h1>Source code for ibm_boto3.resources.response</h1><div class="highlight"><pre>
+<span class="c"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c"># the License is located at</span>
+<span class="c">#</span>
+<span class="c"># http://aws.amazon.com/apache2.0/</span>
+<span class="c">#</span>
+<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c"># language governing permissions and limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">jmespath</span>
+<span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
+
+<span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">get_data_member</span>
+
+
+<div class="viewcode-block" id="all_not_none"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.all_not_none">[docs]</a><span class="k">def</span> <span class="nf">all_not_none</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return True if all elements of the iterable are not None (or if the</span>
+<span class="sd">    iterable is empty). This is like the built-in ``all``, except checks</span>
+<span class="sd">    against None, so 0 and False are allowable values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+</div>
+<div class="viewcode-block" id="build_identifiers"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.build_identifiers">[docs]</a><span class="k">def</span> <span class="nf">build_identifiers</span><span class="p">(</span><span class="n">identifiers</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">raw_response</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Builds a mapping of identifier names to values based on the</span>
+<span class="sd">    identifier source location, type, and target. Identifier</span>
+<span class="sd">    values may be scalars or lists depending on the source type</span>
+<span class="sd">    and location.</span>
+
+<span class="sd">    :type identifiers: list</span>
+<span class="sd">    :param identifiers: List of :py:class:`~boto3.resources.model.Parameter`</span>
+<span class="sd">                        definitions</span>
+<span class="sd">    :type parent: ServiceResource</span>
+<span class="sd">    :param parent: The resource instance to which this action is attached.</span>
+<span class="sd">    :type params: dict</span>
+<span class="sd">    :param params: Request parameters sent to the service.</span>
+<span class="sd">    :type raw_response: dict</span>
+<span class="sd">    :param raw_response: Low-level operation response.</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    :return: An ordered list of ``(name, value)`` identifier tuples.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">identifiers</span><span class="p">:</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="n">identifier</span><span class="o">.</span><span class="n">source</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">identifier</span><span class="o">.</span><span class="n">target</span>
+
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="s">&#39;response&#39;</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">raw_response</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s">&#39;requestParameter&#39;</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s">&#39;identifier&#39;</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">xform_name</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s">&#39;data&#39;</span><span class="p">:</span>
+            <span class="c"># If this is a data member then it may incur a load</span>
+            <span class="c"># action before returning the value.</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">get_data_member</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">identifier</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s">&#39;input&#39;</span><span class="p">:</span>
+            <span class="c"># This value is set by the user, so ignore it here</span>
+            <span class="k">continue</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s">&#39;Unsupported source type: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source</span><span class="p">))</span>
+
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">xform_name</span><span class="p">(</span><span class="n">target</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+
+</div>
+<div class="viewcode-block" id="build_empty_response"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.build_empty_response">[docs]</a><span class="k">def</span> <span class="nf">build_empty_response</span><span class="p">(</span><span class="n">search_path</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">service_model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates an appropriate empty response for the type that is expected,</span>
+<span class="sd">    based on the service model&#39;s shape type. For example, a value that</span>
+<span class="sd">    is normally a list would then return an empty list. A structure would</span>
+<span class="sd">    return an empty dict, and a number would return None.</span>
+
+<span class="sd">    :type search_path: string</span>
+<span class="sd">    :param search_path: JMESPath expression to search in the response</span>
+<span class="sd">    :type operation_name: string</span>
+<span class="sd">    :param operation_name: Name of the underlying service operation.</span>
+<span class="sd">    :type service_model: :ref:`ibm_botocore.model.ServiceModel`</span>
+<span class="sd">    :param service_model: The Botocore service model</span>
+<span class="sd">    :rtype: dict, list, or None</span>
+<span class="sd">    :return: An appropriate empty value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="n">operation_model</span> <span class="o">=</span> <span class="n">service_model</span><span class="o">.</span><span class="n">operation_model</span><span class="p">(</span><span class="n">operation_name</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">operation_model</span><span class="o">.</span><span class="n">output_shape</span>
+
+    <span class="k">if</span> <span class="n">search_path</span><span class="p">:</span>
+        <span class="c"># Walk the search path and find the final shape. For example, given</span>
+        <span class="c"># a path of ``foo.bar[0].baz``, we first find the shape for ``foo``,</span>
+        <span class="c"># then the shape for ``bar`` (ignoring the indexing), and finally</span>
+        <span class="c"># the shape for ``baz``.</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">search_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">):</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&#39;[0123456789]$&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">shape</span><span class="o">.</span><span class="n">type_name</span> <span class="o">==</span> <span class="s">&#39;structure&#39;</span><span class="p">:</span>
+                <span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">members</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">shape</span><span class="o">.</span><span class="n">type_name</span> <span class="o">==</span> <span class="s">&#39;list&#39;</span><span class="p">:</span>
+                <span class="n">shape</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">member</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                    <span class="s">&#39;Search path hits shape type {0} from {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">shape</span><span class="o">.</span><span class="n">type_name</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+
+    <span class="c"># Anything not handled here is set to None</span>
+    <span class="k">if</span> <span class="n">shape</span><span class="o">.</span><span class="n">type_name</span> <span class="o">==</span> <span class="s">&#39;structure&#39;</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">elif</span> <span class="n">shape</span><span class="o">.</span><span class="n">type_name</span> <span class="o">==</span> <span class="s">&#39;list&#39;</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">elif</span> <span class="n">shape</span><span class="o">.</span><span class="n">type_name</span> <span class="o">==</span> <span class="s">&#39;map&#39;</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">return</span> <span class="n">response</span>
+
+</div>
+<div class="viewcode-block" id="RawHandler"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.RawHandler">[docs]</a><span class="k">class</span> <span class="nc">RawHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A raw action response handler. This passed through the response</span>
+<span class="sd">    dictionary, optionally after performing a JMESPath search if one</span>
+<span class="sd">    has been defined for the action.</span>
+
+<span class="sd">    :type search_path: string</span>
+<span class="sd">    :param search_path: JMESPath expression to search in the response</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    :return: Service response</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span> <span class="o">=</span> <span class="n">search_path</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type parent: ServiceResource</span>
+<span class="sd">        :param parent: The resource instance to which this action is attached.</span>
+<span class="sd">        :type params: dict</span>
+<span class="sd">        :param params: Request parameters sent to the service.</span>
+<span class="sd">        :type response: dict</span>
+<span class="sd">        :param response: Low-level operation response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># TODO: Remove the &#39;$&#39; check after JMESPath supports it</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span> <span class="o">!=</span> <span class="s">&#39;$&#39;</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">search_path</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+
+</div>
+<div class="viewcode-block" id="ResourceHandler"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler">[docs]</a><span class="k">class</span> <span class="nc">ResourceHandler</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a new resource or list of new resources from the low-level</span>
+<span class="sd">    response based on the given response resource definition.</span>
+
+<span class="sd">    :type search_path: string</span>
+<span class="sd">    :param search_path: JMESPath expression to search in the response</span>
+
+<span class="sd">    :type factory: ResourceFactory</span>
+<span class="sd">    :param factory: The factory that created the resource class to which</span>
+<span class="sd">                    this action is attached.</span>
+
+<span class="sd">    :type resource_model: :py:class:`~boto3.resources.model.ResponseResource`</span>
+<span class="sd">    :param resource_model: Response resource model.</span>
+
+<span class="sd">    :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">    :param service_context: Context about the AWS service</span>
+
+<span class="sd">    :type operation_name: string</span>
+<span class="sd">    :param operation_name: Name of the underlying service operation, if it</span>
+<span class="sd">                           exists.</span>
+
+<span class="sd">    :rtype: ServiceResource or list</span>
+<span class="sd">    :return: New resource instance(s).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_path</span><span class="p">,</span> <span class="n">factory</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span>
+                 <span class="n">service_context</span><span class="p">,</span> <span class="n">operation_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span> <span class="o">=</span> <span class="n">search_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="o">=</span> <span class="n">factory</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resource_model</span> <span class="o">=</span> <span class="n">resource_model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operation_name</span> <span class="o">=</span> <span class="n">operation_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">service_context</span> <span class="o">=</span> <span class="n">service_context</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type parent: ServiceResource</span>
+<span class="sd">        :param parent: The resource instance to which this action is attached.</span>
+<span class="sd">        :type params: dict</span>
+<span class="sd">        :param params: Request parameters sent to the service.</span>
+<span class="sd">        :type response: dict</span>
+<span class="sd">        :param response: Low-level operation response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">resource_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_model</span><span class="o">.</span><span class="n">type</span>
+        <span class="n">json_definition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">service_context</span><span class="o">.</span><span class="n">resource_json_definitions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="p">)</span>
+
+        <span class="c"># Load the new resource class that will result from this action.</span>
+        <span class="n">resource_cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">load_from_definition</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">single_resource_json_definition</span><span class="o">=</span><span class="n">json_definition</span><span class="p">,</span>
+            <span class="n">service_context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service_context</span>
+        <span class="p">)</span>
+        <span class="n">raw_response</span> <span class="o">=</span> <span class="n">response</span>
+        <span class="n">search_response</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c"># Anytime a path is defined, it means the response contains the</span>
+        <span class="c"># resource&#39;s attributes, so resource_data gets set here. It</span>
+        <span class="c"># eventually ends up in resource.meta.data, which is where</span>
+        <span class="c"># the attribute properties look for data.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span><span class="p">:</span>
+            <span class="n">search_response</span> <span class="o">=</span> <span class="n">jmespath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">search_path</span><span class="p">,</span> <span class="n">raw_response</span><span class="p">)</span>
+
+        <span class="c"># First, we parse all the identifiers, then create the individual</span>
+        <span class="c"># response resources using them. Any identifiers that are lists</span>
+        <span class="c"># will have one item consumed from the front of the list for each</span>
+        <span class="c"># resource that is instantiated. Items which are not a list will</span>
+        <span class="c"># be set as the same value on each new resource instance.</span>
+        <span class="n">identifiers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">build_identifiers</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">resource_model</span><span class="o">.</span><span class="n">identifiers</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span>
+            <span class="n">raw_response</span><span class="p">))</span>
+
+        <span class="c"># If any of the identifiers is a list, then the response is plural</span>
+        <span class="n">plural</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">identifiers</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">list</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">plural</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="c"># The number of items in an identifier that is a list will</span>
+            <span class="c"># determine how many resource instances to create.</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">plural</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+                <span class="c"># Response item data is *only* available if a search path</span>
+                <span class="c"># was given. This prevents accidentally loading unrelated</span>
+                <span class="c"># data that may be in the response.</span>
+                <span class="n">response_item</span> <span class="o">=</span> <span class="bp">None</span>
+                <span class="k">if</span> <span class="n">search_response</span><span class="p">:</span>
+                    <span class="n">response_item</span> <span class="o">=</span> <span class="n">search_response</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">handle_response_item</span><span class="p">(</span><span class="n">resource_cls</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span>
+                                              <span class="n">identifiers</span><span class="p">,</span> <span class="n">response_item</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">all_not_none</span><span class="p">(</span><span class="n">identifiers</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="c"># All identifiers must always exist, otherwise the resource</span>
+            <span class="c"># cannot be instantiated.</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_response_item</span><span class="p">(</span>
+                <span class="n">resource_cls</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">,</span> <span class="n">search_response</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># The response should be empty, but that may mean an</span>
+            <span class="c"># empty dict, list, or None based on whether we make</span>
+            <span class="c"># a remote service call and what shape it is expected</span>
+            <span class="c"># to return.</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">operation_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="c"># A remote service call was made, so try and determine</span>
+                <span class="c"># its shape.</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">build_empty_response</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">operation_name</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+
+<div class="viewcode-block" id="ResourceHandler.handle_response_item"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler.handle_response_item">[docs]</a>    <span class="k">def</span> <span class="nf">handle_response_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_cls</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">,</span>
+                             <span class="n">resource_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles the creation of a single response item by setting</span>
+<span class="sd">        parameters and creating the appropriate resource instance.</span>
+
+<span class="sd">        :type resource_cls: ServiceResource subclass</span>
+<span class="sd">        :param resource_cls: The resource class to instantiate.</span>
+<span class="sd">        :type parent: ServiceResource</span>
+<span class="sd">        :param parent: The resource instance to which this action is attached.</span>
+<span class="sd">        :type identifiers: dict</span>
+<span class="sd">        :param identifiers: Map of identifier names to value or values.</span>
+<span class="sd">        :type resource_data: dict or None</span>
+<span class="sd">        :param resource_data: Data for resource attributes.</span>
+<span class="sd">        :rtype: ServiceResource</span>
+<span class="sd">        :return: New resource instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;client&#39;</span><span class="p">:</span> <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">identifiers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c"># If value is a list, then consume the next item</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="n">resource</span> <span class="o">=</span> <span class="n">resource_cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">resource_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">resource</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">resource_data</span>
+
+        <span class="k">return</span> <span class="n">resource</span></div></div>
+</pre></div>
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
+      </ul>
+    </div>
+
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 IBM. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+<script type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script>
+<script type="text/javascript">
+s.prop66 = 'AWS SDK for Python (boto3)';
+s.eVar66 = 'D=c66';
+s.prop65 = 'API Reference';
+s.eVar65 = 'D=c65';
+var s_code = s.t();
+if (s_code) document.write(s_code);
+</script>
+  </body>
+</html>

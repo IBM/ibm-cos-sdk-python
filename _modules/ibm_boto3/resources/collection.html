@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>ibm_boto3.resources.collection &mdash; ibm-cos-sdk 2.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="ibm-cos-sdk 2.1.2 documentation" href="../../../index.html" />
+    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
+  
+   
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.1.2 documentation</a><div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/services/index.html">Available Services</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/core/index.html">Core References</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference/customizations/index.html">Customization References</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../../index.html">Docs</a></li>
+              
+                <li><a href="../../index.html">Module code</a></li>
+              
+                <li><a href="../../ibm_boto3.html">ibm_boto3</a></li>
+              
+              <li>ibm_boto3.resources.collection</li>
+            </ol>
+          </div>
+          
+<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+          <div class="document clearer body">
+            
+  <h1>Source code for ibm_boto3.resources.collection</h1><div class="highlight"><pre>
+<span class="c"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c"># the License is located at</span>
+<span class="c">#</span>
+<span class="c"># http://aws.amazon.com/apache2.0/</span>
+<span class="c">#</span>
+<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c"># language governing permissions and limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
+<span class="kn">from</span> <span class="nn">ibm_botocore.utils</span> <span class="kn">import</span> <span class="n">merge_dicts</span>
+
+<span class="kn">from</span> <span class="nn">.action</span> <span class="kn">import</span> <span class="n">BatchAction</span>
+<span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">create_request_parameters</span>
+<span class="kn">from</span> <span class="nn">.response</span> <span class="kn">import</span> <span class="n">ResourceHandler</span>
+<span class="kn">from</span> <span class="nn">..docs</span> <span class="kn">import</span> <span class="n">docstring</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ResourceCollection"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection">[docs]</a><span class="k">class</span> <span class="nc">ResourceCollection</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a collection of resources, which can be iterated through,</span>
+<span class="sd">    optionally with filtering. Collections automatically handle pagination</span>
+<span class="sd">    for you.</span>
+
+<span class="sd">    See :ref:`guide_collections` for a high-level overview of collections,</span>
+<span class="sd">    including when remote service requests are performed.</span>
+
+<span class="sd">    :type model: :py:class:`~boto3.resources.model.Collection`</span>
+<span class="sd">    :param model: Collection model</span>
+<span class="sd">    :type parent: :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">    :param parent: The collection&#39;s parent resource</span>
+<span class="sd">    :type handler: :py:class:`~boto3.resources.response.ResourceHandler`</span>
+<span class="sd">    :param handler: The resource response handler used to create resource</span>
+<span class="sd">                    instances</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span> <span class="o">=</span> <span class="n">xform_name</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">operation</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span> <span class="o">=</span> <span class="n">handler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params</span> <span class="o">=</span> <span class="n">kwargs</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;{0}({1}, {2})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span>
+            <span class="s">&#39;{0}.{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">type</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A generator which yields resource instances after doing the</span>
+<span class="sd">        appropriate service operation calls and handling any pagination</span>
+<span class="sd">        on your behalf.</span>
+
+<span class="sd">        Page size, item limit, and filter parameters are applied</span>
+<span class="sd">        if they have previously been set.</span>
+
+<span class="sd">            &gt;&gt;&gt; bucket = s3.Bucket(&#39;boto3&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; for obj in bucket.objects.all():</span>
+<span class="sd">            ...     print(obj.key)</span>
+<span class="sd">            &#39;key1&#39;</span>
+<span class="sd">            &#39;key2&#39;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;limit&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">item</span>
+
+                <span class="c"># If the limit is set and has been reached, then</span>
+                <span class="c"># we stop processing items here.</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">:</span>
+                    <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">_clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a clone of this collection. This is used by the methods</span>
+<span class="sd">        below to provide a chainable interface that returns copies</span>
+<span class="sd">        rather than the original. This allows things like:</span>
+
+<span class="sd">            &gt;&gt;&gt; base = collection.filter(Param1=1)</span>
+<span class="sd">            &gt;&gt;&gt; query1 = base.filter(Param2=2)</span>
+<span class="sd">            &gt;&gt;&gt; query2 = base.filter(Param3=3)</span>
+<span class="sd">            &gt;&gt;&gt; query1.params</span>
+<span class="sd">            {&#39;Param1&#39;: 1, &#39;Param2&#39;: 2}</span>
+<span class="sd">            &gt;&gt;&gt; query2.params</span>
+<span class="sd">            {&#39;Param1&#39;: 1, &#39;Param3&#39;: 3}</span>
+
+<span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
+<span class="sd">        :return: A clone of this resource collection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_params</span><span class="p">)</span>
+        <span class="n">merge_dicts</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">append_lists</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">clone</span>
+
+<div class="viewcode-block" id="ResourceCollection.pages"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.pages">[docs]</a>    <span class="k">def</span> <span class="nf">pages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A generator which yields pages of resource instances after</span>
+<span class="sd">        doing the appropriate service operation calls and handling</span>
+<span class="sd">        any pagination on your behalf. Non-paginated calls will</span>
+<span class="sd">        return a single page of items.</span>
+
+<span class="sd">        Page size, item limit, and filter parameters are applied</span>
+<span class="sd">        if they have previously been set.</span>
+
+<span class="sd">            &gt;&gt;&gt; bucket = s3.Bucket(&#39;boto3&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; for page in bucket.objects.pages():</span>
+<span class="sd">            ...     for obj in page:</span>
+<span class="sd">            ...         print(obj.key)</span>
+<span class="sd">            &#39;key1&#39;</span>
+<span class="sd">            &#39;key2&#39;</span>
+
+<span class="sd">        :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)</span>
+<span class="sd">        :return: List of resource instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span>
+        <span class="n">cleaned_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="n">cleaned_params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;limit&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">page_size</span> <span class="o">=</span> <span class="n">cleaned_params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;page_size&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">create_request_parameters</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">merge_dicts</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">cleaned_params</span><span class="p">,</span> <span class="n">append_lists</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="c"># Is this a paginated operation? If so, we need to get an</span>
+        <span class="c"># iterator for the various pages. If not, then we simply</span>
+        <span class="c"># call the operation and return the result as a single</span>
+        <span class="c"># page in a list. For non-paginated results, we just ignore</span>
+        <span class="c"># the page size parameter.</span>
+        <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">can_paginate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Calling paginated </span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s"> with </span><span class="si">%r</span><span class="s">&#39;</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+            <span class="n">paginator</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_paginator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">)</span>
+            <span class="n">pages</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span>
+                <span class="n">PaginationConfig</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s">&#39;MaxItems&#39;</span><span class="p">:</span> <span class="n">limit</span><span class="p">,</span> <span class="s">&#39;PageSize&#39;</span><span class="p">:</span> <span class="n">page_size</span><span class="p">},</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Calling </span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s"> with </span><span class="si">%r</span><span class="s">&#39;</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+            <span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">)(</span><span class="o">**</span><span class="n">params</span><span class="p">)]</span>
+
+        <span class="c"># Now that we have a page iterator or single page of results</span>
+        <span class="c"># we start processing and yielding individual items.</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span>
+            <span class="n">page_items</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+                <span class="n">page_items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+                <span class="c"># If the limit is set and has been reached, then</span>
+                <span class="c"># we stop processing items here.</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+            <span class="k">yield</span> <span class="n">page_items</span>
+
+            <span class="c"># Stop reading pages if we&#39;ve reached out limit</span>
+            <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">:</span>
+                <span class="k">break</span>
+</div>
+<div class="viewcode-block" id="ResourceCollection.all"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all items from the collection, optionally with a custom</span>
+<span class="sd">        page size and item count limit.</span>
+
+<span class="sd">        This method returns an iterable generator which yields</span>
+<span class="sd">        individual resource instances. </span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="ResourceCollection.filter"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get items from the collection, passing keyword arguments along</span>
+<span class="sd">        as parameters to the underlying service operation, which are</span>
+<span class="sd">        typically used to filter the results.</span>
+
+<span class="sd">        This method returns an iterable generator which yields</span>
+<span class="sd">        individual resource instances. </span>
+
+<span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ResourceCollection.limit"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.limit">[docs]</a>    <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return at most this many resources.</span>
+
+<span class="sd">            &gt;&gt;&gt; for bucket in s3.buckets.limit(5):</span>
+<span class="sd">            ...     print(bucket.name)</span>
+<span class="sd">            &#39;bucket1&#39;</span>
+<span class="sd">            &#39;bucket2&#39;</span>
+<span class="sd">            &#39;bucket3&#39;</span>
+<span class="sd">            &#39;bucket4&#39;</span>
+<span class="sd">            &#39;bucket5&#39;</span>
+
+<span class="sd">        :type count: int</span>
+<span class="sd">        :param count: Return no more than this many items</span>
+<span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ResourceCollection.page_size"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.page_size">[docs]</a>    <span class="k">def</span> <span class="nf">page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fetch at most this many resources per service request.</span>
+
+<span class="sd">            &gt;&gt;&gt; for obj in s3.Bucket(ibm_boto3).objects.page_size(100):</span>
+<span class="sd">            ...     print(obj.key)</span>
+
+<span class="sd">        :type count: int</span>
+<span class="sd">        :param count: Fetch this many items per request</span>
+<span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="CollectionManager"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager">[docs]</a><span class="k">class</span> <span class="nc">CollectionManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A collection manager provides access to resource collection instances,</span>
+<span class="sd">    which can be iterated and filtered. The manager exposes some</span>
+<span class="sd">    convenience functions that are also found on resource collections,</span>
+<span class="sd">    such as :py:meth:`~ResourceCollection.all` and</span>
+<span class="sd">    :py:meth:`~ResourceCollection.filter`.</span>
+
+<span class="sd">    Get all items::</span>
+
+<span class="sd">        &gt;&gt;&gt; for bucket in s3.buckets.all():</span>
+<span class="sd">        ...     print(bucket.name)</span>
+
+<span class="sd">    Get whole pages of items:</span>
+
+<span class="sd">        &gt;&gt;&gt; for page in s3.Bucket(&#39;boto3&#39;).objects.pages():</span>
+<span class="sd">        ...     for obj in page:</span>
+<span class="sd">        ...         print(obj.key)</span>
+
+<span class="sd">    A collection manager is not iterable. You **must** call one of the</span>
+<span class="sd">    methods that return a :py:class:`ResourceCollection` before trying</span>
+<span class="sd">    to iterate, slice, or convert to a list.</span>
+
+<span class="sd">    See the :ref:`guide_collections` guide for a high-level overview</span>
+<span class="sd">    of collections, including when remote service requests are performed.</span>
+
+<span class="sd">    :type collection_model: :py:class:`~boto3.resources.model.Collection`</span>
+<span class="sd">    :param model: Collection model</span>
+
+<span class="sd">    :type parent: :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">    :param parent: The collection&#39;s parent resource</span>
+
+<span class="sd">    :type factory: :py:class:`~boto3.resources.factory.ResourceFactory`</span>
+<span class="sd">    :param factory: The resource factory to create new resources</span>
+
+<span class="sd">    :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">    :param service_context: Context about the AWS service</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># The class to use when creating an iterator</span>
+    <span class="n">_collection_cls</span> <span class="o">=</span> <span class="n">ResourceCollection</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">factory</span><span class="p">,</span> <span class="n">service_context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">collection_model</span>
+        <span class="n">operation_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">operation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+        <span class="n">search_path</span> <span class="o">=</span> <span class="n">collection_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span> <span class="o">=</span> <span class="n">ResourceHandler</span><span class="p">(</span>
+            <span class="n">search_path</span><span class="o">=</span><span class="n">search_path</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="n">factory</span><span class="p">,</span>
+            <span class="n">resource_model</span><span class="o">=</span><span class="n">collection_model</span><span class="o">.</span><span class="n">resource</span><span class="p">,</span>
+            <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">,</span>
+            <span class="n">operation_name</span><span class="o">=</span><span class="n">operation_name</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;{0}({1}, {2})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span>
+            <span class="s">&#39;{0}.{1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">type</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="CollectionManager.iterator"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.iterator">[docs]</a>    <span class="k">def</span> <span class="nf">iterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a resource collection iterator from this manager.</span>
+
+<span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
+<span class="sd">        :return: An iterable representing the collection of resources</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection_cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c"># Set up some methods to proxy ResourceCollection methods</span></div>
+<div class="viewcode-block" id="CollectionManager.all"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">()</span></div>
+    <span class="nb">all</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">__doc__</span>
+
+<div class="viewcode-block" id="CollectionManager.filter"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="nb">filter</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">filter</span><span class="o">.</span><span class="n">__doc__</span>
+
+<div class="viewcode-block" id="CollectionManager.limit"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.limit">[docs]</a>    <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">count</span><span class="p">)</span></div>
+    <span class="n">limit</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="n">__doc__</span>
+
+<div class="viewcode-block" id="CollectionManager.page_size"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.page_size">[docs]</a>    <span class="k">def</span> <span class="nf">page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span></div>
+    <span class="n">page_size</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">page_size</span><span class="o">.</span><span class="n">__doc__</span>
+
+<div class="viewcode-block" id="CollectionManager.pages"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.pages">[docs]</a>    <span class="k">def</span> <span class="nf">pages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">()</span><span class="o">.</span><span class="n">pages</span><span class="p">()</span></div>
+    <span class="n">pages</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">pages</span><span class="o">.</span><span class="n">__doc__</span>
+
+</div>
+<div class="viewcode-block" id="CollectionFactory"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory">[docs]</a><span class="k">class</span> <span class="nc">CollectionFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A factory to create new</span>
+<span class="sd">    :py:class:`CollectionManager` and :py:class:`ResourceCollection`</span>
+<span class="sd">    subclasses from a :py:class:`~boto3.resources.model.Collection`</span>
+<span class="sd">    model. These subclasses include methods to perform batch operations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CollectionFactory.load_from_definition"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory.load_from_definition">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span>
+                             <span class="n">service_context</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads a collection from a model, creating a new</span>
+<span class="sd">        :py:class:`CollectionManager` subclass</span>
+<span class="sd">        with the correct properties and methods, named based on the service</span>
+<span class="sd">        and resource name. It also creates a new </span>
+<span class="sd">        :py:class:`ResourceCollection` subclass which is used by the new</span>
+<span class="sd">        new manager class.</span>
+
+<span class="sd">        :type resource_name: string</span>
+<span class="sd">        :param resource_name: Name of the resource to look up. For services,</span>
+<span class="sd">                              this should match the ``service_name``.</span>
+
+<span class="sd">        :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">        :param service_context: Context about the AWS service</span>
+
+<span class="sd">        :type event_emitter: :py:class:`~ibm_botocore.hooks.HierarchialEmitter`</span>
+<span class="sd">        :param event_emitter: An event emitter</span>
+
+<span class="sd">        :rtype: Subclass of :py:class:`CollectionManager`</span>
+<span class="sd">        :return: The collection class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">collection_name</span> <span class="o">=</span> <span class="n">collection_model</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="c"># Create the batch actions for a collection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_batch_actions</span><span class="p">(</span>
+            <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">)</span>
+        <span class="c"># Add the documentation to the collection class&#39;s methods</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_documented_collection_methods</span><span class="p">(</span>
+            <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">base_class</span><span class="o">=</span><span class="n">ResourceCollection</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span> <span class="o">==</span> <span class="n">resource_name</span><span class="p">:</span>
+            <span class="n">cls_name</span> <span class="o">=</span> <span class="s">&#39;{0}.{1}Collection&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span> <span class="n">collection_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cls_name</span> <span class="o">=</span> <span class="s">&#39;{0}.{1}.{2}Collection&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_name</span><span class="p">)</span>
+
+        <span class="n">collection_cls</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="p">(</span><span class="n">ResourceCollection</span><span class="p">,),</span>
+                              <span class="n">attrs</span><span class="p">)</span>
+
+        <span class="c"># Add the documentation to the collection manager&#39;s methods</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_documented_collection_methods</span><span class="p">(</span>
+            <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">base_class</span><span class="o">=</span><span class="n">CollectionManager</span><span class="p">)</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;_collection_cls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">collection_cls</span>
+        <span class="n">cls_name</span> <span class="o">+=</span> <span class="s">&#39;Manager&#39;</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="p">(</span><span class="n">CollectionManager</span><span class="p">,),</span> <span class="n">attrs</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_load_batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span>
+                            <span class="n">service_model</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Batch actions on the collection become methods on both</span>
+<span class="sd">        the collection manager and iterators.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">action_model</span> <span class="ow">in</span> <span class="n">collection_model</span><span class="o">.</span><span class="n">batch_actions</span><span class="p">:</span>
+            <span class="n">snake_cased</span> <span class="o">=</span> <span class="n">xform_name</span><span class="p">(</span><span class="n">action_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="n">snake_cased</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_batch_action</span><span class="p">(</span>
+                <span class="n">resource_name</span><span class="p">,</span> <span class="n">snake_cased</span><span class="p">,</span> <span class="n">action_model</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span>
+                <span class="n">service_model</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_load_documented_collection_methods</span><span class="p">(</span>
+            <span class="n">factory_self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">,</span> <span class="n">base_class</span><span class="p">):</span>
+        <span class="c"># The base class already has these methods defined. However</span>
+        <span class="c"># the docstrings are generic and not based for a particular service</span>
+        <span class="c"># or resource. So we override these methods by proxying to the</span>
+        <span class="c"># base class&#39;s builtin method and adding a docstring</span>
+        <span class="c"># that pertains to the resource.</span>
+
+        <span class="c"># A collection&#39;s all() method.</span>
+        <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">base_class</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="nb">all</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">CollectionMethodDocstring</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">action_name</span><span class="o">=</span><span class="s">&#39;all&#39;</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
+        <span class="p">)</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;all&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">all</span>
+
+        <span class="c"># The collection&#39;s filter() method.</span>
+        <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">base_class</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nb">filter</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">CollectionMethodDocstring</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">action_name</span><span class="o">=</span><span class="s">&#39;filter&#39;</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
+        <span class="p">)</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">filter</span>
+
+        <span class="c"># The collection&#39;s limit method.</span>
+        <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">base_class</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+        <span class="n">limit</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">CollectionMethodDocstring</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">action_name</span><span class="o">=</span><span class="s">&#39;limit&#39;</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
+        <span class="p">)</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">limit</span>
+
+        <span class="c"># The collection&#39;s page_size method.</span>
+        <span class="k">def</span> <span class="nf">page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">base_class</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+        <span class="n">page_size</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">CollectionMethodDocstring</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">action_name</span><span class="o">=</span><span class="s">&#39;page_size&#39;</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
+        <span class="p">)</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;page_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">page_size</span>
+
+    <span class="k">def</span> <span class="nf">_create_batch_action</span><span class="p">(</span><span class="n">factory_self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">snake_cased</span><span class="p">,</span>
+                             <span class="n">action_model</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span> <span class="n">service_model</span><span class="p">,</span>
+                             <span class="n">event_emitter</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new method which makes a batch operation request</span>
+<span class="sd">        to the underlying service API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">BatchAction</span><span class="p">(</span><span class="n">action_model</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">batch_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">batch_action</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">snake_cased</span><span class="p">)</span>
+        <span class="n">batch_action</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">BatchActionDocstring</span><span class="p">(</span>
+            <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
+            <span class="n">event_emitter</span><span class="o">=</span><span class="n">event_emitter</span><span class="p">,</span>
+            <span class="n">batch_action_model</span><span class="o">=</span><span class="n">action_model</span><span class="p">,</span>
+            <span class="n">service_model</span><span class="o">=</span><span class="n">service_model</span><span class="p">,</span>
+            <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
+            <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">batch_action</span></div>
+</pre></div>
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.1.2 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
+      </ul>
+    </div>
+
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 IBM. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+<script type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script>
+<script type="text/javascript">
+s.prop66 = 'AWS SDK for Python (boto3)';
+s.eVar66 = 'D=c66';
+s.prop65 = 'API Reference';
+s.eVar65 = 'D=c65';
+var s_code = s.t();
+if (s_code) document.write(s_code);
+</script>
+  </body>
+</html>
