@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.base &mdash; ibm-cos-sdk 2.1.3 documentation</title>
+    <title>ibm_boto3.resources.base &mdash; ibm-cos-sdk 2.2.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.1.3',
+        VERSION:     '2.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.1.3 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.2.0 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.1.3 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.2.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.1.3 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.2.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -115,66 +115,66 @@
           <div class="document clearer body">
             
   <h1>Source code for ibm_boto3.resources.base</h1><div class="highlight"><pre>
-<span class="c"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
-<span class="c">#</span>
-<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
-<span class="c"># may not use this file except in compliance with the License. A copy of</span>
-<span class="c"># the License is located at</span>
-<span class="c">#</span>
-<span class="c"># http://aws.amazon.com/apache2.0/</span>
-<span class="c">#</span>
-<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
-<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
-<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
-<span class="c"># language governing permissions and limitations under the License.</span>
+<span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c1"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c1"># the License is located at</span>
+<span class="c1">#</span>
+<span class="c1"># http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c1"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c1"># language governing permissions and limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="kn">import</span> <span class="nn">ibm_boto3</span>
 
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ResourceMeta"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta">[docs]</a><span class="k">class</span> <span class="nc">ResourceMeta</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An object containing metadata about a resource.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">identifiers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">identifiers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                  <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">resource_model</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="c">#: (``string``) The service name, e.g. &#39;s3&#39;</span>
+        <span class="c1">#: (``string``) The service name, e.g. &#39;s3&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">service_name</span> <span class="o">=</span> <span class="n">service_name</span>
 
         <span class="k">if</span> <span class="n">identifiers</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="c">#: (``list``) List of identifier names</span>
+        <span class="c1">#: (``list``) List of identifier names</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">identifiers</span> <span class="o">=</span> <span class="n">identifiers</span>
 
-        <span class="c">#: (:py:class:`~ibm_botocore.client.BaseClient`) Low-level Botocore client</span>
+        <span class="c1">#: (:py:class:`~ibm_botocore.client.BaseClient`) Low-level Botocore client</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
-        <span class="c">#: (``dict``) Loaded resource data attributes</span>
+        <span class="c1">#: (``dict``) Loaded resource data attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 
-        <span class="c"># The resource model for that resource</span>
+        <span class="c1"># The resource model for that resource</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource_model</span> <span class="o">=</span> <span class="n">resource_model</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&#39;ResourceMeta(</span><span class="se">\&#39;</span><span class="s">{0}</span><span class="se">\&#39;</span><span class="s">, identifiers={1})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;ResourceMeta(</span><span class="se">\&#39;</span><span class="s1">{0}</span><span class="se">\&#39;</span><span class="s1">, identifiers={1})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifiers</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="c"># Two metas are equal if their components are all equal</span>
-        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># Two metas are equal if their components are all equal</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">False</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">__dict__</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__dict__</span>
 
 <div class="viewcode-block" id="ResourceMeta.copy"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a copy of this metadata object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">service_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;service_name&#39;</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">service_name</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;service_name&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ResourceMeta</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
 
 </div></div>
@@ -202,67 +202,67 @@
 <span class="sd">    See :py:class:`ResourceMeta` for more information.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c"># Always work on a copy of meta, otherwise we would affect other</span>
-        <span class="c"># instances of the same subclass.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Always work on a copy of meta, otherwise we would affect other</span>
+        <span class="c1"># instances of the same subclass.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-        <span class="c"># Create a default client if none was passed</span>
-        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;client&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;client&#39;</span><span class="p">)</span>
+        <span class="c1"># Create a default client if none was passed</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;client&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;client&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">ibm_boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">)</span>
 
-        <span class="c"># Allow setting identifiers as positional arguments in the order</span>
-        <span class="c"># in which they were defined in the ResourceJSON.</span>
+        <span class="c1"># Allow setting identifiers as positional arguments in the order</span>
+        <span class="c1"># in which they were defined in the ResourceJSON.</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
 
-        <span class="c"># Allow setting identifiers via keyword arguments. Here we need</span>
-        <span class="c"># extra logic to ignore other keyword arguments like ``client``.</span>
+        <span class="c1"># Allow setting identifiers via keyword arguments. Here we need</span>
+        <span class="c1"># extra logic to ignore other keyword arguments like ``client``.</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;client&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;client&#39;</span><span class="p">:</span>
                 <span class="k">continue</span>
 
             <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Unknown keyword argument: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown keyword argument: {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-        <span class="c"># Validate that all identifiers have been set.</span>
+        <span class="c1"># Validate that all identifiers have been set.</span>
         <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s">&#39;Required parameter {0} not set&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">identifier</span><span class="p">))</span>
+                    <span class="s1">&#39;Required parameter {0} not set&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">identifier</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
-            <span class="n">identifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;{0}={1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">identifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;{0}={1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">identifier</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">))))</span>
-        <span class="k">return</span> <span class="s">&quot;{0}({1})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
-            <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">identifiers</span><span class="p">),</span>
+        <span class="k">return</span> <span class="s2">&quot;{0}({1})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">identifiers</span><span class="p">),</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="c"># Should be instances of the same resource class</span>
-        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># Should be instances of the same resource class</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">False</span>
 
-        <span class="c"># Each of the identifiers should have the same value in both</span>
-        <span class="c"># instances, e.g. two buckets need the same name to be equal.</span>
+        <span class="c1"># Each of the identifiers should have the same value in both</span>
+        <span class="c1"># instances, e.g. two buckets need the same name to be equal.</span>
         <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
                 <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">return</span> <span class="bp">True</span>
 
-    <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">identifiers</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
             <span class="n">identifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">))</span>
-        <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">identifiers</span><span class="p">)))</span></div>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">identifiers</span><span class="p">)))</span></div>
 </pre></div>
 
           </div>
@@ -279,7 +279,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.1.3 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.2.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
