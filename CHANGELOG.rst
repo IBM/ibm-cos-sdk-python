@@ -2,6 +2,13 @@
 CHANGELOG
 =========
 
+2.2.0
+=====
+
+Features 
+--------
+* Archive Tier Support
+
 2.1.3
 =====
 
