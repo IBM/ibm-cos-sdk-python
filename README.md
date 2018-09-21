@@ -74,7 +74,12 @@ From the command line, run `python BucketList.py`.  You should see a list of you
 
 You can source credentials directly from a [Service Credential](https://console.bluemix.net/docs/services/cloud-object-storage/iam/service-credentials.html) JSON document generated in the IBM Cloud console saved to `~/.bluemix/cos_credentials`. The SDK will automatically load these providing you have not explicitly set other credentials during client creation. If the Service Credential contain [HMAC keys](https://console.bluemix.net/docs/services/cloud-object-storage/hmac/credentials.html) the client will use those and authenticate using a signature, otherwise the client will use the provided API key to authenticate using bearer tokens.
 
+## Aspera high-speed transfer (New)
+
+It is now possible to use IBM Aspera as an alternative to managing multipart transfers of larger objects. Aspera is especially effective across long distances or in environments with high rates of packet loss. For more details, check out the [IBM Cloud documentation](https://console.bluemix.net/docs/services/cloud-object-storage/basics/aspera.html#using-libraries-and-sdks)
+
 ## Archive Tier Support (New)
+
 You can automatically archive objects after a specified length of time or after a specified date.  Once archived, a temporary copy of an object can be restored for access as needed.  Restore time may take up to 15 hours.
 
 An archive policy is set at the bucket level by calling the `put_bucket_lifecycle_configuration` method on a client instance.  A newly added or modified archive policy applies to new objects uploaded and does not affect existing objects.  For more detail, [see the documentation](https://console.bluemix.net/docs/services/cloud-object-storage/libraries/python.html#python).

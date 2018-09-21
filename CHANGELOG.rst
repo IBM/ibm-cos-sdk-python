@@ -2,6 +2,13 @@
 CHANGELOG
 =========
 
+2.3.0
+=====
+
+Features 
+--------
+* Aspera High-Speed Transfer Support
+
 2.2.0
 =====
 
