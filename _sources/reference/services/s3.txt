@@ -101,6 +101,9 @@ Client
   *   :py:meth:`get_bucket_analytics_configuration`
 
   
+  *   :py:meth:`get_bucket_aspera`
+
+  
   *   :py:meth:`get_bucket_cors`
 
   
@@ -1701,6 +1704,56 @@ Client
           
         
       
+    
+
+  .. py:method:: get_bucket_aspera(**kwargs)
+
+    Gets Aspera access and secret keys for the bucket.
+
+    **Request Syntax** 
+    ::
+
+      response = client.get_bucket_aspera(
+          Bucket='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'AccessKey': {
+                'Id': 'string',
+                'Secret': 'string'
+            },
+            'ATSEndpoint': 'string'
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **AccessKey** *(dict) --* Aspera Access Key.
+          
+
+          - **Id** *(string) --* 
+          
+
+          - **Secret** *(string) --* 
+      
+        
+
+        - **ATSEndpoint** *(string) --* Aspera endpoint.
     
 
   .. py:method:: get_bucket_cors(**kwargs)
