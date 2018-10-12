@@ -76,7 +76,7 @@ You can source credentials directly from a [Service Credential](https://console.
 
 ## Aspera high-speed transfer (New)
 
-It is now possible to use IBM Aspera as an alternative to managing multipart transfers of larger objects. Aspera is especially effective across long distances or in environments with high rates of packet loss. For more details, check out the [IBM Cloud documentation](https://console.bluemix.net/docs/services/cloud-object-storage/basics/aspera.html#using-libraries-and-sdks)
+It is now possible to use the IBM Aspera high-speed transfer service as an alternative method to managed transfers of larger objects. The Aspera high-speed transfer service is especially effective across long distances or in environments with high rates of packet loss. For more details, check out the [IBM Cloud documentation](https://console.bluemix.net/docs/services/cloud-object-storage/basics/aspera.html#using-libraries-and-sdks).
 
 ## Archive Tier Support (New)
 

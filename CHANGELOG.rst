@@ -2,6 +2,14 @@
 CHANGELOG
 =========
 
+2.3.1
+=====
+
+Features 
+--------
+* COSSDK-45711: https://github.com/IBM/ibm-cos-sdk-python-core/issues/3
+* COSSDK-45712: https://github.com/IBM/ibm-cos-sdk-python-core/issues/4
+
 2.3.0
 =====
 
@@ -19,8 +27,8 @@ Features
 2.1.3
 =====
 
-Updated/fixed broken links in Readme.md
----------------------------------------
+Features 
+--------
 * COSSDK-41438: https://github.com/IBM/ibm-cos-sdk-python/issues/10
 * COSSDK-41308: https://github.com/IBM/ibm-cos-sdk-python/issues/9
 
