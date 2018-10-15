@@ -694,7 +694,7 @@ Client
           ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
           Bucket='string',
           CreateBucketConfiguration={
-              'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+              'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
           },
           GrantFullControl='string',
           GrantRead='string',
@@ -2063,7 +2063,7 @@ Client
       ::
 
         {
-            'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+            'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
         }
       **Response Structure** 
 
@@ -6561,7 +6561,7 @@ Service Resource
           ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
           Bucket='string',
           CreateBucketConfiguration={
-              'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+              'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
           },
           GrantFullControl='string',
           GrantRead='string',
@@ -7072,7 +7072,7 @@ Bucket
       response = bucket.create(
           ACL='private'|'public-read'|'public-read-write'|'authenticated-read',
           CreateBucketConfiguration={
-              'LocationConstraint': 'EU'|'eu-west-1'|'us-west-1'|'us-west-2'|'ap-south-1'|'ap-southeast-1'|'ap-southeast-2'|'ap-northeast-1'|'sa-east-1'|'cn-north-1'|'eu-central-1'
+              'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
           },
           GrantFullControl='string',
           GrantRead='string',
