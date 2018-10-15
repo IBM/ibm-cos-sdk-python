@@ -2,13 +2,19 @@
 CHANGELOG
 =========
 
-2.3.1
+2.3.2
 =====
 
 Features 
 --------
+* Configuration update required to support Python 3.7
 * COSSDK-45711: https://github.com/IBM/ibm-cos-sdk-python-core/issues/3
 * COSSDK-45712: https://github.com/IBM/ibm-cos-sdk-python-core/issues/4
+
+2.3.1
+=====
+
+* Deprecated
 
 2.3.0
 =====
