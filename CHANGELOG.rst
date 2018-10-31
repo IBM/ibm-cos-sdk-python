@@ -2,6 +2,17 @@
 CHANGELOG
 =========
 
+2.3.3
+=====
+
+Features
+------------
+* Added proxies parameter to resource and client configuration
+* COSSDK-46277: https://github.com/IBM/ibm-cos-sdk-python/issues/16
+* COSSDK-46277: https://github.com/IBM/ibm-cos-sdk-python/issues/17
+* COSSDK-46277: https://github.com/IBM/ibm-cos-sdk-python/issues/18
+
+
 2.3.2
 =====
 
