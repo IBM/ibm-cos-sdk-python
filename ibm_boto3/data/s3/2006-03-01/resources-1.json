@@ -96,6 +96,14 @@
         }
       },
       "has": {
+        "Protection": {
+          "resource": {
+            "type": "BucketProtection",
+            "identifiers": [
+              { "target": "BucketName", "source": "identifier", "name": "Name" }
+            ]
+          }
+        },
         "Acl": {
           "resource": {
             "type": "BucketAcl",
@@ -630,6 +638,15 @@
         }
       },
       "has": {
+        "Protection": {
+          "resource": {
+            "type": "ObjectProtection",
+            "identifiers": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              { "target": "Key", "source": "identifier", "name": "Key" }
+            ]
+          }
+        },
         "Acl": {
           "resource": {
             "type": "ObjectAcl",
@@ -654,6 +671,86 @@
               { "target": "BucketName", "source": "identifier", "name": "BucketName" },
               { "target": "ObjectKey", "source": "identifier", "name": "Key" },
               { "target": "Id", "source": "input" }
+            ]
+          }
+        }
+      }
+    },
+    "BucketProtection": {
+      "identifiers": [
+        { "name": "BucketName" }
+      ],
+      "shape": "ProtectionConfiguration",
+      "load": {
+        "request": {
+          "operation": "GetBucketProtectionConfiguration",
+          "params": [
+            { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+          ]
+        },
+        "path": "ProtectionConfiguration"
+      },
+      "actions": {
+        "put": {
+          "request": {
+            "operation": "PutBucketProtectionConfiguration",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+            ]
+          }
+        }
+      }
+    },
+    "ObjectProtection": {
+      "identifiers": [
+        { "name": "BucketName" },
+        { "name": "ObjectKey" }
+      ],
+      "shape": "ListLegalHoldsOutput",
+      "load": {
+        "request": {
+          "operation": "ListLegalHolds",
+          "params": [
+            { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+            { "target": "Key", "source": "identifier", "name": "ObjectKey" }
+          ]
+        },
+        "path": "@"
+      },
+      "actions": {
+        "AddLegalHold": {
+          "request": {
+            "operation": "AddLegalHold",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              { "target": "Key", "source": "identifier", "name": "ObjectKey" }
+            ]
+          }
+        },
+        "DeleteLegalHold": {
+          "request": {
+            "operation": "DeleteLegalHold",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              { "target": "Key", "source": "identifier", "name": "ObjectKey" }
+            ]
+          }
+        },
+        "ExtendObjectRetention": {
+          "request": {
+            "operation": "ExtendObjectRetention",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              { "target": "Key", "source": "identifier", "name": "ObjectKey" }
+            ]
+          }
+        },
+        "ListLegalHolds": {
+          "request": {
+            "operation": "ListLegalHolds",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" },
+              { "target": "Key", "source": "identifier", "name": "ObjectKey" }
             ]
           }
         }

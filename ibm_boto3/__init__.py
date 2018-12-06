@@ -17,7 +17,7 @@ from ibm_boto3.session import Session
 
 
 __author__ = 'IBM'
-__version__ = '2.3.4.dev1'
+__version__ = '2.4.0'
 
 
 # The default Boto3 session; autoloaded when needed.
@@ -60,6 +60,8 @@ def set_stream_logger(name='ibm_boto3', level=logging.DEBUG, format_string=None)
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
+def turn_debug_on():
+    set_stream_logger('', logging.DEBUG)
 
 def _get_default_session():
     """
