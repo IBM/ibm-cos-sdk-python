@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Index &mdash; ibm-cos-sdk 2.3.3 documentation</title>
+    <title>Index &mdash; ibm-cos-sdk 2.4.0 documentation</title>
     
     <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,7 +24,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.3.3',
+        VERSION:     '2.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.3.3 documentation" href="index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="index.html" />
   
    
 
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">ibm-cos-sdk 2.3.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -58,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">ibm-cos-sdk 2.3.3 documentation</a><div class="sidebar-block">
+    index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -172,6 +172,16 @@
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.actions">actions (ibm_boto3.resources.model.ResourceModel attribute)</a>
   </dt>
 
+      
+  <dt><a href="reference/services/s3.html#S3.Client.add_legal_hold">add_legal_hold() (S3.Client method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.add_legal_hold">(S3.ObjectProtection method)</a>
+  </dt>
+
+      </dl></dd>
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
@@ -280,6 +290,10 @@
   </dt>
 
         
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.bucket_name">(S3.BucketProtection attribute)</a>
+  </dt>
+
+        
   <dt><a href="reference/services/s3.html#S3.BucketRequestPayment.bucket_name">(S3.BucketRequestPayment attribute)</a>
   </dt>
 
@@ -300,6 +314,10 @@
   </dt>
 
         
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.bucket_name">(S3.ObjectProtection attribute)</a>
+  </dt>
+
+        
   <dt><a href="reference/services/s3.html#S3.ObjectSummary.bucket_name">(S3.ObjectSummary attribute)</a>
   </dt>
 
@@ -312,10 +330,14 @@
   <dt><a href="reference/services/s3.html#S3.ServiceResource.BucketCors">BucketCors() (S3.ServiceResource method)</a>
   </dt>
 
+      
+  <dt><a href="reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration">BucketLifecycleConfiguration() (S3.ServiceResource method)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration">BucketLifecycleConfiguration() (S3.ServiceResource method)</a>
+  <dt><a href="reference/services/s3.html#S3.ServiceResource.BucketProtection">BucketProtection() (S3.ServiceResource method)</a>
   </dt>
 
       
@@ -402,12 +424,12 @@
   <dt><a href="reference/services/s3.html#S3.Object.content_language">content_language (S3.Object attribute)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/services/s3.html#S3.Object.content_length">content_length (S3.Object attribute)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/services/s3.html#S3.Object.content_type">content_type (S3.Object attribute)</a>
   </dt>
@@ -479,6 +501,10 @@
   </dt>
 
       
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.create_time">create_time (S3.ObjectProtection attribute)</a>
+  </dt>
+
+      
   <dt><a href="reference/services/s3.html#S3.Bucket.creation_date">creation_date (S3.Bucket attribute)</a>
   </dt>
 
@@ -494,6 +520,10 @@
   <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.data">data (ibm_boto3.resources.base.ResourceMeta attribute)</a>
+  </dt>
+
+      
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.default_retention">default_retention (S3.BucketProtection attribute)</a>
   </dt>
 
       
@@ -560,6 +590,16 @@
   <dt><a href="reference/services/s3.html#S3.Client.delete_bucket_website">delete_bucket_website() (S3.Client method)</a>
   </dt>
 
+      
+  <dt><a href="reference/services/s3.html#S3.Client.delete_legal_hold">delete_legal_hold() (S3.Client method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.delete_legal_hold">(S3.ObjectProtection method)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="reference/services/s3.html#S3.Object.delete_marker">delete_marker (S3.Object attribute)</a>
   </dt>
@@ -635,6 +675,10 @@
   </dt>
 
       
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.enable_permanent_retention">enable_permanent_retention (S3.BucketProtection attribute)</a>
+  </dt>
+
+      
   <dt><a href="reference/core/session.html#ibm_boto3.session.Session.events">events (ibm_boto3.session.Session attribute)</a>
   </dt>
 
@@ -648,6 +692,16 @@
   <dt><a href="reference/services/s3.html#S3.Object.expires">expires (S3.Object attribute)</a>
   </dt>
 
+      
+  <dt><a href="reference/services/s3.html#S3.Client.extend_object_retention">extend_object_retention() (S3.Client method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.extend_object_retention">(S3.ObjectProtection method)</a>
+  </dt>
+
+      </dl></dd>
   </dl></td>
 </tr></table>
 
@@ -738,6 +792,10 @@
   </dt>
 
         
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.get_available_subresources">(S3.BucketProtection method)</a>
+  </dt>
+
+        
   <dt><a href="reference/services/s3.html#S3.BucketRequestPayment.get_available_subresources">(S3.BucketRequestPayment method)</a>
   </dt>
 
@@ -755,6 +813,10 @@
 
         
   <dt><a href="reference/services/s3.html#S3.ObjectAcl.get_available_subresources">(S3.ObjectAcl method)</a>
+  </dt>
+
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.get_available_subresources">(S3.ObjectProtection method)</a>
   </dt>
 
         
@@ -786,12 +848,12 @@
   <dt><a href="reference/services/s3.html#S3.Client.get_bucket_cors">get_bucket_cors() (S3.Client method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/services/s3.html#S3.Client.get_bucket_inventory_configuration">get_bucket_inventory_configuration() (S3.Client method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration">get_bucket_lifecycle_configuration() (S3.Client method)</a>
   </dt>
@@ -802,6 +864,10 @@
 
       
   <dt><a href="reference/services/s3.html#S3.Client.get_bucket_metrics_configuration">get_bucket_metrics_configuration() (S3.Client method)</a>
+  </dt>
+
+      
+  <dt><a href="reference/services/s3.html#S3.Client.get_bucket_protection_configuration">get_bucket_protection_configuration() (S3.Client method)</a>
   </dt>
 
       
@@ -1011,6 +1077,10 @@
 
       </dl></dd>
       
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.legal_holds">legal_holds (S3.ObjectProtection attribute)</a>
+  </dt>
+
+      
   <dt><a href="reference/services/s3.html#S3.Bucket.LifecycleConfiguration">LifecycleConfiguration() (S3.Bucket method)</a>
   </dt>
 
@@ -1053,11 +1123,21 @@
   </dt>
 
       
+  <dt><a href="reference/services/s3.html#S3.Client.list_legal_holds">list_legal_holds() (S3.Client method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.list_legal_holds">(S3.ObjectProtection method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
   <dt><a href="reference/services/s3.html#S3.Client.list_multipart_uploads">list_multipart_uploads() (S3.Client method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/services/s3.html#S3.Client.list_objects">list_objects() (S3.Client method)</a>
   </dt>
@@ -1092,6 +1172,10 @@
   </dt>
 
         
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.load">(S3.BucketProtection method)</a>
+  </dt>
+
+        
   <dt><a href="reference/services/s3.html#S3.BucketRequestPayment.load">(S3.BucketRequestPayment method)</a>
   </dt>
 
@@ -1101,6 +1185,10 @@
 
         
   <dt><a href="reference/services/s3.html#S3.ObjectAcl.load">(S3.ObjectAcl method)</a>
+  </dt>
+
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.load">(S3.ObjectProtection method)</a>
   </dt>
 
         
@@ -1133,6 +1221,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.maximum_retention">maximum_retention (S3.BucketProtection attribute)</a>
+  </dt>
+
+      
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.base.ServiceResource.meta">meta (ibm_boto3.resources.base.ServiceResource attribute)</a>
   </dt>
 
@@ -1141,15 +1233,19 @@
   </dt>
 
       
-  <dt><a href="reference/services/s3.html#S3.Object.missing_meta">missing_meta (S3.Object attribute)</a>
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.minimum_retention">minimum_retention (S3.BucketProtection attribute)</a>
   </dt>
 
       
-  <dt><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.model">model (ibm_boto3.resources.model.ResponseResource attribute)</a>
+  <dt><a href="reference/services/s3.html#S3.Object.missing_meta">missing_meta (S3.Object attribute)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.model">model (ibm_boto3.resources.model.ResponseResource attribute)</a>
+  </dt>
+
       
   <dt><a href="reference/services/s3.html#S3.MultipartUploadPart.multipart_upload_id">multipart_upload_id (S3.MultipartUploadPart attribute)</a>
   </dt>
@@ -1263,17 +1359,25 @@
   <dt><a href="reference/services/s3.html#S3.ObjectAcl.object_key">(S3.ObjectAcl attribute)</a>
   </dt>
 
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.object_key">(S3.ObjectProtection attribute)</a>
+  </dt>
+
       </dl></dd>
       
   <dt><a href="reference/services/s3.html#S3.ServiceResource.ObjectAcl">ObjectAcl() (S3.ServiceResource method)</a>
   </dt>
 
       
-  <dt><a href="reference/services/s3.html#S3.Bucket.objects">objects (S3.Bucket attribute)</a>
+  <dt><a href="reference/services/s3.html#S3.ServiceResource.ObjectProtection">ObjectProtection() (S3.ServiceResource method)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="reference/services/s3.html#S3.Bucket.objects">objects (S3.Bucket attribute)</a>
+  </dt>
+
       
   <dt><a href="reference/services/s3.html#S3.ServiceResource.ObjectSummary">ObjectSummary() (S3.ServiceResource method)</a>
   </dt>
@@ -1416,12 +1520,22 @@
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.PREFIX">PREFIX (ibm_boto3.resources.model.Waiter attribute)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/core/session.html#ibm_boto3.session.Session.profile_name">profile_name (ibm_boto3.session.Session attribute)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="reference/services/s3.html#S3.Bucket.Protection">Protection() (S3.Bucket method)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="reference/services/s3.html#S3.Object.Protection">(S3.Object method)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="reference/services/s3.html#S3.BucketAcl.put">put() (S3.BucketAcl method)</a>
   </dt>
@@ -1433,6 +1547,10 @@
 
         
   <dt><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.put">(S3.BucketLifecycleConfiguration method)</a>
+  </dt>
+
+        
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.put">(S3.BucketProtection method)</a>
   </dt>
 
         
@@ -1478,6 +1596,10 @@
 
       
   <dt><a href="reference/services/s3.html#S3.Client.put_bucket_metrics_configuration">put_bucket_metrics_configuration() (S3.Client method)</a>
+  </dt>
+
+      
+  <dt><a href="reference/services/s3.html#S3.Client.put_bucket_protection_configuration">put_bucket_protection_configuration() (S3.Client method)</a>
   </dt>
 
       
@@ -1534,6 +1656,10 @@
   </dt>
 
         
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.reload">(S3.BucketProtection method)</a>
+  </dt>
+
+        
   <dt><a href="reference/services/s3.html#S3.BucketRequestPayment.reload">(S3.BucketRequestPayment method)</a>
   </dt>
 
@@ -1543,6 +1669,10 @@
 
         
   <dt><a href="reference/services/s3.html#S3.ObjectAcl.reload">(S3.ObjectAcl method)</a>
+  </dt>
+
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.reload">(S3.ObjectProtection method)</a>
   </dt>
 
       </dl></dd>
@@ -1576,8 +1706,6 @@
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.resource">resource (ibm_boto3.resources.model.Action attribute)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/core/session.html#ibm_boto3.session.Session.resource">resource() (ibm_boto3.session.Session method)</a>
   </dt>
@@ -1592,6 +1720,8 @@
   <dt><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection">ResourceCollection (class in ibm_boto3.resources.collection)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">ResourceFactory (class in ibm_boto3.resources.factory)</a>
   </dt>
@@ -1621,6 +1751,28 @@
   </dt>
 
       
+  <dt><a href="reference/services/s3.html#S3.Object.retention_expiration_date">retention_expiration_date (S3.Object attribute)</a>
+  </dt>
+
+      
+  <dt><a href="reference/services/s3.html#S3.Object.retention_legal_hold_count">retention_legal_hold_count (S3.Object attribute)</a>
+  </dt>
+
+      
+  <dt><a href="reference/services/s3.html#S3.Object.retention_period">retention_period (S3.Object attribute)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.retention_period">(S3.ObjectProtection attribute)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection.retention_period_expiration_date">retention_period_expiration_date (S3.ObjectProtection attribute)</a>
+  </dt>
+
+      
   <dt><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.rules">rules (S3.BucketLifecycleConfiguration attribute)</a>
   </dt>
 
@@ -1647,6 +1799,10 @@
   </dt>
 
       
+  <dt><a href="reference/services/s3.html#S3.BucketProtection">S3.BucketProtection (built-in class)</a>
+  </dt>
+
+      
   <dt><a href="reference/services/s3.html#S3.BucketRequestPayment">S3.BucketRequestPayment (built-in class)</a>
   </dt>
 
@@ -1668,6 +1824,10 @@
 
       
   <dt><a href="reference/services/s3.html#S3.ObjectAcl">S3.ObjectAcl (built-in class)</a>
+  </dt>
+
+      
+  <dt><a href="reference/services/s3.html#S3.ObjectProtection">S3.ObjectProtection (built-in class)</a>
   </dt>
 
       
@@ -1775,6 +1935,10 @@
   </dt>
 
       
+  <dt><a href="reference/services/s3.html#S3.BucketProtection.status">status (S3.BucketProtection attribute)</a>
+  </dt>
+
+      
   <dt><a href="reference/services/s3.html#S3.MultipartUpload.storage_class">storage_class (S3.MultipartUpload attribute)</a>
   </dt>
 
@@ -1806,10 +1970,14 @@
   <dt><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.target">target (ibm_boto3.resources.model.Parameter attribute)</a>
   </dt>
 
+      
+  <dt><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">TransferConfig (class in ibm_boto3.s3.transfer)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">TransferConfig (class in ibm_boto3.s3.transfer)</a>
+  <dt><a href="reference/core/boto3.html#ibm_boto3.turn_debug_on">turn_debug_on() (in module ibm_boto3)</a>
   </dt>
 
       
@@ -1979,7 +2147,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">ibm-cos-sdk 2.3.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
 

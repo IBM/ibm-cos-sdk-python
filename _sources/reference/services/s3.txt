@@ -29,6 +29,9 @@ Client
   *   :py:meth:`abort_multipart_upload`
 
   
+  *   :py:meth:`add_legal_hold`
+
+  
   *   :py:meth:`can_paginate`
 
   
@@ -74,6 +77,9 @@ Client
   *   :py:meth:`delete_bucket_website`
 
   
+  *   :py:meth:`delete_legal_hold`
+
+  
   *   :py:meth:`delete_object`
 
   
@@ -84,6 +90,9 @@ Client
 
   
   *   :py:meth:`download_fileobj`
+
+  
+  *   :py:meth:`extend_object_retention`
 
   
   *   :py:meth:`generate_presigned_post`
@@ -117,6 +126,9 @@ Client
 
   
   *   :py:meth:`get_bucket_metrics_configuration`
+
+  
+  *   :py:meth:`get_bucket_protection_configuration`
 
   
   *   :py:meth:`get_bucket_replication`
@@ -158,6 +170,9 @@ Client
   *   :py:meth:`list_buckets`
 
   
+  *   :py:meth:`list_legal_holds`
+
+  
   *   :py:meth:`list_multipart_uploads`
 
   
@@ -189,6 +204,9 @@ Client
 
   
   *   :py:meth:`put_bucket_metrics_configuration`
+
+  
+  *   :py:meth:`put_bucket_protection_configuration`
 
   
   *   :py:meth:`put_bucket_replication`
@@ -278,6 +296,33 @@ Client
         - **RequestCharged** *(string) --* If present, indicates that the requester was successfully charged for the request.
     
 
+  .. py:method:: add_legal_hold(**kwargs)
+
+    Add a legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired. Legal Holds can only be added to objects in a bucket with a protection policy. Otherwise a 400 error will be returned.
+
+    **Request Syntax** 
+    ::
+
+      response = client.add_legal_hold(
+          Bucket='string',
+          Key='string',
+          RetentionLegalHoldId='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: **[REQUIRED]** 
+
+    
+    
+    :returns: None
+
   .. py:method:: can_paginate(operation_name)
 
         
@@ -314,7 +359,10 @@ Client
               ]
           },
           UploadId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123
       )
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
@@ -349,6 +397,18 @@ Client
     
     :type RequestPayer: string
     :param RequestPayer: Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests.
+
+    
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. RetentionPeriod and RetentionExpirationDate are mutually exclusive, if neither is specified the bucket's DefaultRetentionPeriod value will be used. **Indefinite retention(-1)** is a valid value. **Permanent retention(-2)**, is valid only if permanent retention is enabled for the bucket. **0** is a valid value if the bucket's MinimumRetention period is also 0.
 
     
     
@@ -481,6 +541,10 @@ Client
               'string': 'string'
           },
           MetadataDirective='COPY'|'REPLACE',
+          RetentionDirective='COPY'|'REPLACE',
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -577,6 +641,22 @@ Client
 
     :type MetadataDirective: string
     :param MetadataDirective: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
+
+    
+    :type RetentionDirective: string
+    :param RetentionDirective: This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.
+
+    
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. This field can only be specified if Retention-Directive is REPLACE. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
 
     
     :type ServerSideEncryption: string
@@ -1139,6 +1219,33 @@ Client
     
     :returns: None
 
+  .. py:method:: delete_legal_hold(**kwargs)
+
+    Remove Legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired.
+
+    **Request Syntax** 
+    ::
+
+      response = client.delete_legal_hold(
+          Bucket='string',
+          Key='string',
+          RetentionLegalHoldId='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: **[REQUIRED]** 
+
+    
+    
+    :returns: None
+
   .. py:method:: delete_object(**kwargs)
 
     Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
@@ -1367,6 +1474,48 @@ Client
     :param Config: The transfer configuration to be used when performing the
         download.
 
+
+  .. py:method:: extend_object_retention(**kwargs)
+
+    This implementation of the POST operation uses the extendRetention sub-resource to extend the retention period of a protected object in a protected vault.
+
+    **Request Syntax** 
+    ::
+
+      response = client.extend_object_retention(
+          Bucket='string',
+          Key='string',
+          AdditionalRetentionPeriod=123,
+          ExtendRetentionFromCurrentTime=123,
+          NewRetentionExpirationDate=datetime(2015, 1, 1),
+          NewRetentionPeriod=123
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+    
+    :type AdditionalRetentionPeriod: integer
+    :param AdditionalRetentionPeriod: Additional time, in seconds, to add to the existing retention period for the object. If this field and New-Retention-Time and/or New-Retention-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    :type ExtendRetentionFromCurrentTime: integer
+    :param ExtendRetentionFromCurrentTime: Retention Period in seconds. The Retention will be enforced from the object creation time until current time + the value in this header. This value has to be within the ranges defined for the bucket. If this field and Additional-Retention-Period and/or New-Retention-Period and/or New-Retentiion-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    :type NewRetentionExpirationDate: datetime
+    :param NewRetentionExpirationDate: A new retention date to use for the object in place of the existing retention date. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Period and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    :type NewRetentionPeriod: integer
+    :param NewRetentionPeriod: Retention period, in seconds, to use for the object in place of the existing retention period stored for the object. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Expiration-Date and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    
+    :returns: None
 
   .. py:method:: generate_presigned_post(Bucket, Key, Fields=None, Conditions=None, ExpiresIn=3600)
 
@@ -2020,7 +2169,7 @@ Client
             - **Status** *(string) --* If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
             
 
-            - **Transitions** *(list) --* Currently only one Transition allowed.
+            - **Transitions** *(list) --* Currently only one Transition allowed, also Date and Days fields are mutually exclusive.
               
 
               - *(dict) --* 
@@ -2153,6 +2302,82 @@ Client
               - **Prefix** *(string) --* The prefix used when evaluating an AND predicate.
           
         
+      
+    
+
+  .. py:method:: get_bucket_protection_configuration(**kwargs)
+
+    Returns the protection configuration of a bucket.EnablePermanentRetention flag will only be returned if the flag is set to true for a bucket.
+
+    **Request Syntax** 
+    ::
+
+      response = client.get_bucket_protection_configuration(
+          Bucket='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'ProtectionConfiguration': {
+                'Status': 'Retention',
+                'MinimumRetention': {
+                    'Days': 123
+                },
+                'DefaultRetention': {
+                    'Days': 123
+                },
+                'MaximumRetention': {
+                    'Days': 123
+                },
+                'EnablePermanentRetention': True|False
+            }
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **ProtectionConfiguration** *(dict) --* 
+          
+
+          - **Status** *(string) --* Retention status of a bucket.
+          
+
+          - **MinimumRetention** *(dict) --* Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.
+            
+
+            - **Days** *(integer) --* 
+        
+          
+
+          - **DefaultRetention** *(dict) --* Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+            
+
+            - **Days** *(integer) --* 
+        
+          
+
+          - **MaximumRetention** *(dict) --* Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+            
+
+            - **Days** *(integer) --* 
+        
+          
+
+          - **EnablePermanentRetention** *(boolean) --* Enable permanent retention for an object.
       
     
 
@@ -2403,6 +2628,9 @@ Client
             'Metadata': {
                 'string': 'string'
             },
+            'RetentionExpirationDate': datetime(2015, 1, 1),
+            'RetentionLegalHoldCount': 123,
+            'RetentionPeriod': 123,
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -2481,6 +2709,15 @@ Client
             - *(string) --* 
       
     
+        
+
+        - **RetentionExpirationDate** *(datetime) --* Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+        
+
+        - **RetentionLegalHoldCount** *(integer) --* Returns the count of legal holds on the object. If there are no legal holds, the header is not returned
+        
+
+        - **RetentionPeriod** *(integer) --* Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
         
 
         - **SSECustomerAlgorithm** *(string) --* If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
@@ -2823,6 +3060,9 @@ Client
             'Metadata': {
                 'string': 'string'
             },
+            'RetentionExpirationDate': datetime(2015, 1, 1),
+            'RetentionLegalHoldCount': 123,
+            'RetentionPeriod': 123,
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -2901,6 +3141,15 @@ Client
             - *(string) --* 
       
     
+        
+
+        - **RetentionExpirationDate** *(datetime) --* Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+        
+
+        - **RetentionLegalHoldCount** *(integer) --* Returns the count of legal holds on the object. If there are no legal holds, the header is not returned
+        
+
+        - **RetentionPeriod** *(integer) --* Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
         
 
         - **SSECustomerAlgorithm** *(string) --* If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
@@ -3357,6 +3606,75 @@ Client
 
           - **ID** *(string) --* 
       
+    
+
+  .. py:method:: list_legal_holds(**kwargs)
+
+    Returns a list of legal holds on an object
+
+    **Request Syntax** 
+    ::
+
+      response = client.list_legal_holds(
+          Bucket='string',
+          Key='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'CreateTime': datetime(2015, 1, 1),
+            'LegalHolds': [
+                {
+                    'Date': datetime(2015, 1, 1),
+                    'ID': 'string'
+                },
+            ],
+            'RetentionPeriod': 123,
+            'RetentionPeriodExpirationDate': datetime(2015, 1, 1)
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **CreateTime** *(datetime) --* 
+        
+
+        - **LegalHolds** *(list) --* 
+          
+
+          - *(dict) --* 
+            
+
+            - **Date** *(datetime) --* 
+            
+
+            - **ID** *(string) --* 
+        
+      
+        
+
+        - **RetentionPeriod** *(integer) --* Retention period in seconds.
+        
+
+        - **RetentionPeriodExpirationDate** *(datetime) --* Date on which the retention period will expire.
     
 
   .. py:method:: list_multipart_uploads(**kwargs)
@@ -4508,7 +4826,7 @@ Client
           - **Status** *(string) --* **[REQUIRED]** If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
 
           
-          - **Transitions** *(list) --* **[REQUIRED]** Currently only one Transition allowed.
+          - **Transitions** *(list) --* **[REQUIRED]** Currently only one Transition allowed, also Date and Days fields are mutually exclusive.
 
           
             - *(dict) --* 
@@ -4593,6 +4911,68 @@ Client
 
           
         
+      
+    
+    
+    :returns: None
+
+  .. py:method:: put_bucket_protection_configuration(**kwargs)
+
+    Sets the protection configuration of an existing bucket. EnablePermanentRetention is optional and if not included is considered to be false. Once set to true, must be included in any subsequent PUT Bucket?protection requests for that bucket.
+
+    **Request Syntax** 
+    ::
+
+      response = client.put_bucket_protection_configuration(
+          Bucket='string',
+          ProtectionConfiguration={
+              'Status': 'Retention',
+              'MinimumRetention': {
+                  'Days': 123
+              },
+              'DefaultRetention': {
+                  'Days': 123
+              },
+              'MaximumRetention': {
+                  'Days': 123
+              },
+              'EnablePermanentRetention': True|False
+          }
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+    
+    :type ProtectionConfiguration: dict
+    :param ProtectionConfiguration: **[REQUIRED]** Container for setting retention settings.
+
+    
+      - **Status** *(string) --* **[REQUIRED]** Retention status of a bucket.
+
+      
+      - **MinimumRetention** *(dict) --* **[REQUIRED]** Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.
+
+      
+        - **Days** *(integer) --* **[REQUIRED]** 
+
+        
+      
+      - **DefaultRetention** *(dict) --* **[REQUIRED]** Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+
+      
+        - **Days** *(integer) --* **[REQUIRED]** 
+
+        
+      
+      - **MaximumRetention** *(dict) --* **[REQUIRED]** Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+
+      
+        - **Days** *(integer) --* **[REQUIRED]** 
+
+        
+      
+      - **EnablePermanentRetention** *(boolean) --* Enable permanent retention for an object.
+
       
     
     
@@ -4719,6 +5099,9 @@ Client
           Metadata={
               'string': 'string'
           },
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -4803,6 +5186,18 @@ Client
         
   
 
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
+
+    
     :type ServerSideEncryption: string
     :param ServerSideEncryption: The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 
@@ -6519,6 +6914,9 @@ Service Resource
   *   :py:meth:`BucketLifecycleConfiguration()`
 
   
+  *   :py:meth:`BucketProtection()`
+
+  
   *   :py:meth:`BucketRequestPayment()`
 
   
@@ -6532,6 +6930,9 @@ Service Resource
 
   
   *   :py:meth:`ObjectAcl()`
+
+  
+  *   :py:meth:`ObjectProtection()`
 
   
   *   :py:meth:`ObjectSummary()`
@@ -6695,6 +7096,19 @@ Service Resource
     :returns: A BucketLifecycleConfiguration resource
     
 
+  .. py:method:: BucketProtection(bucket_name)
+
+    Creates a BucketProtection resource.::
+
+      bucket_protection = s3.BucketProtection('bucket_name')
+
+    :type bucket_name: string
+    :param bucket_name: The BucketProtection's bucket_name identifier. This **must** be set.
+    
+    :rtype: :py:class:`S3.BucketProtection`
+    :returns: A BucketProtection resource
+    
+
   .. py:method:: BucketRequestPayment(bucket_name)
 
     Creates a BucketRequestPayment resource.::
@@ -6772,6 +7186,21 @@ Service Resource
     
     :rtype: :py:class:`S3.ObjectAcl`
     :returns: A ObjectAcl resource
+    
+
+  .. py:method:: ObjectProtection(bucket_name,object_key)
+
+    Creates a ObjectProtection resource.::
+
+      object_protection = s3.ObjectProtection('bucket_name','object_key')
+
+    :type bucket_name: string
+    :param bucket_name: The ObjectProtection's bucket_name identifier. This **must** be set.
+    :type object_key: string
+    :param object_key: The ObjectProtection's object_key identifier. This **must** be set.
+    
+    :rtype: :py:class:`S3.ObjectProtection`
+    :returns: A ObjectProtection resource
     
 
   .. py:method:: ObjectSummary(bucket_name,key)
@@ -6956,6 +7385,9 @@ Bucket
 
   
   *   :py:meth:`Policy()`
+
+  
+  *   :py:meth:`Protection()`
 
   
   *   :py:meth:`RequestPayment()`
@@ -7372,6 +7804,9 @@ Bucket
           Metadata={
               'string': 'string'
           },
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -7452,6 +7887,18 @@ Bucket
         
   
 
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
+
+    
     :type ServerSideEncryption: string
     :param ServerSideEncryption: The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 
@@ -7630,6 +8077,17 @@ Bucket
     
     :rtype: :py:class:`S3.BucketPolicy`
     :returns: A BucketPolicy resource
+    
+
+  .. py:method:: Protection()
+
+    Creates a BucketProtection resource.::
+
+      bucket_protection = bucket.Protection()
+
+    
+    :rtype: :py:class:`S3.BucketProtection`
+    :returns: A BucketProtection resource
     
 
   .. py:method:: RequestPayment()
@@ -8616,7 +9074,7 @@ BucketLifecycleConfiguration
         - **Status** *(string) --* If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
         
 
-        - **Transitions** *(list) --* Currently only one Transition allowed.
+        - **Transitions** *(list) --* Currently only one Transition allowed, also Date and Days fields are mutually exclusive.
           
 
           - *(dict) --* 
@@ -8725,7 +9183,7 @@ BucketLifecycleConfiguration
           - **Status** *(string) --* **[REQUIRED]** If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
 
           
-          - **Transitions** *(list) --* **[REQUIRED]** Currently only one Transition allowed.
+          - **Transitions** *(list) --* **[REQUIRED]** Currently only one Transition allowed, also Date and Days fields are mutually exclusive.
 
           
             - *(dict) --* 
@@ -9153,7 +9611,10 @@ MultipartUpload
                   },
               ]
           },
-          RequestPayer='requester'
+          RequestPayer='requester',
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123
       )
     :type MultipartUpload: dict
     :param MultipartUpload: 
@@ -9176,6 +9637,18 @@ MultipartUpload
     
     :type RequestPayer: string
     :param RequestPayer: Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests.
+
+    
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. RetentionPeriod and RetentionExpirationDate are mutually exclusive, if neither is specified the bucket's DefaultRetentionPeriod value will be used. **Indefinite retention(-1)** is a valid value. **Permanent retention(-2)**, is valid only if permanent retention is enabled for the bucket. **0** is a valid value if the bucket's MinimumRetention period is also 0.
 
     
     
@@ -9782,6 +10255,15 @@ Object
   *   :py:attr:`restore`
 
   
+  *   :py:attr:`retention_expiration_date`
+
+  
+  *   :py:attr:`retention_legal_hold_count`
+
+  
+  *   :py:attr:`retention_period`
+
+  
   *   :py:attr:`server_side_encryption`
 
   
@@ -9853,6 +10335,9 @@ Object
 
   
   *   :py:meth:`MultipartUpload()`
+
+  
+  *   :py:meth:`Protection()`
 
   
   These are the resource's available waiters:
@@ -10014,6 +10499,24 @@ Object
 
     - *(string) --* Provides information about object restoration operation and expiration time of the restored object copy.
 
+  .. py:attribute:: retention_expiration_date
+
+    
+
+    - *(datetime) --* Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+
+  .. py:attribute:: retention_legal_hold_count
+
+    
+
+    - *(integer) --* Returns the count of legal holds on the object. If there are no legal holds, the header is not returned
+
+  .. py:attribute:: retention_period
+
+    
+
+    - *(integer) --* Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
+
   .. py:attribute:: server_side_encryption
 
     
@@ -10130,6 +10633,10 @@ Object
               'string': 'string'
           },
           MetadataDirective='COPY'|'REPLACE',
+          RetentionDirective='COPY'|'REPLACE',
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -10218,6 +10725,22 @@ Object
 
     :type MetadataDirective: string
     :param MetadataDirective: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
+
+    
+    :type RetentionDirective: string
+    :param RetentionDirective: This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.
+
+    
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. This field can only be specified if Retention-Directive is REPLACE. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
 
     
     :type ServerSideEncryption: string
@@ -10543,6 +11066,9 @@ Object
             'Metadata': {
                 'string': 'string'
             },
+            'RetentionExpirationDate': datetime(2015, 1, 1),
+            'RetentionLegalHoldCount': 123,
+            'RetentionPeriod': 123,
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -10621,6 +11147,15 @@ Object
             - *(string) --* 
       
     
+        
+
+        - **RetentionExpirationDate** *(datetime) --* Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+        
+
+        - **RetentionLegalHoldCount** *(integer) --* Returns the count of legal holds on the object. If there are no legal holds, the header is not returned
+        
+
+        - **RetentionPeriod** *(integer) --* Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
         
 
         - **SSECustomerAlgorithm** *(string) --* If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
@@ -10824,6 +11359,9 @@ Object
           Metadata={
               'string': 'string'
           },
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -10900,6 +11438,18 @@ Object
         
   
 
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
+
+    
     :type ServerSideEncryption: string
     :param ServerSideEncryption: The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 
@@ -11085,6 +11635,17 @@ Object
     :rtype: :py:class:`S3.MultipartUpload`
     :returns: A MultipartUpload resource
     
+
+  .. py:method:: Protection()
+
+    Creates a ObjectProtection resource.::
+
+      object_protection = object.Protection()
+
+    
+    :rtype: :py:class:`S3.ObjectProtection`
+    :returns: A ObjectProtection resource
+    
   .. rst-class:: admonition-title
   
   Waiters
@@ -11215,6 +11776,508 @@ Object
     :param PartNumber: Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
 
     
+    :returns: None
+
+================
+BucketProtection
+================
+
+
+
+.. py:class:: S3.BucketProtection(bucket_name)
+
+  A resource representing an Amazon Simple Storage Service (S3) BucketProtection::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+    bucket_protection = s3.BucketProtection('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketProtection's bucket_name identifier. This **must** be set.
+  
+  These are the resource's available identifiers:
+  
+  *   :py:attr:`bucket_name`
+
+  
+  These are the resource's available attributes:
+  
+  *   :py:attr:`default_retention`
+
+  
+  *   :py:attr:`enable_permanent_retention`
+
+  
+  *   :py:attr:`maximum_retention`
+
+  
+  *   :py:attr:`minimum_retention`
+
+  
+  *   :py:attr:`status`
+
+  
+  These are the resource's available actions:
+  
+  *   :py:meth:`get_available_subresources()`
+
+  
+  *   :py:meth:`load()`
+
+  
+  *   :py:meth:`put()`
+
+  
+  *   :py:meth:`reload()`
+
+  
+  .. rst-class:: admonition-title
+  
+  Identifiers
+  
+  Identifiers are properties of a resource that are set upon instantation of the resource.
+  For more information about identifiers refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+  
+
+  .. py:attribute:: bucket_name
+
+    *(string)* The BucketProtection's bucket_name identifier. This **must** be set.
+  .. rst-class:: admonition-title
+  
+  Attributes
+  
+  Attributes provide access to the properties of a resource. Attributes are lazy-loaded the first time one is accessed via the :py:meth:`load` method.
+  For more information about attributes refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+  
+
+  .. py:attribute:: default_retention
+
+    
+
+    - *(dict) --* Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+      
+
+      - **Days** *(integer) --* 
+  
+
+  .. py:attribute:: enable_permanent_retention
+
+    
+
+    - *(boolean) --* Enable permanent retention for an object.
+
+  .. py:attribute:: maximum_retention
+
+    
+
+    - *(dict) --* Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+      
+
+      - **Days** *(integer) --* 
+  
+
+  .. py:attribute:: minimum_retention
+
+    
+
+    - *(dict) --* Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.
+      
+
+      - **Days** *(integer) --* 
+  
+
+  .. py:attribute:: status
+
+    
+
+    - *(string) --* Retention status of a bucket.
+  .. rst-class:: admonition-title
+  
+  Actions
+  
+  Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+  For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+  
+
+  .. py:method:: get_available_subresources()
+
+        
+    Returns a list of all the available sub-resources for this
+    Resource.
+    
+    :returns: A list containing the name of each sub-resource for this
+        resource
+    :rtype: list of str
+
+
+  .. py:method:: load()
+
+    Calls :py:meth:`S3.Client.get_bucket_protection_configuration` to update the attributes of the BucketProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    **Request Syntax** 
+
+    ::
+
+      bucket_protection.load()
+    :returns: None
+
+  .. py:method:: put(**kwargs)
+
+    Sets the protection configuration of an existing bucket. EnablePermanentRetention is optional and if not included is considered to be false. Once set to true, must be included in any subsequent PUT Bucket?protection requests for that bucket.
+
+    **Request Syntax** 
+    ::
+
+      response = bucket_protection.put(
+          ProtectionConfiguration={
+              'Status': 'Retention',
+              'MinimumRetention': {
+                  'Days': 123
+              },
+              'DefaultRetention': {
+                  'Days': 123
+              },
+              'MaximumRetention': {
+                  'Days': 123
+              },
+              'EnablePermanentRetention': True|False
+          }
+      )
+    :type ProtectionConfiguration: dict
+    :param ProtectionConfiguration: **[REQUIRED]** Container for setting retention settings.
+
+    
+      - **Status** *(string) --* **[REQUIRED]** Retention status of a bucket.
+
+      
+      - **MinimumRetention** *(dict) --* **[REQUIRED]** Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.
+
+      
+        - **Days** *(integer) --* **[REQUIRED]** 
+
+        
+      
+      - **DefaultRetention** *(dict) --* **[REQUIRED]** Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+
+      
+        - **Days** *(integer) --* **[REQUIRED]** 
+
+        
+      
+      - **MaximumRetention** *(dict) --* **[REQUIRED]** Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+
+      
+        - **Days** *(integer) --* **[REQUIRED]** 
+
+        
+      
+      - **EnablePermanentRetention** *(boolean) --* Enable permanent retention for an object.
+
+      
+    
+    
+    :returns: None
+
+  .. py:method:: reload()
+
+    Calls :py:meth:`S3.Client.get_bucket_protection_configuration` to update the attributes of the BucketProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    **Request Syntax** 
+
+    ::
+
+      bucket_protection.reload()
+    :returns: None
+
+================
+ObjectProtection
+================
+
+
+
+.. py:class:: S3.ObjectProtection(bucket_name,object_key)
+
+  A resource representing an Amazon Simple Storage Service (S3) ObjectProtection::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+    object_protection = s3.ObjectProtection('bucket_name','object_key')
+
+  :type bucket_name: string
+  :param bucket_name: The ObjectProtection's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The ObjectProtection's object_key identifier. This **must** be set.
+  
+  These are the resource's available identifiers:
+  
+  *   :py:attr:`bucket_name`
+
+  
+  *   :py:attr:`object_key`
+
+  
+  These are the resource's available attributes:
+  
+  *   :py:attr:`create_time`
+
+  
+  *   :py:attr:`legal_holds`
+
+  
+  *   :py:attr:`retention_period`
+
+  
+  *   :py:attr:`retention_period_expiration_date`
+
+  
+  These are the resource's available actions:
+  
+  *   :py:meth:`add_legal_hold()`
+
+  
+  *   :py:meth:`delete_legal_hold()`
+
+  
+  *   :py:meth:`extend_object_retention()`
+
+  
+  *   :py:meth:`get_available_subresources()`
+
+  
+  *   :py:meth:`list_legal_holds()`
+
+  
+  *   :py:meth:`load()`
+
+  
+  *   :py:meth:`reload()`
+
+  
+  .. rst-class:: admonition-title
+  
+  Identifiers
+  
+  Identifiers are properties of a resource that are set upon instantation of the resource.
+  For more information about identifiers refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+  
+
+  .. py:attribute:: bucket_name
+
+    *(string)* The ObjectProtection's bucket_name identifier. This **must** be set.
+
+  .. py:attribute:: object_key
+
+    *(string)* The ObjectProtection's object_key identifier. This **must** be set.
+  .. rst-class:: admonition-title
+  
+  Attributes
+  
+  Attributes provide access to the properties of a resource. Attributes are lazy-loaded the first time one is accessed via the :py:meth:`load` method.
+  For more information about attributes refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+  
+
+  .. py:attribute:: create_time
+
+    
+
+    - *(datetime) --* 
+
+  .. py:attribute:: legal_holds
+
+    
+
+    - *(list) --* 
+      
+
+      - *(dict) --* 
+        
+
+        - **Date** *(datetime) --* 
+        
+
+        - **ID** *(string) --* 
+    
+  
+
+  .. py:attribute:: retention_period
+
+    
+
+    - *(integer) --* Retention period in seconds.
+
+  .. py:attribute:: retention_period_expiration_date
+
+    
+
+    - *(datetime) --* Date on which the retention period will expire.
+  .. rst-class:: admonition-title
+  
+  Actions
+  
+  Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+  For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+  
+
+  .. py:method:: add_legal_hold(**kwargs)
+
+    Add a legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired. Legal Holds can only be added to objects in a bucket with a protection policy. Otherwise a 400 error will be returned.
+
+    **Request Syntax** 
+    ::
+
+      response = object_protection.add_legal_hold(
+          RetentionLegalHoldId='string'
+      )
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: **[REQUIRED]** 
+
+    
+    
+    :returns: None
+
+  .. py:method:: delete_legal_hold(**kwargs)
+
+    Remove Legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired.
+
+    **Request Syntax** 
+    ::
+
+      response = object_protection.delete_legal_hold(
+          RetentionLegalHoldId='string'
+      )
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: **[REQUIRED]** 
+
+    
+    
+    :returns: None
+
+  .. py:method:: extend_object_retention(**kwargs)
+
+    This implementation of the POST operation uses the extendRetention sub-resource to extend the retention period of a protected object in a protected vault.
+
+    **Request Syntax** 
+    ::
+
+      response = object_protection.extend_object_retention(
+          AdditionalRetentionPeriod=123,
+          ExtendRetentionFromCurrentTime=123,
+          NewRetentionExpirationDate=datetime(2015, 1, 1),
+          NewRetentionPeriod=123
+      )
+    :type AdditionalRetentionPeriod: integer
+    :param AdditionalRetentionPeriod: Additional time, in seconds, to add to the existing retention period for the object. If this field and New-Retention-Time and/or New-Retention-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    :type ExtendRetentionFromCurrentTime: integer
+    :param ExtendRetentionFromCurrentTime: Retention Period in seconds. The Retention will be enforced from the object creation time until current time + the value in this header. This value has to be within the ranges defined for the bucket. If this field and Additional-Retention-Period and/or New-Retention-Period and/or New-Retentiion-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    :type NewRetentionExpirationDate: datetime
+    :param NewRetentionExpirationDate: A new retention date to use for the object in place of the existing retention date. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Period and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    :type NewRetentionPeriod: integer
+    :param NewRetentionPeriod: Retention period, in seconds, to use for the object in place of the existing retention period stored for the object. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Expiration-Date and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+    
+    
+    :returns: None
+
+  .. py:method:: get_available_subresources()
+
+        
+    Returns a list of all the available sub-resources for this
+    Resource.
+    
+    :returns: A list containing the name of each sub-resource for this
+        resource
+    :rtype: list of str
+
+
+  .. py:method:: list_legal_holds()
+
+    Returns a list of legal holds on an object
+
+    **Request Syntax** 
+    ::
+
+      response = object_protection.list_legal_holds()
+      
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'CreateTime': datetime(2015, 1, 1),
+            'LegalHolds': [
+                {
+                    'Date': datetime(2015, 1, 1),
+                    'ID': 'string'
+                },
+            ],
+            'RetentionPeriod': 123,
+            'RetentionPeriodExpirationDate': datetime(2015, 1, 1)
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **CreateTime** *(datetime) --* 
+        
+
+        - **LegalHolds** *(list) --* 
+          
+
+          - *(dict) --* 
+            
+
+            - **Date** *(datetime) --* 
+            
+
+            - **ID** *(string) --* 
+        
+      
+        
+
+        - **RetentionPeriod** *(integer) --* Retention period in seconds.
+        
+
+        - **RetentionPeriodExpirationDate** *(datetime) --* Date on which the retention period will expire.
+    
+
+  .. py:method:: load()
+
+    Calls :py:meth:`S3.Client.list_legal_holds` to update the attributes of the ObjectProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    **Request Syntax** 
+
+    ::
+
+      object_protection.load()
+    :returns: None
+
+  .. py:method:: reload()
+
+    Calls :py:meth:`S3.Client.list_legal_holds` to update the attributes of the ObjectProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    **Request Syntax** 
+
+    ::
+
+      object_protection.reload()
     :returns: None
 
 =========
@@ -11727,6 +12790,10 @@ ObjectSummary
               'string': 'string'
           },
           MetadataDirective='COPY'|'REPLACE',
+          RetentionDirective='COPY'|'REPLACE',
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -11815,6 +12882,22 @@ ObjectSummary
 
     :type MetadataDirective: string
     :param MetadataDirective: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
+
+    
+    :type RetentionDirective: string
+    :param RetentionDirective: This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.
+
+    
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. This field can only be specified if Retention-Directive is REPLACE. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. This field can only be specified if Retention-Directive is REPLACE. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. This field can only be specified if Retention-Directive is REPLACE. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
 
     
     :type ServerSideEncryption: string
@@ -12087,6 +13170,9 @@ ObjectSummary
             'Metadata': {
                 'string': 'string'
             },
+            'RetentionExpirationDate': datetime(2015, 1, 1),
+            'RetentionLegalHoldCount': 123,
+            'RetentionPeriod': 123,
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -12165,6 +13251,15 @@ ObjectSummary
             - *(string) --* 
       
     
+        
+
+        - **RetentionExpirationDate** *(datetime) --* Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used. 
+        
+
+        - **RetentionLegalHoldCount** *(integer) --* Returns the count of legal holds on the object. If there are no legal holds, the header is not returned
+        
+
+        - **RetentionPeriod** *(integer) --* Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
         
 
         - **SSECustomerAlgorithm** *(string) --* If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
@@ -12364,6 +13459,9 @@ ObjectSummary
           Metadata={
               'string': 'string'
           },
+          RetentionExpirationDate=datetime(2015, 1, 1),
+          RetentionLegalHoldId='string',
+          RetentionPeriod=123,
           ServerSideEncryption='AES256'|'aws:kms',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
@@ -12440,6 +13538,18 @@ ObjectSummary
         
   
 
+    :type RetentionExpirationDate: datetime
+    :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+    
+    :type RetentionLegalHoldId: string
+    :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+    
+    :type RetentionPeriod: integer
+    :param RetentionPeriod: Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
+
+    
     :type ServerSideEncryption: string
     :param ServerSideEncryption: The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 
