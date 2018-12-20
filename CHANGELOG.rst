@@ -2,6 +2,20 @@
 CHANGELOG
 =========
 
+2.4.2
+=====
+
+Content
+=======
+
+Features
+--------
+* GET Bucket (List Objects) Version 2
+
+Defect Fixes
+------------
+* COSSDK-45125: https://github.ibm.com/objectstore/objectstorage-issues/issues/533
+
 2.4.0
 =====
 

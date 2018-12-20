@@ -84,12 +84,12 @@ You can automatically archive objects after a specified length of time or after 
 
 An archive policy is set at the bucket level by calling the `put_bucket_lifecycle_configuration` method on a client instance.  A newly added or modified archive policy applies to new objects uploaded and does not affect existing objects.  For more detail, [see the documentation](https://console.bluemix.net/docs/services/cloud-object-storage/libraries/python.html#python).
 
-## Immutable Object Storage (New)
+## Immutable Object Storage
 Users can configure buckets with an Immutable Object Storage policy to prevent objects from being modified or deleted for a defined period of time.
 The retention period can be specified on a per-object basis, or objects can inherit a default retention period set on the bucket. It is also possible
 to set open-ended and permanent retention periods. Immutable Object Storage meets the rules set forth by the SEC governing record retention, and 
 IBM Cloud administrators are unable to bypass these restrictions. 
-For more detail, [see the IBM Cloud documentation](https://console.bluemix.net/docs/services/cloud-object-storage/basics/immutable.html).
+For more detail, [see the IBM Cloud documentation](https://console.bluemix.net/docs/services/cloud-object-storage/libraries/python.html#python).
 
 Note: Immutable Object Storage does not support Aspera transfers via the SDK to upload objects or directories at this stage.
 
