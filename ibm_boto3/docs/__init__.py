@@ -16,7 +16,7 @@ from ibm_boto3.docs.service import ServiceDocumenter
 
 
 def generate_docs(root_dir, session):
-    """Generates the reference documentation for ibm_botocore
+    """Generates the reference documentation for botocore
 
     This will go through every available AWS service and output ReSTructured
     text files documenting each service.

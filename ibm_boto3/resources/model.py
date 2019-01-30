@@ -242,7 +242,7 @@ class ResourceModel(object):
     on resources, see :ref:`guide_resources`.
 
     :type name: string
-    :param name: The name of this resource
+    :param name: The name of this resource, e.g. ``sqs`` or ``Queue``
     :type definition: dict
     :param definition: The JSON definition
     :type resource_defs: dict
@@ -578,7 +578,7 @@ class ResourceModel(object):
         """
         Get a list of sub-resources.
 
-        :type: list(:py:class`ResponseResource`)
+        :type: list(:py:class:`ResponseResource`)
         """
         return self._get_related_resources(True)
 

@@ -12,7 +12,9 @@
 # language governing permissions and limitations under the License.
 from tests import unittest
 
+import ibm_botocore
 import ibm_botocore.stub
+from ibm_botocore.config import Config
 from ibm_botocore.stub import Stubber
 from ibm_botocore.compat import six
 
@@ -531,3 +533,16 @@ class TestS3ObjectSummary(unittest.TestCase):
         # Even though an HeadObject was used to load this, it should
         # only expose the attributes from its shape defined in ListObjects.
         self.assertFalse(hasattr(self.obj_summary, 'content_length'))
+
+
+class TestServiceResource(unittest.TestCase):
+    def setUp(self):
+        self.session = ibm_boto3.session.Session()
+
+    def test_unsigned_signature_version_is_not_corrupted(self):
+        config = Config(signature_version=ibm_botocore.UNSIGNED)
+        resource = self.session.resource('s3', config=config)
+        self.assertIs(
+            resource.meta.client.meta.config.signature_version,
+            ibm_botocore.UNSIGNED
+        )

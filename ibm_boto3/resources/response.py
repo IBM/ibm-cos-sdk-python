@@ -37,7 +37,7 @@ def build_identifiers(identifiers, parent, params=None, raw_response=None):
     and location.
 
     :type identifiers: list
-    :param identifiers: List of :py:class:`~boto3.resources.model.Parameter`
+    :param identifiers: List of :py:class:`~ibm_boto3.resources.model.Parameter`
                         definitions
     :type parent: ServiceResource
     :param parent: The resource instance to which this action is attached.
@@ -167,10 +167,10 @@ class ResourceHandler(object):
     :param factory: The factory that created the resource class to which
                     this action is attached.
 
-    :type resource_model: :py:class:`~boto3.resources.model.ResponseResource`
+    :type resource_model: :py:class:`~ibm_boto3.resources.model.ResponseResource`
     :param resource_model: Response resource model.
 
-    :type service_context: :py:class:`~boto3.utils.ServiceContext`
+    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`
     :param service_context: Context about the AWS service
 
     :type operation_name: string

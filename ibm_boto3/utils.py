@@ -27,12 +27,12 @@ class ServiceContext(_ServiceContext):
     :type service_name: str
     :param service_name: The name of the service
 
-    :type service_model: :py:class:`botocore.model.ServiceModel`
+    :type service_model: :py:class:`ibm_botocore.model.ServiceModel`
     :param service_model: The model of the service.
 
     :type service_waiter_model: :py:class:`ibm_botocore.waiter.WaiterModel` or
         a waiter model-like object such as
-        :py:class:`boto3.utils.LazyLoadedWaiterModel`
+        :py:class:`ibm_boto3.utils.LazyLoadedWaiterModel`
     :param service_waiter_model: The waiter model of the service.
 
     :type resource_json_definitions: dict

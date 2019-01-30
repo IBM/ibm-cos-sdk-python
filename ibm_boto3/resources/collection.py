@@ -35,11 +35,11 @@ class ResourceCollection(object):
     See :ref:`guide_collections` for a high-level overview of collections,
     including when remote service requests are performed.
 
-    :type model: :py:class:`~boto3.resources.model.Collection`
+    :type model: :py:class:`~ibm_boto3.resources.model.Collection`
     :param model: Collection model
-    :type parent: :py:class:`~boto3.resources.base.ServiceResource`
+    :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`
     :param parent: The collection's parent resource
-    :type handler: :py:class:`~boto3.resources.response.ResourceHandler`
+    :type handler: :py:class:`~ibm_boto3.resources.response.ResourceHandler`
     :param handler: The resource response handler used to create resource
                     instances
     """
@@ -49,7 +49,7 @@ class ResourceCollection(object):
         self._py_operation_name = xform_name(
             model.request.operation)
         self._handler = handler
-        self._params = kwargs
+        self._params = copy.deepcopy(kwargs)
 
     def __repr__(self):
         return '{0}({1}, {2})'.format(
@@ -130,7 +130,7 @@ class ResourceCollection(object):
             'key1'
             'key2'
 
-        :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)
+        :rtype: list(:py:class:`~ibm_boto3.resources.base.ServiceResource`)
         :return: List of resource instances
         """
         client = self._parent.meta.client
@@ -147,17 +147,17 @@ class ResourceCollection(object):
         # page in a list. For non-paginated results, we just ignore
         # the page size parameter.
         if client.can_paginate(self._py_operation_name):
-            logger.info('Calling paginated %s:%s with %r',
-                        self._parent.meta.service_name,
-                        self._py_operation_name, params)
+            logger.debug('Calling paginated %s:%s with %r',
+                         self._parent.meta.service_name,
+                         self._py_operation_name, params)
             paginator = client.get_paginator(self._py_operation_name)
             pages = paginator.paginate(
                 PaginationConfig={
                     'MaxItems': limit, 'PageSize': page_size}, **params)
         else:
-            logger.info('Calling %s:%s with %r',
-                        self._parent.meta.service_name,
-                        self._py_operation_name, params)
+            logger.debug('Calling %s:%s with %r',
+                         self._parent.meta.service_name,
+                         self._py_operation_name, params)
             pages = [getattr(client, self._py_operation_name)(**params)]
 
         # Now that we have a page iterator or single page of results
@@ -186,8 +186,18 @@ class ResourceCollection(object):
         page size and item count limit.
 
         This method returns an iterable generator which yields
-        individual resource instances. 
+        individual resource instances. Example use::
 
+            # Iterate through items
+            >>> for queue in sqs.queues.all():
+            ...     print(queue.url)
+            'https://url1'
+            'https://url2'
+
+            # Convert to list
+            >>> queues = list(sqs.queues.all())
+            >>> len(queues)
+            2
         """
         return self._clone()
 
@@ -198,7 +208,18 @@ class ResourceCollection(object):
         typically used to filter the results.
 
         This method returns an iterable generator which yields
-        individual resource instances. 
+        individual resource instances. Example use::
+
+            # Iterate through items
+            >>> for queue in sqs.queues.filter(Param='foo'):
+            ...     print(queue.url)
+            'https://url1'
+            'https://url2'
+
+            # Convert to list
+            >>> queues = list(sqs.queues.filter(Param='foo'))
+            >>> len(queues)
+            2
 
         :rtype: :py:class:`ResourceCollection`
         """
@@ -226,7 +247,7 @@ class ResourceCollection(object):
         """
         Fetch at most this many resources per service request.
 
-            >>> for obj in s3.Bucket(ibm_boto3).objects.page_size(100):
+            >>> for obj in s3.Bucket('boto3').objects.page_size(100):
             ...     print(obj.key)
 
         :type count: int
@@ -249,6 +270,11 @@ class CollectionManager(object):
         >>> for bucket in s3.buckets.all():
         ...     print(bucket.name)
 
+    Get only some items via filtering::
+
+        >>> for queue in sqs.queues.filter(QueueNamePrefix='AWS'):
+        ...     print(queue.url)
+
     Get whole pages of items:
 
         >>> for page in s3.Bucket('boto3').objects.pages():
@@ -262,16 +288,16 @@ class CollectionManager(object):
     See the :ref:`guide_collections` guide for a high-level overview
     of collections, including when remote service requests are performed.
 
-    :type collection_model: :py:class:`~boto3.resources.model.Collection`
+    :type collection_model: :py:class:`~ibm_boto3.resources.model.Collection`
     :param model: Collection model
 
-    :type parent: :py:class:`~boto3.resources.base.ServiceResource`
+    :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`
     :param parent: The collection's parent resource
 
-    :type factory: :py:class:`~boto3.resources.factory.ResourceFactory`
+    :type factory: :py:class:`~ibm_boto3.resources.factory.ResourceFactory`
     :param factory: The resource factory to create new resources
 
-    :type service_context: :py:class:`~boto3.utils.ServiceContext`
+    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`
     :param service_context: Context about the AWS service
     """
     # The class to use when creating an iterator
@@ -336,7 +362,7 @@ class CollectionFactory(object):
     """
     A factory to create new
     :py:class:`CollectionManager` and :py:class:`ResourceCollection`
-    subclasses from a :py:class:`~boto3.resources.model.Collection`
+    subclasses from a :py:class:`~ibm_boto3.resources.model.Collection`
     model. These subclasses include methods to perform batch operations.
     """
     def load_from_definition(self, resource_name, collection_model,
@@ -345,15 +371,15 @@ class CollectionFactory(object):
         Loads a collection from a model, creating a new
         :py:class:`CollectionManager` subclass
         with the correct properties and methods, named based on the service
-        and resource name. It also creates a new 
-        :py:class:`ResourceCollection` subclass which is used by the new
-        new manager class.
+        and resource name, e.g. ec2.InstanceCollectionManager. It also
+        creates a new :py:class:`ResourceCollection` subclass which is used
+        by the new manager class.
 
         :type resource_name: string
         :param resource_name: Name of the resource to look up. For services,
                               this should match the ``service_name``.
 
-        :type service_context: :py:class:`~boto3.utils.ServiceContext`
+        :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`
         :param service_context: Context about the AWS service
 
         :type event_emitter: :py:class:`~ibm_botocore.hooks.HierarchialEmitter`

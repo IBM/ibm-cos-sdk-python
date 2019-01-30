@@ -92,13 +92,13 @@ to the user:
                 self._seen_so_far += bytes_amount
                 percentage = (self._seen_so_far / self._size) * 100
                 sys.stdout.write(
-                    "\\r%s  %s / %s  (%.2f%%)" % (
+                    "\r%s  %s / %s  (%.2f%%)" % (
                         self._filename, self._seen_so_far, self._size,
                         percentage))
                 sys.stdout.flush()
 
 
-    transfer = S3Transfer(boto3.client('s3', 'us-west-2'))
+    transfer = S3Transfer(ibm_boto3.client('s3', 'us-west-2'))
     # Upload /tmp/myfile to s3://bucket/key and print upload progress.
     transfer.upload_file('/tmp/myfile', 'bucket', 'key',
                          callback=ProgressPercentage('/tmp/myfile'))
@@ -264,6 +264,10 @@ class S3Transfer(object):
 
         Variants have also been injected into S3 client, Bucket and Object.
         You don't have to use S3Transfer.upload_file() directly.
+
+        .. seealso::
+            :py:meth:`S3.Client.upload_file`
+            :py:meth:`S3.Client.upload_fileobj`
         """
         if not isinstance(filename, six.string_types):
             raise ValueError('Filename must be a string')
@@ -288,6 +292,10 @@ class S3Transfer(object):
 
         Variants have also been injected into S3 client, Bucket and Object.
         You don't have to use S3Transfer.download_file() directly.
+
+        .. seealso::
+            :py:meth:`S3.Client.download_file`
+            :py:meth:`S3.Client.download_fileobj`
         """
         if not isinstance(filename, six.string_types):
             raise ValueError('Filename must be a string')
@@ -299,7 +307,7 @@ class S3Transfer(object):
             future.result()
         # This is for backwards compatibility where when retries are
         # exceeded we need to throw the same error from ibm_boto3 instead of
-        # ibm_s3transfer's built in RetriesExceededError as current users are
+        # s3transfer's built in RetriesExceededError as current users are
         # catching the ibm_boto3 one instead of the ibm_s3transfer exception to do
         # their own retries.
         except S3TransferRetriesExceededError as e:

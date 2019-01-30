@@ -165,22 +165,6 @@
             ]
           }
         },
-        "RequestPayment": {
-          "resource": {
-            "type": "BucketRequestPayment",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" }
-            ]
-          }
-        },
-        "Tagging": {
-          "resource": {
-            "type": "BucketTagging",
-            "identifiers": [
-              { "target": "BucketName", "source": "identifier", "name": "Name" }
-            ]
-          }
-        },
         "Website": {
           "resource": {
             "type": "BucketWebsite",
@@ -360,41 +344,6 @@
                 "source": "identifier",
                 "name": "BucketName"
               }
-            ]
-          }
-        }
-      }
-    },
-    "BucketRequestPayment": {
-      "identifiers": [
-        { "name": "BucketName" }
-      ],
-      "shape": "GetBucketRequestPaymentOutput",
-      "load": {
-        "request": {
-          "operation": "GetBucketRequestPayment",
-          "params": [
-            { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-          ]
-        },
-        "path": "@"
-      },
-      "actions": {
-        "Put": {
-          "request": {
-            "operation": "PutBucketRequestPayment",
-            "params": [
-              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
-            ]
-          }
-        }
-      },
-      "has": {
-        "Bucket": {
-          "resource": {
-            "type": "Bucket",
-            "identifiers": [
-              { "target": "Name", "source": "identifier", "name": "BucketName" }
             ]
           }
         }

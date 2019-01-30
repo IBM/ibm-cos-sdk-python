@@ -2,6 +2,17 @@
 CHANGELOG
 =========
 
+2.4.3
+=====
+
+Content
+=======
+
+Defect Fixes
+------------
+* COSSDK-48789 https://github.com/IBM/ibm-cos-sdk-python/issues/21
+* AWS Patches aligned to versions 1.12.79 (botocore) & 1.9.79 (boto3) of the AWS Python SDK
+
 2.4.2
 =====
 

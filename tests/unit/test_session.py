@@ -72,8 +72,7 @@ class TestSession(BaseTestCase):
         self.assertTrue(bc_session.set_credentials.called,
                         'Botocore session set_credentials not called from constructor')
         bc_session.set_credentials.assert_called_with(
-            access_key='key', secret_key='secret', token='token', auth_function=None, 
-            token_manager=None, ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
+            'key', 'secret', 'token')
 
     def test_can_get_credentials(self):
         access_key = 'foo'
@@ -143,9 +142,9 @@ class TestSession(BaseTestCase):
 
         Session(botocore_session=bc_session)
 
-        self.assertEqual(bc_session.user_agent_name, 'ibm-cos-sdk-python')
+        bc_session.user_agent_name = 'ibm-cos-sdk-python'
         self.assertEqual(bc_session.user_agent_version, __version__)
-        self.assertEqual(bc_session.user_agent_extra, 'ibm-cos-sdk-python-core/0.68.0')
+        self.assertEqual(bc_session.user_agent_extra, 'ibm-cos-sdk-python/0.68.0')
 
     def test_user_agent_extra(self):
         # This test is the same as above, but includes custom extra content
@@ -157,7 +156,7 @@ class TestSession(BaseTestCase):
 
         Session(botocore_session=bc_session)
 
-        self.assertEqual(bc_session.user_agent_extra, 'foo ibm-cos-sdk-python-core/0.68.0')
+        self.assertEqual(bc_session.user_agent_extra, 'foo ibm-cos-sdk-python/0.68.0')
 
     def test_custom_user_agent(self):
         # This test ensures that a customized user-agent is left untouched.
@@ -213,7 +212,7 @@ class TestSession(BaseTestCase):
 
     def test_create_client(self):
         session = Session(region_name='us-east-1')
-        client = session.client('s3', region_name='us-west-2')
+        client = session.client('sqs', region_name='us-west-2')
 
         self.assertTrue(client,
                         'No low-level client was returned')
@@ -222,14 +221,13 @@ class TestSession(BaseTestCase):
         bc_session = self.bc_session_cls.return_value
 
         session = Session(region_name='us-east-1')
-        session.client('s3', region_name='us-west-2')
+        session.client('sqs', region_name='us-west-2')
 
         bc_session.create_client.assert_called_with(
-            's3', aws_secret_access_key=None, aws_access_key_id=None,
+            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name='us-west-2', api_version=None,
-            config=None, ibm_api_key_id=None, ibm_service_instance_id=None,
-            ibm_auth_endpoint=None, auth_function=None, token_manager=None)
+            config=None)
 
     def test_create_resource_with_args(self):
         mock_bc_session = mock.Mock()
@@ -242,14 +240,13 @@ class TestSession(BaseTestCase):
         session.resource_factory.load_from_definition = mock.Mock()
         session.client = mock.Mock()
 
-        session.resource('s3', verify=False)
+        session.resource('sqs', verify=False)
 
         session.client.assert_called_with(
-            's3', aws_secret_access_key=None, aws_access_key_id=None,
+            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=False, region_name=None, api_version='2014-11-02',
-            config=mock.ANY, auth_function=None, token_manager=None,
-            ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
+            config=mock.ANY)
         client_config = session.client.call_args[1]['config']
         self.assertEqual(client_config.user_agent_extra, 'Resource')
         self.assertEqual(client_config.signature_version, None)
@@ -266,14 +263,13 @@ class TestSession(BaseTestCase):
         session.client = mock.Mock()
         config = Config(signature_version='v4')
 
-        session.resource('s3', config=config)
+        session.resource('sqs', config=config)
 
         session.client.assert_called_with(
-            's3', aws_secret_access_key=None, aws_access_key_id=None,
+            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name=None, api_version='2014-11-02',
-            config=mock.ANY, auth_function=None, token_manager=None,
-            ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
+            config=mock.ANY)
         client_config = session.client.call_args[1]['config']
         self.assertEqual(client_config.user_agent_extra, 'Resource')
         self.assertEqual(client_config.signature_version, 'v4')
@@ -290,14 +286,13 @@ class TestSession(BaseTestCase):
         session.client = mock.Mock()
         config = Config(signature_version='v4', user_agent_extra='foo')
 
-        session.resource('s3', config=config)
+        session.resource('sqs', config=config)
 
         session.client.assert_called_with(
-            's3', aws_secret_access_key=None, aws_access_key_id=None,
+            'sqs', aws_secret_access_key=None, aws_access_key_id=None,
             endpoint_url=None, use_ssl=True, aws_session_token=None,
             verify=None, region_name=None, api_version='2014-11-02',
-            config=mock.ANY, auth_function=None, token_manager=None,
-            ibm_api_key_id=None, ibm_auth_endpoint=None, ibm_service_instance_id=None)
+            config=mock.ANY)
         client_config = session.client.call_args[1]['config']
         self.assertEqual(client_config.user_agent_extra, 'foo')
         self.assertEqual(client_config.signature_version, 'v4')
@@ -312,10 +307,10 @@ class TestSession(BaseTestCase):
         session = Session(botocore_session=mock_bc_session)
         session.resource_factory.load_from_definition = mock.Mock()
 
-        session.resource('s3')
+        session.resource('sqs')
 
         loader.load_service_model.assert_called_with(
-            's3', 'resources-1', None)
+            'sqs', 'resources-1', None)
 
     def test_bad_resource_name(self):
         mock_bc_session = mock.Mock()
@@ -325,15 +320,15 @@ class TestSession(BaseTestCase):
         )
         mock_bc_session.get_component.return_value = loader
         loader.list_available_services.return_value = ['good-resource']
-        mock_bc_session.get_available_services.return_value = ['s3']
+        mock_bc_session.get_available_services.return_value = ['sqs']
 
         session = Session(botocore_session=mock_bc_session)
         with self.assertRaises(ResourceNotExistsError) as e:
-            session.resource('s3')
+            session.resource('sqs')
         err_msg = str(e.exception)
         # 1. should say the resource doesn't exist.
         self.assertIn('resource does not exist', err_msg)
-        self.assertIn('s3', err_msg)
+        self.assertIn('sqs', err_msg)
         # 2. Should list available resources you can choose.
         self.assertIn('good-resource', err_msg)
         # 3. Should list client if available.

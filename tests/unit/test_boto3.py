@@ -47,7 +47,7 @@ class TestBoto3(unittest.TestCase):
     def test_client_creates_default_session(self, setup_session):
         ibm_boto3.DEFAULT_SESSION = None
 
-        ibm_boto3.client('s3')
+        ibm_boto3.client('sqs')
 
         self.assertTrue(setup_session.called,
             'setup_default_session not called')
@@ -59,7 +59,7 @@ class TestBoto3(unittest.TestCase):
     def test_client_uses_existing_session(self, setup_session):
         ibm_boto3.DEFAULT_SESSION = self.Session()
 
-        ibm_boto3.client('s3')
+        ibm_boto3.client('sqs')
 
         self.assertFalse(setup_session.called,
             'setup_default_session should not have been called')
@@ -69,17 +69,17 @@ class TestBoto3(unittest.TestCase):
     def test_client_passes_through_arguments(self):
         ibm_boto3.DEFAULT_SESSION = self.Session()
 
-        ibm_boto3.client('s3', region_name='us-west-2', verify=False)
+        ibm_boto3.client('sqs', region_name='us-west-2', verify=False)
 
         ibm_boto3.DEFAULT_SESSION.client.assert_called_with(
-            's3', region_name='us-west-2', verify=False)
+            'sqs', region_name='us-west-2', verify=False)
 
     @mock.patch('ibm_boto3.setup_default_session',
                 wraps=ibm_boto3.setup_default_session)
     def test_resource_creates_default_session(self, setup_session):
         ibm_boto3.DEFAULT_SESSION = None
 
-        ibm_boto3.resource('s3')
+        ibm_boto3.resource('sqs')
 
         self.assertTrue(setup_session.called,
             'setup_default_session not called')
@@ -91,7 +91,7 @@ class TestBoto3(unittest.TestCase):
     def test_resource_uses_existing_session(self, setup_session):
         ibm_boto3.DEFAULT_SESSION = self.Session()
 
-        ibm_boto3.resource('s3')
+        ibm_boto3.resource('sqs')
 
         self.assertFalse(setup_session.called,
             'setup_default_session should not have been called')
@@ -101,7 +101,7 @@ class TestBoto3(unittest.TestCase):
     def test_resource_passes_through_arguments(self):
         ibm_boto3.DEFAULT_SESSION = self.Session()
 
-        ibm_boto3.resource('s3', region_name='us-west-2', verify=False)
+        ibm_boto3.resource('sqs', region_name='us-west-2', verify=False)
 
         ibm_boto3.DEFAULT_SESSION.resource.assert_called_with(
-            's3', region_name='us-west-2', verify=False)
+            'sqs', region_name='us-west-2', verify=False)

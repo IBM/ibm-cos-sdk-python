@@ -318,7 +318,7 @@ class TestS3Transfers(unittest.TestCase):
 
     def create_s3_transfer(self, config=None):
         return ibm_boto3.s3.transfer.S3Transfer(self.client,
-                                                config=config)
+                                            config=config)
 
     def assert_has_public_read_acl(self, response):
         grants = response['Grants']
@@ -642,7 +642,7 @@ class TestS3Transfers(unittest.TestCase):
         # implementation
         #
         # The methods used are arbitrary other than one of the methods
-        # use ``boto3.s3.transfer.S3Transfer`` and the other should be
+        # use ``ibm_boto3.s3.transfer.S3Transfer`` and the other should be
         # using ``ibm_s3transfer.manager.TransferManager`` directly
         content = b'my content'
         filename = self.files.create_file('myfile', content.decode('utf-8'))

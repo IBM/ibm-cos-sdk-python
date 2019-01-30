@@ -59,7 +59,7 @@ def create_request_parameters(parent, request_model, params=None, index=None):
 
     :type parent: ServiceResource
     :param parent: The resource instance to which this action is attached.
-    :type request_model: :py:class:`~boto3.resources.model.Request`
+    :type request_model: :py:class:`~ibm_boto3.resources.model.Request`
     :param request_model: The action request model.
     :type params: dict
     :param params: If set, then add to this existing dict. It is both

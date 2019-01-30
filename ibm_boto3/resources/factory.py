@@ -29,10 +29,11 @@ logger = logging.getLogger(__name__)
 
 class ResourceFactory(object):
     """
-    A factory to create new :py:class:`~boto3.resources.base.ServiceResource`
-    classes from a :py:class:`~boto3.resources.model.ResourceModel`. There are
-    two types of lookups that can be done: one on the service itself and 
-    another on models contained within the service.
+    A factory to create new :py:class:`~ibm_boto3.resources.base.ServiceResource`
+    classes from a :py:class:`~ibm_boto3.resources.model.ResourceModel`. There are
+    two types of lookups that can be done: one on the service itself (e.g. an
+    SQS resource) and another on models contained within the service (e.g. an
+    SQS Queue resource).
     """
     def __init__(self, emitter):
         self._collection_factory = CollectionFactory()
@@ -42,9 +43,9 @@ class ResourceFactory(object):
                              single_resource_json_definition, service_context):
         """
         Loads a resource from a model, creating a new
-        :py:class:`~boto3.resources.base.ServiceResource` subclass
+        :py:class:`~ibm_boto3.resources.base.ServiceResource` subclass
         with the correct properties and methods, named based on the service
-        and resource name.
+        and resource name, e.g. EC2.Instance.
 
         :type resource_name: string
         :param resource_name: Name of the resource to look up. For services,
@@ -55,10 +56,10 @@ class ResourceFactory(object):
             The loaded json of a single service resource or resource
             definition.
 
-        :type service_context: :py:class:`~boto3.utils.ServiceContext`
+        :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`
         :param service_context: Context about the AWS service
 
-        :rtype: Subclass of :py:class:`~boto3.resources.base.ServiceResource`
+        :rtype: Subclass of :py:class:`~ibm_boto3.resources.base.ServiceResource`
         :return: The service or resource class.
         """
         logger.debug('Loading %s:%s', service_context.service_name,
@@ -204,7 +205,7 @@ class ResourceFactory(object):
     def _load_collections(self, attrs, resource_model, service_context):
         """
         Load resource collections from the model. Each collection becomes
-        a :py:class:`~boto3.resources.collection.CollectionManager` instance
+        a :py:class:`~ibm_boto3.resources.collection.CollectionManager` instance
         on the resource instance, which allows you to iterate and filter
         through the collection's items.
         """
@@ -222,7 +223,7 @@ class ResourceFactory(object):
         relationship but conceptually come in two forms:
 
         1. A reference, which is a related resource instance and can be
-           ``None``.
+           ``None``, such as an EC2 instance's ``vpc``.
         2. A subresource, which is a resource constructor that will always
            return a resource instance which shares identifiers/data with
            this resource, such as ``s3.Bucket('name').Object('key')``.
@@ -460,8 +461,10 @@ class ResourceFactory(object):
             )
 
             # Assumes that identifiers are in order, which lets you do
-            # to create a new message. If we did kwargs here then future 
-	    # positional arguments would lead to failure. 
+            # e.g. ``sqs.Queue('foo').Message('bar')`` to create a new message
+            # linked with the ``foo`` queue and which has a ``bar`` receipt
+            # handle. If we did kwargs here then future positional arguments
+            # would lead to failure.
             identifiers = subresource_model.resource.identifiers
             if identifiers is not None:
                 for identifier, value in build_identifiers(identifiers, self):

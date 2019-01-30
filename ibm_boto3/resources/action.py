@@ -29,18 +29,18 @@ logger = logging.getLogger(__name__)
 class ServiceAction(object):
     """
     A class representing a callable action on a resource, for example
-    ``s3.Bucket('foo').delete()``.
+    ``sqs.get_queue_by_name(...)`` or ``s3.Bucket('foo').delete()``.
     The action may construct parameters from existing resource identifiers
     and may return either a raw response or a new resource instance.
 
-    :type action_model: :py:class`~boto3.resources.model.Action`
+    :type action_model: :py:class`~ibm_boto3.resources.model.Action`
     :param action_model: The action model.
 
     :type factory: ResourceFactory
     :param factory: The factory that created the resource class to which
                     this action is attached.
 
-    :type service_context: :py:class:`~boto3.utils.ServiceContext`
+    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`
     :param service_context: Context about the AWS service
     """
     def __init__(self, action_model, factory=None, service_context=None):
@@ -64,7 +64,7 @@ class ServiceAction(object):
         Perform the action's request operation after building operation
         parameters and build any defined resources from the response.
 
-        :type parent: :py:class:`~boto3.resources.base.ServiceResource`
+        :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`
         :param parent: The resource instance to which this action is attached.
         :rtype: dict or ServiceResource or list(ServiceResource)
         :return: The response, either as a raw dict or resource instance(s).
@@ -77,7 +77,7 @@ class ServiceAction(object):
         params = create_request_parameters(parent, self._action_model.request)
         params.update(kwargs)
 
-        logger.info('Calling %s:%s with %r', parent.meta.service_name,
+        logger.debug('Calling %s:%s with %r', parent.meta.service_name,
                     operation_name, params)
 
         response = getattr(parent.meta.client, operation_name)(**params)
@@ -95,14 +95,14 @@ class BatchAction(ServiceAction):
     S3 objects in a single operation rather than calling ``.delete()`` on
     each one individually.
 
-    :type action_model: :py:class`~boto3.resources.model.Action`
+    :type action_model: :py:class`~ibm_boto3.resources.model.Action`
     :param action_model: The action model.
 
     :type factory: ResourceFactory
     :param factory: The factory that created the resource class to which
                     this action is attached.
 
-    :type service_context: :py:class:`~boto3.utils.ServiceContext`
+    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`
     :param service_context: Context about the AWS service
     """
     def __call__(self, parent, *args, **kwargs):
@@ -111,7 +111,7 @@ class BatchAction(ServiceAction):
         from the collection.
 
         :type parent:
-            :py:class:`~boto3.resources.collection.ResourceCollection`
+            :py:class:`~ibm_boto3.resources.collection.ResourceCollection`
         :param parent: The collection iterator to which this action
                        is attached.
         :rtype: list(dict)
@@ -146,7 +146,7 @@ class BatchAction(ServiceAction):
 
             params.update(kwargs)
 
-            logger.info('Calling %s:%s with %r',
+            logger.debug('Calling %s:%s with %r',
                         service_name, operation_name, params)
 
             response = getattr(client, operation_name)(**params)
@@ -166,7 +166,7 @@ class WaiterAction(object):
     The waiter action may construct parameters from existing resource
     identifiers.
 
-    :type waiter_model: :py:class`~boto3.resources.model.Waiter`
+    :type waiter_model: :py:class`~ibm_boto3.resources.model.Waiter`
     :param waiter_model: The action waiter.
     :type waiter_resource_name: string
     :param waiter_resource_name: The name of the waiter action for the
@@ -182,7 +182,7 @@ class WaiterAction(object):
         Perform the wait operation after building operation
         parameters.
 
-        :type parent: :py:class:`~boto3.resources.base.ServiceResource`
+        :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`
         :param parent: The resource instance to which this action is attached.
         """
         client_waiter_name = xform_name(self._waiter_model.waiter_name)
@@ -193,7 +193,7 @@ class WaiterAction(object):
         params = create_request_parameters(parent, self._waiter_model)
         params.update(kwargs)
 
-        logger.info('Calling %s:%s with %r',
+        logger.debug('Calling %s:%s with %r',
                     parent.meta.service_name,
                     self._waiter_resource_name, params)
 
@@ -222,7 +222,7 @@ class CustomModeledAction(object):
             The first argument should be 'self', which will be the resource
             the function is to be called on.
 
-        :type event_emitter: :py:class:`botocore.hooks.BaseEventHooks`
+        :type event_emitter: :py:class:`ibm_botocore.hooks.BaseEventHooks`
         :param event_emitter: The session event emitter.
         """
         self.name = action_name
