@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.collection &mdash; ibm-cos-sdk 2.4.0 documentation</title>
+    <title>ibm_boto3.resources.collection &mdash; ibm-cos-sdk 2.4.3 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -152,11 +152,11 @@
 <span class="sd">    See :ref:`guide_collections` for a high-level overview of collections,</span>
 <span class="sd">    including when remote service requests are performed.</span>
 
-<span class="sd">    :type model: :py:class:`~boto3.resources.model.Collection`</span>
+<span class="sd">    :type model: :py:class:`~ibm_boto3.resources.model.Collection`</span>
 <span class="sd">    :param model: Collection model</span>
-<span class="sd">    :type parent: :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">    :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">    :param parent: The collection&#39;s parent resource</span>
-<span class="sd">    :type handler: :py:class:`~boto3.resources.response.ResourceHandler`</span>
+<span class="sd">    :type handler: :py:class:`~ibm_boto3.resources.response.ResourceHandler`</span>
 <span class="sd">    :param handler: The resource response handler used to create resource</span>
 <span class="sd">                    instances</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -166,7 +166,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span> <span class="o">=</span> <span class="n">xform_name</span><span class="p">(</span>
             <span class="n">model</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">operation</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span> <span class="o">=</span> <span class="n">handler</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_params</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;{0}({1}, {2})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -247,7 +247,7 @@
 <span class="sd">            &#39;key1&#39;</span>
 <span class="sd">            &#39;key2&#39;</span>
 
-<span class="sd">        :rtype: list(:py:class:`~boto3.resources.base.ServiceResource`)</span>
+<span class="sd">        :rtype: list(:py:class:`~ibm_boto3.resources.base.ServiceResource`)</span>
 <span class="sd">        :return: List of resource instances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span>
@@ -264,17 +264,17 @@
         <span class="c1"># page in a list. For non-paginated results, we just ignore</span>
         <span class="c1"># the page size parameter.</span>
         <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">can_paginate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">):</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Calling paginated </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling paginated </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
             <span class="n">paginator</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_paginator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">)</span>
             <span class="n">pages</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span>
                 <span class="n">PaginationConfig</span><span class="o">=</span><span class="p">{</span>
                     <span class="s1">&#39;MaxItems&#39;</span><span class="p">:</span> <span class="n">limit</span><span class="p">,</span> <span class="s1">&#39;PageSize&#39;</span><span class="p">:</span> <span class="n">page_size</span><span class="p">},</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
             <span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_py_operation_name</span><span class="p">)(</span><span class="o">**</span><span class="n">params</span><span class="p">)]</span>
 
         <span class="c1"># Now that we have a page iterator or single page of results</span>
@@ -303,8 +303,18 @@
 <span class="sd">        page size and item count limit.</span>
 
 <span class="sd">        This method returns an iterable generator which yields</span>
-<span class="sd">        individual resource instances. </span>
+<span class="sd">        individual resource instances. Example use::</span>
 
+<span class="sd">            # Iterate through items</span>
+<span class="sd">            &gt;&gt;&gt; for queue in sqs.queues.all():</span>
+<span class="sd">            ...     print(queue.url)</span>
+<span class="sd">            &#39;https://url1&#39;</span>
+<span class="sd">            &#39;https://url2&#39;</span>
+
+<span class="sd">            # Convert to list</span>
+<span class="sd">            &gt;&gt;&gt; queues = list(sqs.queues.all())</span>
+<span class="sd">            &gt;&gt;&gt; len(queues)</span>
+<span class="sd">            2</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
 </div>
@@ -315,7 +325,18 @@
 <span class="sd">        typically used to filter the results.</span>
 
 <span class="sd">        This method returns an iterable generator which yields</span>
-<span class="sd">        individual resource instances. </span>
+<span class="sd">        individual resource instances. Example use::</span>
+
+<span class="sd">            # Iterate through items</span>
+<span class="sd">            &gt;&gt;&gt; for queue in sqs.queues.filter(Param=&#39;foo&#39;):</span>
+<span class="sd">            ...     print(queue.url)</span>
+<span class="sd">            &#39;https://url1&#39;</span>
+<span class="sd">            &#39;https://url2&#39;</span>
+
+<span class="sd">            # Convert to list</span>
+<span class="sd">            &gt;&gt;&gt; queues = list(sqs.queues.filter(Param=&#39;foo&#39;))</span>
+<span class="sd">            &gt;&gt;&gt; len(queues)</span>
+<span class="sd">            2</span>
 
 <span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -343,7 +364,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fetch at most this many resources per service request.</span>
 
-<span class="sd">            &gt;&gt;&gt; for obj in s3.Bucket(ibm_boto3).objects.page_size(100):</span>
+<span class="sd">            &gt;&gt;&gt; for obj in s3.Bucket(&#39;boto3&#39;).objects.page_size(100):</span>
 <span class="sd">            ...     print(obj.key)</span>
 
 <span class="sd">        :type count: int</span>
@@ -366,6 +387,11 @@
 <span class="sd">        &gt;&gt;&gt; for bucket in s3.buckets.all():</span>
 <span class="sd">        ...     print(bucket.name)</span>
 
+<span class="sd">    Get only some items via filtering::</span>
+
+<span class="sd">        &gt;&gt;&gt; for queue in sqs.queues.filter(QueueNamePrefix=&#39;AWS&#39;):</span>
+<span class="sd">        ...     print(queue.url)</span>
+
 <span class="sd">    Get whole pages of items:</span>
 
 <span class="sd">        &gt;&gt;&gt; for page in s3.Bucket(&#39;boto3&#39;).objects.pages():</span>
@@ -379,16 +405,16 @@
 <span class="sd">    See the :ref:`guide_collections` guide for a high-level overview</span>
 <span class="sd">    of collections, including when remote service requests are performed.</span>
 
-<span class="sd">    :type collection_model: :py:class:`~boto3.resources.model.Collection`</span>
+<span class="sd">    :type collection_model: :py:class:`~ibm_boto3.resources.model.Collection`</span>
 <span class="sd">    :param model: Collection model</span>
 
-<span class="sd">    :type parent: :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">    :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">    :param parent: The collection&#39;s parent resource</span>
 
-<span class="sd">    :type factory: :py:class:`~boto3.resources.factory.ResourceFactory`</span>
+<span class="sd">    :type factory: :py:class:`~ibm_boto3.resources.factory.ResourceFactory`</span>
 <span class="sd">    :param factory: The resource factory to create new resources</span>
 
-<span class="sd">    :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">    :param service_context: Context about the AWS service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># The class to use when creating an iterator</span>
@@ -453,7 +479,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory to create new</span>
 <span class="sd">    :py:class:`CollectionManager` and :py:class:`ResourceCollection`</span>
-<span class="sd">    subclasses from a :py:class:`~boto3.resources.model.Collection`</span>
+<span class="sd">    subclasses from a :py:class:`~ibm_boto3.resources.model.Collection`</span>
 <span class="sd">    model. These subclasses include methods to perform batch operations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="CollectionFactory.load_from_definition"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory.load_from_definition">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span>
@@ -462,15 +488,15 @@
 <span class="sd">        Loads a collection from a model, creating a new</span>
 <span class="sd">        :py:class:`CollectionManager` subclass</span>
 <span class="sd">        with the correct properties and methods, named based on the service</span>
-<span class="sd">        and resource name. It also creates a new </span>
-<span class="sd">        :py:class:`ResourceCollection` subclass which is used by the new</span>
-<span class="sd">        new manager class.</span>
+<span class="sd">        and resource name, e.g. ec2.InstanceCollectionManager. It also</span>
+<span class="sd">        creates a new :py:class:`ResourceCollection` subclass which is used</span>
+<span class="sd">        by the new manager class.</span>
 
 <span class="sd">        :type resource_name: string</span>
 <span class="sd">        :param resource_name: Name of the resource to look up. For services,</span>
 <span class="sd">                              this should match the ``service_name``.</span>
 
-<span class="sd">        :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">        :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">        :param service_context: Context about the AWS service</span>
 
 <span class="sd">        :type event_emitter: :py:class:`~ibm_botocore.hooks.HierarchialEmitter`</span>
@@ -631,7 +657,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

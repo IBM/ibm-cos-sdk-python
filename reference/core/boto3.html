@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm-cos-sdk Reference &mdash; ibm-cos-sdk 2.4.0 documentation</title>
+    <title>ibm-cos-sdk Reference &mdash; ibm-cos-sdk 2.4.3 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../index.html" />
     <link rel="up" title="Core References" href="index.html" />
     <link rel="next" title="Collections Reference" href="collections.html" />
     <link rel="prev" title="Core References" href="index.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="index.html" title="Core References"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Core References</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -143,14 +143,14 @@ and the filter list to empty.</p>
 <dt id="ibm_boto3.client">
 <tt class="descclassname">ibm_boto3.</tt><tt class="descname">client</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3.html#client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a low-level service client by name using the default session.</p>
-<p>See <tt class="xref py py-meth docutils literal"><span class="pre">boto3.session.Session.client()</span></tt>.</p>
+<p>See <a class="reference internal" href="session.html#ibm_boto3.session.Session.client" title="ibm_boto3.session.Session.client"><tt class="xref py py-meth docutils literal"><span class="pre">ibm_boto3.session.Session.client()</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="ibm_boto3.resource">
 <tt class="descclassname">ibm_boto3.</tt><tt class="descname">resource</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3.html#resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a resource service client by name using the default session.</p>
-<p>See <tt class="xref py py-meth docutils literal"><span class="pre">boto3.session.Session.resource()</span></tt>.</p>
+<p>See <a class="reference internal" href="session.html#ibm_boto3.session.Session.resource" title="ibm_boto3.session.Session.resource"><tt class="xref py py-meth docutils literal"><span class="pre">ibm_boto3.session.Session.resource()</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -161,6 +161,14 @@ By default, this logs all ibm_boto3 messages to <tt class="docutils literal"><sp
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ibm_boto3</span><span class="o">.</span><span class="n">set_stream_logger</span><span class="p">(</span><span class="s1">&#39;ibm_boto3.resources&#39;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </pre></div>
+</div>
+<p>For debugging purposes a good choice is to set the stream logger to <tt class="docutils literal"><span class="pre">''</span></tt>
+which is equivalent to saying &quot;log everything&quot;.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Be aware that when logging anything from <tt class="docutils literal"><span class="pre">'ibm_botocore'</span></tt> the full wire
+trace will appear in your logs. If your payloads contain sensitive data
+this should not be used in production.</p>
 </div>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
@@ -220,7 +228,7 @@ parameters, because a default session will be created for you.</p>
         <li class="right" >
           <a href="index.html" title="Core References"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="index.html" >Core References</a> &raquo;</li> 
       </ul>
     </div>

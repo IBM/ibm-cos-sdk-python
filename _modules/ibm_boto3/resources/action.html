@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.action &mdash; ibm-cos-sdk 2.4.0 documentation</title>
+    <title>ibm_boto3.resources.action &mdash; ibm-cos-sdk 2.4.3 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -146,18 +146,18 @@
 <div class="viewcode-block" id="ServiceAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.ServiceAction">[docs]</a><span class="k">class</span> <span class="nc">ServiceAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a callable action on a resource, for example</span>
-<span class="sd">    ``s3.Bucket(&#39;foo&#39;).delete()``.</span>
+<span class="sd">    ``sqs.get_queue_by_name(...)`` or ``s3.Bucket(&#39;foo&#39;).delete()``.</span>
 <span class="sd">    The action may construct parameters from existing resource identifiers</span>
 <span class="sd">    and may return either a raw response or a new resource instance.</span>
 
-<span class="sd">    :type action_model: :py:class`~boto3.resources.model.Action`</span>
+<span class="sd">    :type action_model: :py:class`~ibm_boto3.resources.model.Action`</span>
 <span class="sd">    :param action_model: The action model.</span>
 
 <span class="sd">    :type factory: ResourceFactory</span>
 <span class="sd">    :param factory: The factory that created the resource class to which</span>
 <span class="sd">                    this action is attached.</span>
 
-<span class="sd">    :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">    :param service_context: Context about the AWS service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_model</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">service_context</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
@@ -181,7 +181,7 @@
 <span class="sd">        Perform the action&#39;s request operation after building operation</span>
 <span class="sd">        parameters and build any defined resources from the response.</span>
 
-<span class="sd">        :type parent: :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">        :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">        :param parent: The resource instance to which this action is attached.</span>
 <span class="sd">        :rtype: dict or ServiceResource or list(ServiceResource)</span>
 <span class="sd">        :return: The response, either as a raw dict or resource instance(s).</span>
@@ -194,7 +194,7 @@
         <span class="n">params</span> <span class="o">=</span> <span class="n">create_request_parameters</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action_model</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
         <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
                     <span class="n">operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 
         <span class="n">response</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">)(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
@@ -212,14 +212,14 @@
 <span class="sd">    S3 objects in a single operation rather than calling ``.delete()`` on</span>
 <span class="sd">    each one individually.</span>
 
-<span class="sd">    :type action_model: :py:class`~boto3.resources.model.Action`</span>
+<span class="sd">    :type action_model: :py:class`~ibm_boto3.resources.model.Action`</span>
 <span class="sd">    :param action_model: The action model.</span>
 
 <span class="sd">    :type factory: ResourceFactory</span>
 <span class="sd">    :param factory: The factory that created the resource class to which</span>
 <span class="sd">                    this action is attached.</span>
 
-<span class="sd">    :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">    :param service_context: Context about the AWS service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -228,7 +228,7 @@
 <span class="sd">        from the collection.</span>
 
 <span class="sd">        :type parent:</span>
-<span class="sd">            :py:class:`~boto3.resources.collection.ResourceCollection`</span>
+<span class="sd">            :py:class:`~ibm_boto3.resources.collection.ResourceCollection`</span>
 <span class="sd">        :param parent: The collection iterator to which this action</span>
 <span class="sd">                       is attached.</span>
 <span class="sd">        :rtype: list(dict)</span>
@@ -263,7 +263,7 @@
 
             <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
                         <span class="n">service_name</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 
             <span class="n">response</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">)(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
@@ -283,7 +283,7 @@
 <span class="sd">    The waiter action may construct parameters from existing resource</span>
 <span class="sd">    identifiers.</span>
 
-<span class="sd">    :type waiter_model: :py:class`~boto3.resources.model.Waiter`</span>
+<span class="sd">    :type waiter_model: :py:class`~ibm_boto3.resources.model.Waiter`</span>
 <span class="sd">    :param waiter_model: The action waiter.</span>
 <span class="sd">    :type waiter_resource_name: string</span>
 <span class="sd">    :param waiter_resource_name: The name of the waiter action for the</span>
@@ -299,7 +299,7 @@
 <span class="sd">        Perform the wait operation after building operation</span>
 <span class="sd">        parameters.</span>
 
-<span class="sd">        :type parent: :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">        :type parent: :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">        :param parent: The resource instance to which this action is attached.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">client_waiter_name</span> <span class="o">=</span> <span class="n">xform_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waiter_model</span><span class="o">.</span><span class="n">waiter_name</span><span class="p">)</span>
@@ -310,7 +310,7 @@
         <span class="n">params</span> <span class="o">=</span> <span class="n">create_request_parameters</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_model</span><span class="p">)</span>
         <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
                     <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_resource_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 
@@ -339,7 +339,7 @@
 <span class="sd">            The first argument should be &#39;self&#39;, which will be the resource</span>
 <span class="sd">            the function is to be called on.</span>
 
-<span class="sd">        :type event_emitter: :py:class:`botocore.hooks.BaseEventHooks`</span>
+<span class="sd">        :type event_emitter: :py:class:`ibm_botocore.hooks.BaseEventHooks`</span>
 <span class="sd">        :param event_emitter: The session event emitter.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">action_name</span>
@@ -375,7 +375,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

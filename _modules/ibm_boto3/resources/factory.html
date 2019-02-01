@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.4.0 documentation</title>
+    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.4.3 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -146,10 +146,11 @@
 
 <div class="viewcode-block" id="ResourceFactory"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">[docs]</a><span class="k">class</span> <span class="nc">ResourceFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A factory to create new :py:class:`~boto3.resources.base.ServiceResource`</span>
-<span class="sd">    classes from a :py:class:`~boto3.resources.model.ResourceModel`. There are</span>
-<span class="sd">    two types of lookups that can be done: one on the service itself and </span>
-<span class="sd">    another on models contained within the service.</span>
+<span class="sd">    A factory to create new :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
+<span class="sd">    classes from a :py:class:`~ibm_boto3.resources.model.ResourceModel`. There are</span>
+<span class="sd">    two types of lookups that can be done: one on the service itself (e.g. an</span>
+<span class="sd">    SQS resource) and another on models contained within the service (e.g. an</span>
+<span class="sd">    SQS Queue resource).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">emitter</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_collection_factory</span> <span class="o">=</span> <span class="n">CollectionFactory</span><span class="p">()</span>
@@ -159,9 +160,9 @@
                              <span class="n">single_resource_json_definition</span><span class="p">,</span> <span class="n">service_context</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads a resource from a model, creating a new</span>
-<span class="sd">        :py:class:`~boto3.resources.base.ServiceResource` subclass</span>
+<span class="sd">        :py:class:`~ibm_boto3.resources.base.ServiceResource` subclass</span>
 <span class="sd">        with the correct properties and methods, named based on the service</span>
-<span class="sd">        and resource name.</span>
+<span class="sd">        and resource name, e.g. EC2.Instance.</span>
 
 <span class="sd">        :type resource_name: string</span>
 <span class="sd">        :param resource_name: Name of the resource to look up. For services,</span>
@@ -172,10 +173,10 @@
 <span class="sd">            The loaded json of a single service resource or resource</span>
 <span class="sd">            definition.</span>
 
-<span class="sd">        :type service_context: :py:class:`~boto3.utils.ServiceContext`</span>
+<span class="sd">        :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">        :param service_context: Context about the AWS service</span>
 
-<span class="sd">        :rtype: Subclass of :py:class:`~boto3.resources.base.ServiceResource`</span>
+<span class="sd">        :rtype: Subclass of :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">        :return: The service or resource class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Loading </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
@@ -321,7 +322,7 @@
     <span class="k">def</span> <span class="nf">_load_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load resource collections from the model. Each collection becomes</span>
-<span class="sd">        a :py:class:`~boto3.resources.collection.CollectionManager` instance</span>
+<span class="sd">        a :py:class:`~ibm_boto3.resources.collection.CollectionManager` instance</span>
 <span class="sd">        on the resource instance, which allows you to iterate and filter</span>
 <span class="sd">        through the collection&#39;s items.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -339,7 +340,7 @@
 <span class="sd">        relationship but conceptually come in two forms:</span>
 
 <span class="sd">        1. A reference, which is a related resource instance and can be</span>
-<span class="sd">           ``None``.</span>
+<span class="sd">           ``None``, such as an EC2 instance&#39;s ``vpc``.</span>
 <span class="sd">        2. A subresource, which is a resource constructor that will always</span>
 <span class="sd">           return a resource instance which shares identifiers/data with</span>
 <span class="sd">           this resource, such as ``s3.Bucket(&#39;name&#39;).Object(&#39;key&#39;)``.</span>
@@ -577,8 +578,10 @@
             <span class="p">)</span>
 
             <span class="c1"># Assumes that identifiers are in order, which lets you do</span>
-            <span class="c1"># to create a new message. If we did kwargs here then future </span>
-	    <span class="c1"># positional arguments would lead to failure. </span>
+            <span class="c1"># e.g. ``sqs.Queue(&#39;foo&#39;).Message(&#39;bar&#39;)`` to create a new message</span>
+            <span class="c1"># linked with the ``foo`` queue and which has a ``bar`` receipt</span>
+            <span class="c1"># handle. If we did kwargs here then future positional arguments</span>
+            <span class="c1"># would lead to failure.</span>
             <span class="n">identifiers</span> <span class="o">=</span> <span class="n">subresource_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">identifiers</span>
             <span class="k">if</span> <span class="n">identifiers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">build_identifiers</span><span class="p">(</span><span class="n">identifiers</span><span class="p">,</span> <span class="bp">self</span><span class="p">):</span>
@@ -667,7 +670,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

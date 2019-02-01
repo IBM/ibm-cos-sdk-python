@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Resources Reference &mdash; ibm-cos-sdk 2.4.0 documentation</title>
+    <title>Resources Reference &mdash; ibm-cos-sdk 2.4.3 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../index.html" />
     <link rel="up" title="Core References" href="index.html" />
     <link rel="next" title="Session Reference" href="session.html" />
     <link rel="prev" title="Collections Reference" href="collections.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="collections.html" title="Collections Reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Core References</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -323,7 +323,7 @@ sub-resources, references and collections. For more information
 on resources, see <em class="xref std std-ref">guide_resources</em>.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
-<li><strong>name</strong> (<em>string</em>) -- The name of this resource</li>
+<li><strong>name</strong> (<em>string</em>) -- The name of this resource, e.g. <tt class="docutils literal"><span class="pre">sqs</span></tt> or <tt class="docutils literal"><span class="pre">Queue</span></tt></li>
 <li><strong>definition</strong> (<em>dict</em>) -- The JSON definition</li>
 <li><strong>resource_defs</strong> (<em>dict</em>) -- All resources defined in the service</li>
 </ul>
@@ -459,7 +459,7 @@ are unlikely to collide with anything but other subresources.</p>
 <tt class="descname">subresources</tt><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel.subresources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.subresources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of sub-resources.</p>
 <dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Type</dt><dd class="field-body">list(:py:class`ResponseResource`)</dd>
+<dt class="field-name">Type</dt><dd class="field-body">list(<a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource" title="ibm_boto3.resources.model.ResponseResource"><tt class="xref py py-class docutils literal"><span class="pre">ResponseResource</span></tt></a>)</dd>
 </dl>
 </dd></dl>
 
@@ -589,7 +589,7 @@ for reverse JMESPath expressions that append to lists.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
 <li><strong>parent</strong> (<em>ServiceResource</em>) -- The resource instance to which this action is attached.</li>
-<li><strong>request_model</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Request</span></tt>) -- The action request model.</li>
+<li><strong>request_model</strong> (<a class="reference internal" href="#ibm_boto3.resources.model.Request" title="ibm_boto3.resources.model.Request"><tt class="xref py py-class docutils literal"><span class="pre">Request</span></tt></a>) -- The action request model.</li>
 <li><strong>params</strong> (<em>dict</em>) -- If set, then add to this existing dict. It is both
 edited in-place and returned.</li>
 <li><strong>index</strong> (<em>int</em>) -- The position of an item within a list</li>
@@ -649,7 +649,7 @@ response based on the given response resource definition.</p>
 <li><strong>search_path</strong> (<em>string</em>) -- JMESPath expression to search in the response</li>
 <li><strong>factory</strong> (<em>ResourceFactory</em>) -- The factory that created the resource class to which
 this action is attached.</li>
-<li><strong>resource_model</strong> (<tt class="xref py py-class docutils literal"><span class="pre">ResponseResource</span></tt>) -- Response resource model.</li>
+<li><strong>resource_model</strong> (<a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource" title="ibm_boto3.resources.model.ResponseResource"><tt class="xref py py-class docutils literal"><span class="pre">ResponseResource</span></tt></a>) -- Response resource model.</li>
 <li><strong>service_context</strong> (<tt class="xref py py-class docutils literal"><span class="pre">ServiceContext</span></tt>) -- Context about the AWS service</li>
 <li><strong>operation_name</strong> (<em>string</em>) -- Name of the underlying service operation, if it
 exists.</li>
@@ -720,7 +720,7 @@ values may be scalars or lists depending on the source type
 and location.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
-<li><strong>identifiers</strong> (<em>list</em>) -- List of <tt class="xref py py-class docutils literal"><span class="pre">Parameter</span></tt>
+<li><strong>identifiers</strong> (<em>list</em>) -- List of <a class="reference internal" href="#ibm_boto3.resources.model.Parameter" title="ibm_boto3.resources.model.Parameter"><tt class="xref py py-class docutils literal"><span class="pre">Parameter</span></tt></a>
 definitions</li>
 <li><strong>parent</strong> (<em>ServiceResource</em>) -- The resource instance to which this action is attached.</li>
 <li><strong>params</strong> (<em>dict</em>) -- Request parameters sent to the service.</li>
@@ -747,7 +747,7 @@ S3 objects in a single operation rather than calling <tt class="docutils literal
 each one individually.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
-<li><strong>action_model</strong> (<em>:py:class`~boto3.resources.model.Action`</em>) -- The action model.</li>
+<li><strong>action_model</strong> (<em>:py:class`~ibm_boto3.resources.model.Action`</em>) -- The action model.</li>
 <li><strong>factory</strong> (<em>ResourceFactory</em>) -- The factory that created the resource class to which
 this action is attached.</li>
 <li><strong>service_context</strong> (<tt class="xref py py-class docutils literal"><span class="pre">ServiceContext</span></tt>) -- Context about the AWS service</li>
@@ -769,7 +769,7 @@ part of the resource model.</li>
 <li><strong>function</strong> (<em>function</em>) -- The function to perform when the action is called.
 The first argument should be 'self', which will be the resource
 the function is to be called on.</li>
-<li><strong>event_emitter</strong> (<tt class="xref py py-class docutils literal"><span class="pre">botocore.hooks.BaseEventHooks</span></tt>) -- The session event emitter.</li>
+<li><strong>event_emitter</strong> (<tt class="xref py py-class docutils literal"><span class="pre">ibm_botocore.hooks.BaseEventHooks</span></tt>) -- The session event emitter.</li>
 </ul>
 </dd>
 </dl>
@@ -784,12 +784,12 @@ the function is to be called on.</li>
 <dt id="ibm_boto3.resources.action.ServiceAction">
 <em class="property">class </em><tt class="descclassname">ibm_boto3.resources.action.</tt><tt class="descname">ServiceAction</tt><big>(</big><em>action_model</em>, <em>factory=None</em>, <em>service_context=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#ServiceAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.action.ServiceAction" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class representing a callable action on a resource, for example
-<tt class="docutils literal"><span class="pre">s3.Bucket('foo').delete()</span></tt>.
+<tt class="docutils literal"><span class="pre">sqs.get_queue_by_name(...)</span></tt> or <tt class="docutils literal"><span class="pre">s3.Bucket('foo').delete()</span></tt>.
 The action may construct parameters from existing resource identifiers
 and may return either a raw response or a new resource instance.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
-<li><strong>action_model</strong> (<em>:py:class`~boto3.resources.model.Action`</em>) -- The action model.</li>
+<li><strong>action_model</strong> (<em>:py:class`~ibm_boto3.resources.model.Action`</em>) -- The action model.</li>
 <li><strong>factory</strong> (<em>ResourceFactory</em>) -- The factory that created the resource class to which
 this action is attached.</li>
 <li><strong>service_context</strong> (<tt class="xref py py-class docutils literal"><span class="pre">ServiceContext</span></tt>) -- Context about the AWS service</li>
@@ -807,7 +807,7 @@ The waiter action may construct parameters from existing resource
 identifiers.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
-<li><strong>waiter_model</strong> (<em>:py:class`~boto3.resources.model.Waiter`</em>) -- The action waiter.</li>
+<li><strong>waiter_model</strong> (<em>:py:class`~ibm_boto3.resources.model.Waiter`</em>) -- The action waiter.</li>
 <li><strong>waiter_resource_name</strong> (<em>string</em>) -- The name of the waiter action for the
 resource. It usually begins with a
 <tt class="docutils literal"><span class="pre">wait_until_</span></tt></li>
@@ -887,17 +887,18 @@ from when the instance was hydrated. For example:</p>
 <dl class="class">
 <dt id="ibm_boto3.resources.factory.ResourceFactory">
 <em class="property">class </em><tt class="descclassname">ibm_boto3.resources.factory.</tt><tt class="descname">ResourceFactory</tt><big>(</big><em>emitter</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/factory.html#ResourceFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.factory.ResourceFactory" title="Permalink to this definition">¶</a></dt>
-<dd><p>A factory to create new <tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt>
-classes from a <tt class="xref py py-class docutils literal"><span class="pre">ResourceModel</span></tt>. There are
-two types of lookups that can be done: one on the service itself and 
-another on models contained within the service.</p>
+<dd><p>A factory to create new <a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt></a>
+classes from a <a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel" title="ibm_boto3.resources.model.ResourceModel"><tt class="xref py py-class docutils literal"><span class="pre">ResourceModel</span></tt></a>. There are
+two types of lookups that can be done: one on the service itself (e.g. an
+SQS resource) and another on models contained within the service (e.g. an
+SQS Queue resource).</p>
 <dl class="method">
 <dt id="ibm_boto3.resources.factory.ResourceFactory.load_from_definition">
 <tt class="descname">load_from_definition</tt><big>(</big><em>resource_name</em>, <em>single_resource_json_definition</em>, <em>service_context</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/factory.html#ResourceFactory.load_from_definition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.factory.ResourceFactory.load_from_definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a resource from a model, creating a new
-<tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt> subclass
+<a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt></a> subclass
 with the correct properties and methods, named based on the service
-and resource name.</p>
+and resource name, e.g. EC2.Instance.</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
 <li><strong>resource_name</strong> (<em>string</em>) -- Name of the resource to look up. For services,
@@ -907,7 +908,7 @@ definition.</li>
 <li><strong>service_context</strong> (<tt class="xref py py-class docutils literal"><span class="pre">ServiceContext</span></tt>) -- Context about the AWS service</li>
 </ul>
 </dd>
-<dt class="field-name">Return type</dt><dd class="field-body"><p class="first">Subclass of <tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt></p>
+<dt class="field-name">Return type</dt><dd class="field-body"><p class="first">Subclass of <a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt></a></p>
 </dd>
 <dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">The service or resource class.</p>
 </dd>
@@ -952,7 +953,7 @@ definition.</li>
         <li class="right" >
           <a href="collections.html" title="Collections Reference"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="index.html" >Core References</a> &raquo;</li> 
       </ul>
     </div>

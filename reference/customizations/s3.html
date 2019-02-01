@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 Customization Reference &mdash; ibm-cos-sdk 2.4.0 documentation</title>
+    <title>S3 Customization Reference &mdash; ibm-cos-sdk 2.4.3 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.4.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../index.html" />
     <link rel="up" title="Customization References" href="index.html" />
     <link rel="prev" title="Customization References" href="index.html" />
   
@@ -52,7 +52,7 @@
         <li class="right" >
           <a href="index.html" title="Customization References"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Customization References</a> &raquo;</li> 
       </ul>
     </div>
@@ -63,7 +63,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -186,7 +186,7 @@ performing transfers: all logic will be ran in the main thread.</li>
 
 <dl class="attribute">
 <dt id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
-<tt class="descname">ALLOWED_UPLOAD_ARGS</tt><em class="property"> = ['ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl', 'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata', 'RequestPayer', 'ServerSideEncryption', 'StorageClass', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'SSEKMSKeyId', 'WebsiteRedirectLocation']</em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ALLOWED_UPLOAD_ARGS</tt><em class="property"> = ['ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'ContentType', 'Expires', 'GrantFullControl', 'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata', 'RequestPayer', 'ServerSideEncryption', 'StorageClass', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'SSEKMSKeyId', 'WebsiteRedirectLocation', 'RetentionExpirationDate', 'RetentionLegalHoldId', 'RetentionPeriod']</em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -195,6 +195,11 @@ performing transfers: all logic will be ran in the main thread.</li>
 <dd><p>Download an S3 object to a file.</p>
 <p>Variants have also been injected into S3 client, Bucket and Object.
 You don't have to use S3Transfer.download_file() directly.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="../services/s3.html#S3.Client.download_file" title="S3.Client.download_file"><tt class="xref py py-meth docutils literal"><span class="pre">S3.Client.download_file()</span></tt></a>
+<a class="reference internal" href="../services/s3.html#S3.Client.download_fileobj" title="S3.Client.download_fileobj"><tt class="xref py py-meth docutils literal"><span class="pre">S3.Client.download_fileobj()</span></tt></a></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -203,6 +208,11 @@ You don't have to use S3Transfer.download_file() directly.</p>
 <dd><p>Upload a file to an S3 object.</p>
 <p>Variants have also been injected into S3 client, Bucket and Object.
 You don't have to use S3Transfer.upload_file() directly.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="../services/s3.html#S3.Client.upload_file" title="S3.Client.upload_file"><tt class="xref py py-meth docutils literal"><span class="pre">S3.Client.upload_file()</span></tt></a>
+<a class="reference internal" href="../services/s3.html#S3.Client.upload_fileobj" title="S3.Client.upload_fileobj"><tt class="xref py py-meth docutils literal"><span class="pre">S3.Client.upload_fileobj()</span></tt></a></p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -237,7 +247,7 @@ You don't have to use S3Transfer.upload_file() directly.</p>
         <li class="right" >
           <a href="index.html" title="Customization References"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
           <li><a href="index.html" >Customization References</a> &raquo;</li> 
       </ul>
     </div>
