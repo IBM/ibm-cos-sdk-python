@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.4.3 documentation</title>
+    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.4.4 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.4.3',
+        VERSION:     '2.4.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.3 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.4.4 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.4 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.3 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.4.4 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -115,18 +115,18 @@
           <div class="document clearer body">
             
   <h1>Source code for ibm_boto3.resources.factory</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
-<span class="c1">#</span>
-<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
-<span class="c1"># may not use this file except in compliance with the License. A copy of</span>
-<span class="c1"># the License is located at</span>
-<span class="c1">#</span>
-<span class="c1"># http://aws.amazon.com/apache2.0/</span>
-<span class="c1">#</span>
-<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is</span>
-<span class="c1"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
-<span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
-<span class="c1"># language governing permissions and limitations under the License.</span>
+<span class="c"># Copyright 2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c"># the License is located at</span>
+<span class="c">#</span>
+<span class="c"># http://aws.amazon.com/apache2.0/</span>
+<span class="c">#</span>
+<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c"># language governing permissions and limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
@@ -141,7 +141,7 @@
 <span class="kn">from</span> <span class="nn">..docs</span> <span class="kn">import</span> <span class="n">docstring</span>
 
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ResourceFactory"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">[docs]</a><span class="k">class</span> <span class="nc">ResourceFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -152,7 +152,7 @@
 <span class="sd">    SQS resource) and another on models contained within the service (e.g. an</span>
 <span class="sd">    SQS Queue resource).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">emitter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">emitter</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_collection_factory</span> <span class="o">=</span> <span class="n">CollectionFactory</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_emitter</span> <span class="o">=</span> <span class="n">emitter</span>
 
@@ -179,78 +179,78 @@
 <span class="sd">        :rtype: Subclass of :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">        :return: The service or resource class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Loading </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;Loading </span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
                      <span class="n">resource_name</span><span class="p">)</span>
 
-        <span class="c1"># Using the loaded JSON create a ResourceModel object.</span>
+        <span class="c"># Using the loaded JSON create a ResourceModel object.</span>
         <span class="n">resource_model</span> <span class="o">=</span> <span class="n">ResourceModel</span><span class="p">(</span>
             <span class="n">resource_name</span><span class="p">,</span> <span class="n">single_resource_json_definition</span><span class="p">,</span>
             <span class="n">service_context</span><span class="o">.</span><span class="n">resource_json_definitions</span>
         <span class="p">)</span>
 
-        <span class="c1"># Do some renaming of the shape if there was a naming collision</span>
-        <span class="c1"># that needed to be accounted for.</span>
+        <span class="c"># Do some renaming of the shape if there was a naming collision</span>
+        <span class="c"># that needed to be accounted for.</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="n">resource_model</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
             <span class="n">shape</span> <span class="o">=</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="o">.</span><span class="n">shape_for</span><span class="p">(</span>
                 <span class="n">resource_model</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">resource_model</span><span class="o">.</span><span class="n">load_rename_map</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
 
-        <span class="c1"># Set some basic info</span>
+        <span class="c"># Set some basic info</span>
         <span class="n">meta</span> <span class="o">=</span> <span class="n">ResourceMeta</span><span class="p">(</span>
             <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span> <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span><span class="p">)</span>
         <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="p">,</span>
+            <span class="s">&#39;meta&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="p">,</span>
         <span class="p">}</span>
 
-        <span class="c1"># Create and load all of attributes of the resource class based</span>
-        <span class="c1"># on the models.</span>
+        <span class="c"># Create and load all of attributes of the resource class based</span>
+        <span class="c"># on the models.</span>
 
-        <span class="c1"># Identifiers</span>
+        <span class="c"># Identifiers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_identifiers</span><span class="p">(</span>
             <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span>
         <span class="p">)</span>
 
-        <span class="c1"># Load/Reload actions</span>
+        <span class="c"># Load/Reload actions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_actions</span><span class="p">(</span>
             <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
         <span class="p">)</span>
 
-        <span class="c1"># Attributes that get auto-loaded</span>
+        <span class="c"># Attributes that get auto-loaded</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_attributes</span><span class="p">(</span>
             <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span><span class="p">,</span>
             <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">)</span>
 
-        <span class="c1"># Collections and their corresponding methods</span>
+        <span class="c"># Collections and their corresponding methods</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_collections</span><span class="p">(</span>
             <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span><span class="p">,</span>
             <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">)</span>
 
-        <span class="c1"># References and Subresources</span>
+        <span class="c"># References and Subresources</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_has_relations</span><span class="p">(</span>
             <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
         <span class="p">)</span>
 
-        <span class="c1"># Waiter resource actions</span>
+        <span class="c"># Waiter resource actions</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_waiters</span><span class="p">(</span>
             <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
         <span class="p">)</span>
 
-        <span class="c1"># Create the name based on the requested service and resource</span>
+        <span class="c"># Create the name based on the requested service and resource</span>
         <span class="n">cls_name</span> <span class="o">=</span> <span class="n">resource_name</span>
         <span class="k">if</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span> <span class="o">==</span> <span class="n">resource_name</span><span class="p">:</span>
-            <span class="n">cls_name</span> <span class="o">=</span> <span class="s1">&#39;ServiceResource&#39;</span>
-        <span class="n">cls_name</span> <span class="o">=</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">cls_name</span>
+            <span class="n">cls_name</span> <span class="o">=</span> <span class="s">&#39;ServiceResource&#39;</span>
+        <span class="n">cls_name</span> <span class="o">=</span> <span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span> <span class="o">+</span> <span class="n">cls_name</span>
 
         <span class="n">base_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">ServiceResource</span><span class="p">]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_emitter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_emitter</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span>
-                <span class="s1">&#39;creating-resource-class.</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">cls_name</span><span class="p">,</span>
+                <span class="s">&#39;creating-resource-class.</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">cls_name</span><span class="p">,</span>
                 <span class="n">class_attributes</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span> <span class="n">base_classes</span><span class="o">=</span><span class="n">base_classes</span><span class="p">,</span>
                 <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">base_classes</span><span class="p">),</span> <span class="n">attrs</span><span class="p">)</span>
@@ -274,10 +274,10 @@
 <span class="sd">        ``reload`` is an alias for ``load``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">resource_model</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
-            <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_action</span><span class="p">(</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;load&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_action</span><span class="p">(</span>
                 <span class="n">action_model</span><span class="o">=</span><span class="n">resource_model</span><span class="o">.</span><span class="n">load</span><span class="p">,</span> <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
                 <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">,</span> <span class="n">is_load</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-            <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;reload&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;load&#39;</span><span class="p">]</span>
+            <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;reload&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;load&#39;</span><span class="p">]</span>
 
         <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">resource_model</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
             <span class="n">attrs</span><span class="p">[</span><span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_action</span><span class="p">(</span>
@@ -346,9 +346,9 @@
 <span class="sd">           this resource, such as ``s3.Bucket(&#39;name&#39;).Object(&#39;key&#39;)``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">reference</span> <span class="ow">in</span> <span class="n">resource_model</span><span class="o">.</span><span class="n">references</span><span class="p">:</span>
-            <span class="c1"># This is a dangling reference, i.e. we have all</span>
-            <span class="c1"># the data we need to create the resource, so</span>
-            <span class="c1"># this instance becomes an attribute on the class.</span>
+            <span class="c"># This is a dangling reference, i.e. we have all</span>
+            <span class="c"># the data we need to create the resource, so</span>
+            <span class="c"># this instance becomes an attribute on the class.</span>
             <span class="n">attrs</span><span class="p">[</span><span class="n">reference</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_reference</span><span class="p">(</span>
                 <span class="n">reference_model</span><span class="o">=</span><span class="n">reference</span><span class="p">,</span>
                 <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
@@ -356,8 +356,8 @@
             <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">subresource</span> <span class="ow">in</span> <span class="n">resource_model</span><span class="o">.</span><span class="n">subresources</span><span class="p">:</span>
-            <span class="c1"># This is a sub-resource class you can create</span>
-            <span class="c1"># by passing in an identifier, e.g. s3.Bucket(name).</span>
+            <span class="c"># This is a sub-resource class you can create</span>
+            <span class="c"># by passing in an identifier, e.g. s3.Bucket(name).</span>
             <span class="n">attrs</span><span class="p">[</span><span class="n">subresource</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_class_partial</span><span class="p">(</span>
                 <span class="n">subresource_model</span><span class="o">=</span><span class="n">subresource</span><span class="p">,</span>
                 <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
@@ -382,7 +382,7 @@
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">return</span> <span class="n">_subresources</span>
 
-        <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;get_available_subresources&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_available_subresources</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s">&#39;get_available_subresources&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_available_subresources</span>
 
     <span class="k">def</span> <span class="nf">_load_waiters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span>
                       <span class="n">service_context</span><span class="p">):</span>
@@ -403,16 +403,16 @@
 <span class="sd">        Creates a read-only property for identifier attributes.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="nf">get_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c1"># The default value is set to ``None`` instead of</span>
-            <span class="c1"># raising an AttributeError because when resources are</span>
-            <span class="c1"># instantiated a check is made such that none of the</span>
-            <span class="c1"># identifiers have a value ``None``. If any are ``None``,</span>
-            <span class="c1"># a more informative user error than a generic AttributeError</span>
-            <span class="c1"># is raised.</span>
-            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="c"># The default value is set to ``None`` instead of</span>
+            <span class="c"># raising an AttributeError because when resources are</span>
+            <span class="c"># instantiated a check is made such that none of the</span>
+            <span class="c"># identifiers have a value ``None``. If any are ``None``,</span>
+            <span class="c"># a more informative user error than a generic AttributeError</span>
+            <span class="c"># is raised.</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 
-        <span class="n">get_identifier</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">get_identifier</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">IdentifierDocstring</span><span class="p">(</span>
+        <span class="n">get_identifier</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">get_identifier</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">IdentifierDocstring</span><span class="p">(</span>
             <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">identifier_model</span><span class="o">=</span><span class="n">identifier</span><span class="p">,</span>
             <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
@@ -426,10 +426,10 @@
 <span class="sd">        Creates a read-only property that aliases an identifier.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="nf">get_identifier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;_&#39;</span> <span class="o">+</span> <span class="n">identifier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 
-        <span class="n">get_identifier</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">member_name</span><span class="p">)</span>
-        <span class="n">get_identifier</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">AttributeDocstring</span><span class="p">(</span>
+        <span class="n">get_identifier</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">identifier</span><span class="o">.</span><span class="n">member_name</span><span class="p">)</span>
+        <span class="n">get_identifier</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">AttributeDocstring</span><span class="p">(</span>
             <span class="n">service_name</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
             <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">attr_name</span><span class="o">=</span><span class="n">identifier</span><span class="o">.</span><span class="n">member_name</span><span class="p">,</span>
@@ -446,23 +446,23 @@
 <span class="sd">        Creates a new property on the resource to lazy-load its value</span>
 <span class="sd">        via the resource&#39;s ``load`` method (if it exists).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># The property loader will check to see if this resource has already</span>
-        <span class="c1"># been loaded and return the cached value if possible. If not, then</span>
-        <span class="c1"># it first checks to see if it CAN be loaded (raise if not), then</span>
-        <span class="c1"># calls the load before returning the value.</span>
+        <span class="c"># The property loader will check to see if this resource has already</span>
+        <span class="c"># been loaded and return the cached value if possible. If not, then</span>
+        <span class="c"># it first checks to see if it CAN be loaded (raise if not), then</span>
+        <span class="c"># calls the load before returning the value.</span>
         <span class="k">def</span> <span class="nf">property_loader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;load&#39;</span><span class="p">):</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="n">ResourceLoadException</span><span class="p">(</span>
-                        <span class="s1">&#39;{0} has no load method&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+                        <span class="s">&#39;{0} has no load method&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
 
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
-        <span class="n">property_loader</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">snake_cased</span><span class="p">)</span>
-        <span class="n">property_loader</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">AttributeDocstring</span><span class="p">(</span>
+        <span class="n">property_loader</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">snake_cased</span><span class="p">)</span>
+        <span class="n">property_loader</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">AttributeDocstring</span><span class="p">(</span>
             <span class="n">service_name</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
             <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">attr_name</span><span class="o">=</span><span class="n">snake_cased</span><span class="p">,</span>
@@ -485,8 +485,8 @@
         <span class="k">def</span> <span class="nf">do_waiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="n">waiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">do_waiter</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">resource_waiter_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">do_waiter</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">ResourceWaiterDocstring</span><span class="p">(</span>
+        <span class="n">do_waiter</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">resource_waiter_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">do_waiter</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">ResourceWaiterDocstring</span><span class="p">(</span>
             <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">event_emitter</span><span class="o">=</span><span class="n">factory_self</span><span class="o">.</span><span class="n">_emitter</span><span class="p">,</span>
             <span class="n">service_model</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">,</span>
@@ -501,18 +501,18 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new property on the resource to lazy-load a collection.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">cls</span> <span class="o">=</span> <span class="n">factory_self</span><span class="o">.</span><span class="n">_collection_factory</span><span class="o">.</span><span class="n">load_from_definition</span><span class="p">(</span>
+        <span class="n">cls</span> <span class="o">=</span> <span class="n">factory_self</span><span class="o">.</span><span class="n">_collection_factory</span><span class="o">.</span><span class="n">load_from_definition</span><span class="p">(</span>
             <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span>
             <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">,</span>
             <span class="n">event_emitter</span><span class="o">=</span><span class="n">factory_self</span><span class="o">.</span><span class="n">_emitter</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">get_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="p">(</span>
                 <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">factory</span><span class="o">=</span><span class="n">factory_self</span><span class="p">,</span> <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">)</span>
 
-        <span class="n">get_collection</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">collection_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">get_collection</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">CollectionDocstring</span><span class="p">(</span>
+        <span class="n">get_collection</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">collection_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">get_collection</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">CollectionDocstring</span><span class="p">(</span>
             <span class="n">collection_model</span><span class="o">=</span><span class="n">collection_model</span><span class="p">,</span> <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_collection</span><span class="p">)</span>
 
@@ -521,35 +521,35 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new property on the resource to lazy-load a reference.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># References are essentially an action with no request</span>
-        <span class="c1"># or response, so we can re-use the response handlers to</span>
-        <span class="c1"># build up resources from identifiers and data members.</span>
+        <span class="c"># References are essentially an action with no request</span>
+        <span class="c"># or response, so we can re-use the response handlers to</span>
+        <span class="c"># build up resources from identifiers and data members.</span>
         <span class="n">handler</span> <span class="o">=</span> <span class="n">ResourceHandler</span><span class="p">(</span>
             <span class="n">search_path</span><span class="o">=</span><span class="n">reference_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="n">factory_self</span><span class="p">,</span>
             <span class="n">resource_model</span><span class="o">=</span><span class="n">reference_model</span><span class="o">.</span><span class="n">resource</span><span class="p">,</span>
             <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
         <span class="p">)</span>
 
-        <span class="c1"># Are there any identifiers that need access to data members?</span>
-        <span class="c1"># This is important when building the resource below since</span>
-        <span class="c1"># it requires the data to be loaded.</span>
-        <span class="n">needs_data</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
+        <span class="c"># Are there any identifiers that need access to data members?</span>
+        <span class="c"># This is important when building the resource below since</span>
+        <span class="c"># it requires the data to be loaded.</span>
+        <span class="n">needs_data</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s">&#39;data&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
                          <span class="n">reference_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">identifiers</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">get_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="c1"># We need to lazy-evaluate the reference to handle circular</span>
-            <span class="c1"># references between resources. We do this by loading the class</span>
-            <span class="c1"># when first accessed.</span>
-            <span class="c1"># This is using a *response handler* so we need to make sure</span>
-            <span class="c1"># our data is loaded (if possible) and pass that data into</span>
-            <span class="c1"># the handler as if it were a response. This allows references</span>
-            <span class="c1"># to have their data loaded properly.</span>
-            <span class="k">if</span> <span class="n">needs_data</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">):</span>
+            <span class="c"># We need to lazy-evaluate the reference to handle circular</span>
+            <span class="c"># references between resources. We do this by loading the class</span>
+            <span class="c"># when first accessed.</span>
+            <span class="c"># This is using a *response handler* so we need to make sure</span>
+            <span class="c"># our data is loaded (if possible) and pass that data into</span>
+            <span class="c"># the handler as if it were a response. This allows references</span>
+            <span class="c"># to have their data loaded properly.</span>
+            <span class="k">if</span> <span class="n">needs_data</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;load&#39;</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
             <span class="k">return</span> <span class="n">handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">{},</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
-        <span class="n">get_reference</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">reference_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">get_reference</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">ReferenceDocstring</span><span class="p">(</span>
+        <span class="n">get_reference</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">reference_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">get_reference</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">ReferenceDocstring</span><span class="p">(</span>
             <span class="n">reference_model</span><span class="o">=</span><span class="n">reference_model</span><span class="p">,</span>
             <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
         <span class="p">)</span>
@@ -565,11 +565,11 @@
         <span class="n">name</span> <span class="o">=</span> <span class="n">subresource_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">type</span>
 
         <span class="k">def</span> <span class="nf">create_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="c1"># We need a new method here because we want access to the</span>
-            <span class="c1"># instance&#39;s client.</span>
+            <span class="c"># We need a new method here because we want access to the</span>
+            <span class="c"># instance&#39;s client.</span>
             <span class="n">positional_args</span> <span class="o">=</span> <span class="p">[]</span>
 
-            <span class="c1"># We lazy-load the class to handle circular references.</span>
+            <span class="c"># We lazy-load the class to handle circular references.</span>
             <span class="n">json_def</span> <span class="o">=</span> <span class="n">service_context</span><span class="o">.</span><span class="n">resource_json_definitions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">{})</span>
             <span class="n">resource_cls</span> <span class="o">=</span> <span class="n">factory_self</span><span class="o">.</span><span class="n">load_from_definition</span><span class="p">(</span>
                 <span class="n">resource_name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
@@ -577,11 +577,11 @@
                 <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
             <span class="p">)</span>
 
-            <span class="c1"># Assumes that identifiers are in order, which lets you do</span>
-            <span class="c1"># e.g. ``sqs.Queue(&#39;foo&#39;).Message(&#39;bar&#39;)`` to create a new message</span>
-            <span class="c1"># linked with the ``foo`` queue and which has a ``bar`` receipt</span>
-            <span class="c1"># handle. If we did kwargs here then future positional arguments</span>
-            <span class="c1"># would lead to failure.</span>
+            <span class="c"># Assumes that identifiers are in order, which lets you do</span>
+            <span class="c"># e.g. ``sqs.Queue(&#39;foo&#39;).Message(&#39;bar&#39;)`` to create a new message</span>
+            <span class="c"># linked with the ``foo`` queue and which has a ``bar`` receipt</span>
+            <span class="c"># handle. If we did kwargs here then future positional arguments</span>
+            <span class="c"># would lead to failure.</span>
             <span class="n">identifiers</span> <span class="o">=</span> <span class="n">subresource_model</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">identifiers</span>
             <span class="k">if</span> <span class="n">identifiers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">build_identifiers</span><span class="p">(</span><span class="n">identifiers</span><span class="p">,</span> <span class="bp">self</span><span class="p">):</span>
@@ -590,8 +590,8 @@
             <span class="k">return</span> <span class="n">partial</span><span class="p">(</span><span class="n">resource_cls</span><span class="p">,</span> <span class="o">*</span><span class="n">positional_args</span><span class="p">,</span>
                            <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">create_resource</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">create_resource</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">SubResourceDocstring</span><span class="p">(</span>
+        <span class="n">create_resource</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">create_resource</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">SubResourceDocstring</span><span class="p">(</span>
             <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
             <span class="n">sub_resource_model</span><span class="o">=</span><span class="n">subresource_model</span><span class="p">,</span>
             <span class="n">service_model</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">,</span>
@@ -605,23 +605,23 @@
 <span class="sd">        Creates a new method which makes a request to the underlying</span>
 <span class="sd">        AWS service.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Create the action in in this closure but before the ``do_action``</span>
-        <span class="c1"># method below is invoked, which allows instances of the resource</span>
-        <span class="c1"># to share the ServiceAction instance.</span>
+        <span class="c"># Create the action in in this closure but before the ``do_action``</span>
+        <span class="c"># method below is invoked, which allows instances of the resource</span>
+        <span class="c"># to share the ServiceAction instance.</span>
         <span class="n">action</span> <span class="o">=</span> <span class="n">ServiceAction</span><span class="p">(</span>
             <span class="n">action_model</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="n">factory_self</span><span class="p">,</span>
             <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span>
         <span class="p">)</span>
 
-        <span class="c1"># A resource&#39;s ``load`` method is special because it sets</span>
-        <span class="c1"># values on the resource instead of returning the response.</span>
+        <span class="c"># A resource&#39;s ``load`` method is special because it sets</span>
+        <span class="c"># values on the resource instead of returning the response.</span>
         <span class="k">if</span> <span class="n">is_load</span><span class="p">:</span>
-            <span class="c1"># We need a new method here because we want access to the</span>
-            <span class="c1"># instance via ``self``.</span>
+            <span class="c"># We need a new method here because we want access to the</span>
+            <span class="c"># instance via ``self``.</span>
             <span class="k">def</span> <span class="nf">do_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="n">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span>
-            <span class="c1"># Create the docstring for the load/reload mehtods.</span>
+            <span class="c"># Create the docstring for the load/reload mehtods.</span>
             <span class="n">lazy_docstring</span> <span class="o">=</span> <span class="n">docstring</span><span class="o">.</span><span class="n">LoadReloadDocstring</span><span class="p">(</span>
                 <span class="n">action_name</span><span class="o">=</span><span class="n">action_model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">resource_name</span><span class="o">=</span><span class="n">resource_name</span><span class="p">,</span>
@@ -631,15 +631,15 @@
                 <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># We need a new method here because we want access to the</span>
-            <span class="c1"># instance via ``self``.</span>
+            <span class="c"># We need a new method here because we want access to the</span>
+            <span class="c"># instance via ``self``.</span>
             <span class="k">def</span> <span class="nf">do_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="n">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">):</span>
-                    <span class="c1"># Clear cached data. It will be reloaded the next</span>
-                    <span class="c1"># time that an attribute is accessed.</span>
-                    <span class="c1"># TODO: Make this configurable in the future?</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;load&#39;</span><span class="p">):</span>
+                    <span class="c"># Clear cached data. It will be reloaded the next</span>
+                    <span class="c"># time that an attribute is accessed.</span>
+                    <span class="c"># TODO: Make this configurable in the future?</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">None</span>
 
                 <span class="k">return</span> <span class="n">response</span>
@@ -651,8 +651,8 @@
                 <span class="n">include_signature</span><span class="o">=</span><span class="bp">False</span>
             <span class="p">)</span>
 
-        <span class="n">do_action</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">action_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">do_action</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">lazy_docstring</span>
+        <span class="n">do_action</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">action_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">do_action</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">lazy_docstring</span>
         <span class="k">return</span> <span class="n">do_action</span></div>
 </pre></div>
 
@@ -670,7 +670,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.4.3 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.4.4 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

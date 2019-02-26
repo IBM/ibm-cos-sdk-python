@@ -26,208 +26,208 @@ Client
   
   These are the available methods:
   
-  *   :py:meth:`abort_multipart_upload`
+  *   :py:meth:`~S3.Client.abort_multipart_upload`
 
   
-  *   :py:meth:`add_legal_hold`
+  *   :py:meth:`~S3.Client.add_legal_hold`
 
   
-  *   :py:meth:`can_paginate`
+  *   :py:meth:`~S3.Client.can_paginate`
 
   
-  *   :py:meth:`complete_multipart_upload`
+  *   :py:meth:`~S3.Client.complete_multipart_upload`
 
   
-  *   :py:meth:`copy`
+  *   :py:meth:`~S3.Client.copy`
 
   
-  *   :py:meth:`copy_object`
+  *   :py:meth:`~S3.Client.copy_object`
 
   
-  *   :py:meth:`create_bucket`
+  *   :py:meth:`~S3.Client.create_bucket`
 
   
-  *   :py:meth:`create_multipart_upload`
+  *   :py:meth:`~S3.Client.create_multipart_upload`
 
   
-  *   :py:meth:`delete_bucket`
+  *   :py:meth:`~S3.Client.delete_bucket`
 
   
-  *   :py:meth:`delete_bucket_analytics_configuration`
+  *   :py:meth:`~S3.Client.delete_bucket_analytics_configuration`
 
   
-  *   :py:meth:`delete_bucket_cors`
+  *   :py:meth:`~S3.Client.delete_bucket_cors`
 
   
-  *   :py:meth:`delete_bucket_inventory_configuration`
+  *   :py:meth:`~S3.Client.delete_bucket_inventory_configuration`
 
   
-  *   :py:meth:`delete_bucket_lifecycle`
+  *   :py:meth:`~S3.Client.delete_bucket_lifecycle`
 
   
-  *   :py:meth:`delete_bucket_metrics_configuration`
+  *   :py:meth:`~S3.Client.delete_bucket_metrics_configuration`
 
   
-  *   :py:meth:`delete_bucket_policy`
+  *   :py:meth:`~S3.Client.delete_bucket_policy`
 
   
-  *   :py:meth:`delete_bucket_replication`
+  *   :py:meth:`~S3.Client.delete_bucket_replication`
 
   
-  *   :py:meth:`delete_bucket_website`
+  *   :py:meth:`~S3.Client.delete_bucket_website`
 
   
-  *   :py:meth:`delete_legal_hold`
+  *   :py:meth:`~S3.Client.delete_legal_hold`
 
   
-  *   :py:meth:`delete_object`
+  *   :py:meth:`~S3.Client.delete_object`
 
   
-  *   :py:meth:`delete_objects`
+  *   :py:meth:`~S3.Client.delete_objects`
 
   
-  *   :py:meth:`download_file`
+  *   :py:meth:`~S3.Client.download_file`
 
   
-  *   :py:meth:`download_fileobj`
+  *   :py:meth:`~S3.Client.download_fileobj`
 
   
-  *   :py:meth:`extend_object_retention`
+  *   :py:meth:`~S3.Client.extend_object_retention`
 
   
-  *   :py:meth:`generate_presigned_post`
+  *   :py:meth:`~S3.Client.generate_presigned_post`
 
   
-  *   :py:meth:`generate_presigned_url`
+  *   :py:meth:`~S3.Client.generate_presigned_url`
 
   
-  *   :py:meth:`get_bucket_accelerate_configuration`
+  *   :py:meth:`~S3.Client.get_bucket_accelerate_configuration`
 
   
-  *   :py:meth:`get_bucket_acl`
+  *   :py:meth:`~S3.Client.get_bucket_acl`
 
   
-  *   :py:meth:`get_bucket_analytics_configuration`
+  *   :py:meth:`~S3.Client.get_bucket_analytics_configuration`
 
   
-  *   :py:meth:`get_bucket_aspera`
+  *   :py:meth:`~S3.Client.get_bucket_aspera`
 
   
-  *   :py:meth:`get_bucket_cors`
+  *   :py:meth:`~S3.Client.get_bucket_cors`
 
   
-  *   :py:meth:`get_bucket_inventory_configuration`
+  *   :py:meth:`~S3.Client.get_bucket_inventory_configuration`
 
   
-  *   :py:meth:`get_bucket_lifecycle_configuration`
+  *   :py:meth:`~S3.Client.get_bucket_lifecycle_configuration`
 
   
-  *   :py:meth:`get_bucket_location`
+  *   :py:meth:`~S3.Client.get_bucket_location`
 
   
-  *   :py:meth:`get_bucket_metrics_configuration`
+  *   :py:meth:`~S3.Client.get_bucket_metrics_configuration`
 
   
-  *   :py:meth:`get_bucket_protection_configuration`
+  *   :py:meth:`~S3.Client.get_bucket_protection_configuration`
 
   
-  *   :py:meth:`get_bucket_replication`
+  *   :py:meth:`~S3.Client.get_bucket_replication`
 
   
-  *   :py:meth:`get_object`
+  *   :py:meth:`~S3.Client.get_object`
 
   
-  *   :py:meth:`get_object_acl`
+  *   :py:meth:`~S3.Client.get_object_acl`
 
   
-  *   :py:meth:`get_object_torrent`
+  *   :py:meth:`~S3.Client.get_object_torrent`
 
   
-  *   :py:meth:`get_paginator`
+  *   :py:meth:`~S3.Client.get_paginator`
 
   
-  *   :py:meth:`get_waiter`
+  *   :py:meth:`~S3.Client.get_waiter`
 
   
-  *   :py:meth:`head_bucket`
+  *   :py:meth:`~S3.Client.head_bucket`
 
   
-  *   :py:meth:`head_object`
+  *   :py:meth:`~S3.Client.head_object`
 
   
-  *   :py:meth:`list_bucket_analytics_configurations`
+  *   :py:meth:`~S3.Client.list_bucket_analytics_configurations`
 
   
-  *   :py:meth:`list_bucket_inventory_configurations`
+  *   :py:meth:`~S3.Client.list_bucket_inventory_configurations`
 
   
-  *   :py:meth:`list_bucket_metrics_configurations`
+  *   :py:meth:`~S3.Client.list_bucket_metrics_configurations`
 
   
-  *   :py:meth:`list_buckets`
+  *   :py:meth:`~S3.Client.list_buckets`
 
   
-  *   :py:meth:`list_legal_holds`
+  *   :py:meth:`~S3.Client.list_legal_holds`
 
   
-  *   :py:meth:`list_multipart_uploads`
+  *   :py:meth:`~S3.Client.list_multipart_uploads`
 
   
-  *   :py:meth:`list_objects`
+  *   :py:meth:`~S3.Client.list_objects`
 
   
-  *   :py:meth:`list_objects_v2`
+  *   :py:meth:`~S3.Client.list_objects_v2`
 
   
-  *   :py:meth:`list_parts`
+  *   :py:meth:`~S3.Client.list_parts`
 
   
-  *   :py:meth:`put_bucket_accelerate_configuration`
+  *   :py:meth:`~S3.Client.put_bucket_accelerate_configuration`
 
   
-  *   :py:meth:`put_bucket_acl`
+  *   :py:meth:`~S3.Client.put_bucket_acl`
 
   
-  *   :py:meth:`put_bucket_analytics_configuration`
+  *   :py:meth:`~S3.Client.put_bucket_analytics_configuration`
 
   
-  *   :py:meth:`put_bucket_cors`
+  *   :py:meth:`~S3.Client.put_bucket_cors`
 
   
-  *   :py:meth:`put_bucket_inventory_configuration`
+  *   :py:meth:`~S3.Client.put_bucket_inventory_configuration`
 
   
-  *   :py:meth:`put_bucket_lifecycle_configuration`
+  *   :py:meth:`~S3.Client.put_bucket_lifecycle_configuration`
 
   
-  *   :py:meth:`put_bucket_metrics_configuration`
+  *   :py:meth:`~S3.Client.put_bucket_metrics_configuration`
 
   
-  *   :py:meth:`put_bucket_protection_configuration`
+  *   :py:meth:`~S3.Client.put_bucket_protection_configuration`
 
   
-  *   :py:meth:`put_bucket_replication`
+  *   :py:meth:`~S3.Client.put_bucket_replication`
 
   
-  *   :py:meth:`put_object`
+  *   :py:meth:`~S3.Client.put_object`
 
   
-  *   :py:meth:`put_object_acl`
+  *   :py:meth:`~S3.Client.put_object_acl`
 
   
-  *   :py:meth:`restore_object`
+  *   :py:meth:`~S3.Client.restore_object`
 
   
-  *   :py:meth:`upload_file`
+  *   :py:meth:`~S3.Client.upload_file`
 
   
-  *   :py:meth:`upload_fileobj`
+  *   :py:meth:`~S3.Client.upload_fileobj`
 
   
-  *   :py:meth:`upload_part`
+  *   :py:meth:`~S3.Client.upload_part`
 
   
-  *   :py:meth:`upload_part_copy`
+  *   :py:meth:`~S3.Client.upload_part_copy`
 
   
 
@@ -242,6 +242,9 @@ Client
     To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.
 
     
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_    
+
 
     **Request Syntax** 
     ::
@@ -294,6 +297,9 @@ Client
 
     Add a legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired. Legal Holds can only be added to objects in a bucket with a protection policy. Otherwise a 400 error will be returned.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AddLegalHold>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -337,6 +343,9 @@ Client
   .. py:method:: complete_multipart_upload(**kwargs)
 
     Completes a multipart upload by assembling previously uploaded parts.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_    
+
 
     **Request Syntax** 
     ::
@@ -420,7 +429,7 @@ Client
             'Key': 'string',
             'Expiration': 'string',
             'ETag': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSEKMSKeyId': 'string',
             'RequestCharged': 'requester'
         }
@@ -509,6 +518,9 @@ Client
 
     Creates a copy of an object that is already stored in Amazon S3.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -539,7 +551,7 @@ Client
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -578,7 +590,7 @@ Client
 
     
     :type CopySource: str or dict
-    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source objectYou can either provide this value as a string or a dictionary.  The string form is {bucket}/{key}.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
+    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object. You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
 
     
     :type CopySourceIfMatch: string
@@ -716,7 +728,7 @@ Client
                 'LastModified': datetime(2015, 1, 1)
             },
             'Expiration': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -760,6 +772,9 @@ Client
   .. py:method:: create_bucket(**kwargs)
 
     Creates a new bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
+
 
     **Request Syntax** 
     ::
@@ -861,6 +876,9 @@ Client
 
     
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -881,7 +899,7 @@ Client
           Metadata={
               'string': 'string'
           },
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -1002,7 +1020,7 @@ Client
             'Bucket': 'string',
             'Key': 'string',
             'UploadId': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -1049,6 +1067,9 @@ Client
 
     Deletes the bucket. All objects in the bucket must be deleted before the bucket itself can be deleted.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1065,6 +1086,9 @@ Client
   .. py:method:: delete_bucket_analytics_configuration(**kwargs)
 
     Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketAnalyticsConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -1088,6 +1112,9 @@ Client
 
     Deletes the cors configuration information set for the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1104,6 +1131,9 @@ Client
   .. py:method:: delete_bucket_inventory_configuration(**kwargs)
 
     Deletes an inventory configuration (identified by the inventory ID) from the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketInventoryConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -1127,6 +1157,9 @@ Client
 
     Deletes the lifecycle configuration from the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1143,6 +1176,9 @@ Client
   .. py:method:: delete_bucket_metrics_configuration(**kwargs)
 
     Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketMetricsConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -1166,6 +1202,9 @@ Client
 
     Deletes the policy from the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketPolicy>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1182,6 +1221,9 @@ Client
   .. py:method:: delete_bucket_replication(**kwargs)
 
     Deletes the replication configuration from the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketReplication>`_    
+
 
     **Request Syntax** 
     ::
@@ -1200,6 +1242,9 @@ Client
 
     This operation removes the website configuration from the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1216,6 +1261,9 @@ Client
   .. py:method:: delete_legal_hold(**kwargs)
 
     Remove Legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteLegalHold>`_    
+
 
     **Request Syntax** 
     ::
@@ -1243,6 +1291,9 @@ Client
   .. py:method:: delete_object(**kwargs)
 
     Removes an object. If the object doesn't exist, Amazon S3 does not remove any objects.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -1298,6 +1349,9 @@ Client
   .. py:method:: delete_objects(**kwargs)
 
     This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_    
+
 
     **Request Syntax** 
     ::
@@ -1494,6 +1548,9 @@ Client
 
     This implementation of the POST operation uses the extendRetention sub-resource to extend the retention period of a protected object in a protected vault.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ExtendObjectRetention>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1625,6 +1682,9 @@ Client
 
     Returns the accelerate configuration of a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAccelerateConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1660,6 +1720,9 @@ Client
   .. py:method:: get_bucket_acl(**kwargs)
 
     Gets the access control policy for the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAcl>`_    
+
 
     **Request Syntax** 
     ::
@@ -1748,6 +1811,9 @@ Client
   .. py:method:: get_bucket_analytics_configuration(**kwargs)
 
     Gets an analytics configuration for the bucket (specified by the analytics configuration ID).
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAnalyticsConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -1874,6 +1940,9 @@ Client
 
     Gets Aspera access and secret keys for the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAspera>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -1923,6 +1992,9 @@ Client
   .. py:method:: get_bucket_cors(**kwargs)
 
     Returns the cors configuration for the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketCors>`_    
+
 
     **Request Syntax** 
     ::
@@ -2011,6 +2083,9 @@ Client
   .. py:method:: get_bucket_inventory_configuration(**kwargs)
 
     Returns an inventory configuration (identified by the inventory ID) from the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketInventoryConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -2121,6 +2196,9 @@ Client
 
     Returns the lifecycle configuration information set on the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLifecycleConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -2207,6 +2285,9 @@ Client
 
     Returns the region the bucket resides in.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -2242,6 +2323,9 @@ Client
   .. py:method:: get_bucket_metrics_configuration(**kwargs)
 
     Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketMetricsConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -2324,6 +2408,9 @@ Client
 
     Returns the protection configuration of a bucket.EnablePermanentRetention flag will only be returned if the flag is set to true for a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketProtectionConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -2399,6 +2486,9 @@ Client
   .. py:method:: get_bucket_replication(**kwargs)
 
     Returns the replication configuration of a bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketReplication>`_    
+
 
     **Request Syntax** 
     ::
@@ -2479,6 +2569,9 @@ Client
   .. py:method:: get_object(**kwargs)
 
     Retrieves objects from Amazon S3.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -2603,7 +2696,7 @@ Client
             'ContentType': 'string',
             'Expires': datetime(2015, 1, 1),
             'WebsiteRedirectLocation': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'Metadata': {
                 'string': 'string'
             },
@@ -2724,6 +2817,9 @@ Client
 
     Returns the access control list (ACL) of an object.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectAcl>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -2826,6 +2922,9 @@ Client
 
     Return torrent files from a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTorrent>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -2910,6 +3009,9 @@ Client
 
     This operation is useful to determine if a bucket exists and you have permission to access it.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -2949,6 +3051,9 @@ Client
   .. py:method:: head_object(**kwargs)
 
     The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -3043,7 +3148,7 @@ Client
             'ContentType': 'string',
             'Expires': datetime(2015, 1, 1),
             'WebsiteRedirectLocation': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'Metadata': {
                 'string': 'string'
             },
@@ -3163,6 +3268,9 @@ Client
   .. py:method:: list_bucket_analytics_configurations(**kwargs)
 
     Lists the analytics configurations for the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketAnalyticsConfigurations>`_    
+
 
     **Request Syntax** 
     ::
@@ -3307,6 +3415,9 @@ Client
 
     Returns a list of inventory configurations for the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketInventoryConfigurations>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -3434,6 +3545,9 @@ Client
 
     Lists the metrics configurations for the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketMetricsConfigurations>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -3533,6 +3647,9 @@ Client
 
     Returns a list of all buckets owned by the authenticated sender of the request.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -3598,6 +3715,9 @@ Client
   .. py:method:: list_legal_holds(**kwargs)
 
     Returns a list of legal holds on an object
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListLegalHolds>`_    
+
 
     **Request Syntax** 
     ::
@@ -3667,6 +3787,9 @@ Client
   .. py:method:: list_multipart_uploads(**kwargs)
 
     This operation lists in-progress multipart uploads.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
 
     **Request Syntax** 
     ::
@@ -3842,6 +3965,9 @@ Client
 
     Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4005,6 +4131,9 @@ Client
   .. py:method:: list_objects_v2(**kwargs)
 
     Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2>`_    
+
 
     **Request Syntax** 
     ::
@@ -4175,6 +4304,9 @@ Client
 
     Lists the parts that have been uploaded for a specific multipart upload.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4332,6 +4464,9 @@ Client
 
     Sets the accelerate configuration of an existing bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAccelerateConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4359,6 +4494,9 @@ Client
   .. py:method:: put_bucket_acl(**kwargs)
 
     Sets the permissions on a bucket using access control lists (ACL).
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_    
+
 
     **Request Syntax** 
     ::
@@ -4469,6 +4607,9 @@ Client
   .. py:method:: put_bucket_analytics_configuration(**kwargs)
 
     Sets an analytics configuration for the bucket (specified by the analytics configuration ID).
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAnalyticsConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -4581,6 +4722,9 @@ Client
 
     Sets the cors configuration for a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4661,6 +4805,9 @@ Client
   .. py:method:: put_bucket_inventory_configuration(**kwargs)
 
     Adds an inventory configuration (identified by the inventory ID) from the bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketInventoryConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -4757,6 +4904,9 @@ Client
 
     Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4835,6 +4985,9 @@ Client
 
     Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketMetricsConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4902,6 +5055,9 @@ Client
 
     Sets the protection configuration of an existing bucket. EnablePermanentRetention is optional and if not included is considered to be false. Once set to true, must be included in any subsequent PUT Bucket?protection requests for that bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketProtectionConfiguration>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -4963,6 +5119,9 @@ Client
   .. py:method:: put_bucket_replication(**kwargs)
 
     Creates a new replication configuration (or replaces an existing one, if present).
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication>`_    
+
 
     **Request Syntax** 
     ::
@@ -5030,6 +5189,9 @@ Client
 
     Adds an object to a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -5056,7 +5218,7 @@ Client
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -5198,7 +5360,7 @@ Client
         {
             'Expiration': 'string',
             'ETag': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -5235,6 +5397,9 @@ Client
   .. py:method:: put_object_acl(**kwargs)
 
     uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl>`_    
+
 
     **Request Syntax** 
     ::
@@ -5375,6 +5540,9 @@ Client
 
     Restores an archived copy of an object back into Amazon S3
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -5504,6 +5672,9 @@ Client
 
     
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -5575,7 +5746,7 @@ Client
       ::
 
         {
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'ETag': 'string',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
@@ -5611,6 +5782,9 @@ Client
 
     Uploads a part by copying data from an existing object as data source.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -5636,7 +5810,7 @@ Client
 
     
     :type CopySource: str or dict
-    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source objectYou can either provide this value as a string or a dictionary.  The string form is {bucket}/{key}.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
+    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object. You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
 
     
     :type CopySourceIfMatch: string
@@ -5717,7 +5891,7 @@ Client
                 'ETag': 'string',
                 'LastModified': datetime(2015, 1, 1)
             },
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -5788,6 +5962,9 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_multipart_uploads`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
 
     **Request Syntax** 
     ::
@@ -5996,6 +6173,9 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_objects`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_    
+
 
     **Request Syntax** 
     ::
@@ -6208,6 +6388,9 @@ The available paginators are:
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_objects_v2`.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectsV2>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -6419,6 +6602,9 @@ The available paginators are:
   .. py:method:: paginate(**kwargs)
 
     Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_parts`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
+
 
     **Request Syntax** 
     ::
@@ -6640,15 +6826,45 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
+
+
     **Request Syntax** 
     ::
 
       waiter.wait(
-          Bucket='string'
+          Bucket='string',
+          WaiterConfig={
+              'Delay': 123,
+              'MaxAttempts': 123
+          }
       )
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
 
+    
+    :type WaiterConfig: dict
+    :param WaiterConfig: 
+
+      A dictionary that provides parameters to control waiting behavior.
+
+      
+
+    
+      - **Delay** *(integer) --* 
+
+        The amount of time in seconds to wait between attempts. Default: 5
+
+        
+
+      
+      - **MaxAttempts** *(integer) --* 
+
+        The maximum number of attempts to be made. Default: 20
+
+        
+
+      
     
     
     :returns: None
@@ -6667,15 +6883,45 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
+
+
     **Request Syntax** 
     ::
 
       waiter.wait(
-          Bucket='string'
+          Bucket='string',
+          WaiterConfig={
+              'Delay': 123,
+              'MaxAttempts': 123
+          }
       )
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
 
+    
+    :type WaiterConfig: dict
+    :param WaiterConfig: 
+
+      A dictionary that provides parameters to control waiting behavior.
+
+      
+
+    
+      - **Delay** *(integer) --* 
+
+        The amount of time in seconds to wait between attempts. Default: 5
+
+        
+
+      
+      - **MaxAttempts** *(integer) --* 
+
+        The maximum number of attempts to be made. Default: 20
+
+        
+
+      
     
     
     :returns: None
@@ -6694,6 +6940,9 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -6708,7 +6957,11 @@ The available waiters are:
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           RequestPayer='requester',
-          PartNumber=123
+          PartNumber=123,
+          WaiterConfig={
+              'Delay': 123,
+              'MaxAttempts': 123
+          }
       )
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
@@ -6759,6 +7012,29 @@ The available waiters are:
     :type PartNumber: integer
     :param PartNumber: Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
 
+    
+    :type WaiterConfig: dict
+    :param WaiterConfig: 
+
+      A dictionary that provides parameters to control waiting behavior.
+
+      
+
+    
+      - **Delay** *(integer) --* 
+
+        The amount of time in seconds to wait between attempts. Default: 5
+
+        
+
+      
+      - **MaxAttempts** *(integer) --* 
+
+        The maximum number of attempts to be made. Default: 20
+
+        
+
+      
     
     
     :returns: None
@@ -6777,6 +7053,9 @@ The available waiters are:
 
     Polls :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -6791,7 +7070,11 @@ The available waiters are:
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           RequestPayer='requester',
-          PartNumber=123
+          PartNumber=123,
+          WaiterConfig={
+              'Delay': 123,
+              'MaxAttempts': 123
+          }
       )
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
@@ -6842,6 +7125,29 @@ The available waiters are:
     :type PartNumber: integer
     :param PartNumber: Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
 
+    
+    :type WaiterConfig: dict
+    :param WaiterConfig: 
+
+      A dictionary that provides parameters to control waiting behavior.
+
+      
+
+    
+      - **Delay** *(integer) --* 
+
+        The amount of time in seconds to wait between attempts. Default: 5
+
+        
+
+      
+      - **MaxAttempts** *(integer) --* 
+
+        The maximum number of attempts to be made. Default: 20
+
+        
+
+      
     
     
     :returns: None
@@ -6921,6 +7227,9 @@ Service Resource
   .. py:method:: create_bucket(**kwargs)
 
     Creates a new bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
+
 
     **Request Syntax** 
     ::
@@ -7187,6 +7496,9 @@ Service Resource
 
       Creates an iterable of all Bucket resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -7200,6 +7512,9 @@ Service Resource
     .. py:method:: filter(**kwargs)
 
       Creates an iterable of all Bucket resources in the collection filtered by kwargs passed to method.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
+
 
       **Request Syntax** 
       ::
@@ -7220,6 +7535,9 @@ Service Resource
 
       Creates an iterable up to a specified amount of Bucket resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -7238,6 +7556,9 @@ Service Resource
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all Bucket resources in the collection, but limits the number of items returned by each service call by the specified amount.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBuckets>`_      
+
 
       **Request Syntax** 
       ::
@@ -7447,6 +7768,9 @@ Bucket
 
     Creates a new bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateBucket>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -7534,6 +7858,9 @@ Bucket
 
     Deletes the bucket. All objects in the bucket must be deleted before the bucket itself can be deleted.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -7545,6 +7872,9 @@ Bucket
   .. py:method:: delete_objects(**kwargs)
 
     This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_    
+
 
     **Request Syntax** 
     ::
@@ -7749,6 +8079,9 @@ Bucket
 
     Adds an object to a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -7774,7 +8107,7 @@ Bucket
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -8101,6 +8434,9 @@ Bucket
 
       Creates an iterable of all MultipartUpload resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -8114,6 +8450,9 @@ Bucket
     .. py:method:: filter(**kwargs)
 
       Creates an iterable of all MultipartUpload resources in the collection filtered by kwargs passed to method.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
+
 
       **Request Syntax** 
       ::
@@ -8159,6 +8498,9 @@ Bucket
 
       Creates an iterable up to a specified amount of MultipartUpload resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -8177,6 +8519,9 @@ Bucket
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all MultipartUpload resources in the collection, but limits the number of items returned by each service call by the specified amount.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_      
+
 
       **Request Syntax** 
       ::
@@ -8201,6 +8546,9 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -8214,6 +8562,9 @@ Bucket
     .. py:method:: delete(**kwargs)
 
       This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjects>`_      
+
 
       **Request Syntax** 
       ::
@@ -8300,6 +8651,9 @@ Bucket
 
       Creates an iterable of all ObjectSummary resources in the collection filtered by kwargs passed to method.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -8344,6 +8698,9 @@ Bucket
 
       Creates an iterable up to a specified amount of ObjectSummary resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -8362,6 +8719,9 @@ Bucket
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all ObjectSummary resources in the collection, but limits the number of items returned by each service call by the specified amount.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_      
+
 
       **Request Syntax** 
       ::
@@ -8389,6 +8749,9 @@ Bucket
 
     Waits until this Bucket is exists. This method calls :py:meth:`S3.Waiter.bucket_exists.wait` which polls. :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -8399,6 +8762,9 @@ Bucket
   .. py:method:: wait_until_not_exists()
 
     Waits until this Bucket is not exists. This method calls :py:meth:`S3.Waiter.bucket_not_exists.wait` which polls. :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
+
 
     **Request Syntax** 
     ::
@@ -8545,6 +8911,9 @@ BucketAcl
 
     Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -8555,6 +8924,9 @@ BucketAcl
   .. py:method:: put(**kwargs)
 
     Sets the permissions on a bucket using access control lists (ACL).
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl>`_    
+
 
     **Request Syntax** 
     ::
@@ -8660,6 +9032,9 @@ BucketAcl
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
 
     **Request Syntax** 
 
@@ -8809,6 +9184,9 @@ BucketCors
 
     Deletes the cors configuration information set for the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -8832,6 +9210,9 @@ BucketCors
 
     Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the BucketCors resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -8842,6 +9223,9 @@ BucketCors
   .. py:method:: put(**kwargs)
 
     Sets the cors configuration for a bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketCors>`_    
+
 
     **Request Syntax** 
     ::
@@ -8918,6 +9302,9 @@ BucketCors
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_cors` to update the attributes of the BucketCors resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
 
     **Request Syntax** 
 
@@ -9066,6 +9453,9 @@ BucketLifecycleConfiguration
 
     Deletes the lifecycle configuration from the bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketLifecycle>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -9089,6 +9479,9 @@ BucketLifecycleConfiguration
 
     Calls :py:meth:`S3.Client.get_bucket_lifecycle_configuration` to update the attributes of the BucketLifecycleConfiguration resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -9099,6 +9492,9 @@ BucketLifecycleConfiguration
   .. py:method:: put(**kwargs)
 
     Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -9172,6 +9568,9 @@ BucketLifecycleConfiguration
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_lifecycle_configuration` to update the attributes of the BucketLifecycleConfiguration resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
 
     **Request Syntax** 
 
@@ -9372,6 +9771,9 @@ MultipartUpload
 
     
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AbortMultipartUpload>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -9407,6 +9809,9 @@ MultipartUpload
   .. py:method:: complete(**kwargs)
 
     Completes a multipart upload by assembling previously uploaded parts.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_    
+
 
     **Request Syntax** 
     ::
@@ -9522,6 +9927,9 @@ MultipartUpload
 
       Creates an iterable of all MultipartUploadPart resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -9535,6 +9943,9 @@ MultipartUpload
     .. py:method:: filter(**kwargs)
 
       Creates an iterable of all MultipartUploadPart resources in the collection filtered by kwargs passed to method.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
+
 
       **Request Syntax** 
       ::
@@ -9565,6 +9976,9 @@ MultipartUpload
 
       Creates an iterable up to a specified amount of MultipartUploadPart resources in the collection.
 
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
+
+
       **Request Syntax** 
       ::
 
@@ -9583,6 +9997,9 @@ MultipartUpload
     .. py:method:: page_size(**kwargs)
 
       Creates an iterable of all MultipartUploadPart resources in the collection, but limits the number of items returned by each service call by the specified amount.
+
+      See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_      
+
 
       **Request Syntax** 
       ::
@@ -9725,6 +10142,9 @@ MultipartUploadPart
 
     Uploads a part by copying data from an existing object as data source.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPartCopy>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -9742,7 +10162,7 @@ MultipartUploadPart
           RequestPayer='requester'
       )
     :type CopySource: str or dict
-    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source objectYou can either provide this value as a string or a dictionary.  The string form is {bucket}/{key}.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
+    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object. You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
 
     
     :type CopySourceIfMatch: string
@@ -9811,7 +10231,7 @@ MultipartUploadPart
                 'ETag': 'string',
                 'LastModified': datetime(2015, 1, 1)
             },
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -9872,6 +10292,9 @@ MultipartUploadPart
 
     
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -9923,7 +10346,7 @@ MultipartUploadPart
       ::
 
         {
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'ETag': 'string',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
@@ -10419,6 +10842,9 @@ Object
 
     Creates a copy of an object that is already stored in Amazon S3.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -10447,7 +10873,7 @@ Object
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -10482,7 +10908,7 @@ Object
 
     
     :type CopySource: str or dict
-    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source objectYou can either provide this value as a string or a dictionary.  The string form is {bucket}/{key}.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
+    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object. You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
 
     
     :type CopySourceIfMatch: string
@@ -10616,7 +11042,7 @@ Object
                 'LastModified': datetime(2015, 1, 1)
             },
             'Expiration': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -10660,6 +11086,9 @@ Object
   .. py:method:: delete(**kwargs)
 
     Removes an object. If the object doesn't exist, Amazon S3 does not remove any objects.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -10774,6 +11203,9 @@ Object
 
     Retrieves objects from Amazon S3.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -10887,7 +11319,7 @@ Object
             'ContentType': 'string',
             'Expires': datetime(2015, 1, 1),
             'WebsiteRedirectLocation': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'Metadata': {
                 'string': 'string'
             },
@@ -11027,6 +11459,9 @@ Object
 
     
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -11045,7 +11480,7 @@ Object
           Metadata={
               'string': 'string'
           },
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -11152,6 +11587,9 @@ Object
 
     Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -11162,6 +11600,9 @@ Object
   .. py:method:: put(**kwargs)
 
     Adds an object to a bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -11187,7 +11628,7 @@ Object
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -11321,7 +11762,7 @@ Object
         {
             'Expiration': 'string',
             'ETag': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -11359,6 +11800,9 @@ Object
 
     Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -11369,6 +11813,9 @@ Object
   .. py:method:: restore_object(**kwargs)
 
     Restores an archived copy of an object back into Amazon S3
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -11531,6 +11978,9 @@ Object
 
     Waits until this Object is exists. This method calls :py:meth:`S3.Waiter.object_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -11592,6 +12042,9 @@ Object
   .. py:method:: wait_until_not_exists(**kwargs)
 
     Waits until this Object is not exists. This method calls :py:meth:`S3.Waiter.object_not_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -11789,6 +12242,9 @@ BucketProtection
 
     Calls :py:meth:`S3.Client.get_bucket_protection_configuration` to update the attributes of the BucketProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -11799,6 +12255,9 @@ BucketProtection
   .. py:method:: put(**kwargs)
 
     Sets the protection configuration of an existing bucket. EnablePermanentRetention is optional and if not included is considered to be false. Once set to true, must be included in any subsequent PUT Bucket?protection requests for that bucket.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketProtectionConfiguration>`_    
+
 
     **Request Syntax** 
     ::
@@ -11856,6 +12315,9 @@ BucketProtection
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_bucket_protection_configuration` to update the attributes of the BucketProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
 
     **Request Syntax** 
 
@@ -11999,6 +12461,9 @@ ObjectProtection
 
     Add a legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired. Legal Holds can only be added to objects in a bucket with a protection policy. Otherwise a 400 error will be returned.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AddLegalHold>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -12016,6 +12481,9 @@ ObjectProtection
 
     Remove Legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteLegalHold>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -12032,6 +12500,9 @@ ObjectProtection
   .. py:method:: extend_object_retention(**kwargs)
 
     This implementation of the POST operation uses the extendRetention sub-resource to extend the retention period of a protected object in a protected vault.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ExtendObjectRetention>`_    
+
 
     **Request Syntax** 
     ::
@@ -12075,6 +12546,9 @@ ObjectProtection
   .. py:method:: list_legal_holds()
 
     Returns a list of legal holds on an object
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListLegalHolds>`_    
+
 
     **Request Syntax** 
     ::
@@ -12135,6 +12609,9 @@ ObjectProtection
 
     Calls :py:meth:`S3.Client.list_legal_holds` to update the attributes of the ObjectProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -12145,6 +12622,9 @@ ObjectProtection
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.list_legal_holds` to update the attributes of the ObjectProtection resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
 
     **Request Syntax** 
 
@@ -12309,6 +12789,9 @@ ObjectAcl
 
     Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the ObjectAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
     **Request Syntax** 
 
     ::
@@ -12319,6 +12802,9 @@ ObjectAcl
   .. py:method:: put(**kwargs)
 
     uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectAcl>`_    
+
 
     **Request Syntax** 
     ::
@@ -12448,6 +12934,9 @@ ObjectAcl
   .. py:method:: reload()
 
     Calls :py:meth:`S3.Client.get_object_acl` to update the attributes of the ObjectAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
 
     **Request Syntax** 
 
@@ -12639,6 +13128,9 @@ ObjectSummary
 
     Creates a copy of an object that is already stored in Amazon S3.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CopyObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -12667,7 +13159,7 @@ ObjectSummary
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -12702,7 +13194,7 @@ ObjectSummary
 
     
     :type CopySource: str or dict
-    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source objectYou can either provide this value as a string or a dictionary.  The string form is {bucket}/{key}.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
+    :param CopySource: **[REQUIRED]** The name of the source bucket, key name of the source object. You can either provide this value as a string or a dictionary.  The string form is {bucket}/{key} or {bucket}/{key} if you want to copy a specific version.  You can also provide this value as a dictionary.  The dictionary format is recommended over the string format because it is more explicit.  The dictionary format is: {'Bucket': 'bucket', 'Key': 'key'}.
 
     
     :type CopySourceIfMatch: string
@@ -12836,7 +13328,7 @@ ObjectSummary
                 'LastModified': datetime(2015, 1, 1)
             },
             'Expiration': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -12880,6 +13372,9 @@ ObjectSummary
   .. py:method:: delete(**kwargs)
 
     Removes an object. If the object doesn't exist, Amazon S3 does not remove any objects.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -12925,6 +13420,9 @@ ObjectSummary
   .. py:method:: get(**kwargs)
 
     Retrieves objects from Amazon S3.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -13039,7 +13537,7 @@ ObjectSummary
             'ContentType': 'string',
             'Expires': datetime(2015, 1, 1),
             'WebsiteRedirectLocation': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'Metadata': {
                 'string': 'string'
             },
@@ -13179,6 +13677,9 @@ ObjectSummary
 
     
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CreateMultipartUpload>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -13197,7 +13698,7 @@ ObjectSummary
           Metadata={
               'string': 'string'
           },
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -13311,6 +13812,9 @@ ObjectSummary
 
     Adds an object to a bucket.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -13335,7 +13839,7 @@ ObjectSummary
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
           RetentionPeriod=123,
-          ServerSideEncryption='AES256'|'aws:kms',
+          ServerSideEncryption='AES256',
           StorageClass='STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA',
           WebsiteRedirectLocation='string',
           SSECustomerAlgorithm='string',
@@ -13469,7 +13973,7 @@ ObjectSummary
         {
             'Expiration': 'string',
             'ETag': 'string',
-            'ServerSideEncryption': 'AES256'|'aws:kms',
+            'ServerSideEncryption': 'AES256',
             'SSECustomerAlgorithm': 'string',
             'SSECustomerKeyMD5': 'string',
             'SSEKMSKeyId': 'string',
@@ -13506,6 +14010,9 @@ ObjectSummary
   .. py:method:: restore_object(**kwargs)
 
     Restores an archived copy of an object back into Amazon S3
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/RestoreObject>`_    
+
 
     **Request Syntax** 
     ::
@@ -13600,6 +14107,9 @@ ObjectSummary
 
     Waits until this ObjectSummary is exists. This method calls :py:meth:`S3.Waiter.object_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
+
     **Request Syntax** 
     ::
 
@@ -13661,6 +14171,9 @@ ObjectSummary
   .. py:method:: wait_until_not_exists(**kwargs)
 
     Waits until this ObjectSummary is not exists. This method calls :py:meth:`S3.Waiter.object_not_exists.wait` which polls. :py:meth:`S3.Client.head_object` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadObject>`_    
+
 
     **Request Syntax** 
     ::
