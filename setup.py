@@ -15,8 +15,9 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([a-z0-9.]+)['"]''')
 
 
 requires = [
-    'ibm-cos-sdk-core>=2.0.0,==2.*',
-    'ibm-cos-sdk-s3transfer>=2.0.0,==2.*'
+    'ibm-cos-sdk-core>=2.0.0',
+    'ibm-cos-sdk-s3transfer>=2.0.0',
+	'jmespath>=0.7.1,<1.0.0'
 ]
 
 
@@ -29,7 +30,8 @@ setup(
     name='ibm-cos-sdk',
     version=get_version(),
     description='IBM SDK for Python',
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
+    long_description_content_type='text/x-rst',
     author='IBM',
     url='https://github.com/ibm/ibm-cos-sdk-python',
     scripts=[],
