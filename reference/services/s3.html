@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 &mdash; ibm-cos-sdk 2.4.4 documentation</title>
+    <title>S3 &mdash; ibm-cos-sdk 2.5.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.4.4',
+        VERSION:     '2.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.4.4 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.5.0 documentation" href="../../index.html" />
     <link rel="up" title="Available Services" href="index.html" />
     <link rel="next" title="Core References" href="../core/index.html" />
     <link rel="prev" title="Available Services" href="index.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="index.html" title="Available Services"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.4 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.5.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Available Services</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.4.4 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.5.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -1655,6 +1655,10 @@ default, the http method is whatever is used in the method's model.</li>
 <dt class="field-name">Returns</dt><dd class="field-body"><strong>Response Syntax</strong><div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&#39;Rules&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
+            <span class="s">&#39;Expiration&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&#39;Date&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="s">&#39;Days&#39;</span><span class="p">:</span> <span class="mi">123</span>
+            <span class="p">},</span>
             <span class="s">&#39;ID&#39;</span><span class="p">:</span> <span class="s">&#39;string&#39;</span><span class="p">,</span>
             <span class="s">&#39;Filter&#39;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="s">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s">&#39;string&#39;</span>
@@ -1673,17 +1677,24 @@ default, the http method is whatever is used in the method's model.</li>
 </pre></div>
 </div>
 <p><strong>Response Structure</strong></p>
-<ul class="simple">
+<ul>
 <li><em>(dict) --</em><ul>
 <li><strong>Rules</strong> <em>(list) --</em> Currently only one Rule allowed.<ul>
 <li><em>(dict) --</em><ul>
+<li><strong>Expiration</strong> <em>(dict) --</em><ul>
+<li><strong>Date</strong> <em>(datetime) --</em><p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
+</li>
+<li><strong>Days</strong> <em>(integer) --</em><p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
+</li>
+</ul>
+</li>
 <li><strong>ID</strong> <em>(string) --</em> Unique identifier for the rule. The value cannot be longer than 255 characters.</li>
-<li><strong>Filter</strong> <em>(dict) --</em> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.<ul>
+<li><strong>Filter</strong> <em>(dict) --</em> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.<ul class="simple">
 <li><strong>Prefix</strong> <em>(string) --</em> Empty prefix allowed only.</li>
 </ul>
 </li>
 <li><strong>Status</strong> <em>(string) --</em> If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</li>
-<li><strong>Transitions</strong> <em>(list) --</em> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul>
+<li><strong>Transitions</strong> <em>(list) --</em> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul class="simple">
 <li><em>(dict) --</em><ul>
 <li><strong>Date</strong> <em>(datetime) --</em> Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</li>
 <li><strong>Days</strong> <em>(integer) --</em> Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</li>
@@ -3508,6 +3519,10 @@ section of the service docs for a list of available waiters.</dd>
     <span class="n">LifecycleConfiguration</span><span class="o">=</span><span class="p">{</span>
         <span class="s">&#39;Rules&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
+                <span class="s">&#39;Expiration&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;Date&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                    <span class="s">&#39;Days&#39;</span><span class="p">:</span> <span class="mi">123</span>
+                <span class="p">},</span>
                 <span class="s">&#39;ID&#39;</span><span class="p">:</span> <span class="s">&#39;string&#39;</span><span class="p">,</span>
                 <span class="s">&#39;Filter&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s">&#39;string&#39;</span>
@@ -3532,13 +3547,20 @@ section of the service docs for a list of available waiters.</dd>
 <li><strong>LifecycleConfiguration</strong> (<em>dict</em>) -- <ul>
 <li><strong>Rules</strong> <em>(list) --</em> <strong>[REQUIRED]</strong> Currently only one Rule allowed.<ul>
 <li><em>(dict) --</em><ul>
+<li><strong>Expiration</strong> <em>(dict) --</em><ul>
+<li><strong>Date</strong> <em>(datetime) --</em><p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
+</li>
+<li><strong>Days</strong> <em>(integer) --</em><p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
+</li>
+</ul>
+</li>
 <li><strong>ID</strong> <em>(string) --</em> Unique identifier for the rule. The value cannot be longer than 255 characters.</li>
 <li><strong>Filter</strong> <em>(dict) --</em> <strong>[REQUIRED]</strong> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.<ul>
 <li><strong>Prefix</strong> <em>(string) --</em> Empty prefix allowed only.</li>
 </ul>
 </li>
 <li><strong>Status</strong> <em>(string) --</em> <strong>[REQUIRED]</strong> If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</li>
-<li><strong>Transitions</strong> <em>(list) --</em> <strong>[REQUIRED]</strong> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul>
+<li><strong>Transitions</strong> <em>(list) --</em> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul>
 <li><em>(dict) --</em><ul>
 <li><strong>Date</strong> <em>(datetime) --</em> Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</li>
 <li><strong>Days</strong> <em>(integer) --</em> Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</li>
@@ -6728,16 +6750,32 @@ For more information about attributes refer to the <em class="xref std std-ref">
 <dl class="attribute">
 <dt id="S3.BucketLifecycleConfiguration.rules">
 <tt class="descname">rules</tt><a class="headerlink" href="#S3.BucketLifecycleConfiguration.rules" title="Permalink to this definition">¶</a></dt>
-<dd><ul class="simple">
-<li><em>(list) --</em> Currently only one Rule allowed.<ul>
-<li><em>(dict) --</em><ul>
-<li><strong>ID</strong> <em>(string) --</em> Unique identifier for the rule. The value cannot be longer than 255 characters.</li>
-<li><strong>Filter</strong> <em>(dict) --</em> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.<ul>
+<dd><ul>
+<li><p class="first"><em>(list) --</em> Currently only one Rule allowed.</p>
+<ul>
+<li><p class="first"><em>(dict) --</em></p>
+<ul>
+<li><p class="first"><strong>Expiration</strong> <em>(dict) --</em></p>
+<ul>
+<li><p class="first"><strong>Date</strong> <em>(datetime) --</em></p>
+<p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
+</li>
+<li><p class="first"><strong>Days</strong> <em>(integer) --</em></p>
+<p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>ID</strong> <em>(string) --</em> Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
+</li>
+<li><p class="first"><strong>Filter</strong> <em>(dict) --</em> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.</p>
+<ul class="simple">
 <li><strong>Prefix</strong> <em>(string) --</em> Empty prefix allowed only.</li>
 </ul>
 </li>
-<li><strong>Status</strong> <em>(string) --</em> If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</li>
-<li><strong>Transitions</strong> <em>(list) --</em> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul>
+<li><p class="first"><strong>Status</strong> <em>(string) --</em> If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
+</li>
+<li><p class="first"><strong>Transitions</strong> <em>(list) --</em> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.</p>
+<ul class="simple">
 <li><em>(dict) --</em><ul>
 <li><strong>Date</strong> <em>(datetime) --</em> Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</li>
 <li><strong>Days</strong> <em>(integer) --</em> Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</li>
@@ -6806,6 +6844,10 @@ resource</dd>
     <span class="n">LifecycleConfiguration</span><span class="o">=</span><span class="p">{</span>
         <span class="s">&#39;Rules&#39;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
+                <span class="s">&#39;Expiration&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;Date&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                    <span class="s">&#39;Days&#39;</span><span class="p">:</span> <span class="mi">123</span>
+                <span class="p">},</span>
                 <span class="s">&#39;ID&#39;</span><span class="p">:</span> <span class="s">&#39;string&#39;</span><span class="p">,</span>
                 <span class="s">&#39;Filter&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s">&#39;string&#39;</span>
@@ -6825,16 +6867,23 @@ resource</dd>
 </pre></div>
 </div>
 <dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><strong>LifecycleConfiguration</strong> (<em>dict</em>) -- <ul class="simple">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>LifecycleConfiguration</strong> (<em>dict</em>) -- <ul>
 <li><strong>Rules</strong> <em>(list) --</em> <strong>[REQUIRED]</strong> Currently only one Rule allowed.<ul>
 <li><em>(dict) --</em><ul>
+<li><strong>Expiration</strong> <em>(dict) --</em><ul>
+<li><strong>Date</strong> <em>(datetime) --</em><p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
+</li>
+<li><strong>Days</strong> <em>(integer) --</em><p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
+</li>
+</ul>
+</li>
 <li><strong>ID</strong> <em>(string) --</em> Unique identifier for the rule. The value cannot be longer than 255 characters.</li>
-<li><strong>Filter</strong> <em>(dict) --</em> <strong>[REQUIRED]</strong> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.<ul>
+<li><strong>Filter</strong> <em>(dict) --</em> <strong>[REQUIRED]</strong> The Filter is used to identify objects that a Lifecycle Rule applies to. Currently not supported.<ul class="simple">
 <li><strong>Prefix</strong> <em>(string) --</em> Empty prefix allowed only.</li>
 </ul>
 </li>
 <li><strong>Status</strong> <em>(string) --</em> <strong>[REQUIRED]</strong> If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</li>
-<li><strong>Transitions</strong> <em>(list) --</em> <strong>[REQUIRED]</strong> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul>
+<li><strong>Transitions</strong> <em>(list) --</em> Currently only one Transition allowed, also Date and Days fields are mutually exclusive.<ul class="simple">
 <li><em>(dict) --</em><ul>
 <li><strong>Date</strong> <em>(datetime) --</em> Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</li>
 <li><strong>Days</strong> <em>(integer) --</em> Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</li>
@@ -10176,7 +10225,7 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
         <li class="right" >
           <a href="index.html" title="Available Services"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.4.4 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.5.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Available Services</a> &raquo;</li> 
       </ul>
     </div>
