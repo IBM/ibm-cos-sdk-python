@@ -2,6 +2,18 @@
 CHANGELOG
 =========
 
+
+2.5.1
+=====
+
+Content
+=======
+
+Features
+--------
+* Extended Listing Support
+
+
 2.5.0
 =====
 
@@ -16,6 +28,7 @@ Defect Fixes
 ------------
 * COSSDK-54266: https://github.com/IBM/ibm-cos-sdk-python-s3transfer/issues/1
 * IBM Python SDK aligned with AWS Python SDK - Boto3(v1.9.152), Botocore(v1.12.152) and S3transfer(v0.2.0)
+
 
 2.4.4
 =====
