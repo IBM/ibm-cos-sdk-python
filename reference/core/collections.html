@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Collections Reference &mdash; ibm-cos-sdk 2.5.0 documentation</title>
+    <title>Collections Reference &mdash; ibm-cos-sdk 2.5.1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.5.0',
+        VERSION:     '2.5.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.5.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.5.1 documentation" href="../../index.html" />
     <link rel="up" title="Core References" href="index.html" />
     <link rel="next" title="Resources Reference" href="resources.html" />
     <link rel="prev" title="ibm-cos-sdk Reference" href="boto3.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="boto3.html" title="ibm-cos-sdk Reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.5.1 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Core References</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.5.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.5.1 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -169,17 +169,17 @@ convenience functions that are also found on resource collections,
 such as <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection.all" title="ibm_boto3.resources.collection.ResourceCollection.all"><tt class="xref py py-meth docutils literal"><span class="pre">all()</span></tt></a> and
 <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection.filter" title="ibm_boto3.resources.collection.ResourceCollection.filter"><tt class="xref py py-meth docutils literal"><span class="pre">filter()</span></tt></a>.</p>
 <p>Get all items:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Get only some items via filtering:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">QueueNamePrefix</span><span class="o">=</span><span class="s">&#39;AWS&#39;</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">QueueNamePrefix</span><span class="o">=</span><span class="s1">&#39;AWS&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Get whole pages of items:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s">&#39;boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
@@ -205,7 +205,7 @@ of collections, including when remote service requests are performed.</p>
 page size and item count limit.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-python"><div class="highlight"><pre># Iterate through items
+<div class="highlight-python"><div class="highlight"><pre><span></span># Iterate through items
 &gt;&gt;&gt; for queue in sqs.queues.all():
 ...     print(queue.url)
 &#39;https://url1&#39;
@@ -227,7 +227,7 @@ as parameters to the underlying service operation, which are
 typically used to filter the results.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-python"><div class="highlight"><pre># Iterate through items
+<div class="highlight-python"><div class="highlight"><pre><span></span># Iterate through items
 &gt;&gt;&gt; for queue in sqs.queues.filter(Param=&#39;foo&#39;):
 ...     print(queue.url)
 &#39;https://url1&#39;
@@ -258,7 +258,7 @@ individual resource instances. Example use:</p>
 <dt id="ibm_boto3.resources.collection.CollectionManager.limit">
 <tt class="descname">limit</tt><big>(</big><em>count</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.limit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return at most this many resources.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="go">&#39;bucket1&#39;</span>
 <span class="go">&#39;bucket2&#39;</span>
@@ -277,7 +277,7 @@ individual resource instances. Example use:</p>
 <dt id="ibm_boto3.resources.collection.CollectionManager.page_size">
 <tt class="descname">page_size</tt><big>(</big><em>count</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.page_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.page_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch at most this many resources per service request.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s">&#39;boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -296,7 +296,7 @@ any pagination on your behalf. Non-paginated calls will
 return a single page of items.</p>
 <p>Page size, item limit, and filter parameters are applied
 if they have previously been set.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s">&#39;boto3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;boto3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">bucket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
@@ -336,7 +336,7 @@ instances</li>
 page size and item count limit.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-python"><div class="highlight"><pre># Iterate through items
+<div class="highlight-python"><div class="highlight"><pre><span></span># Iterate through items
 &gt;&gt;&gt; for queue in sqs.queues.all():
 ...     print(queue.url)
 &#39;https://url1&#39;
@@ -358,7 +358,7 @@ as parameters to the underlying service operation, which are
 typically used to filter the results.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-python"><div class="highlight"><pre># Iterate through items
+<div class="highlight-python"><div class="highlight"><pre><span></span># Iterate through items
 &gt;&gt;&gt; for queue in sqs.queues.filter(Param=&#39;foo&#39;):
 ...     print(queue.url)
 &#39;https://url1&#39;
@@ -379,7 +379,7 @@ individual resource instances. Example use:</p>
 <dt id="ibm_boto3.resources.collection.ResourceCollection.limit">
 <tt class="descname">limit</tt><big>(</big><em>count</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.limit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return at most this many resources.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="go">&#39;bucket1&#39;</span>
 <span class="go">&#39;bucket2&#39;</span>
@@ -398,7 +398,7 @@ individual resource instances. Example use:</p>
 <dt id="ibm_boto3.resources.collection.ResourceCollection.page_size">
 <tt class="descname">page_size</tt><big>(</big><em>count</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.page_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.page_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch at most this many resources per service request.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s">&#39;boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -417,7 +417,7 @@ any pagination on your behalf. Non-paginated calls will
 return a single page of items.</p>
 <p>Page size, item limit, and filter parameters are applied
 if they have previously been set.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s">&#39;boto3&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;boto3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">bucket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
@@ -468,7 +468,7 @@ if they have previously been set.</p>
         <li class="right" >
           <a href="boto3.html" title="ibm-cos-sdk Reference"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.5.1 documentation</a> &raquo;</li>
           <li><a href="index.html" >Core References</a> &raquo;</li> 
       </ul>
     </div>

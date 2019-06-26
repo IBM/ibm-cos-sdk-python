@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.s3.transfer &mdash; ibm-cos-sdk 2.5.0 documentation</title>
+    <title>ibm_boto3.s3.transfer &mdash; ibm-cos-sdk 2.5.1 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.5.0',
+        VERSION:     '2.5.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.5.0 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.5.1 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.5.1 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.5.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.5.1 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -115,18 +115,18 @@
           <div class="document clearer body">
             
   <h1>Source code for ibm_boto3.s3.transfer</h1><div class="highlight"><pre>
-<span class="c"># Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
-<span class="c">#</span>
-<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
-<span class="c"># may not use this file except in compliance with the License. A copy of</span>
-<span class="c"># the License is located at</span>
-<span class="c">#</span>
-<span class="c"># http://aws.amazon.com/apache2.0/</span>
-<span class="c">#</span>
-<span class="c"># or in the &quot;license&quot; file accompanying this file. This file is</span>
-<span class="c"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
-<span class="c"># ANY KIND, either express or implied. See the License for the specific</span>
-<span class="c"># language governing permissions and limitations under the License.</span>
+<span></span><span class="c1"># Copyright 2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;). You</span>
+<span class="c1"># may not use this file except in compliance with the License. A copy of</span>
+<span class="c1"># the License is located at</span>
+<span class="c1">#</span>
+<span class="c1"># http://aws.amazon.com/apache2.0/</span>
+<span class="c1">#</span>
+<span class="c1"># or in the &quot;license&quot; file accompanying this file. This file is</span>
+<span class="c1"># distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF</span>
+<span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
+<span class="c1"># language governing permissions and limitations under the License.</span>
 <span class="sd">&quot;&quot;&quot;Abstractions over S3&#39;s upload/download operations.</span>
 
 <span class="sd">This module provides high level abstractions for efficient</span>
@@ -279,11 +279,11 @@
 
 <div class="viewcode-block" id="TransferConfig"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">[docs]</a><span class="k">class</span> <span class="nc">TransferConfig</span><span class="p">(</span><span class="n">S3TransferConfig</span><span class="p">):</span>
     <span class="n">ALIAS</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">&#39;max_concurrency&#39;</span><span class="p">:</span> <span class="s">&#39;max_request_concurrency&#39;</span><span class="p">,</span>
-        <span class="s">&#39;max_io_queue&#39;</span><span class="p">:</span> <span class="s">&#39;max_io_queue_size&#39;</span>
+        <span class="s1">&#39;max_concurrency&#39;</span><span class="p">:</span> <span class="s1">&#39;max_request_concurrency&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;max_io_queue&#39;</span><span class="p">:</span> <span class="s1">&#39;max_io_queue_size&#39;</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">multipart_threshold</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
                  <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                  <span class="n">multipart_chunksize</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
@@ -327,7 +327,7 @@
 <span class="sd">            S3 transfers. If False, no threads will be used in</span>
 <span class="sd">            performing transfers: all logic will be ran in the main thread.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">multipart_threshold</span><span class="o">=</span><span class="n">multipart_threshold</span><span class="p">,</span>
             <span class="n">max_request_concurrency</span><span class="o">=</span><span class="n">max_concurrency</span><span class="p">,</span>
             <span class="n">multipart_chunksize</span><span class="o">=</span><span class="n">multipart_chunksize</span><span class="p">,</span>
@@ -335,36 +335,36 @@
             <span class="n">max_io_queue_size</span><span class="o">=</span><span class="n">max_io_queue</span><span class="p">,</span>
             <span class="n">io_chunksize</span><span class="o">=</span><span class="n">io_chunksize</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="c"># Some of the argument names are not the same as the inherited</span>
-        <span class="c"># S3TransferConfig so we add aliases so you can still access the</span>
-        <span class="c"># old version of the names.</span>
+        <span class="c1"># Some of the argument names are not the same as the inherited</span>
+        <span class="c1"># S3TransferConfig so we add aliases so you can still access the</span>
+        <span class="c1"># old version of the names.</span>
         <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">:</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">alias</span><span class="p">]))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use_threads</span> <span class="o">=</span> <span class="n">use_threads</span>
 
-    <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="c"># If the alias name is used, make sure we set the name that it points</span>
-        <span class="c"># to as that is what actually is used in governing the TransferManager.</span>
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># If the alias name is used, make sure we set the name that it points</span>
+        <span class="c1"># to as that is what actually is used in governing the TransferManager.</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">:</span>
-            <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
-        <span class="c"># Always set the value of the actual name provided.</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+        <span class="c1"># Always set the value of the actual name provided.</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 </div>
 <div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">ALLOWED_DOWNLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_DOWNLOAD_ARGS</span>
     <span class="n">ALLOWED_UPLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_UPLOAD_ARGS</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">client</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">manager</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s">&#39;Either a ibm_boto3.Client or ibm_s3transfer.manager.TransferManager &#39;</span>
-                <span class="s">&#39;must be provided&#39;</span>
+                <span class="s1">&#39;Either a ibm_boto3.Client or ibm_s3transfer.manager.TransferManager &#39;</span>
+                <span class="s1">&#39;must be provided&#39;</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="n">manager</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">([</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">]):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s">&#39;Manager cannot be provided with client, config, &#39;</span>
-                <span class="s">&#39;nor osutil. These parameters are mutually exclusive.&#39;</span>
+                <span class="s1">&#39;Manager cannot be provided with client, config, &#39;</span>
+                <span class="s1">&#39;nor osutil. These parameters are mutually exclusive.&#39;</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">config</span> <span class="o">=</span> <span class="n">TransferConfig</span><span class="p">()</span>
@@ -387,21 +387,21 @@
 <span class="sd">            :py:meth:`S3.Client.upload_fileobj`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Filename must be a string&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string&#39;</span><span class="p">)</span>
 
         <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subscribers</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
         <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span>
             <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">extra_args</span><span class="p">,</span> <span class="n">subscribers</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-        <span class="c"># If a client error was raised, add the backwards compatibility layer</span>
-        <span class="c"># that raises a S3UploadFailedError. These specific errors were only</span>
-        <span class="c"># ever thrown for upload_parts but now can be thrown for any related</span>
-        <span class="c"># client error.</span>
+        <span class="c1"># If a client error was raised, add the backwards compatibility layer</span>
+        <span class="c1"># that raises a S3UploadFailedError. These specific errors were only</span>
+        <span class="c1"># ever thrown for upload_parts but now can be thrown for any related</span>
+        <span class="c1"># client error.</span>
         <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">S3UploadFailedError</span><span class="p">(</span>
-                <span class="s">&quot;Failed to upload </span><span class="si">%s</span><span class="s"> to </span><span class="si">%s</span><span class="s">: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">filename</span><span class="p">,</span> <span class="s">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span> <span class="n">e</span><span class="p">))</span>
+                <span class="s2">&quot;Failed to upload </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span> <span class="n">e</span><span class="p">))</span>
 </div>
 <div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
                       <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
@@ -415,18 +415,18 @@
 <span class="sd">            :py:meth:`S3.Client.download_fileobj`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Filename must be a string&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string&#39;</span><span class="p">)</span>
 
         <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subscribers</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
         <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
             <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="p">,</span> <span class="n">subscribers</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-        <span class="c"># This is for backwards compatibility where when retries are</span>
-        <span class="c"># exceeded we need to throw the same error from ibm_boto3 instead of</span>
-        <span class="c"># s3transfer&#39;s built in RetriesExceededError as current users are</span>
-        <span class="c"># catching the ibm_boto3 one instead of the ibm_s3transfer exception to do</span>
-        <span class="c"># their own retries.</span>
+        <span class="c1"># This is for backwards compatibility where when retries are</span>
+        <span class="c1"># exceeded we need to throw the same error from ibm_boto3 instead of</span>
+        <span class="c1"># s3transfer&#39;s built in RetriesExceededError as current users are</span>
+        <span class="c1"># catching the ibm_boto3 one instead of the ibm_s3transfer exception to do</span>
+        <span class="c1"># their own retries.</span>
         <span class="k">except</span> <span class="n">S3TransferRetriesExceededError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">RetriesExceededError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">last_exception</span><span class="p">)</span>
 </div>
@@ -435,11 +435,11 @@
             <span class="k">return</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">ProgressCallbackInvoker</span><span class="p">(</span><span class="n">callback</span><span class="p">)]</span>
 
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
 </div>
 <span class="k">class</span> <span class="nc">ProgressCallbackInvoker</span><span class="p">(</span><span class="n">BaseSubscriber</span><span class="p">):</span>
@@ -448,7 +448,7 @@
 <span class="sd">    :param callback: A callable that takes a single positional argument for</span>
 <span class="sd">        how many bytes were transferred.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
 
     <span class="k">def</span> <span class="nf">on_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytes_transferred</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -469,7 +469,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.5.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.5.1 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
