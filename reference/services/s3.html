@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 &mdash; ibm-cos-sdk 2.5.1 documentation</title>
+    <title>S3 &mdash; ibm-cos-sdk 2.5.2 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.5.1',
+        VERSION:     '2.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.5.1 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.5.2 documentation" href="../../index.html" />
     <link rel="up" title="Available Services" href="index.html" />
     <link rel="next" title="Core References" href="../core/index.html" />
     <link rel="prev" title="Available Services" href="index.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="index.html" title="Available Services"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.5.1 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.5.2 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Available Services</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.5.1 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.5.2 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -140,32 +140,32 @@
           <div class="document clearer body">
             
   <div class="section" id="s3">
-<h1><a class="toc-backref" href="#id135">S3</a><a class="headerlink" href="#s3" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id137">S3</a><a class="headerlink" href="#s3" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#s3" id="id135">S3</a><ul>
-<li><a class="reference internal" href="#client" id="id136">Client</a></li>
-<li><a class="reference internal" href="#paginators" id="id137">Paginators</a></li>
-<li><a class="reference internal" href="#waiters" id="id138">Waiters</a></li>
-<li><a class="reference internal" href="#service-resource" id="id139">Service Resource</a></li>
-<li><a class="reference internal" href="#bucket" id="id140">Bucket</a></li>
-<li><a class="reference internal" href="#bucketacl" id="id141">BucketAcl</a></li>
-<li><a class="reference internal" href="#bucketcors" id="id142">BucketCors</a></li>
-<li><a class="reference internal" href="#bucketlifecycleconfiguration" id="id143">BucketLifecycleConfiguration</a></li>
-<li><a class="reference internal" href="#multipartupload" id="id144">MultipartUpload</a></li>
-<li><a class="reference internal" href="#multipartuploadpart" id="id145">MultipartUploadPart</a></li>
-<li><a class="reference internal" href="#object" id="id146">Object</a></li>
-<li><a class="reference internal" href="#bucketprotection" id="id147">BucketProtection</a></li>
-<li><a class="reference internal" href="#objectprotection" id="id148">ObjectProtection</a></li>
-<li><a class="reference internal" href="#objectacl" id="id149">ObjectAcl</a></li>
-<li><a class="reference internal" href="#objectsummary" id="id150">ObjectSummary</a></li>
+<li><a class="reference internal" href="#s3" id="id137">S3</a><ul>
+<li><a class="reference internal" href="#client" id="id138">Client</a></li>
+<li><a class="reference internal" href="#paginators" id="id139">Paginators</a></li>
+<li><a class="reference internal" href="#waiters" id="id140">Waiters</a></li>
+<li><a class="reference internal" href="#service-resource" id="id141">Service Resource</a></li>
+<li><a class="reference internal" href="#bucket" id="id142">Bucket</a></li>
+<li><a class="reference internal" href="#bucketacl" id="id143">BucketAcl</a></li>
+<li><a class="reference internal" href="#bucketcors" id="id144">BucketCors</a></li>
+<li><a class="reference internal" href="#bucketlifecycleconfiguration" id="id145">BucketLifecycleConfiguration</a></li>
+<li><a class="reference internal" href="#multipartupload" id="id146">MultipartUpload</a></li>
+<li><a class="reference internal" href="#multipartuploadpart" id="id147">MultipartUploadPart</a></li>
+<li><a class="reference internal" href="#object" id="id148">Object</a></li>
+<li><a class="reference internal" href="#bucketprotection" id="id149">BucketProtection</a></li>
+<li><a class="reference internal" href="#objectprotection" id="id150">ObjectProtection</a></li>
+<li><a class="reference internal" href="#objectacl" id="id151">ObjectAcl</a></li>
+<li><a class="reference internal" href="#objectsummary" id="id152">ObjectSummary</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="client">
-<h2><a class="toc-backref" href="#id136">Client</a><a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id138">Client</a><a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.Client">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">Client</tt><a class="headerlink" href="#S3.Client" title="Permalink to this definition">¶</a></dt>
@@ -224,6 +224,7 @@
 <li><a class="reference internal" href="#S3.Client.list_bucket_inventory_configurations" title="S3.Client.list_bucket_inventory_configurations"><tt class="xref py py-meth docutils literal"><span class="pre">list_bucket_inventory_configurations()</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Client.list_bucket_metrics_configurations" title="S3.Client.list_bucket_metrics_configurations"><tt class="xref py py-meth docutils literal"><span class="pre">list_bucket_metrics_configurations()</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Client.list_buckets" title="S3.Client.list_buckets"><tt class="xref py py-meth docutils literal"><span class="pre">list_buckets()</span></tt></a></li>
+<li><a class="reference internal" href="#S3.Client.list_buckets_extended" title="S3.Client.list_buckets_extended"><tt class="xref py py-meth docutils literal"><span class="pre">list_buckets_extended()</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Client.list_legal_holds" title="S3.Client.list_legal_holds"><tt class="xref py py-meth docutils literal"><span class="pre">list_legal_holds()</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Client.list_multipart_uploads" title="S3.Client.list_multipart_uploads"><tt class="xref py py-meth docutils literal"><span class="pre">list_multipart_uploads()</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Client.list_objects" title="S3.Client.list_objects"><tt class="xref py py-meth docutils literal"><span class="pre">list_objects()</span></tt></a></li>
@@ -2660,7 +2661,8 @@ section of the service docs for a list of available waiters.</dd>
     <span class="s1">&#39;Buckets&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;CreationDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="s1">&#39;CreationDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;LocationConstraint&#39;</span><span class="p">:</span> <span class="s1">&#39;us-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-flex&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-flex&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-flex&#39;</span><span class="o">|</span><span class="s1">&#39;ap-standard&#39;</span><span class="o">|</span><span class="s1">&#39;ap-vault&#39;</span><span class="o">|</span><span class="s1">&#39;ap-cold&#39;</span><span class="o">|</span><span class="s1">&#39;ap-flex&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-standard&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-vault&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-cold&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-flex&#39;</span><span class="o">|</span><span class="s1">&#39;che01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;che01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;che01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;che01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-flex&#39;</span>
         <span class="p">},</span>
     <span class="p">],</span>
     <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -2677,6 +2679,7 @@ section of the service docs for a list of available waiters.</dd>
 <li><em>(dict) --</em><ul>
 <li><strong>Name</strong> <em>(string) --</em> The name of the bucket.</li>
 <li><strong>CreationDate</strong> <em>(datetime) --</em> Date the bucket was created.</li>
+<li><strong>LocationConstraint</strong> <em>(string) --</em> Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.</li>
 </ul>
 </li>
 </ul>
@@ -2689,6 +2692,75 @@ section of the service docs for a list of available waiters.</dd>
 </ul>
 </li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="S3.Client.list_buckets_extended">
+<tt class="descname">list_buckets_extended</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#S3.Client.list_buckets_extended" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all buckets owned by the authenticated sender of the request, along with the LocationConstraint describing the region that the bucket resides in and the bucket's storage tier.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended">AWS API Documentation</a></p>
+<p><strong>Request Syntax</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">list_buckets_extended</span><span class="p">(</span>
+    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">Marker</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">MaxKeys</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">Prefix</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>IBMServiceInstanceId</strong> (<em>string</em>) -- The owning storage account. All buckets owned by this storage account are returned.</li>
+<li><strong>Marker</strong> (<em>string</em>) -- Specifies the key to start with when listing objects in a bucket.</li>
+<li><strong>MaxKeys</strong> (<em>integer</em>) -- Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</li>
+<li><strong>Prefix</strong> (<em>string</em>) -- Limits the response to keys that begin with the specified prefix.</li>
+</ul>
+</dd>
+<dt class="field-name">Return type</dt><dd class="field-body"><p class="first">dict</p>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last"><p><strong>Response Syntax</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;IsTruncated&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="o">|</span><span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;NextMarker&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Buckets&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;CreationDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;LocationConstraint&#39;</span><span class="p">:</span> <span class="s1">&#39;us-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-flex&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-flex&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-flex&#39;</span><span class="o">|</span><span class="s1">&#39;ap-standard&#39;</span><span class="o">|</span><span class="s1">&#39;ap-vault&#39;</span><span class="o">|</span><span class="s1">&#39;ap-cold&#39;</span><span class="o">|</span><span class="s1">&#39;ap-flex&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-standard&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-vault&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-cold&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-flex&#39;</span><span class="o">|</span><span class="s1">&#39;che01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;che01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;che01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;che01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-flex&#39;</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Structure</strong></p>
+<ul class="simple">
+<li><em>(dict) --</em><ul>
+<li><strong>IsTruncated</strong> <em>(boolean) --</em></li>
+<li><strong>NextMarker</strong> <em>(string) --</em></li>
+<li><strong>Buckets</strong> <em>(list) --</em><ul>
+<li><em>(dict) --</em><ul>
+<li><strong>Name</strong> <em>(string) --</em> The name of the bucket.</li>
+<li><strong>CreationDate</strong> <em>(datetime) --</em> Date the bucket was created.</li>
+<li><strong>LocationConstraint</strong> <em>(string) --</em> Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Owner</strong> <em>(dict) --</em><ul>
+<li><strong>DisplayName</strong> <em>(string) --</em></li>
+<li><strong>ID</strong> <em>(string) --</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4196,14 +4268,112 @@ upload.</li>
 
 </div>
 <div class="section" id="paginators">
-<h2><a class="toc-backref" href="#id137">Paginators</a><a class="headerlink" href="#paginators" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id139">Paginators</a><a class="headerlink" href="#paginators" title="Permalink to this headline">¶</a></h2>
 <p>The available paginators are:</p>
 <ul class="simple">
+<li><a class="reference internal" href="#S3.Paginator.ListBucketsExtended" title="S3.Paginator.ListBucketsExtended"><tt class="xref py py-class docutils literal"><span class="pre">S3.Paginator.ListBucketsExtended</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Paginator.ListMultipartUploads" title="S3.Paginator.ListMultipartUploads"><tt class="xref py py-class docutils literal"><span class="pre">S3.Paginator.ListMultipartUploads</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Paginator.ListObjects" title="S3.Paginator.ListObjects"><tt class="xref py py-class docutils literal"><span class="pre">S3.Paginator.ListObjects</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Paginator.ListObjectsV2" title="S3.Paginator.ListObjectsV2"><tt class="xref py py-class docutils literal"><span class="pre">S3.Paginator.ListObjectsV2</span></tt></a></li>
 <li><a class="reference internal" href="#S3.Paginator.ListParts" title="S3.Paginator.ListParts"><tt class="xref py py-class docutils literal"><span class="pre">S3.Paginator.ListParts</span></tt></a></li>
 </ul>
+<dl class="class">
+<dt id="S3.Paginator.ListBucketsExtended">
+<em class="property">class </em><tt class="descclassname">S3.Paginator.</tt><tt class="descname">ListBucketsExtended</tt><a class="headerlink" href="#S3.Paginator.ListBucketsExtended" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">paginator</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_paginator</span><span class="p">(</span><span class="s1">&#39;list_buckets_extended&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="S3.Paginator.ListBucketsExtended.paginate">
+<tt class="descname">paginate</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#S3.Paginator.ListBucketsExtended.paginate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an iterator that will paginate through responses from <a class="reference internal" href="#S3.Client.list_buckets_extended" title="S3.Client.list_buckets_extended"><tt class="xref py py-meth docutils literal"><span class="pre">S3.Client.list_buckets_extended()</span></tt></a>.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended">AWS API Documentation</a></p>
+<p><strong>Request Syntax</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">response_iterator</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span>
+    <span class="n">IBMServiceInstanceId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">Prefix</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">PaginationConfig</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;MaxItems&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s1">&#39;PageSize&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s1">&#39;StartingToken&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>IBMServiceInstanceId</strong> (<em>string</em>) -- The owning storage account. All buckets owned by this storage account are returned.</li>
+<li><strong>Prefix</strong> (<em>string</em>) -- Limits the response to keys that begin with the specified prefix.</li>
+<li><strong>PaginationConfig</strong> (<em>dict</em>) -- <p>A dictionary that provides parameters to control pagination.</p>
+<ul>
+<li><strong>MaxItems</strong> <em>(integer) --</em><p>The total number of items to return. If the total number of items available is more than the value specified in max-items then a <tt class="docutils literal"><span class="pre">NextToken</span></tt> will be provided in the output that you can use to resume pagination.</p>
+</li>
+<li><strong>PageSize</strong> <em>(integer) --</em><p>The size of each page.</p>
+</li>
+<li><strong>StartingToken</strong> <em>(string) --</em><p>A token to specify where to start paginating. This is the <tt class="docutils literal"><span class="pre">NextToken</span></tt> from a previous response.</p>
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt class="field-name">Return type</dt><dd class="field-body"><p class="first">dict</p>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last"><p><strong>Response Syntax</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;IsTruncated&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="o">|</span><span class="bp">False</span><span class="p">,</span>
+    <span class="s1">&#39;NextMarker&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Buckets&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;CreationDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;LocationConstraint&#39;</span><span class="p">:</span> <span class="s1">&#39;us-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-flex&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-east-flex&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-standard&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-vault&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-cold&#39;</span><span class="o">|</span><span class="s1">&#39;us-south-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-gb-flex&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-standard&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-vault&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-cold&#39;</span><span class="o">|</span><span class="s1">&#39;eu-de-flex&#39;</span><span class="o">|</span><span class="s1">&#39;ap-standard&#39;</span><span class="o">|</span><span class="s1">&#39;ap-vault&#39;</span><span class="o">|</span><span class="s1">&#39;ap-cold&#39;</span><span class="o">|</span><span class="s1">&#39;ap-flex&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-standard&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-vault&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-cold&#39;</span><span class="o">|</span><span class="s1">&#39;ams03-flex&#39;</span><span class="o">|</span><span class="s1">&#39;che01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;che01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;che01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;che01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;mel01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;osl01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;sao01-flex&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-standard&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-vault&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-cold&#39;</span><span class="o">|</span><span class="s1">&#39;tor01-flex&#39;</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;NextToken&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response Structure</strong></p>
+<ul>
+<li><p class="first"><em>(dict) --</em></p>
+<ul>
+<li><p class="first"><strong>IsTruncated</strong> <em>(boolean) --</em></p>
+</li>
+<li><p class="first"><strong>NextMarker</strong> <em>(string) --</em></p>
+</li>
+<li><p class="first"><strong>Buckets</strong> <em>(list) --</em></p>
+<ul class="simple">
+<li><em>(dict) --</em><ul>
+<li><strong>Name</strong> <em>(string) --</em> The name of the bucket.</li>
+<li><strong>CreationDate</strong> <em>(datetime) --</em> Date the bucket was created.</li>
+<li><strong>LocationConstraint</strong> <em>(string) --</em> Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Owner</strong> <em>(dict) --</em></p>
+<ul class="simple">
+<li><strong>DisplayName</strong> <em>(string) --</em></li>
+<li><strong>ID</strong> <em>(string) --</em></li>
+</ul>
+</li>
+<li><p class="first"><strong>NextToken</strong> <em>(string) --</em></p>
+<p>A token to resume pagination.</p>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="S3.Paginator.ListMultipartUploads">
 <em class="property">class </em><tt class="descclassname">S3.Paginator.</tt><tt class="descname">ListMultipartUploads</tt><a class="headerlink" href="#S3.Paginator.ListMultipartUploads" title="Permalink to this definition">¶</a></dt>
@@ -4770,7 +4940,7 @@ upload.</li>
 
 </div>
 <div class="section" id="waiters">
-<h2><a class="toc-backref" href="#id138">Waiters</a><a class="headerlink" href="#waiters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id140">Waiters</a><a class="headerlink" href="#waiters" title="Permalink to this headline">¶</a></h2>
 <p>The available waiters are:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#S3.Waiter.BucketExists" title="S3.Waiter.BucketExists"><tt class="xref py py-class docutils literal"><span class="pre">S3.Waiter.BucketExists</span></tt></a></li>
@@ -4986,7 +5156,7 @@ upload.</li>
 
 </div>
 <div class="section" id="service-resource">
-<h2><a class="toc-backref" href="#id139">Service Resource</a><a class="headerlink" href="#service-resource" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id141">Service Resource</a><a class="headerlink" href="#service-resource" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ServiceResource">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ServiceResource</tt><a class="headerlink" href="#S3.ServiceResource" title="Permalink to this definition">¶</a></dt>
@@ -5360,7 +5530,7 @@ For more information about collections refer to the <em class="xref std std-ref"
 
 </div>
 <div class="section" id="bucket">
-<h2><a class="toc-backref" href="#id140">Bucket</a><a class="headerlink" href="#bucket" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id142">Bucket</a><a class="headerlink" href="#bucket" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.Bucket">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">Bucket</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#S3.Bucket" title="Permalink to this definition">¶</a></dt>
@@ -5381,6 +5551,7 @@ For more information about collections refer to the <em class="xref std std-ref"
 <p>These are the resource's available attributes:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#S3.Bucket.creation_date" title="S3.Bucket.creation_date"><tt class="xref py py-attr docutils literal"><span class="pre">creation_date</span></tt></a></li>
+<li><a class="reference internal" href="#S3.Bucket.location_constraint" title="S3.Bucket.location_constraint"><tt class="xref py py-attr docutils literal"><span class="pre">location_constraint</span></tt></a></li>
 </ul>
 <p>These are the resource's available actions:</p>
 <ul class="simple">
@@ -5435,6 +5606,14 @@ For more information about attributes refer to the <em class="xref std std-ref">
 <tt class="descname">creation_date</tt><a class="headerlink" href="#S3.Bucket.creation_date" title="Permalink to this definition">¶</a></dt>
 <dd><ul class="simple">
 <li><em>(datetime) --</em> Date the bucket was created.</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="S3.Bucket.location_constraint">
+<tt class="descname">location_constraint</tt><a class="headerlink" href="#S3.Bucket.location_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><em>(string) --</em> Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.</li>
 </ul>
 </dd></dl>
 
@@ -6271,7 +6450,7 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
 
 </div>
 <div class="section" id="bucketacl">
-<h2><a class="toc-backref" href="#id141">BucketAcl</a><a class="headerlink" href="#bucketacl" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id143">BucketAcl</a><a class="headerlink" href="#bucketacl" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketAcl">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketAcl</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketAcl" title="Permalink to this definition">¶</a></dt>
@@ -6486,7 +6665,7 @@ For more information about sub-resources refer to the <em class="xref std std-re
 
 </div>
 <div class="section" id="bucketcors">
-<h2><a class="toc-backref" href="#id142">BucketCors</a><a class="headerlink" href="#bucketcors" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id144">BucketCors</a><a class="headerlink" href="#bucketcors" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketCors">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketCors</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketCors" title="Permalink to this definition">¶</a></dt>
@@ -6701,7 +6880,7 @@ For more information about sub-resources refer to the <em class="xref std std-re
 
 </div>
 <div class="section" id="bucketlifecycleconfiguration">
-<h2><a class="toc-backref" href="#id143">BucketLifecycleConfiguration</a><a class="headerlink" href="#bucketlifecycleconfiguration" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id145">BucketLifecycleConfiguration</a><a class="headerlink" href="#bucketlifecycleconfiguration" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketLifecycleConfiguration">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketLifecycleConfiguration</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketLifecycleConfiguration" title="Permalink to this definition">¶</a></dt>
@@ -6936,7 +7115,7 @@ For more information about sub-resources refer to the <em class="xref std std-re
 
 </div>
 <div class="section" id="multipartupload">
-<h2><a class="toc-backref" href="#id144">MultipartUpload</a><a class="headerlink" href="#multipartupload" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id146">MultipartUpload</a><a class="headerlink" href="#multipartupload" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.MultipartUpload">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">MultipartUpload</tt><big>(</big><em>bucket_name</em>, <em>object_key</em>, <em>id</em><big>)</big><a class="headerlink" href="#S3.MultipartUpload" title="Permalink to this definition">¶</a></dt>
@@ -7280,7 +7459,7 @@ For more information about collections refer to the <em class="xref std std-ref"
 
 </div>
 <div class="section" id="multipartuploadpart">
-<h2><a class="toc-backref" href="#id145">MultipartUploadPart</a><a class="headerlink" href="#multipartuploadpart" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id147">MultipartUploadPart</a><a class="headerlink" href="#multipartuploadpart" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.MultipartUploadPart">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">MultipartUploadPart</tt><big>(</big><em>bucket_name</em>, <em>object_key</em>, <em>multipart_upload_id</em>, <em>part_number</em><big>)</big><a class="headerlink" href="#S3.MultipartUploadPart" title="Permalink to this definition">¶</a></dt>
@@ -7545,7 +7724,7 @@ For more information about sub-resources refer to the <em class="xref std std-re
 
 </div>
 <div class="section" id="object">
-<h2><a class="toc-backref" href="#id146">Object</a><a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id148">Object</a><a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.Object">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">Object</tt><big>(</big><em>bucket_name</em>, <em>key</em><big>)</big><a class="headerlink" href="#S3.Object" title="Permalink to this definition">¶</a></dt>
@@ -8725,7 +8904,7 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
 
 </div>
 <div class="section" id="bucketprotection">
-<h2><a class="toc-backref" href="#id147">BucketProtection</a><a class="headerlink" href="#bucketprotection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id149">BucketProtection</a><a class="headerlink" href="#bucketprotection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketProtection">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">BucketProtection</tt><big>(</big><em>bucket_name</em><big>)</big><a class="headerlink" href="#S3.BucketProtection" title="Permalink to this definition">¶</a></dt>
@@ -8912,7 +9091,7 @@ resource</dd>
 
 </div>
 <div class="section" id="objectprotection">
-<h2><a class="toc-backref" href="#id148">ObjectProtection</a><a class="headerlink" href="#objectprotection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id150">ObjectProtection</a><a class="headerlink" href="#objectprotection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectProtection">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ObjectProtection</tt><big>(</big><em>bucket_name</em>, <em>object_key</em><big>)</big><a class="headerlink" href="#S3.ObjectProtection" title="Permalink to this definition">¶</a></dt>
@@ -9162,7 +9341,7 @@ resource</dd>
 
 </div>
 <div class="section" id="objectacl">
-<h2><a class="toc-backref" href="#id149">ObjectAcl</a><a class="headerlink" href="#objectacl" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id151">ObjectAcl</a><a class="headerlink" href="#objectacl" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectAcl">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ObjectAcl</tt><big>(</big><em>bucket_name</em>, <em>object_key</em><big>)</big><a class="headerlink" href="#S3.ObjectAcl" title="Permalink to this definition">¶</a></dt>
@@ -9414,7 +9593,7 @@ For more information about sub-resources refer to the <em class="xref std std-re
 
 </div>
 <div class="section" id="objectsummary">
-<h2><a class="toc-backref" href="#id150">ObjectSummary</a><a class="headerlink" href="#objectsummary" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id152">ObjectSummary</a><a class="headerlink" href="#objectsummary" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectSummary">
 <em class="property">class </em><tt class="descclassname">S3.</tt><tt class="descname">ObjectSummary</tt><big>(</big><em>bucket_name</em>, <em>key</em><big>)</big><a class="headerlink" href="#S3.ObjectSummary" title="Permalink to this definition">¶</a></dt>
@@ -10225,7 +10404,7 @@ For more information about waiters refer to the <em class="xref std std-ref">Res
         <li class="right" >
           <a href="index.html" title="Available Services"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.5.1 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.5.2 documentation</a> &raquo;</li>
           <li><a href="index.html" >Available Services</a> &raquo;</li> 
       </ul>
     </div>
