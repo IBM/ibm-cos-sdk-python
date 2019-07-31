@@ -20,7 +20,6 @@ Documentation
 
 For release notes, see the `CHANGELOG <CHANGELOG.rst>`__.
 
--  `Example code <#example-code>`__
 -  `Building from source <#building-from-source>`__
 -  `Getting help <#getting-help>`__
 

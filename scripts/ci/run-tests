@@ -17,5 +17,5 @@ if not args:
     args = ['unit/', 'functional/']
 
 check_call(['nosetests', '--with-coverage', '--cover-erase',
-            '--cover-package', 'boto3', '--with-xunit', '--cover-xml',
+            '--cover-package', 'ibm_boto3', '--with-xunit', '--cover-xml',
             '-v'] + args)

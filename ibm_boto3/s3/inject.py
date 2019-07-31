@@ -335,7 +335,7 @@ def copy(self, CopySource, Bucket, Key, ExtraArgs=None, Callback=None,
     :param CopySource: The name of the source bucket, key name of the
         source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``. 
+        ``{'Bucket': 'bucket', 'Key': 'key'}``.
 
     :type Bucket: str
     :param Bucket: The name of the bucket to copy to
@@ -400,7 +400,7 @@ def bucket_copy(self, CopySource, Key, ExtraArgs=None, Callback=None,
     :param CopySource: The name of the source bucket, key name of the
         source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``. 
+        ``{'Bucket': 'bucket', 'Key': 'key'}``.
 
     :type Key: str
     :param Key: The name of the key to copy to
@@ -452,7 +452,7 @@ def object_copy(self, CopySource, ExtraArgs=None, Callback=None,
     :param CopySource: The name of the source bucket, key name of the
         source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``. 
+        ``{'Bucket': 'bucket', 'Key': 'key'}``.
 
     :type ExtraArgs: dict
     :param ExtraArgs: Extra arguments that may be passed to the
