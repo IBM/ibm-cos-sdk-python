@@ -167,6 +167,9 @@ Client
   *   :py:meth:`~S3.Client.list_buckets`
 
   
+  *   :py:meth:`~S3.Client.list_buckets_extended`
+
+  
   *   :py:meth:`~S3.Client.list_legal_holds`
 
   
@@ -486,7 +489,7 @@ Client
     :param CopySource: The name of the source bucket, key name of the
         source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``. 
+        ``{'Bucket': 'bucket', 'Key': 'key'}``.
     
     :type Bucket: str
     :param Bucket: The name of the bucket to copy to
@@ -3699,7 +3702,8 @@ Client
             'Buckets': [
                 {
                     'Name': 'string',
-                    'CreationDate': datetime(2015, 1, 1)
+                    'CreationDate': datetime(2015, 1, 1),
+                    'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
                 },
             ],
             'Owner': {
@@ -3724,6 +3728,105 @@ Client
             
 
             - **CreationDate** *(datetime) --* Date the bucket was created.
+            
+
+            - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+        
+      
+        
+
+        - **Owner** *(dict) --* 
+          
+
+          - **DisplayName** *(string) --* 
+          
+
+          - **ID** *(string) --* 
+      
+    
+
+  .. py:method:: list_buckets_extended(**kwargs)
+
+    Returns a list of all buckets owned by the authenticated sender of the request, along with the LocationConstraint describing the region that the bucket resides in and the bucket's storage tier.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.list_buckets_extended(
+          IBMServiceInstanceId='string',
+          Marker='string',
+          MaxKeys=123,
+          Prefix='string'
+      )
+    :type IBMServiceInstanceId: string
+    :param IBMServiceInstanceId: The owning storage account. All buckets owned by this storage account are returned.
+
+    
+    :type Marker: string
+    :param Marker: Specifies the key to start with when listing objects in a bucket.
+
+    
+    :type MaxKeys: integer
+    :param MaxKeys: Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+
+    
+    :type Prefix: string
+    :param Prefix: Limits the response to keys that begin with the specified prefix.
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'IsTruncated': True|False,
+            'NextMarker': 'string',
+            'Buckets': [
+                {
+                    'Name': 'string',
+                    'CreationDate': datetime(2015, 1, 1),
+                    'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
+                },
+            ],
+            'Owner': {
+                'DisplayName': 'string',
+                'ID': 'string'
+            }
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **IsTruncated** *(boolean) --* 
+        
+
+        - **NextMarker** *(string) --* 
+        
+
+        - **Buckets** *(list) --* 
+          
+
+          - *(dict) --* 
+            
+
+            - **Name** *(string) --* The name of the bucket.
+            
+
+            - **CreationDate** *(datetime) --* Date the bucket was created.
+            
+
+            - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
         
       
         
@@ -5988,6 +6091,9 @@ Paginators
 
 The available paginators are:
 
+* :py:class:`S3.Paginator.ListBucketsExtended`
+
+
 * :py:class:`S3.Paginator.ListMultipartUploads`
 
 
@@ -6000,6 +6106,149 @@ The available paginators are:
 * :py:class:`S3.Paginator.ListParts`
 
 
+
+.. py:class:: S3.Paginator.ListBucketsExtended
+
+  ::
+
+    
+    paginator = client.get_paginator('list_buckets_extended')
+
+  
+  
+
+  .. py:method:: paginate(**kwargs)
+
+    Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_buckets_extended`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response_iterator = paginator.paginate(
+          IBMServiceInstanceId='string',
+          Prefix='string',
+          PaginationConfig={
+              'MaxItems': 123,
+              'PageSize': 123,
+              'StartingToken': 'string'
+          }
+      )
+    :type IBMServiceInstanceId: string
+    :param IBMServiceInstanceId: The owning storage account. All buckets owned by this storage account are returned.
+
+    
+    :type Prefix: string
+    :param Prefix: Limits the response to keys that begin with the specified prefix.
+
+    
+    :type PaginationConfig: dict
+    :param PaginationConfig: 
+
+      A dictionary that provides parameters to control pagination.
+
+      
+
+    
+      - **MaxItems** *(integer) --* 
+
+        The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+
+        
+
+      
+      - **PageSize** *(integer) --* 
+
+        The size of each page.
+
+        
+
+        
+
+        
+
+      
+      - **StartingToken** *(string) --* 
+
+        A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+
+        
+
+      
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'IsTruncated': True|False,
+            'NextMarker': 'string',
+            'Buckets': [
+                {
+                    'Name': 'string',
+                    'CreationDate': datetime(2015, 1, 1),
+                    'LocationConstraint': 'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
+                },
+            ],
+            'Owner': {
+                'DisplayName': 'string',
+                'ID': 'string'
+            },
+            'NextToken': 'string'
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **IsTruncated** *(boolean) --* 
+        
+
+        - **NextMarker** *(string) --* 
+        
+
+        - **Buckets** *(list) --* 
+          
+
+          - *(dict) --* 
+            
+
+            - **Name** *(string) --* The name of the bucket.
+            
+
+            - **CreationDate** *(datetime) --* Date the bucket was created.
+            
+
+            - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+        
+      
+        
+
+        - **Owner** *(dict) --* 
+          
+
+          - **DisplayName** *(string) --* 
+          
+
+          - **ID** *(string) --* 
+      
+        
+
+        - **NextToken** *(string) --* 
+
+          A token to resume pagination.
+
+          
+    
 
 .. py:class:: S3.Paginator.ListMultipartUploads
 
@@ -7656,6 +7905,9 @@ Bucket
   *   :py:attr:`creation_date`
 
   
+  *   :py:attr:`location_constraint`
+
+  
   These are the resource's available actions:
   
   *   :py:meth:`copy()`
@@ -7760,6 +8012,12 @@ Bucket
     
 
     - *(datetime) --* Date the bucket was created.
+
+  .. py:attribute:: location_constraint
+
+    
+
+    - *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
   .. rst-class:: admonition-title
   
   Actions
@@ -7791,7 +8049,7 @@ Bucket
     :param CopySource: The name of the source bucket, key name of the
         source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``. 
+        ``{'Bucket': 'bucket', 'Key': 'key'}``.
     
     :type Key: str
     :param Key: The name of the key to copy to
@@ -10916,7 +11174,7 @@ Object
     :param CopySource: The name of the source bucket, key name of the
         source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``. 
+        ``{'Bucket': 'bucket', 'Key': 'key'}``.
     
     :type ExtraArgs: dict
     :param ExtraArgs: Extra arguments that may be passed to the
