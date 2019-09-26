@@ -33,7 +33,7 @@ If, when your editor is open, you decide don't don't want to add a changelog
 entry, save an empty file and no entry will be generated.
 
 You can then use the ``scripts/gen-changelog`` to generate the
-CHANGELOG.rst file.
+CHANGELOG.md file.
 
 """
 import os

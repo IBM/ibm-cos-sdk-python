@@ -18,7 +18,7 @@ Documentation
 -  `REST API reference
    documentation <https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/about-api.html>`__
 
-For release notes, see the `CHANGELOG <CHANGELOG.rst>`__.
+For release notes, see the `CHANGELOG <CHANGELOG.md>`__.
 
 -  `Building from source <#building-from-source>`__
 -  `Getting help <#getting-help>`__
