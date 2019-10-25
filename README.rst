@@ -8,6 +8,11 @@ It is a fork of the `boto3 library <https://github.com/boto/boto3>`__
 and can stand as a drop-in replacement if the application needs to connect to object storage using
 an S3-like API and does not make use of other AWS services.
 
+Notice
+------
+
+IBM is officially deprecating support of Python versions 2.7 & 3.4.   All clients need to upgrade to version 3.5 or greater by January 31, 2020.
+
 Documentation
 -------------
 
@@ -26,15 +31,16 @@ For release notes, see the `CHANGELOG <CHANGELOG.md>`__.
 Quick start
 -----------
 
-You'll need: \* An instance of COS. \* An API key from `IBM Cloud
-Identity and Access
-Management <https://cloud.ibm.com/docs/iam/users_roles.html>`__ with at
-least ``Writer`` permissions. \* The ID of the instance of COS that you
-are working with. \* Token acquisition endpoint \* Service endpoint
+You'll need: 
+
+-  An instance of COS.
+-  An API key from `IBM Cloud Identity and Access Management <https://cloud.ibm.com/docs/iam/users_roles.html>`__ with at least ``Writer`` permissions. 
+-  The ID of the instance of COS that you are working with. 
+-  Token acquisition endpoint.
+-  Service endpoint.
 
 These values can be found in the IBM Cloud Console by `generating a
-'service
-credential' <https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html>`__.
+'service credential' <https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html>`__.
 
 Using Python
 ------------

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+# 2.5.5
+## Content
+### Defect Fixes
+* COSSDK-61849: https://github.com/IBM/ibm-cos-sdk-python/issues/28
+* IBM Python SDK aligned with AWS Python SDK - Boto3(v1.9.253), Botocore(v1.12.253) and S3transfer(v0.2.1)
+
 # 2.5.4
 ## Content
 ### Defect fixes
