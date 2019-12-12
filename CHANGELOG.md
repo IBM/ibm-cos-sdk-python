@@ -1,5 +1,13 @@
 # CHANGELOG
 
+# 2.6.0
+## Content
+### Features
+* Support for On-Premise IBM Cloud Object Storage (3.14.8+)
+### Defect Fixes
+* IBM Python SDK aligned with AWS Python SDK - Boto3(v1.10.36), Botocore(v1.13.36) and S3transfer(v0.2.1)
+* Update psutil to use more recent package version (psutil>=5.6.6,<5.6.8)
+
 # 2.5.5
 ## Content
 ### Defect Fixes

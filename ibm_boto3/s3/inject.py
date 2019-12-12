@@ -333,9 +333,10 @@ def copy(self, CopySource, Bucket, Key, ExtraArgs=None, Callback=None,
 
     :type CopySource: dict
     :param CopySource: The name of the source bucket, key name of the
-        source object. The
+        source object, and optional version ID of the source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``.
+        ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+        that the ``VersionId`` key is optional and may be omitted.
 
     :type Bucket: str
     :param Bucket: The name of the bucket to copy to
@@ -398,9 +399,10 @@ def bucket_copy(self, CopySource, Key, ExtraArgs=None, Callback=None,
 
     :type CopySource: dict
     :param CopySource: The name of the source bucket, key name of the
-        source object. The
+        source object, and optional version ID of the source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``.
+        ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+        that the ``VersionId`` key is optional and may be omitted.
 
     :type Key: str
     :param Key: The name of the key to copy to
@@ -450,9 +452,10 @@ def object_copy(self, CopySource, ExtraArgs=None, Callback=None,
 
     :type CopySource: dict
     :param CopySource: The name of the source bucket, key name of the
-        source object. The
+        source object, and optional version ID of the source object. The
         dictionary format is:
-        ``{'Bucket': 'bucket', 'Key': 'key'}``.
+        ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+        that the ``VersionId`` key is optional and may be omitted.
 
     :type ExtraArgs: dict
     :param ExtraArgs: Extra arguments that may be passed to the
