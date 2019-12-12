@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Resources Reference &mdash; ibm-cos-sdk 2.5.5 documentation</title>
+    <title>Resources Reference &mdash; ibm-cos-sdk 2.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.5.5',
+        VERSION:     '2.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.5.5 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.6.0 documentation" href="../../index.html" />
     <link rel="up" title="Core References" href="index.html" />
     <link rel="next" title="Session Reference" href="session.html" />
     <link rel="prev" title="Collections Reference" href="collections.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="collections.html" title="Collections Reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.5.5 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.6.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Core References</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.5.5 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.6.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -567,12 +567,12 @@ lets you go from a JMESPath-like string to a possibly deeply nested
 object. The <tt class="docutils literal"><span class="pre">params</span></tt> are mutated in-place, so subsequent calls
 can modify the same element by its index.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">build_param_structure</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="s1">&#39;test[0]&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="go">{&#39;test&#39;: [1]}</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">build_param_structure</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="s1">&#39;foo.bar[0].baz&#39;</span><span class="p">,</span> <span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="go">{&#39;test&#39;: [1], &#39;foo&#39;: {&#39;bar&#39;: [{&#39;baz&#39;: &#39;hello, world&#39;}]}}</span>
 </pre></div>
 </div>
@@ -873,7 +873,7 @@ from when the instance was hydrated. For example:</p>
 <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">operation</span><span class="p">(</span><span class="n">Param</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
 
 <span class="c1"># Print the resource instance&#39;s service short name</span>
-<span class="k">print</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>See <a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta" title="ibm_boto3.resources.base.ResourceMeta"><tt class="xref py py-class docutils literal"><span class="pre">ResourceMeta</span></tt></a> for more information.</p>
@@ -953,7 +953,7 @@ definition.</li>
         <li class="right" >
           <a href="collections.html" title="Collections Reference"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.5.5 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.6.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Core References</a> &raquo;</li> 
       </ul>
     </div>

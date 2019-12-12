@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.model &mdash; ibm-cos-sdk 2.5.5 documentation</title>
+    <title>ibm_boto3.resources.model &mdash; ibm-cos-sdk 2.6.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.5.5',
+        VERSION:     '2.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.5.5 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.6.0 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.5.5 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.6.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.5.5 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.6.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -155,7 +155,7 @@
 <span class="sd">    :type name: string</span>
 <span class="sd">    :param name: The name of the identifier</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1">#: (``string``) The name of the identifier</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">member_name</span> <span class="o">=</span> <span class="n">member_name</span>
@@ -178,11 +178,11 @@
         <span class="c1">#: (``string``) The name of the action</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="c1">#: (:py:class:`Request`) This action&#39;s request or ``None``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="s1">&#39;request&#39;</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">,</span> <span class="p">{}))</span>
         <span class="c1">#: (:py:class:`ResponseResource`) This action&#39;s resource or ``None``</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="s1">&#39;resource&#39;</span> <span class="ow">in</span> <span class="n">definition</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="n">ResponseResource</span><span class="p">(</span><span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resource&#39;</span><span class="p">,</span> <span class="p">{}),</span>
                                              <span class="n">resource_defs</span><span class="p">)</span>
@@ -230,7 +230,7 @@
 <span class="sd">    :type source: string</span>
 <span class="sd">    :param source: The source name, e.g. ``Url``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1">#: (``string``) The destination parameter name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
@@ -375,7 +375,7 @@
         <span class="c1">#: (``string``) The service shape name for this resource or ``None``</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ResourceModel.load_rename_map"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">[docs]</a>    <span class="k">def</span> <span class="nf">load_rename_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourceModel.load_rename_map"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">[docs]</a>    <span class="k">def</span> <span class="nf">load_rename_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a name translation map given a shape. This will set</span>
 <span class="sd">        up renamed values for any collisions, e.g. if the shape,</span>
@@ -428,15 +428,15 @@
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">ref</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_has_definition</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="c1"># Subresources require no data members, just typically</span>
             <span class="c1"># identifiers and user input.</span>
-            <span class="n">data_required</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">data_required</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">ref</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">][</span><span class="s1">&#39;identifiers&#39;</span><span class="p">]:</span>
                 <span class="k">if</span> <span class="n">identifier</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
-                    <span class="n">data_required</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="n">data_required</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="k">break</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">data_required</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;subresource&#39;</span><span class="p">,</span>
-                                              <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                                              <span class="n">snake_case</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;reference&#39;</span><span class="p">)</span>
 
@@ -447,12 +447,12 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">Waiter</span><span class="o">.</span><span class="n">PREFIX</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span>
                                           <span class="s1">&#39;waiter&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">shape</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">)</span>
 </div>
     <span class="k">def</span> <span class="nf">_load_name_with_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span>
-                                 <span class="n">snake_case</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+                                 <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a name with a given category, possibly renaming it</span>
 <span class="sd">        if that name is already in use. The name will be stored</span>
@@ -479,12 +479,12 @@
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
                 <span class="c1"># This isn&#39;t good, let&#39;s raise instead of trying to keep</span>
                 <span class="c1"># renaming this value.</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Problem renaming {0} {1} to {2}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Problem renaming </span><span class="si">{0}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1"> to </span><span class="si">{2}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
 
         <span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a possibly renamed value given a category and name. This</span>
 <span class="sd">        uses the rename map set up in ``load_rename_map``, so that</span>
@@ -529,7 +529,7 @@
                 <span class="c1"># Skip identifiers, these are set through other means</span>
                 <span class="k">continue</span>
             <span class="n">snake_cased</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">snake_cased</span><span class="p">,</span>
-                                         <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                                         <span class="n">snake_case</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">attributes</span><span class="p">[</span><span class="n">snake_cased</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">attributes</span>
@@ -545,7 +545,7 @@
 
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;identifiers&#39;</span><span class="p">,</span> <span class="p">[]):</span>
             <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;identifier&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-            <span class="n">member_name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;memberName&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="n">member_name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;memberName&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">member_name</span><span class="p">:</span>
                 <span class="n">member_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="n">member_name</span><span class="p">)</span>
             <span class="n">identifiers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Identifier</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="p">))</span>
@@ -561,7 +561,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">action</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">action</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">action</span>
@@ -618,12 +618,12 @@
                 <span class="c1"># resource or to have defined multiple names that</span>
                 <span class="c1"># point to the same resource type, so we need to</span>
                 <span class="c1"># take that into account.</span>
-                <span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
                 <span class="n">has_items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
                 <span class="k">for</span> <span class="n">has_name</span><span class="p">,</span> <span class="n">has_def</span> <span class="ow">in</span> <span class="n">has_items</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">has_def</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resource&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
                         <span class="n">definition</span><span class="p">[</span><span class="n">has_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">has_def</span>
-                        <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
 
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
                     <span class="c1"># Create a relationship definition and attach it</span>
@@ -672,15 +672,15 @@
 
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_has_definition</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">subresources</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;subresource&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;subresource&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="s1">&#39;reference&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
             <span class="n">action</span> <span class="o">=</span> <span class="n">Action</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span><span class="p">)</span>
 
-            <span class="n">data_required</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="n">data_required</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">identifiers</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">identifier</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
-                    <span class="n">data_required</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="n">data_required</span> <span class="o">=</span> <span class="kc">True</span>
                     <span class="k">break</span>
 
             <span class="k">if</span> <span class="n">subresources</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data_required</span><span class="p">:</span>
@@ -697,7 +697,7 @@
 
 <span class="sd">        :type: list(:py:class:`ResponseResource`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_resources</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_resources</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.references"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.references">[docs]</a>    <span class="k">def</span> <span class="nf">references</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -706,7 +706,7 @@
 
 <span class="sd">        :type: list(:py:class:`ResponseResource`)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_resources</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_resources</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.collections"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -753,7 +753,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.5.5 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.6.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
