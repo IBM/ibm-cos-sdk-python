@@ -10,8 +10,9 @@ AWS services.
 
 ## Notice
 
-IBM is officially deprecating support of Python versions 2.7 & 3.4. All
-clients need to upgrade to version 3.5 or greater by January 31, 2020.
+IBM deprecated Python 2.7 and 3.4 support on January 31, 2020.
+IBM will deprecate support for Python 3.5 on September 30, 2020.
+All clients need to upgrade to version 3.6 or greater.
 
 ## Documentation
 
@@ -21,8 +22,8 @@ clients need to upgrade to version 3.5 or greater by January 31, 2020.
 
 For release notes, see the [CHANGELOG](CHANGELOG.md).
 
-* [Building from source](#building-from-source)
-* [Getting help](#getting-help)
+* [Building from Source](#building-from-source)
+* [Getting Help](#getting-help)
 
 ## Quick start
 
@@ -92,7 +93,7 @@ documentation](https://cloud.ibm.com/docs/services/cloud-object-storage/librarie
 Note: Immutable Object Storage does not support Aspera transfers via the
 SDK to upload objects or directories at this stage.
 
-## Building from source
+## Building from Source
 
 Assuming that you have Python and `virtualenv` installed, set up your
 environment and install the required dependencies like this instead of
