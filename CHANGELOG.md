@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.6.3
+
+### Content
+
+#### Defect Fixes
+
+* COSSDK-71218: <https://github.com/IBM/ibm-cos-sdk-python-s3transfer/issues/5>
+* Update API fields based on Botocore(v1.15.26)
+* Notification of pending Python 3.5 deprecation
+
 ## 2.6.2
 
 ### Content
