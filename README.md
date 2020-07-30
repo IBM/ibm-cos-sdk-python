@@ -93,7 +93,11 @@ documentation](https://cloud.ibm.com/docs/services/cloud-object-storage/librarie
 Note: Immutable Object Storage does not support Aspera transfers via the
 SDK to upload objects or directories at this stage.
 
-## Building from Source
+## Accelerated Archive
+
+Users can set an archive rule that would allow data restore from an archive in 2 hours or 12 hours.
+
+## Building from source
 
 Assuming that you have Python and `virtualenv` installed, set up your
 environment and install the required dependencies like this instead of

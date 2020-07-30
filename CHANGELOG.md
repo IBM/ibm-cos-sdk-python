@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.7.0
+
+### Content
+
+#### Features
+
+* Accelerated Archive
+
 ## 2.6.3
 
 ### Content
