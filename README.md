@@ -10,9 +10,8 @@ AWS services.
 
 ## Notice
 
-IBM deprecated Python 2.7 and 3.4 support on January 31, 2020.
-IBM will deprecate support for Python 3.5 on September 30, 2020.
-All clients need to upgrade to version 3.6 or greater.
+IBM has added a [Language Support Policy](#language-support-policy). Language
+versions will be deprecated on the published schedule without additional notice.
 
 ## Documentation
 
@@ -123,6 +122,10 @@ but for help please use one of the following resources:
     and `object-storage`.
 * Open a support ticket with [IBM Cloud Support](https://cloud.ibm.com/unifiedsupport/supportcenter/)
 * If it turns out that you may have found a bug, please [open an issue](https://github.com/ibm/ibm-cos-sdk-python/issues/new).
+
+## Language Support Policy
+
+IBM supports [current public releases](https://devguide.python.org/#status-of-python-branches). IBM will deprecate language versions 90 days after a version reaches end-of-life. All clients will need to upgrade to a supported version before the end of the grace period.
 
 ## License
 
