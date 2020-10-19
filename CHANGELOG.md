@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.8.0
+
+### Content
+
+#### Features
+
+* Static Website
+
+#### Defect Fixes
+
+* Add language support policy
+
 ## 2.7.0
 
 ### Content
