@@ -478,6 +478,49 @@
         }
       }
     },
+    "BucketWebsite": {
+      "identifiers": [
+        { "name": "BucketName" }
+      ],
+      "shape": "GetBucketWebsiteOutput",
+      "load": {
+        "request": {
+          "operation": "GetBucketWebsite",
+          "params": [
+            { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+          ]
+        },
+        "path": "@"
+      },
+      "actions": {
+        "Delete": {
+          "request": {
+            "operation": "DeleteBucketWebsite",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+            ]
+          }
+        },
+        "Put": {
+          "request": {
+            "operation": "PutBucketWebsite",
+            "params": [
+              { "target": "Bucket", "source": "identifier", "name": "BucketName" }
+            ]
+          }
+        }
+      },
+      "has": {
+        "Bucket": {
+          "resource": {
+            "type": "Bucket",
+            "identifiers": [
+              { "target": "Name", "source": "identifier", "name": "BucketName" }
+            ]
+          }
+        }
+      }
+    },
     "MultipartUpload": {
       "identifiers": [
         { "name": "BucketName" },
