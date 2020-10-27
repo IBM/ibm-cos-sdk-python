@@ -143,6 +143,9 @@ Client
   *   :py:meth:`~S3.Client.get_bucket_versioning`
 
   
+  *   :py:meth:`~S3.Client.get_bucket_website`
+
+  
   *   :py:meth:`~S3.Client.get_object`
 
   
@@ -228,6 +231,9 @@ Client
 
   
   *   :py:meth:`~S3.Client.put_bucket_versioning`
+
+  
+  *   :py:meth:`~S3.Client.put_bucket_website`
 
   
   *   :py:meth:`~S3.Client.put_object`
@@ -6233,6 +6239,203 @@ Client
           Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 
           
+    
+
+  .. py:method:: get_bucket_website(**kwargs)
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketWebsite>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.get_bucket_website(
+          Bucket='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name for which to get the website configuration.
+
+      
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'RedirectAllRequestsTo': {
+                'HostName': 'string',
+                'Protocol': 'http'|'https'
+            },
+            'IndexDocument': {
+                'Suffix': 'string'
+            },
+            'ErrorDocument': {
+                'Key': 'string'
+            },
+            'RoutingRules': [
+                {
+                    'Condition': {
+                        'HttpErrorCodeReturnedEquals': 'string',
+                        'KeyPrefixEquals': 'string'
+                    },
+                    'Redirect': {
+                        'HostName': 'string',
+                        'HttpRedirectCode': 'string',
+                        'Protocol': 'http'|'https',
+                        'ReplaceKeyPrefixWith': 'string',
+                        'ReplaceKeyWith': 'string'
+                    }
+                },
+            ]
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **RedirectAllRequestsTo** *(dict) --* 
+
+          Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+
+          
+          
+
+          - **HostName** *(string) --* 
+
+            Name of the host where requests are redirected.
+
+            
+          
+
+          - **Protocol** *(string) --* 
+
+            Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+            
+      
+        
+
+        - **IndexDocument** *(dict) --* 
+
+          The name of the index document for the website.
+
+          
+          
+
+          - **Suffix** *(string) --* 
+
+            A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+
+            
+      
+        
+
+        - **ErrorDocument** *(dict) --* 
+
+          The name of the error document for the website.
+
+          
+          
+
+          - **Key** *(string) --* 
+
+            The object key name to use when a 4XX class error occurs.
+
+            
+      
+        
+
+        - **RoutingRules** *(list) --* 
+
+          Rules that define when a redirect is applied and the redirect behavior.
+
+          
+          
+
+          - *(dict) --* 
+
+            Specifies the redirect behavior and when a redirect is applied.
+
+            
+            
+
+            - **Condition** *(dict) --* 
+
+              A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+
+              
+              
+
+              - **HttpErrorCodeReturnedEquals** *(string) --* 
+
+                The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+
+                
+              
+
+              - **KeyPrefixEquals** *(string) --* 
+
+                The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html`` , the key prefix will be ``ExamplePage.html`` . To redirect request for all pages with the prefix ``docs/`` , the key prefix will be ``/docs`` , which identifies all objects in the ``docs/`` folder. Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+
+                
+          
+            
+
+            - **Redirect** *(dict) --* 
+
+              Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+
+              
+              
+
+              - **HostName** *(string) --* 
+
+                The host name to use in the redirect request.
+
+                
+              
+
+              - **HttpRedirectCode** *(string) --* 
+
+                The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+
+                
+              
+
+              - **Protocol** *(string) --* 
+
+                Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+                
+              
+
+              - **ReplaceKeyPrefixWith** *(string) --* 
+
+                The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/`` , you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+
+                
+              
+
+              - **ReplaceKeyWith** *(string) --* 
+
+                The specific object key to use in the redirect request. For example, redirect request to ``error.html`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+
+                
+          
+        
+      
     
 
   .. py:method:: get_object(**kwargs)
@@ -12390,6 +12593,213 @@ Client
     
     :returns: None
 
+  .. py:method:: put_bucket_website(**kwargs)
+
+    
+
+    Sets the configuration of the website that is specified in the ``website`` subresource. To configure a bucket as a website, you can add this subresource on the bucket with website configuration information such as the file name of the index document and any redirect rules. For more information, see `Hosting Websites on Amazon S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`__ .
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.put_bucket_website(
+          Bucket='string',
+          WebsiteConfiguration={
+              'ErrorDocument': {
+                  'Key': 'string'
+              },
+              'IndexDocument': {
+                  'Suffix': 'string'
+              },
+              'RedirectAllRequestsTo': {
+                  'HostName': 'string',
+                  'Protocol': 'http'|'https'
+              },
+              'RoutingRules': [
+                  {
+                      'Condition': {
+                          'HttpErrorCodeReturnedEquals': 'string',
+                          'KeyPrefixEquals': 'string'
+                      },
+                      'Redirect': {
+                          'HostName': 'string',
+                          'HttpRedirectCode': 'string',
+                          'Protocol': 'http'|'https',
+                          'ReplaceKeyPrefixWith': 'string',
+                          'ReplaceKeyWith': 'string'
+                      }
+                  },
+              ]
+          }
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name.
+
+      
+
+    
+    :type WebsiteConfiguration: dict
+    :param WebsiteConfiguration: **[REQUIRED]** 
+
+      Container for the request.
+
+      
+
+    
+      - **ErrorDocument** *(dict) --* 
+
+        The name of the error document for the website.
+
+        
+
+      
+        - **Key** *(string) --* **[REQUIRED]** 
+
+          The object key name to use when a 4XX class error occurs.
+
+          
+
+        
+      
+      - **IndexDocument** *(dict) --* 
+
+        The name of the index document for the website.
+
+        
+
+      
+        - **Suffix** *(string) --* **[REQUIRED]** 
+
+          A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+
+          
+
+        
+      
+      - **RedirectAllRequestsTo** *(dict) --* 
+
+        The redirect behavior for every request to this bucket's website endpoint.
+
+         
+
+        .. warning::
+
+           
+
+          If you specify this property, you can't specify any other property.
+
+           
+
+        
+
+      
+        - **HostName** *(string) --* **[REQUIRED]** 
+
+          Name of the host where requests are redirected.
+
+          
+
+        
+        - **Protocol** *(string) --* 
+
+          Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+          
+
+        
+      
+      - **RoutingRules** *(list) --* 
+
+        Rules that define when a redirect is applied and the redirect behavior.
+
+        
+
+      
+        - *(dict) --* 
+
+          Specifies the redirect behavior and when a redirect is applied.
+
+          
+
+        
+          - **Condition** *(dict) --* 
+
+            A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+
+            
+
+          
+            - **HttpErrorCodeReturnedEquals** *(string) --* 
+
+              The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+
+              
+
+            
+            - **KeyPrefixEquals** *(string) --* 
+
+              The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html`` , the key prefix will be ``ExamplePage.html`` . To redirect request for all pages with the prefix ``docs/`` , the key prefix will be ``/docs`` , which identifies all objects in the ``docs/`` folder. Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+
+              
+
+            
+          
+          - **Redirect** *(dict) --* **[REQUIRED]** 
+
+            Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+
+            
+
+          
+            - **HostName** *(string) --* 
+
+              The host name to use in the redirect request.
+
+              
+
+            
+            - **HttpRedirectCode** *(string) --* 
+
+              The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+
+              
+
+            
+            - **Protocol** *(string) --* 
+
+              Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+              
+
+            
+            - **ReplaceKeyPrefixWith** *(string) --* 
+
+              The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/`` , you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+
+              
+
+            
+            - **ReplaceKeyWith** *(string) --* 
+
+              The specific object key to use in the redirect request. For example, redirect request to ``error.html`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+
+              
+
+            
+          
+        
+    
+    
+    
+    :returns: None
+
   .. py:method:: put_object(**kwargs)
 
     
@@ -16421,6 +16831,9 @@ Service Resource
   *   :py:meth:`BucketVersioning()`
 
   
+  *   :py:meth:`BucketWebsite()`
+
+  
   *   :py:meth:`MultipartUpload()`
 
   
@@ -16750,6 +17163,19 @@ Service Resource
     
     :rtype: :py:class:`S3.BucketVersioning`
     :returns: A BucketVersioning resource
+    
+
+  .. py:method:: BucketWebsite(bucket_name)
+
+    Creates a BucketWebsite resource.::
+
+      bucket_website = s3.BucketWebsite('bucket_name')
+
+    :type bucket_name: string
+    :param bucket_name: The BucketWebsite's bucket_name identifier. This **must** be set.
+    
+    :rtype: :py:class:`S3.BucketWebsite`
+    :returns: A BucketWebsite resource
     
 
   .. py:method:: MultipartUpload(bucket_name,object_key,id)
@@ -25239,6 +25665,531 @@ BucketVersioning
     Creates a Bucket resource.::
 
       bucket = bucket_versioning.Bucket()
+
+    
+    :rtype: :py:class:`S3.Bucket`
+    :returns: A Bucket resource
+    
+
+=============
+BucketWebsite
+=============
+
+
+
+.. py:class:: S3.BucketWebsite(bucket_name)
+
+  A resource representing an Amazon Simple Storage Service (S3) BucketWebsite::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+    bucket_website = s3.BucketWebsite('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketWebsite's bucket_name identifier. This **must** be set.
+  
+  These are the resource's available identifiers:
+  
+  *   :py:attr:`bucket_name`
+
+  
+  These are the resource's available attributes:
+  
+  *   :py:attr:`error_document`
+
+  
+  *   :py:attr:`index_document`
+
+  
+  *   :py:attr:`redirect_all_requests_to`
+
+  
+  *   :py:attr:`routing_rules`
+
+  
+  These are the resource's available actions:
+  
+  *   :py:meth:`delete()`
+
+  
+  *   :py:meth:`get_available_subresources()`
+
+  
+  *   :py:meth:`load()`
+
+  
+  *   :py:meth:`put()`
+
+  
+  *   :py:meth:`reload()`
+
+  
+  These are the resource's available sub-resources:
+  
+  *   :py:meth:`Bucket()`
+
+  
+  .. rst-class:: admonition-title
+  
+  Identifiers
+  
+  Identifiers are properties of a resource that are set upon instantation of the resource.
+  For more information about identifiers refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+  
+
+  .. py:attribute:: bucket_name
+
+    *(string)* The BucketWebsite's bucket_name identifier. This **must** be set.
+  .. rst-class:: admonition-title
+  
+  Attributes
+  
+  Attributes provide access to the properties of a resource. Attributes are lazy-loaded the first time one is accessed via the :py:meth:`load` method.
+  For more information about attributes refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+  
+
+  .. py:attribute:: error_document
+
+    
+
+    - *(dict) --* 
+
+      The name of the error document for the website.
+
+      
+      
+
+      - **Key** *(string) --* 
+
+        The object key name to use when a 4XX class error occurs.
+
+        
+  
+
+  .. py:attribute:: index_document
+
+    
+
+    - *(dict) --* 
+
+      The name of the index document for the website.
+
+      
+      
+
+      - **Suffix** *(string) --* 
+
+        A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+
+        
+  
+
+  .. py:attribute:: redirect_all_requests_to
+
+    
+
+    - *(dict) --* 
+
+      Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+
+      
+      
+
+      - **HostName** *(string) --* 
+
+        Name of the host where requests are redirected.
+
+        
+      
+
+      - **Protocol** *(string) --* 
+
+        Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+        
+  
+
+  .. py:attribute:: routing_rules
+
+    
+
+    - *(list) --* 
+
+      Rules that define when a redirect is applied and the redirect behavior.
+
+      
+      
+
+      - *(dict) --* 
+
+        Specifies the redirect behavior and when a redirect is applied.
+
+        
+        
+
+        - **Condition** *(dict) --* 
+
+          A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+
+          
+          
+
+          - **HttpErrorCodeReturnedEquals** *(string) --* 
+
+            The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+
+            
+          
+
+          - **KeyPrefixEquals** *(string) --* 
+
+            The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html`` , the key prefix will be ``ExamplePage.html`` . To redirect request for all pages with the prefix ``docs/`` , the key prefix will be ``/docs`` , which identifies all objects in the ``docs/`` folder. Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+
+            
+      
+        
+
+        - **Redirect** *(dict) --* 
+
+          Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+
+          
+          
+
+          - **HostName** *(string) --* 
+
+            The host name to use in the redirect request.
+
+            
+          
+
+          - **HttpRedirectCode** *(string) --* 
+
+            The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+
+            
+          
+
+          - **Protocol** *(string) --* 
+
+            Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+            
+          
+
+          - **ReplaceKeyPrefixWith** *(string) --* 
+
+            The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/`` , you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+
+            
+          
+
+          - **ReplaceKeyWith** *(string) --* 
+
+            The specific object key to use in the redirect request. For example, redirect request to ``error.html`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+
+            
+      
+    
+  
+  .. rst-class:: admonition-title
+  
+  Actions
+  
+  Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+  For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+  
+
+  .. py:method:: delete()
+
+    
+
+    This operation removes the website configuration for a bucket. Amazon S3 returns a ``200 OK`` response upon successfully deleting a website configuration on the specified bucket. You will get a ``200 OK`` response if the website configuration you are trying to delete does not exist on the bucket. Amazon S3 returns a ``404`` response if the bucket specified in the request does not exist.
+
+     
+
+    This DELETE operation requires the ``S3:DeleteBucketWebsite`` permission. By default, only the bucket owner can delete the website configuration attached to a bucket. However, bucket owners can grant other users permission to delete the website configuration by writing a bucket policy granting them the ``S3:DeleteBucketWebsite`` permission. 
+
+     
+
+    For more information about hosting websites, see `Hosting Websites on Amazon S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`__ . 
+
+     
+
+    The following operations are related to ``DeleteBucketWebsite`` :
+
+     
+
+     
+    *  GetBucketWebsite   
+     
+    *  PutBucketWebsite   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = bucket_website.delete()
+      
+    
+    :returns: None
+
+  .. py:method:: get_available_subresources()
+
+        
+    Returns a list of all the available sub-resources for this
+    Resource.
+    
+    :returns: A list containing the name of each sub-resource for this
+        resource
+    :rtype: list of str
+
+
+  .. py:method:: load()
+
+    Calls :py:meth:`S3.Client.get_bucket_website` to update the attributes of the BucketWebsite resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
+    **Request Syntax** 
+
+    ::
+
+      bucket_website.load()
+    :returns: None
+
+  .. py:method:: put(**kwargs)
+
+    
+
+    Sets the configuration of the website that is specified in the ``website`` subresource. To configure a bucket as a website, you can add this subresource on the bucket with website configuration information such as the file name of the index document and any redirect rules. For more information, see `Hosting Websites on Amazon S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`__ .
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = bucket_website.put(
+          WebsiteConfiguration={
+              'ErrorDocument': {
+                  'Key': 'string'
+              },
+              'IndexDocument': {
+                  'Suffix': 'string'
+              },
+              'RedirectAllRequestsTo': {
+                  'HostName': 'string',
+                  'Protocol': 'http'|'https'
+              },
+              'RoutingRules': [
+                  {
+                      'Condition': {
+                          'HttpErrorCodeReturnedEquals': 'string',
+                          'KeyPrefixEquals': 'string'
+                      },
+                      'Redirect': {
+                          'HostName': 'string',
+                          'HttpRedirectCode': 'string',
+                          'Protocol': 'http'|'https',
+                          'ReplaceKeyPrefixWith': 'string',
+                          'ReplaceKeyWith': 'string'
+                      }
+                  },
+              ]
+          }
+      )
+    :type WebsiteConfiguration: dict
+    :param WebsiteConfiguration: **[REQUIRED]** 
+
+      Container for the request.
+
+      
+
+    
+      - **ErrorDocument** *(dict) --* 
+
+        The name of the error document for the website.
+
+        
+
+      
+        - **Key** *(string) --* **[REQUIRED]** 
+
+          The object key name to use when a 4XX class error occurs.
+
+          
+
+        
+      
+      - **IndexDocument** *(dict) --* 
+
+        The name of the index document for the website.
+
+        
+
+      
+        - **Suffix** *(string) --* **[REQUIRED]** 
+
+          A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+
+          
+
+        
+      
+      - **RedirectAllRequestsTo** *(dict) --* 
+
+        The redirect behavior for every request to this bucket's website endpoint.
+
+         
+
+        .. warning::
+
+           
+
+          If you specify this property, you can't specify any other property.
+
+           
+
+        
+
+      
+        - **HostName** *(string) --* **[REQUIRED]** 
+
+          Name of the host where requests are redirected.
+
+          
+
+        
+        - **Protocol** *(string) --* 
+
+          Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+          
+
+        
+      
+      - **RoutingRules** *(list) --* 
+
+        Rules that define when a redirect is applied and the redirect behavior.
+
+        
+
+      
+        - *(dict) --* 
+
+          Specifies the redirect behavior and when a redirect is applied.
+
+          
+
+        
+          - **Condition** *(dict) --* 
+
+            A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+
+            
+
+          
+            - **HttpErrorCodeReturnedEquals** *(string) --* 
+
+              The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+
+              
+
+            
+            - **KeyPrefixEquals** *(string) --* 
+
+              The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html`` , the key prefix will be ``ExamplePage.html`` . To redirect request for all pages with the prefix ``docs/`` , the key prefix will be ``/docs`` , which identifies all objects in the ``docs/`` folder. Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+
+              
+
+            
+          
+          - **Redirect** *(dict) --* **[REQUIRED]** 
+
+            Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+
+            
+
+          
+            - **HostName** *(string) --* 
+
+              The host name to use in the redirect request.
+
+              
+
+            
+            - **HttpRedirectCode** *(string) --* 
+
+              The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+
+              
+
+            
+            - **Protocol** *(string) --* 
+
+              Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+              
+
+            
+            - **ReplaceKeyPrefixWith** *(string) --* 
+
+              The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/`` , you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+
+              
+
+            
+            - **ReplaceKeyWith** *(string) --* 
+
+              The specific object key to use in the redirect request. For example, redirect request to ``error.html`` . Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+
+              
+
+            
+          
+        
+    
+    
+    
+    :returns: None
+
+  .. py:method:: reload()
+
+    Calls :py:meth:`S3.Client.get_bucket_website` to update the attributes of the BucketWebsite resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_    
+
+
+    **Request Syntax** 
+
+    ::
+
+      bucket_website.reload()
+    :returns: None
+  .. rst-class:: admonition-title
+  
+  Sub-resources
+  
+  Sub-resources are methods that create a new instance of a child resource. This resource's identifiers get passed along to the child.
+  For more information about sub-resources refer to the :ref:`Resources Introduction Guide<subresources_intro>`.
+  
+
+  .. py:method:: Bucket()
+
+    Creates a Bucket resource.::
+
+      bucket = bucket_website.Bucket()
 
     
     :rtype: :py:class:`S3.Bucket`
