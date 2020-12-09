@@ -9,8 +9,8 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([a-z0-9.]+)['"]''')
 
 
 requires = [
-    'ibm-cos-sdk-core==2.8.0',
-    'ibm-cos-sdk-s3transfer==2.8.0',
+    'ibm-cos-sdk-core==2.9.0',
+    'ibm-cos-sdk-s3transfer==2.9.0',
     'jmespath>=0.7.1,<1.0.0'
 ]
 

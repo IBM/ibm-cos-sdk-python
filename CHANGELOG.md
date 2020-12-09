@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 2.9.0
+
+### Content
+
+#### Features
+
+* Object Tagging
+* Block Public Anonymous Access
+
+#### Defect Fixes
+
+* COSSDK-70228: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/10>
+* COSSDK-70228: <https://github.com/IBM/ibm-cos-sdk-python/issues/41>
+* COSSDK-77085: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/11>
+
 ## 2.8.0
 
 ### Content
