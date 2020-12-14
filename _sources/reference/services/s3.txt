@@ -86,7 +86,13 @@ Client
   *   :py:meth:`~S3.Client.delete_object`
 
   
+  *   :py:meth:`~S3.Client.delete_object_tagging`
+
+  
   *   :py:meth:`~S3.Client.delete_objects`
+
+  
+  *   :py:meth:`~S3.Client.delete_public_access_block`
 
   
   *   :py:meth:`~S3.Client.download_file`
@@ -152,10 +158,16 @@ Client
   *   :py:meth:`~S3.Client.get_object_acl`
 
   
+  *   :py:meth:`~S3.Client.get_object_tagging`
+
+  
   *   :py:meth:`~S3.Client.get_object_torrent`
 
   
   *   :py:meth:`~S3.Client.get_paginator`
+
+  
+  *   :py:meth:`~S3.Client.get_public_access_block`
 
   
   *   :py:meth:`~S3.Client.get_waiter`
@@ -240,6 +252,12 @@ Client
 
   
   *   :py:meth:`~S3.Client.put_object_acl`
+
+  
+  *   :py:meth:`~S3.Client.put_object_tagging`
+
+  
+  *   :py:meth:`~S3.Client.put_public_access_block`
 
   
   *   :py:meth:`~S3.Client.restore_object`
@@ -1055,6 +1073,7 @@ Client
               'string': 'string'
           },
           MetadataDirective='COPY'|'REPLACE',
+          TaggingDirective='COPY'|'REPLACE',
           RetentionDirective='COPY'|'REPLACE',
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
@@ -1067,7 +1086,8 @@ Client
           SSEKMSKeyId='string',
           CopySourceSSECustomerAlgorithm='string',
           CopySourceSSECustomerKey='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -1233,6 +1253,14 @@ Client
       
 
     
+    :type TaggingDirective: string
+    :param TaggingDirective: 
+
+      Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+
+      
+
+    
     :type RetentionDirective: string
     :param RetentionDirective: This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.
 
@@ -1335,6 +1363,14 @@ Client
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object destination object this value must be used in conjunction with the ``TaggingDirective`` . The tag-set must be encoded as URL Query parameters.
+
+      
 
     
     
@@ -1875,7 +1911,8 @@ Client
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -2053,6 +2090,14 @@ Client
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+
+      
 
     
     
@@ -2837,6 +2882,99 @@ Client
         
 
         - **RequestCharged** *(string) --* Not returned by COS.
+    
+
+  .. py:method:: delete_object_tagging(**kwargs)
+
+    
+
+    Removes the entire tag set from the specified object. For more information about managing object tags, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__ .
+
+     
+
+    To use this operation, you must have permission to perform the ``s3:DeleteObjectTagging`` action.
+
+     
+
+    To delete tags of a specific object version, add the ``versionId`` query parameter in the request. You will need permission for the ``s3:DeleteObjectVersionTagging`` action.
+
+     
+
+    The following operations are related to ``DeleteBucketMetricsConfiguration`` :
+
+     
+
+     
+    *  PutObjectTagging   
+     
+    *  GetObjectTagging   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObjectTagging>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.delete_object_tagging(
+          Bucket='string',
+          Key='string',
+          VersionId='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name containing the objects from which to remove the tags. 
+
+       
+
+      When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName* -*AccountId* .s3-accesspoint.*Region* .amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using Access Points <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+
+      
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+      Name of the tag.
+
+      
+
+    
+    :type VersionId: string
+    :param VersionId: 
+
+      The versionId of the object that the tag-set will be removed from.
+
+      
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'VersionId': 'string'
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **VersionId** *(string) --* 
+
+          The versionId of the object the tag-set was removed from.
+
+          
     
 
   .. py:method:: delete_objects(**kwargs)
@@ -4345,6 +4483,50 @@ Client
       
     
 
+  .. py:method:: delete_public_access_block(**kwargs)
+
+    
+
+    Removes the ``PublicAccessBlock`` configuration for an Amazon S3 bucket. To use this operation, you must have the ``s3:PutBucketPublicAccessBlock`` permission. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ .
+
+     
+
+    The following operations are related to ``DeleteBucketMetricsConfiguration`` :
+
+     
+
+     
+    * `Using Amazon S3 Block Public Access <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html>`__   
+     
+    *  GetPublicAccessBlock   
+     
+    *  PutPublicAccessBlock   
+     
+    *  GetBucketPolicyStatus   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeletePublicAccessBlock>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.delete_public_access_block(
+          Bucket='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The Amazon S3 bucket whose ``PublicAccessBlock`` configuration you want to delete. 
+
+      
+
+    
+    
+    :returns: None
+
   .. py:method:: download_file(Bucket, Key, Filename, ExtraArgs=None, Callback=None, Config=None)
 
         
@@ -4866,7 +5048,13 @@ Client
                         'Value': 'string'
                     },
                     'And': {
-                        'Prefix': 'string'
+                        'Prefix': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
                     }
                 },
                 'StorageClassAnalysis': {
@@ -4953,6 +5141,36 @@ Client
                 The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.
 
                 
+              
+
+              - **Tags** *(list) --* 
+
+                The list of tags to use when evaluating an AND predicate.
+
+                
+                
+
+                - *(dict) --* 
+
+                  A container of a key value name pair.
+
+                  
+                  
+
+                  - **Key** *(string) --* 
+
+                    Name of the tag.
+
+                    
+                  
+
+                  - **Value** *(string) --* 
+
+                    Value of the tag.
+
+                    
+              
+            
           
         
           
@@ -5208,7 +5426,33 @@ Client
 
   .. py:method:: get_bucket_inventory_configuration(**kwargs)
 
-    Returns an inventory configuration (identified by the inventory ID) from the bucket.
+    
+
+    Returns an inventory configuration (identified by the inventory configuration ID) from the bucket.
+
+     
+
+    To use this operation, you must have permissions to perform the ``s3:GetInventoryConfiguration`` action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ .
+
+     
+
+    For information about the Amazon S3 inventory feature, see `Amazon S3 Inventory <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html>`__ .
+
+     
+
+    The following operations are related to ``GetBucketInventoryConfiguration`` :
+
+     
+
+     
+    *  DeleteBucketInventoryConfiguration   
+     
+    *  ListBucketInventoryConfigurations   
+     
+    *  PutBucketInventoryConfiguration   
+     
+
+    
 
     See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketInventoryConfiguration>`_    
 
@@ -5473,7 +5717,11 @@ Client
                     },
                     'ID': 'string',
                     'Filter': {
-                        'Prefix': 'string'
+                        'Prefix': 'string',
+                        'Tag': {
+                            'Key': 'string',
+                            'Value': 'string'
+                        }
                     },
                     'Status': 'Enabled'|'Disabled',
                     'Transitions': [
@@ -5548,6 +5796,28 @@ Client
                 Prefix identifying one or more objects to which the rule applies.
 
                 
+              
+
+              - **Tag** *(dict) --* 
+
+                This tag must exist in the object's tag set in order for the rule to apply.
+
+                
+                
+
+                - **Key** *(string) --* 
+
+                  Name of the tag.
+
+                  
+                
+
+                - **Value** *(string) --* 
+
+                  Value of the tag.
+
+                  
+            
           
             
 
@@ -5666,7 +5936,35 @@ Client
 
   .. py:method:: get_bucket_metrics_configuration(**kwargs)
 
-    Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+    
+
+    Gets a metrics configuration (specified by the metrics configuration ID) from the bucket. Note that this doesn't include the daily storage metrics.
+
+     
+
+    To use this operation, you must have permissions to perform the ``s3:GetMetricsConfiguration`` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html>`__ .
+
+     
+
+    For information about CloudWatch request metrics for Amazon S3, see `Monitoring Metrics with Amazon CloudWatch <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html>`__ .
+
+     
+
+    The following operations are related to ``GetBucketMetricsConfiguration`` :
+
+     
+
+     
+    *  PutBucketMetricsConfiguration   
+     
+    *  DeleteBucketMetricsConfiguration   
+     
+    *  ListBucketMetricsConfigurations   
+     
+    * `Monitoring Metrics with Amazon CloudWatch <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html>`__   
+     
+
+    
 
     See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketMetricsConfiguration>`_    
 
@@ -5713,7 +6011,13 @@ Client
                         'Value': 'string'
                     },
                     'And': {
-                        'Prefix': 'string'
+                        'Prefix': 'string',
+                        'Tags': [
+                            {
+                                'Key': 'string',
+                                'Value': 'string'
+                            },
+                        ]
                     }
                 }
             }
@@ -5787,6 +6091,36 @@ Client
                 The prefix used when evaluating an AND predicate.
 
                 
+              
+
+              - **Tags** *(list) --* 
+
+                The list of tags used when evaluating an AND predicate.
+
+                
+                
+
+                - *(dict) --* 
+
+                  A container of a key value name pair.
+
+                  
+                  
+
+                  - **Key** *(string) --* 
+
+                    Name of the tag.
+
+                    
+                  
+
+                  - **Value** *(string) --* 
+
+                    Value of the tag.
+
+                    
+              
+            
           
         
       
@@ -5807,6 +6141,10 @@ Client
       )
     :type Bucket: string
     :param Bucket: **[REQUIRED]** 
+
+      The name of the Amazon S3 bucket whose policy status you want to retrieve.
+
+      
 
     
     
@@ -6819,6 +7157,7 @@ Client
             'RequestCharged': 'requester',
             'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
             'PartsCount': 123,
+            'TagCount': 123,
             'IbmRestoredCopyStorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
             'IbmTransition': 'string'
         }
@@ -7023,6 +7362,13 @@ Client
         - **PartsCount** *(integer) --* 
 
           The count of parts this object has.
+
+          
+        
+
+        - **TagCount** *(integer) --* 
+
+          The number of tags, if any, on the object.
 
           
         
@@ -7242,9 +7588,168 @@ Client
           
     
 
+  .. py:method:: get_object_tagging(**kwargs)
+
+    
+
+    Returns the tag-set of an object. You send the GET request against the tagging subresource associated with the object.
+
+     
+
+    To use this operation, you must have permission to perform the ``s3:GetObjectTagging`` action. By default, the GET operation returns information about current version of an object. For a versioned bucket, you can have multiple versions of an object in your bucket. To retrieve tags of any other version, use the versionId query parameter. You also need permission for the ``s3:GetObjectVersionTagging`` action.
+
+     
+
+    By default, the bucket owner has this permission and can grant this permission to others.
+
+     
+
+    For information about the Amazon S3 object tagging feature, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__ .
+
+     
+
+    The following operation is related to ``GetObjectTagging`` :
+
+     
+
+     
+    *  PutObjectTagging   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.get_object_tagging(
+          Bucket='string',
+          Key='string',
+          VersionId='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name containing the object for which to get the tagging information. 
+
+       
+
+      When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName* -*AccountId* .s3-accesspoint.*Region* .amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using Access Points <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+
+      
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+      Object key for which to get the tagging information.
+
+      
+
+    
+    :type VersionId: string
+    :param VersionId: 
+
+      The versionId of the object for which to get the tagging information.
+
+      
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'VersionId': 'string',
+            'TagSet': [
+                {
+                    'Key': 'string',
+                    'Value': 'string'
+                },
+            ]
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **VersionId** *(string) --* 
+
+          The versionId of the object for which you got the tagging information.
+
+          
+        
+
+        - **TagSet** *(list) --* 
+
+          Contains the tag set.
+
+          
+          
+
+          - *(dict) --* 
+
+            A container of a key value name pair.
+
+            
+            
+
+            - **Key** *(string) --* 
+
+              Name of the tag.
+
+              
+            
+
+            - **Value** *(string) --* 
+
+              Value of the tag.
+
+              
+        
+      
+    
+
   .. py:method:: get_object_torrent(**kwargs)
 
-    Return torrent files from a bucket.
+    
+
+    Return torrent files from a bucket. BitTorrent can save you bandwidth when you're distributing large files. For more information about BitTorrent, see `Amazon S3 Torrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html>`__ .
+
+     
+
+    .. note::
+
+       
+
+      You can get torrent only for objects that are less than 5 GB in size and that are not encrypted using server-side encryption with customer-provided encryption key.
+
+       
+
+     
+
+    To use GET, you must have READ access to the object.
+
+     
+
+    The following operation is related to ``GetObjectTorrent`` :
+
+     
+
+     
+    *  GetObject   
+     
+
+    
 
     See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTorrent>`_    
 
@@ -7331,6 +7836,123 @@ Client
     :rtype: L{ibm_botocore.paginate.Paginator}
     :return: A paginator object.
 
+
+  .. py:method:: get_public_access_block(**kwargs)
+
+    
+
+    Retrieves the ``PublicAccessBlock`` configuration for an Amazon S3 bucket. To use this operation, you must have the ``s3:GetBucketPublicAccessBlock`` permission. For more information about Amazon S3 permissions, see `Specifying Permissions in a Policy <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html>`__ .
+
+     
+
+    .. warning::
+
+       
+
+      When Amazon S3 evaluates the ``PublicAccessBlock`` configuration for a bucket or an object, it checks the ``PublicAccessBlock`` configuration for both the bucket (or the bucket that contains the object) and the bucket owner's account. If the ``PublicAccessBlock`` settings are different between the bucket and the account, Amazon S3 uses the most restrictive combination of the bucket-level and account-level settings.
+
+       
+
+     
+
+    For more information about when Amazon S3 considers a bucket or an object public, see `The Meaning of "Public" <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status>`__ .
+
+     
+
+    The following operations are related to ``GetPublicAccessBlock`` :
+
+     
+
+     
+    * `Using Amazon S3 Block Public Access <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html>`__   
+     
+    *  PutPublicAccessBlock   
+     
+    *  GetPublicAccessBlock   
+     
+    *  DeletePublicAccessBlock   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetPublicAccessBlock>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.get_public_access_block(
+          Bucket='string'
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The name of the Amazon S3 bucket whose ``PublicAccessBlock`` configuration you want to retrieve. 
+
+      
+
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'PublicAccessBlockConfiguration': {
+                'BlockPublicAcls': True|False,
+                'IgnorePublicAcls': True|False
+            }
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **PublicAccessBlockConfiguration** *(dict) --* 
+
+          The ``PublicAccessBlock`` configuration currently in effect for this Amazon S3 bucket.
+
+          
+          
+
+          - **BlockPublicAcls** *(boolean) --* 
+
+            Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
+
+             
+
+             
+            * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public. 
+             
+            * PUT Object calls fail if the request includes a public ACL. 
+             
+            * PUT Bucket calls fail if the request includes a public ACL. 
+             
+
+             
+
+            Enabling this setting doesn't affect existing policies or ACLs.
+
+            
+          
+
+          - **IgnorePublicAcls** *(boolean) --* 
+
+            Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+
+             
+
+            Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+
+            
+      
+    
 
   .. py:method:: get_waiter(waiter_name)
 
@@ -7996,7 +8618,13 @@ Client
                             'Value': 'string'
                         },
                         'And': {
-                            'Prefix': 'string'
+                            'Prefix': 'string',
+                            'Tags': [
+                                {
+                                    'Key': 'string',
+                                    'Value': 'string'
+                                },
+                            ]
                         }
                     },
                     'StorageClassAnalysis': {
@@ -8112,6 +8740,36 @@ Client
                   The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.
 
                   
+                
+
+                - **Tags** *(list) --* 
+
+                  The list of tags to use when evaluating an AND predicate.
+
+                  
+                  
+
+                  - *(dict) --* 
+
+                    A container of a key value name pair.
+
+                    
+                    
+
+                    - **Key** *(string) --* 
+
+                      Name of the tag.
+
+                      
+                    
+
+                    - **Value** *(string) --* 
+
+                      Value of the tag.
+
+                      
+                
+              
             
           
             
@@ -8508,7 +9166,13 @@ Client
                             'Value': 'string'
                         },
                         'And': {
-                            'Prefix': 'string'
+                            'Prefix': 'string',
+                            'Tags': [
+                                {
+                                    'Key': 'string',
+                                    'Value': 'string'
+                                },
+                            ]
                         }
                     }
                 },
@@ -8611,6 +9275,36 @@ Client
                   The prefix used when evaluating an AND predicate.
 
                   
+                
+
+                - **Tags** *(list) --* 
+
+                  The list of tags used when evaluating an AND predicate.
+
+                  
+                  
+
+                  - *(dict) --* 
+
+                    A container of a key value name pair.
+
+                    
+                    
+
+                    - **Key** *(string) --* 
+
+                      Name of the tag.
+
+                      
+                    
+
+                    - **Value** *(string) --* 
+
+                      Value of the tag.
+
+                      
+                
+              
             
           
         
@@ -8688,7 +9382,11 @@ Client
               
             
 
-            - **CreationDate** *(datetime) --* Date the bucket was created.
+            - **CreationDate** *(datetime) --* 
+
+              Date the bucket was created.
+
+              
             
 
             - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
@@ -8804,7 +9502,11 @@ Client
               
             
 
-            - **CreationDate** *(datetime) --* Date the bucket was created.
+            - **CreationDate** *(datetime) --* 
+
+              Date the bucket was created.
+
+              
             
 
             - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
@@ -11127,7 +11829,13 @@ Client
                       'Value': 'string'
                   },
                   'And': {
-                      'Prefix': 'string'
+                      'Prefix': 'string',
+                      'Tags': [
+                          {
+                              'Key': 'string',
+                              'Value': 'string'
+                          },
+                      ]
                   }
               },
               'StorageClassAnalysis': {
@@ -11226,6 +11934,36 @@ Client
             
 
           
+          - **Tags** *(list) --* 
+
+            The list of tags to use when evaluating an AND predicate.
+
+            
+
+          
+            - *(dict) --* 
+
+              A container of a key value name pair.
+
+              
+
+            
+              - **Key** *(string) --* **[REQUIRED]** 
+
+                Name of the tag.
+
+                
+
+              
+              - **Value** *(string) --* **[REQUIRED]** 
+
+                Value of the tag.
+
+                
+
+              
+            
+        
         
       
       - **StorageClassAnalysis** *(dict) --* **[REQUIRED]** 
@@ -11804,7 +12542,11 @@ Client
                       },
                       'ID': 'string',
                       'Filter': {
-                          'Prefix': 'string'
+                          'Prefix': 'string',
+                          'Tag': {
+                              'Key': 'string',
+                              'Value': 'string'
+                          }
                       },
                       'Status': 'Enabled'|'Disabled',
                       'Transitions': [
@@ -11890,6 +12632,28 @@ Client
 
               
 
+            
+            - **Tag** *(dict) --* 
+
+              This tag must exist in the object's tag set in order for the rule to apply.
+
+              
+
+            
+              - **Key** *(string) --* **[REQUIRED]** 
+
+                Name of the tag.
+
+                
+
+              
+              - **Value** *(string) --* **[REQUIRED]** 
+
+                Value of the tag.
+
+                
+
+              
             
           
           - **Status** *(string) --* **[REQUIRED]** 
@@ -12008,7 +12772,13 @@ Client
                       'Value': 'string'
                   },
                   'And': {
-                      'Prefix': 'string'
+                      'Prefix': 'string',
+                      'Tags': [
+                          {
+                              'Key': 'string',
+                              'Value': 'string'
+                          },
+                      ]
                   }
               }
           }
@@ -12094,6 +12864,36 @@ Client
             
 
           
+          - **Tags** *(list) --* 
+
+            The list of tags used when evaluating an AND predicate.
+
+            
+
+          
+            - *(dict) --* 
+
+              A container of a key value name pair.
+
+              
+
+            
+              - **Key** *(string) --* **[REQUIRED]** 
+
+                Name of the tag.
+
+                
+
+              
+              - **Value** *(string) --* **[REQUIRED]** 
+
+                Value of the tag.
+
+                
+
+              
+            
+        
         
       
     
@@ -13117,7 +13917,8 @@ Client
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -13355,6 +14156,14 @@ Client
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+
+      
 
     
     
@@ -13761,6 +14570,325 @@ Client
 
           
     
+
+  .. py:method:: put_object_tagging(**kwargs)
+
+    
+
+    Sets the supplied tag-set to an object that already exists in a bucket
+
+     
+
+    A tag is a key-value pair. You can associate tags with an object by sending a PUT request against the tagging subresource that is associated with the object. You can retrieve tags by sending a GET request. For more information, see  GetObjectTagging .
+
+     
+
+    For tagging-related restrictions related to characters and encodings, see `Tag Restrictions <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html>`__ . Note that Amazon S3 limits the maximum number of tags to 10 tags per object.
+
+     
+
+    To use this operation, you must have permission to perform the ``s3:PutObjectTagging`` action. By default, the bucket owner has this permission and can grant this permission to others.
+
+     
+
+    To put tags of any other version, use the ``versionId`` query parameter. You also need permission for the ``s3:PutObjectVersionTagging`` action.
+
+     
+
+    For information about the Amazon S3 object tagging feature, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__ .
+
+     
+
+     **Special Errors**  
+
+     
+
+     
+    * 
+
+      
+      * *Code: InvalidTagError*   
+       
+      * *Cause: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For more information, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__ .*   
+       
+
+     
+     
+    * 
+
+      
+      * *Code: MalformedXMLError*   
+       
+      * *Cause: The XML provided does not match the schema.*   
+       
+
+     
+     
+    * 
+
+      
+      * *Code: OperationAbortedError*   
+       
+      * *Cause: A conflicting conditional operation is currently in progress against this resource. Please try again.*   
+       
+
+     
+     
+    * 
+
+      
+      * *Code: InternalError*   
+       
+      * *Cause: The service was unable to apply the provided tag to the object.*   
+       
+
+     
+     
+
+     
+
+     **Related Resources**  
+
+     
+
+     
+    *  GetObjectTagging   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.put_object_tagging(
+          Bucket='string',
+          Key='string',
+          VersionId='string',
+          ContentMD5='string',
+          Tagging={
+              'TagSet': [
+                  {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+              ]
+          }
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name containing the object. 
+
+       
+
+      When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName* -*AccountId* .s3-accesspoint.*Region* .amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using Access Points <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html>`__ in the *Amazon Simple Storage Service Developer Guide* .
+
+      
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+      Name of the tag.
+
+      
+
+    
+    :type VersionId: string
+    :param VersionId: 
+
+      The versionId of the object that the tag-set will be added to.
+
+      
+
+    
+    :type ContentMD5: string
+    :param ContentMD5: 
+
+      The MD5 hash for the request body.
+
+      
+
+    
+    :type Tagging: dict
+    :param Tagging: **[REQUIRED]** 
+
+      Container for the ``TagSet`` and ``Tag`` elements
+
+      
+
+    
+      - **TagSet** *(list) --* **[REQUIRED]** 
+
+        A collection for a set of tags
+
+        
+
+      
+        - *(dict) --* 
+
+          A container of a key value name pair.
+
+          
+
+        
+          - **Key** *(string) --* **[REQUIRED]** 
+
+            Name of the tag.
+
+            
+
+          
+          - **Value** *(string) --* **[REQUIRED]** 
+
+            Value of the tag.
+
+            
+
+          
+        
+    
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax** 
+
+      
+      ::
+
+        {
+            'VersionId': 'string'
+        }
+      **Response Structure** 
+
+      
+
+      - *(dict) --* 
+        
+
+        - **VersionId** *(string) --* 
+
+          The versionId of the object the tag-set was added to.
+
+          
+    
+
+  .. py:method:: put_public_access_block(**kwargs)
+
+    
+
+    Creates or modifies the ``PublicAccessBlock`` configuration for an Amazon S3 bucket. To use this operation, you must have the ``s3:PutBucketPublicAccessBlock`` permission. For more information about Amazon S3 permissions, see `Specifying Permissions in a Policy <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html>`__ .
+
+     
+
+    .. warning::
+
+       
+
+      When Amazon S3 evaluates the ``PublicAccessBlock`` configuration for a bucket or an object, it checks the ``PublicAccessBlock`` configuration for both the bucket (or the bucket that contains the object) and the bucket owner's account. If the ``PublicAccessBlock`` configurations are different between the bucket and the account, Amazon S3 uses the most restrictive combination of the bucket-level and account-level settings.
+
+       
+
+     
+
+    For more information about when Amazon S3 considers a bucket or an object public, see `The Meaning of "Public" <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status>`__ .
+
+     
+
+     **Related Resources**  
+
+     
+
+     
+    *  GetPublicAccessBlock   
+     
+    *  DeletePublicAccessBlock   
+     
+    *  GetBucketPolicyStatus   
+     
+    * `Using Amazon S3 Block Public Access <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html>`__   
+     
+
+    
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutPublicAccessBlock>`_    
+
+
+    **Request Syntax** 
+    ::
+
+      response = client.put_public_access_block(
+          Bucket='string',
+          ContentMD5='string',
+          PublicAccessBlockConfiguration={
+              'BlockPublicAcls': True|False,
+              'IgnorePublicAcls': True|False
+          }
+      )
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The name of the Amazon S3 bucket whose ``PublicAccessBlock`` configuration you want to set.
+
+      
+
+    
+    :type ContentMD5: string
+    :param ContentMD5: 
+
+      The MD5 hash of the ``PutPublicAccessBlock`` request body. 
+
+      
+
+    
+    :type PublicAccessBlockConfiguration: dict
+    :param PublicAccessBlockConfiguration: **[REQUIRED]** 
+
+      The ``PublicAccessBlock`` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see `The Meaning of "Public" <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status>`__ in the *Amazon Simple Storage Service Developer Guide* .
+
+      
+
+    
+      - **BlockPublicAcls** *(boolean) --* 
+
+        Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
+
+         
+
+         
+        * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public. 
+         
+        * PUT Object calls fail if the request includes a public ACL. 
+         
+        * PUT Bucket calls fail if the request includes a public ACL. 
+         
+
+         
+
+        Enabling this setting doesn't affect existing policies or ACLs.
+
+        
+
+      
+      - **IgnorePublicAcls** *(boolean) --* 
+
+        Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+
+         
+
+        Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+
+        
+
+      
+    
+    
+    :returns: None
 
   .. py:method:: restore_object(**kwargs)
 
@@ -14913,7 +16041,11 @@ The available paginators are:
               
             
 
-            - **CreationDate** *(datetime) --* Date the bucket was created.
+            - **CreationDate** *(datetime) --* 
+
+              Date the bucket was created.
+
+              
             
 
             - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
@@ -17529,7 +18661,11 @@ Bucket
 
     
 
-    - *(datetime) --* Date the bucket was created.
+    - *(datetime) --* 
+
+      Date the bucket was created.
+
+      
 
   .. py:attribute:: location_constraint
 
@@ -19724,7 +20860,8 @@ Bucket
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -19950,6 +21087,14 @@ Bucket
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+
+      
 
     
     
@@ -24547,6 +25692,28 @@ BucketLifecycleConfiguration
             Prefix identifying one or more objects to which the rule applies.
 
             
+          
+
+          - **Tag** *(dict) --* 
+
+            This tag must exist in the object's tag set in order for the rule to apply.
+
+            
+            
+
+            - **Key** *(string) --* 
+
+              Name of the tag.
+
+              
+            
+
+            - **Value** *(string) --* 
+
+              Value of the tag.
+
+              
+        
       
         
 
@@ -24766,7 +25933,11 @@ BucketLifecycleConfiguration
                       },
                       'ID': 'string',
                       'Filter': {
-                          'Prefix': 'string'
+                          'Prefix': 'string',
+                          'Tag': {
+                              'Key': 'string',
+                              'Value': 'string'
+                          }
                       },
                       'Status': 'Enabled'|'Disabled',
                       'Transitions': [
@@ -24844,6 +26015,28 @@ BucketLifecycleConfiguration
 
               
 
+            
+            - **Tag** *(dict) --* 
+
+              This tag must exist in the object's tag set in order for the rule to apply.
+
+              
+
+            
+              - **Key** *(string) --* **[REQUIRED]** 
+
+                Name of the tag.
+
+                
+
+              
+              - **Value** *(string) --* **[REQUIRED]** 
+
+                Value of the tag.
+
+                
+
+              
             
           
           - **Status** *(string) --* **[REQUIRED]** 
@@ -28424,6 +29617,7 @@ Object
               'string': 'string'
           },
           MetadataDirective='COPY'|'REPLACE',
+          TaggingDirective='COPY'|'REPLACE',
           RetentionDirective='COPY'|'REPLACE',
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
@@ -28436,7 +29630,8 @@ Object
           SSEKMSKeyId='string',
           CopySourceSSECustomerAlgorithm='string',
           CopySourceSSECustomerKey='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -28586,6 +29781,14 @@ Object
       
 
     
+    :type TaggingDirective: string
+    :param TaggingDirective: 
+
+      Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+
+      
+
+    
     :type RetentionDirective: string
     :param RetentionDirective: This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.
 
@@ -28688,6 +29891,14 @@ Object
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object destination object this value must be used in conjunction with the ``TaggingDirective`` . The tag-set must be encoded as URL Query parameters.
+
+      
 
     
     
@@ -29324,6 +30535,7 @@ Object
             'RequestCharged': 'requester',
             'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
             'PartsCount': 123,
+            'TagCount': 123,
             'IbmRestoredCopyStorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
             'IbmTransition': 'string'
         }
@@ -29528,6 +30740,13 @@ Object
         - **PartsCount** *(integer) --* 
 
           The count of parts this object has.
+
+          
+        
+
+        - **TagCount** *(integer) --* 
+
+          The number of tags, if any, on the object.
 
           
         
@@ -29768,7 +30987,8 @@ Object
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -29930,6 +31150,14 @@ Object
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+
+      
 
     
     
@@ -30266,7 +31494,8 @@ Object
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -30484,6 +31713,14 @@ Object
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+
+      
 
     
     
@@ -32800,6 +34037,7 @@ ObjectSummary
               'string': 'string'
           },
           MetadataDirective='COPY'|'REPLACE',
+          TaggingDirective='COPY'|'REPLACE',
           RetentionDirective='COPY'|'REPLACE',
           RetentionExpirationDate=datetime(2015, 1, 1),
           RetentionLegalHoldId='string',
@@ -32812,7 +34050,8 @@ ObjectSummary
           SSEKMSKeyId='string',
           CopySourceSSECustomerAlgorithm='string',
           CopySourceSSECustomerKey='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -32962,6 +34201,14 @@ ObjectSummary
       
 
     
+    :type TaggingDirective: string
+    :param TaggingDirective: 
+
+      Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+
+      
+
+    
     :type RetentionDirective: string
     :param RetentionDirective: This header controls how the Protection state of the source object is copied to the destination object.If copied, the retention period and all legal holds are copied onto the new object. The legal hold date's is set to the date of the copy.
 
@@ -33064,6 +34311,14 @@ ObjectSummary
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object destination object this value must be used in conjunction with the ``TaggingDirective`` . The tag-set must be encoded as URL Query parameters.
+
+      
 
     
     
@@ -33632,6 +34887,7 @@ ObjectSummary
             'RequestCharged': 'requester',
             'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
             'PartsCount': 123,
+            'TagCount': 123,
             'IbmRestoredCopyStorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
             'IbmTransition': 'string'
         }
@@ -33836,6 +35092,13 @@ ObjectSummary
         - **PartsCount** *(integer) --* 
 
           The count of parts this object has.
+
+          
+        
+
+        - **TagCount** *(integer) --* 
+
+          The number of tags, if any, on the object.
 
           
         
@@ -34076,7 +35339,8 @@ ObjectSummary
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -34238,6 +35502,14 @@ ObjectSummary
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters.
+
+      
 
     
     
@@ -34567,7 +35839,8 @@ ObjectSummary
           SSECustomerAlgorithm='string',
           SSECustomerKey='string',
           SSEKMSKeyId='string',
-          RequestPayer='requester'
+          RequestPayer='requester',
+          Tagging='string'
       )
     :type ACL: string
     :param ACL: 
@@ -34785,6 +36058,14 @@ ObjectSummary
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type Tagging: string
+    :param Tagging: 
+
+      The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+
+      
 
     
     
@@ -36079,6 +37360,7 @@ ObjectVersion
             'RequestCharged': 'requester',
             'ReplicationStatus': 'COMPLETE'|'PENDING'|'FAILED'|'REPLICA',
             'PartsCount': 123,
+            'TagCount': 123,
             'IbmRestoredCopyStorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE',
             'IbmTransition': 'string'
         }
@@ -36283,6 +37565,13 @@ ObjectVersion
         - **PartsCount** *(integer) --* 
 
           The count of parts this object has.
+
+          
+        
+
+        - **TagCount** *(integer) --* 
+
+          The number of tags, if any, on the object.
 
           
         
