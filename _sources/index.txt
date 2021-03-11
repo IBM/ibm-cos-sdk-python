@@ -12,7 +12,7 @@ developers to write software that makes use of IBM's COS service.  It is a fork 
 direct service access.
 
 
-API Reference
+API reference
 -------------
 
 Services

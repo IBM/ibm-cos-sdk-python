@@ -1,7 +1,7 @@
 .. _ref_core_collections:
 
 =====================
-Collections Reference
+Collections reference
 =====================
 
 .. automodule:: ibm_boto3.resources.collection
