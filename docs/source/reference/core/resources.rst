@@ -1,10 +1,10 @@
 .. _ref_core_resources:
 
 ===================
-Resources Reference
+Resources reference
 ===================
 
-Resource Model
+Resource model
 --------------
 
 .. automodule:: ibm_boto3.resources.model
@@ -12,35 +12,35 @@ Resource Model
    :undoc-members:
    :inherited-members:
 
-Request Parameters
+Request parameters
 ------------------
 
 .. automodule:: ibm_boto3.resources.params
    :members:
    :undoc-members:
 
-Response Handlers
+Response handlers
 -----------------
 
 .. automodule:: ibm_boto3.resources.response
    :members:
    :undoc-members:
 
-Resource Actions
+Resource actions
 ----------------
 
 .. automodule:: ibm_boto3.resources.action
    :members:
    :undoc-members:
 
-Resource Base
+Resource base
 -------------
 
 .. automodule:: ibm_boto3.resources.base
    :members:
    :undoc-members:
 
-Resource Factory
+Resource factory
 ----------------
 
 .. automodule:: ibm_boto3.resources.factory

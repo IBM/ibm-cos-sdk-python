@@ -102,7 +102,7 @@ def upload_file(self, Filename, Bucket, Key, ExtraArgs=None,
 
     Similar behavior as S3Transfer's upload_file() method,
     except that parameters are capitalized. Detailed examples can be found at
-    :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+    :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Filename: str
     :param Filename: The path to the file to upload.
@@ -143,7 +143,7 @@ def download_file(self, Bucket, Key, Filename, ExtraArgs=None,
 
     Similar behavior as S3Transfer's download_file() method,
     except that parameters are capitalized. Detailed examples can be found at
-    :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+    :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Bucket: str
     :param Bucket: The name of the bucket to download from.
@@ -184,7 +184,7 @@ def bucket_upload_file(self, Filename, Key,
 
     Similar behavior as S3Transfer's upload_file() method,
     except that parameters are capitalized. Detailed examples can be found at
-    :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+    :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Filename: str
     :param Filename: The path to the file to upload.
@@ -221,7 +221,7 @@ def bucket_download_file(self, Key, Filename,
 
     Similar behavior as S3Transfer's download_file() method,
     except that parameters are capitalized. Detailed examples can be found at
-    :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+    :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Key: str
     :param Key: The name of the key to download from.
@@ -258,7 +258,7 @@ def object_upload_file(self, Filename,
 
     Similar behavior as S3Transfer's upload_file() method,
     except that parameters are capitalized. Detailed examples can be found at
-    :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+    :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Filename: str
     :param Filename: The path to the file to upload.
@@ -292,7 +292,7 @@ def object_download_file(self, Filename,
 
     Similar behavior as S3Transfer's download_file() method,
     except that parameters are capitalized. Detailed examples can be found at
-    :ref:`S3Transfer's Usage <ref_s3transfer_usage>`.
+    :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Filename: str
     :param Filename: The path to the file to download to.
@@ -638,15 +638,15 @@ def download_fileobj(self, Bucket, Key, Fileobj, ExtraArgs=None,
         with open('filename', 'wb') as data:
             s3.download_fileobj('mybucket', 'mykey', data)
 
-    :type Fileobj: a file-like object
-    :param Fileobj: A file-like object to download into. At a minimum, it must
-        implement the `write` method and must accept bytes.
-
     :type Bucket: str
     :param Bucket: The name of the bucket to download from.
 
     :type Key: str
     :param Key: The name of the key to download from.
+
+    :type Fileobj: a file-like object
+    :param Fileobj: A file-like object to download into. At a minimum, it must
+        implement the `write` method and must accept bytes.
 
     :type ExtraArgs: dict
     :param ExtraArgs: Extra arguments that may be passed to the

@@ -70,7 +70,7 @@ class ResourceCollection(object):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
 
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket('ibm_boto3')
             >>> for obj in bucket.objects.all():
             ...     print(obj.key)
             'key1'
@@ -123,7 +123,7 @@ class ResourceCollection(object):
         Page size, item limit, and filter parameters are applied
         if they have previously been set.
 
-            >>> bucket = s3.Bucket('boto3')
+            >>> bucket = s3.Bucket('ibm_boto3')
             >>> for page in bucket.objects.pages():
             ...     for obj in page:
             ...         print(obj.key)
@@ -247,7 +247,7 @@ class ResourceCollection(object):
         """
         Fetch at most this many resources per service request.
 
-            >>> for obj in s3.Bucket('boto3').objects.page_size(100):
+            >>> for obj in s3.Bucket('ibm_boto3').objects.page_size(100):
             ...     print(obj.key)
 
         :type count: int
@@ -277,7 +277,7 @@ class CollectionManager(object):
 
     Get whole pages of items:
 
-        >>> for page in s3.Bucket('boto3').objects.pages():
+        >>> for page in s3.Bucket('ibm_boto3').objects.pages():
         ...     for obj in page:
         ...         print(obj.key)
 

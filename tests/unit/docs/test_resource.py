@@ -20,7 +20,7 @@ class TestResourceDocumenter(BaseDocsTest):
     def test_document_resource(self):
         resource = self.resource.Sample('mysample')
         resource_documenter = ResourceDocumenter(
-            resource, self.botocore_session)
+            resource, self.ibm_botocore_session)
         resource_documenter.document_resource(self.doc_structure)
         self.assert_contains_lines_in_order([
             '======',
@@ -65,7 +65,7 @@ class TestResourceDocumenter(BaseDocsTest):
 class TestServiceResourceDocumenter(BaseDocsTest):
     def test_document_resource(self):
         resource_documenter = ServiceResourceDocumenter(
-            self.resource, self.botocore_session)
+            self.resource, self.ibm_botocore_session)
         resource_documenter.document_resource(self.doc_structure)
         self.assert_contains_lines_in_order([
             '================',

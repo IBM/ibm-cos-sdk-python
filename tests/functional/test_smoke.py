@@ -48,25 +48,25 @@ def _test_create_client(session, service_name):
     assert_true(hasattr(client, 'meta'))
 
 
-def test_api_versions_synced_with_botocore():
-    botocore_session = ibm_botocore.session.get_session()
+def test_api_versions_synced_with_ibm_botocore():
+    ibm_botocore_session = ibm_botocore.session.get_session()
     ibm_boto3_session = create_session()
     for service_name in ibm_boto3_session.get_available_resources():
         yield (_assert_same_api_versions, service_name,
-               botocore_session, ibm_boto3_session)
+               ibm_botocore_session, ibm_boto3_session)
 
 
-def _assert_same_api_versions(service_name, botocore_session, ibm_boto3_session):
+def _assert_same_api_versions(service_name, ibm_botocore_session, ibm_boto3_session):
     resource = ibm_boto3_session.resource(service_name)
     ibm_boto3_api_version = resource.meta.client.meta.service_model.api_version
-    client = botocore_session.create_client(service_name,
+    client = ibm_botocore_session.create_client(service_name,
                                             region_name='us-east-1',
                                             aws_access_key_id='foo',
                                             aws_secret_access_key='bar')
-    botocore_api_version = client.meta.service_model.api_version
-    if botocore_api_version != ibm_boto3_api_version:
+    ibm_botocore_api_version = client.meta.service_model.api_version
+    if ibm_botocore_api_version != ibm_boto3_api_version:
         raise AssertionError(
             "Different latest API versions found for %s: "
-            "%s (botocore), %s (boto3)\n" % (service_name,
-                                             botocore_api_version,
+            "%s (ibm_botocore), %s (ibm_boto3)\n" % (service_name,
+                                             ibm_botocore_api_version,
                                              ibm_boto3_api_version))

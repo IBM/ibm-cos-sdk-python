@@ -9,8 +9,8 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([a-z0-9.]+)['"]''')
 
 
 requires = [
-    'ibm-cos-sdk-core==2.9.0',
-    'ibm-cos-sdk-s3transfer==2.9.0',
+    'ibm-cos-sdk-core==2.10.0',
+    'ibm-cos-sdk-s3transfer==2.10.0',
     'jmespath>=0.7.1,<1.0.0'
 ]
 
@@ -37,7 +37,7 @@ setup(
         ]
     },
     include_package_data=True,
-    python_requires='~=3.5',
+    python_requires='~=3.6',
     install_requires=requires,
     license="Apache License 2.0",
     classifiers=[
@@ -47,9 +47,9 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )

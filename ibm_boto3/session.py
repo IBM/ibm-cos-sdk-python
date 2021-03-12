@@ -42,38 +42,38 @@ class Session(object):
 
     :type aws_access_key_id: string
     :param aws_access_key_id: AWS access key ID
-    
+
     :type aws_secret_access_key: string
     :param aws_secret_access_key: AWS secret access key
-    
+
     :type aws_session_token: string
     :param aws_session_token: AWS temporary session token
-    
+
     :type region_name: string
     :param region_name: Default region when creating new connections
-    
+
     :type ibm_api_key_id: str
     :param ibm_api_key_id: IBM api key used for IAM authentication.
-    
+
     :type ibm_service_instance_id: str
     :param ibm_service_instance_id: Service Instance ID used for
         PUT bucket and GET service requests.
-        
+
     :type ibm_auth_endpoint: str
     :param ibm_auth_endpoint: URL used for IAM authentication.
-    
+
     :type token_manager: TokenManager
     :param token_manager: custom token manager to use.
-    
+
     :type auth_function: function
     :param auth_function: function that does custom authentication
         and returns json with token, refresh token, expiry time
         and token type.
-        
+
     :type botocore_session: ibm_botocore.session.Session
     :param botocore_session: Use this Botocore session instead of creating
                              a new default one.
-                             
+
     :type profile_name: string
     :param profile_name: The name of a profile to use. If not given, then
                          the default profile is used.
@@ -479,10 +479,11 @@ class Session(object):
         # Create a ServiceContext object to serve as a reference to
         # important read-only information about the general service.
         service_context = ibm_boto3.utils.ServiceContext(
-                service_name=service_name, service_model=service_model,
-                resource_json_definitions=resource_model['resources'],
-                service_waiter_model=ibm_boto3.utils.LazyLoadedWaiterModel(
-                    self._session, service_name, api_version)
+            service_name=service_name, service_model=service_model,
+            resource_json_definitions=resource_model['resources'],
+            service_waiter_model=ibm_boto3.utils.LazyLoadedWaiterModel(
+                self._session, service_name, api_version
+            )
         )
 
         # Create the service resource class.

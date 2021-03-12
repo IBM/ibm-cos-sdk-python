@@ -58,10 +58,10 @@ class BaseDocsTest(unittest.TestCase):
     def setup_client_and_resource(self):
         self._write_models()
         self.loader = Loader(extra_search_paths=[self.root_dir])
-        self.botocore_session = ibm_botocore.session.get_session()
-        self.botocore_session.register_component('data_loader', self.loader)
+        self.ibm_botocore_session = ibm_botocore.session.get_session()
+        self.ibm_botocore_session.register_component('data_loader', self.loader)
         self.session = Session(
-            botocore_session=self.botocore_session, region_name='us-east-1')
+            botocore_session=self.ibm_botocore_session, region_name='us-east-1')
         self.client = self.session.client('myservice', 'us-east-1')
         self.resource = self.session.resource('myservice', 'us-east-1')
 

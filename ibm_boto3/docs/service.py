@@ -34,11 +34,11 @@ class ServiceDocumenter(BaseServiceDocumenter):
             # is needed to load the paginator and waiter models.
             session=session._session,
         )
-        self._boto3_session = session
-        self._client = self._boto3_session.client(service_name)
+        self._ibm_boto3_session = session
+        self._client = self._ibm_boto3_session.client(service_name)
         self._service_resource = None
-        if self._service_name in self._boto3_session.get_available_resources():
-            self._service_resource = self._boto3_session.resource(service_name)
+        if self._service_name in self._ibm_boto3_session.get_available_resources():
+            self._service_resource = self._ibm_boto3_session.resource(service_name)
         self.sections = [
             'title',
             'table-of-contents',
@@ -93,7 +93,7 @@ class ServiceDocumenter(BaseServiceDocumenter):
         service_model = self._service_resource.meta.client.meta.service_model
         for resource_name in json_resource_model['resources']:
             resource_model = json_resource_model['resources'][resource_name]
-            resource_cls = self._boto3_session.resource_factory.\
+            resource_cls = self._ibm_boto3_session.resource_factory.\
                 load_from_definition(
                     resource_name=resource_name,
                     single_resource_json_definition=resource_model,

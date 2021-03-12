@@ -21,7 +21,7 @@ from ibm_boto3.docs.service import ServiceDocumenter
 
 def test_docs_generated():
     """Verify we can generate the appropriate docs for all services"""
-    botocore_session = ibm_botocore.session.get_session()
+    ibm_botocore_session = ibm_botocore.session.get_session()
     session = ibm_boto3.Session(region_name='us-east-1')
     for service_name in session.get_available_services():
         generated_docs = ServiceDocumenter(
@@ -38,7 +38,7 @@ def test_docs_generated():
 
         # If the client can paginate, make sure the paginators are documented.
         try:
-            paginator_model = botocore_session.get_paginator_model(
+            paginator_model = ibm_botocore_session.get_paginator_model(
                 service_name)
             yield (_assert_has_paginator_documentation, generated_docs,
                    service_name, client,
@@ -48,7 +48,7 @@ def test_docs_generated():
 
         # If the client has waiters, make sure the waiters are documented
         if client.waiter_names:
-            waiter_model = botocore_session.get_waiter_model(service_name)
+            waiter_model = ibm_botocore_session.get_waiter_model(service_name)
             yield (_assert_has_waiter_documentation, generated_docs,
                    service_name, client, waiter_model)
 

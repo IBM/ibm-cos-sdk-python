@@ -17,7 +17,7 @@ from ibm_boto3.docs.waiter import WaiterResourceDocumenter
 
 class TestWaiterResourceDocumenter(BaseDocsTest):
     def test_document_resource_waiters(self):
-        service_waiter_model = self.botocore_session.get_waiter_model(
+        service_waiter_model = self.ibm_botocore_session.get_waiter_model(
             'myservice')
         subresource = self.resource.Sample('mysample')
         waiter_documenter = WaiterResourceDocumenter(

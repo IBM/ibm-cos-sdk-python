@@ -70,9 +70,9 @@ def test_all_collections_have_paginators_if_needed():
     # make it through the first page of results. So we need to make sure
     # if a collection looks like it uses a paginated operation then there
     # should be a paginator applied to it.
-    botocore_session = ibm_botocore.session.get_session()
-    session = Session(botocore_session=botocore_session)
-    loader = botocore_session.get_component('data_loader')
+    ibm_botocore_session = ibm_botocore.session.get_session()
+    session = Session(botocore_session=ibm_botocore_session)
+    loader = ibm_botocore_session.get_component('data_loader')
     for service_name in session.get_available_resources():
         client = session.client(service_name, region_name='us-east-1')
         json_resource_model = loader.load_service_model(

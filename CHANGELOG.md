@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2.10.0
+
+### Content
+
+#### Features
+
+* Object Versioning
+* IBM Cloud Security and Compliance Center Support
+
+#### Defect Fixes
+
+* IBM Python SDK aligned with AWS Python SDK - Boto3(v1.16.55), Botocore(v1.19.55) and S3transfer(v0.3.4)
+
 ## 2.9.0
 
 ### Content

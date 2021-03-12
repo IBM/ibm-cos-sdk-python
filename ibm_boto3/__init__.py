@@ -14,10 +14,12 @@
 import logging
 
 from ibm_boto3.session import Session
+# IBM TODO: We are not currently using this function but may in the future
+# from ibm_boto3.compat import _warn_deprecated_python
 
 
 __author__ = 'IBM'
-__version__ = '2.9.0'
+__version__ = '2.10.0'
 
 
 # The default Boto3 session; autoloaded when needed.
@@ -80,6 +82,8 @@ def _get_default_session():
     """
     if DEFAULT_SESSION is None:
         setup_default_session()
+    # IBM TODO: We are not currently using this function but may in the future
+    # _warn_deprecated_python()
 
     return DEFAULT_SESSION
 

@@ -1,7 +1,7 @@
 .. _ref_core_init:
 
 ===============
-ibm-cos-sdk Reference
+IBM Boto3 reference
 ===============
 
 .. automodule:: ibm_boto3

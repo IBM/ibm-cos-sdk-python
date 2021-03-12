@@ -51,7 +51,7 @@ def md5_checksum(filename):
     return checksum.hexdigest()
 
 
-def random_bucket_name(prefix='boto3-transfer', num_chars=10):
+def random_bucket_name(prefix='ibm-boto3-transfer', num_chars=10):
     base = string.ascii_lowercase + string.digits
     random_bytes = bytearray(os.urandom(num_chars))
     return prefix + ''.join([base[b % len(base)] for b in random_bytes])

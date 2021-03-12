@@ -28,9 +28,9 @@ from ibm_boto3.docs.utils import add_resource_type_overview
 
 
 class ResourceDocumenter(BaseDocumenter):
-    def __init__(self, resource, botocore_session):
+    def __init__(self, resource, ibm_botocore_session):
         super(ResourceDocumenter, self).__init__(resource)
-        self._botocore_session = botocore_session
+        self._ibm_botocore_session = ibm_botocore_session
 
     def document_resource(self, section):
         self._add_title(section)
@@ -225,7 +225,7 @@ class ResourceDocumenter(BaseDocumenter):
         section = section.add_new_section('waiters')
         waiters = self._resource.meta.resource_model.waiters
         if waiters:
-            service_waiter_model = self._botocore_session.get_waiter_model(
+            service_waiter_model = self._ibm_botocore_session.get_waiter_model(
                 self._service_name)
             documenter = WaiterResourceDocumenter(
                 self._resource, service_waiter_model)

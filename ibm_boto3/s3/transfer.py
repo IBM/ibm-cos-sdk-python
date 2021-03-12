@@ -36,7 +36,7 @@ There is no support for s3->s3 multipart copies at this
 time.
 
 
-.. _ref_s3transfer_usage:
+.. _ref_ibm_s3transfer_usage:
 
 Usage
 =====
@@ -307,7 +307,7 @@ class S3Transfer(object):
             future.result()
         # This is for backwards compatibility where when retries are
         # exceeded we need to throw the same error from ibm_boto3 instead of
-        # s3transfer's built in RetriesExceededError as current users are
+        # ibm_s3transfer's built in RetriesExceededError as current users are
         # catching the ibm_boto3 one instead of the ibm_s3transfer exception to do
         # their own retries.
         except S3TransferRetriesExceededError as e:
