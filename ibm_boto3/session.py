@@ -4,7 +4,7 @@
 # may not use this file except in compliance with the License. A copy of
 # the License is located at
 #
-# http://aws.amazon.com/apache2.0/
+# https://aws.amazon.com/apache2.0/
 #
 # or in the "license" file accompanying this file. This file is
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -307,7 +307,7 @@ class Session(object):
             over environment variables and configuration values, but not over
             a region_name value passed explicitly to the method. See
             `ibm_botocore config documentation
-            <https://ibm_botocore.readthedocs.io/en/stable/reference/config.html>`_
+            <https://botocore.readthedocs.io/en/stable/reference/config.html>`_
             for more details.
 
         :return: Service client instance
@@ -412,7 +412,7 @@ class Session(object):
             user_agent_extra is specified in the client config, it overrides
             the default user_agent_extra provided by the resource API. See
             `ibm_botocore config documentation
-            <https://ibm_botocore.readthedocs.io/en/stable/reference/config.html>`_
+            <https://botocore.readthedocs.io/en/stable/reference/config.html>`_
             for more details.
 
         :return: Subclass of :py:class:`~ibm_boto3.resources.base.ServiceResource`

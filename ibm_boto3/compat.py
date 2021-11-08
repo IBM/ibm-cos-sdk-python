@@ -4,7 +4,7 @@
 # may not use this file except in compliance with the License. A copy of
 # the License is located at
 #
-# http://aws.amazon.com/apache2.0/
+# https://aws.amazon.com/apache2.0/
 #
 # or in the "license" file accompanying this file. This file is
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -64,16 +64,27 @@ def filter_python_deprecation_warnings():
 
 
 def _warn_deprecated_python():
-    deprecated_versions = ((3,4), (3,5))
+    """Python 2.7 is deprecated so this code will no longer run.
+
+    Use this template for future deprecation campaigns as needed.
+    """
+    py_27_params = {
+        'date': 'July 15, 2021',
+        'blog_link': 'https://aws.amazon.com/blogs/developer/announcing-end-'
+                     'of-support-for-python-2-7-in-aws-sdk-for-python-and-'
+                     'aws-cli-v1/'
+    }
+    deprecated_versions = {
+        (2,7): py_27_params,
+    }
     py_version = sys.version_info[:2]
 
     if py_version in deprecated_versions:
+        params = deprecated_versions[py_version]
         warning = (
             "Boto3 will no longer support Python {}.{} "
-            "starting February 1, 2021. To continue receiving service updates, "
+            "starting {}. To continue receiving service updates, "
             "bug fixes, and security updates please upgrade to Python 3.6 or "
-            "later. More information can be found here: https://aws.amazon.com"
-            "/blogs/developer/announcing-the-end-of-support-for-python-3-4-and"
-            "-3-5-in-the-aws-sdk-for-python-and-aws-cli-v1/"
-        ).format(py_version[0], py_version[1])
+            "later. More information can be found here: {}"
+        ).format(py_version[0], py_version[1], params['date'], params['blog_link'])
         warnings.warn(warning, PythonDeprecationWarning)

@@ -51,7 +51,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'ibm-cos-sdk'
-copyright = '2017 IBM'
+copyright = '2021 IBM'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

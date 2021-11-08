@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 2.11.0
+
+### Content
+
+#### Features
+
+* Versioning Support with Object Expiration
+* Abort Multipart Upload Expiration Support
+
+#### Defect Fixes
+
+* COSSDK-84126: <https://github.com/IBM/ibm-cos-sdk-python/issues/44>
+* COSSDK-84466: <https://github.com/IBM/ibm-cos-sdk-python/issues/45>
+* IBM Python SDK aligned with AWS Python SDK - Boto3(v1.18.44), Botocore(v1.21.44) and S3transfer(v0.5.0)
+* Legacy notice for `cos-aspera`
+* Update dependencies
+
 ## 2.10.0
 
 ### Content

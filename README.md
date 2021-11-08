@@ -31,15 +31,11 @@ These values can be found in the IBM Cloud Console by [generating a \'service cr
 
 ## Using Python
 
-Use of the Python SDK and example code can be found [here](https://cloud.ibm.com/docs/services/cloud-object-storage/libraries/python.html#using-python).
+Use of the Python SDK and example code can be found [here](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python).
 
 ## Using a Service Credential
 
-You can source credentials directly from a [Service Credential](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html) JSON document generated in the IBM Cloud console saved to `~/.bluemix/cos_credentials`. The SDK will automatically load these providing you have not explicitly set other credentials during client creation. If the Service Credential contain [HMAC keys](https://cloud.ibm.com/docs/services/cloud-object-storage/hmac/credentials.html) the client will use those and authenticate using a signature, otherwise the client will use the provided API key to authenticate using bearer tokens.
-
-## Aspera high-speed transfer
-
-It is now possible to use the IBM Aspera high-speed transfer service as an alternative method to managed transfers of larger objects. The Aspera high-speed transfer service is especially effective across long distances or in environments with high rates of packet loss. For more details, check out the [IBM Cloud documentation](https://cloud.ibm.com/docs/services/cloud-object-storage/basics/aspera.html#using-libraries-and-sdks).
+After generating a Service Credential, the resulting JSON document can be saved to `~/.bluemix/cos_credentials`. The SDK will automatically source credentials from this file unless other credentials are explicitly set during client creation. If the cos_credentials file contains HMAC keys the client authenticates with a signature, otherwise the client uses the provided API key to authenticate by using a bearer token (using an API key still requires the `config=Config(signature_version="oauth")` to be included during client creation).
 
 ## Archive Tier Support
 
@@ -56,6 +52,10 @@ Note: Immutable Object Storage does not support Aspera transfers via the SDK to 
 ## Accelerated Archive
 
 Users can set an archive rule that would allow data restore from an archive in 2 hours or 12 hours.
+
+## LEGACY: Aspera high-speed transfer
+
+Aspera high-speed transfer through the COS SDK using the `cos-aspera` library is now legacy. New users and applications should use the [Aspera Transfer SDK](https://developer.ibm.com/apis/catalog/aspera--aspera-transfer-sdk/Introduction) instead. Existing users should begin new projects with the Aspera Transfer SDK and make plans to migrate existing applications. Users who use S3 for transfers and do not install `cos-aspera` are unaffected.
 
 ## Building from source
 

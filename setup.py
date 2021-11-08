@@ -9,8 +9,8 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([a-z0-9.]+)['"]''')
 
 
 requires = [
-    'ibm-cos-sdk-core==2.10.0',
-    'ibm-cos-sdk-s3transfer==2.10.0',
+    'ibm-cos-sdk-core==2.11.0',
+    'ibm-cos-sdk-s3transfer==2.11.0',
     'jmespath>=0.7.1,<1.0.0'
 ]
 
@@ -37,9 +37,9 @@ setup(
         ]
     },
     include_package_data=True,
-    python_requires='~=3.6',
     install_requires=requires,
     license="Apache License 2.0",
+    python_requires=">= 3.6",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
@@ -52,4 +52,8 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],
+    project_urls={
+        'Documentation': 'https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python',
+        'Source': 'https://github.com/IBM/ibm-cos-sdk-python',
+    },
 )
