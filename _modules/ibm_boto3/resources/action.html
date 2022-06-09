@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.action &mdash; ibm-cos-sdk 2.11.0 documentation</title>
+    <title>ibm_boto3.resources.action &mdash; ibm-cos-sdk 2.12.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.11.0',
+        VERSION:     '2.12.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.11.0 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.12.0 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.11.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.11.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -132,18 +132,17 @@
 
 <span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
 
-<span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">create_request_parameters</span>
-<span class="kn">from</span> <span class="nn">.response</span> <span class="kn">import</span> <span class="n">RawHandler</span><span class="p">,</span> <span class="n">ResourceHandler</span>
-<span class="kn">from</span> <span class="nn">.model</span> <span class="kn">import</span> <span class="n">Action</span>
-
 <span class="kn">from</span> <span class="nn">ibm_boto3.docs.docstring</span> <span class="kn">import</span> <span class="n">ActionDocstring</span>
 <span class="kn">from</span> <span class="nn">ibm_boto3.utils</span> <span class="kn">import</span> <span class="n">inject_attribute</span>
 
+<span class="kn">from</span> <span class="nn">.model</span> <span class="kn">import</span> <span class="n">Action</span>
+<span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">create_request_parameters</span>
+<span class="kn">from</span> <span class="nn">.response</span> <span class="kn">import</span> <span class="n">RawHandler</span><span class="p">,</span> <span class="n">ResourceHandler</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="ServiceAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.ServiceAction">[docs]</a><span class="k">class</span> <span class="nc">ServiceAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ServiceAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.ServiceAction">[docs]</a><span class="k">class</span> <span class="nc">ServiceAction</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a callable action on a resource, for example</span>
 <span class="sd">    ``sqs.get_queue_by_name(...)`` or ``s3.Bucket(&#39;foo&#39;).delete()``.</span>
@@ -160,6 +159,7 @@
 <span class="sd">    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">    :param service_context: Context about the AWS service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_model</span><span class="p">,</span> <span class="n">factory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">service_context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_action_model</span> <span class="o">=</span> <span class="n">action_model</span>
 
@@ -169,9 +169,10 @@
         <span class="k">if</span> <span class="n">resource_response_model</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span> <span class="o">=</span> <span class="n">ResourceHandler</span><span class="p">(</span>
                 <span class="n">search_path</span><span class="o">=</span><span class="n">resource_response_model</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
-                <span class="n">factory</span><span class="o">=</span><span class="n">factory</span><span class="p">,</span> <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_response_model</span><span class="p">,</span>
+                <span class="n">factory</span><span class="o">=</span><span class="n">factory</span><span class="p">,</span>
+                <span class="n">resource_model</span><span class="o">=</span><span class="n">resource_response_model</span><span class="p">,</span>
                 <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">,</span>
-                <span class="n">operation_name</span><span class="o">=</span><span class="n">action_model</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">operation</span>
+                <span class="n">operation_name</span><span class="o">=</span><span class="n">action_model</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">operation</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span> <span class="o">=</span> <span class="n">RawHandler</span><span class="p">(</span><span class="n">action_model</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
@@ -194,8 +195,12 @@
         <span class="n">params</span> <span class="o">=</span> <span class="n">create_request_parameters</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action_model</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
         <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
-                     <span class="n">operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+            <span class="n">operation_name</span><span class="p">,</span>
+            <span class="n">params</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="n">response</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
 
@@ -222,6 +227,7 @@
 <span class="sd">    :type service_context: :py:class:`~ibm_boto3.utils.ServiceContext`</span>
 <span class="sd">    :param service_context: Context about the AWS service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform the batch action&#39;s operation on every page of results</span>
@@ -254,8 +260,11 @@
                     <span class="n">client</span> <span class="o">=</span> <span class="n">resource</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span>
 
                 <span class="n">create_request_parameters</span><span class="p">(</span>
-                    <span class="n">resource</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_action_model</span><span class="o">.</span><span class="n">request</span><span class="p">,</span>
-                    <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+                    <span class="n">resource</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_action_model</span><span class="o">.</span><span class="n">request</span><span class="p">,</span>
+                    <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
+                <span class="p">)</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">params</span><span class="p">:</span>
                 <span class="c1"># There are no items, no need to make a call.</span>
@@ -263,20 +272,20 @@
 
             <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
-                         <span class="n">service_name</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                <span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">params</span>
+            <span class="p">)</span>
 
             <span class="n">response</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
 
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Response: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
 
-            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">))</span>
+            <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">responses</span>
 
 </div>
-<div class="viewcode-block" id="WaiterAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.WaiterAction">[docs]</a><span class="k">class</span> <span class="nc">WaiterAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="WaiterAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.WaiterAction">[docs]</a><span class="k">class</span> <span class="nc">WaiterAction</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a callable waiter action on a resource, for example</span>
 <span class="sd">    ``s3.Bucket(&#39;foo&#39;).wait_until_bucket_exists()``.</span>
@@ -290,6 +299,7 @@
 <span class="sd">                                 resource. It usually begins with a</span>
 <span class="sd">                                 ``wait_until_``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waiter_model</span><span class="p">,</span> <span class="n">waiter_resource_name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_model</span> <span class="o">=</span> <span class="n">waiter_model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_resource_name</span> <span class="o">=</span> <span class="n">waiter_resource_name</span>
@@ -310,9 +320,12 @@
         <span class="n">params</span> <span class="o">=</span> <span class="n">create_request_parameters</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_model</span><span class="p">)</span>
         <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
-                     <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
-                     <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_resource_name</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s1">&#39;Calling </span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1"> with </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">service_name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_waiter_resource_name</span><span class="p">,</span>
+            <span class="n">params</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="n">client</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">client</span>
         <span class="n">waiter</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waiter</span><span class="p">(</span><span class="n">client_waiter_name</span><span class="p">)</span>
@@ -321,10 +334,10 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Response: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="CustomModeledAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction">[docs]</a><span class="k">class</span> <span class="nc">CustomModeledAction</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomModeledAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction">[docs]</a><span class="k">class</span> <span class="nc">CustomModeledAction</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;A custom, modeled action to inject into a resource.&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_name</span><span class="p">,</span> <span class="n">action_model</span><span class="p">,</span>
-                 <span class="n">function</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_name</span><span class="p">,</span> <span class="n">action_model</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">event_emitter</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type action_name: str</span>
 <span class="sd">        :param action_name: The name of the action to inject, e.g.</span>
@@ -356,7 +369,7 @@
             <span class="n">event_emitter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">emitter</span><span class="p">,</span>
             <span class="n">action_model</span><span class="o">=</span><span class="n">action</span><span class="p">,</span>
             <span class="n">service_model</span><span class="o">=</span><span class="n">service_context</span><span class="o">.</span><span class="n">service_model</span><span class="p">,</span>
-            <span class="n">include_signature</span><span class="o">=</span><span class="kc">False</span>
+            <span class="n">include_signature</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">inject_attribute</span><span class="p">(</span><span class="n">class_attributes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">)</span></div></div>
 </pre></div>
@@ -375,7 +388,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.11.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

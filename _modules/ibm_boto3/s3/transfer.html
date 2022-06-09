@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.s3.transfer &mdash; ibm-cos-sdk 2.11.0 documentation</title>
+    <title>ibm_boto3.s3.transfer &mdash; ibm-cos-sdk 2.12.0 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.11.0',
+        VERSION:     '2.12.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.11.0 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.12.0 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.11.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.11.0 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -240,17 +240,16 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">ibm_botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
-<span class="kn">from</span> <span class="nn">ibm_botocore.compat</span> <span class="kn">import</span> <span class="n">six</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span> <span class="k">as</span> \
-    <span class="n">S3TransferRetriesExceededError</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RetriesExceededError</span> <span class="k">as</span> <span class="n">S3TransferRetriesExceededError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ibm_s3transfer.futures</span> <span class="kn">import</span> <span class="n">NonThreadedExecutor</span>
 <span class="kn">from</span> <span class="nn">ibm_s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferConfig</span> <span class="k">as</span> <span class="n">S3TransferConfig</span>
 <span class="kn">from</span> <span class="nn">ibm_s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferManager</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.futures</span> <span class="kn">import</span> <span class="n">NonThreadedExecutor</span>
 <span class="kn">from</span> <span class="nn">ibm_s3transfer.subscribers</span> <span class="kn">import</span> <span class="n">BaseSubscriber</span>
 <span class="kn">from</span> <span class="nn">ibm_s3transfer.utils</span> <span class="kn">import</span> <span class="n">OSUtils</span>
 
 <span class="kn">from</span> <span class="nn">ibm_boto3.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span><span class="p">,</span> <span class="n">S3UploadFailedError</span>
-
 
 <span class="n">KB</span> <span class="o">=</span> <span class="mi">1024</span>
 <span class="n">MB</span> <span class="o">=</span> <span class="n">KB</span> <span class="o">*</span> <span class="n">KB</span>
@@ -280,17 +279,20 @@
 <div class="viewcode-block" id="TransferConfig"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">[docs]</a><span class="k">class</span> <span class="nc">TransferConfig</span><span class="p">(</span><span class="n">S3TransferConfig</span><span class="p">):</span>
     <span class="n">ALIAS</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;max_concurrency&#39;</span><span class="p">:</span> <span class="s1">&#39;max_request_concurrency&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;max_io_queue&#39;</span><span class="p">:</span> <span class="s1">&#39;max_io_queue_size&#39;</span>
+        <span class="s1">&#39;max_io_queue&#39;</span><span class="p">:</span> <span class="s1">&#39;max_io_queue_size&#39;</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">multipart_threshold</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
-                 <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                 <span class="n">multipart_chunksize</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
-                 <span class="n">num_download_attempts</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                 <span class="n">max_io_queue</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                 <span class="n">io_chunksize</span><span class="o">=</span><span class="mi">256</span> <span class="o">*</span> <span class="n">KB</span><span class="p">,</span>
-                 <span class="n">use_threads</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">multipart_threshold</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
+        <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">multipart_chunksize</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
+        <span class="n">num_download_attempts</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">max_io_queue</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">io_chunksize</span><span class="o">=</span><span class="mi">256</span> <span class="o">*</span> <span class="n">KB</span><span class="p">,</span>
+        <span class="n">use_threads</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">max_bandwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Configuration object for managed S3 transfers</span>
 
 <span class="sd">        :param multipart_threshold: The transfer size threshold for which</span>
@@ -326,14 +328,19 @@
 <span class="sd">        :param use_threads: If True, threads will be used when performing</span>
 <span class="sd">            S3 transfers. If False, no threads will be used in</span>
 <span class="sd">            performing transfers: all logic will be ran in the main thread.</span>
+
+<span class="sd">        :param max_bandwidth: The maximum bandwidth that will be consumed</span>
+<span class="sd">            in uploading and downloading file content. The value is an integer</span>
+<span class="sd">            in terms of bytes per second.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">multipart_threshold</span><span class="o">=</span><span class="n">multipart_threshold</span><span class="p">,</span>
             <span class="n">max_request_concurrency</span><span class="o">=</span><span class="n">max_concurrency</span><span class="p">,</span>
             <span class="n">multipart_chunksize</span><span class="o">=</span><span class="n">multipart_chunksize</span><span class="p">,</span>
             <span class="n">num_download_attempts</span><span class="o">=</span><span class="n">num_download_attempts</span><span class="p">,</span>
             <span class="n">max_io_queue_size</span><span class="o">=</span><span class="n">max_io_queue</span><span class="p">,</span>
             <span class="n">io_chunksize</span><span class="o">=</span><span class="n">io_chunksize</span><span class="p">,</span>
+            <span class="n">max_bandwidth</span><span class="o">=</span><span class="n">max_bandwidth</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="c1"># Some of the argument names are not the same as the inherited</span>
         <span class="c1"># S3TransferConfig so we add aliases so you can still access the</span>
@@ -346,12 +353,12 @@
         <span class="c1"># If the alias name is used, make sure we set the name that it points</span>
         <span class="c1"># to as that is what actually is used in governing the TransferManager.</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">:</span>
-            <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
         <span class="c1"># Always set the value of the actual name provided.</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">TransferConfig</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
 </div>
-<div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">:</span>
     <span class="n">ALLOWED_DOWNLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_DOWNLOAD_ARGS</span>
     <span class="n">ALLOWED_UPLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_UPLOAD_ARGS</span>
 
@@ -375,8 +382,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span> <span class="o">=</span> <span class="n">create_transfer_manager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">)</span>
 
-<div class="viewcode-block" id="S3Transfer.upload_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">[docs]</a>    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span>
-                    <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="S3Transfer.upload_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">[docs]</a>    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Upload a file to an S3 object.</span>
 
 <span class="sd">        Variants have also been injected into S3 client, Bucket and Object.</span>
@@ -386,12 +394,13 @@
 <span class="sd">            :py:meth:`S3.Client.upload_file`</span>
 <span class="sd">            :py:meth:`S3.Client.upload_fileobj`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string&#39;</span><span class="p">)</span>
 
         <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subscribers</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
         <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span>
-            <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">extra_args</span><span class="p">,</span> <span class="n">subscribers</span><span class="p">)</span>
+            <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">extra_args</span><span class="p">,</span> <span class="n">subscribers</span>
+        <span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
         <span class="c1"># If a client error was raised, add the backwards compatibility layer</span>
@@ -400,11 +409,14 @@
         <span class="c1"># client error.</span>
         <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">S3UploadFailedError</span><span class="p">(</span>
-                <span class="s2">&quot;Failed to upload </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span> <span class="n">e</span><span class="p">))</span>
+                <span class="s2">&quot;Failed to upload </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span> <span class="n">e</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
 </div>
-<div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                      <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Download an S3 object to a file.</span>
 
 <span class="sd">        Variants have also been injected into S3 client, Bucket and Object.</span>
@@ -414,12 +426,13 @@
 <span class="sd">            :py:meth:`S3.Client.download_file`</span>
 <span class="sd">            :py:meth:`S3.Client.download_fileobj`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string&#39;</span><span class="p">)</span>
 
         <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subscribers</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
         <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
-            <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="p">,</span> <span class="n">subscribers</span><span class="p">)</span>
+            <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="p">,</span> <span class="n">subscribers</span>
+        <span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
         <span class="c1"># This is for backwards compatibility where when retries are</span>
@@ -448,6 +461,7 @@
 <span class="sd">    :param callback: A callable that takes a single positional argument for</span>
 <span class="sd">        how many bytes were transferred.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
 
@@ -469,7 +483,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.11.0 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.0 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

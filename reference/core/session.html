@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Session reference &mdash; ibm-cos-sdk 2.11.0 documentation</title>
+    <title>Session reference &mdash; ibm-cos-sdk 2.12.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.11.0',
+        VERSION:     '2.12.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.11.0 documentation" href="../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.12.0 documentation" href="../../index.html" />
     <link rel="up" title="Core references" href="index.html" />
     <link rel="next" title="Customization references" href="../customizations/index.html" />
     <link rel="prev" title="Resources reference" href="resources.html" />
@@ -56,7 +56,7 @@
         <li class="right" >
           <a href="resources.html" title="Resources reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.11.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.12.0 documentation</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Core references</a> &raquo;</li> 
       </ul>
     </div>
@@ -67,7 +67,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.11.0 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.12.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -286,11 +286,23 @@ clients via <a class="reference internal" href="#ibm_boto3.session.Session.clien
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_credentials">
 <tt class="descname">get_credentials</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_credentials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the <tt class="xref py py-class docutils literal"><span class="pre">ibm_botocore.credential.Credential</span></tt> object
+<dd><p>Return the <tt class="xref py py-class docutils literal"><span class="pre">ibm_botocore.credentials.Credentials</span></tt> object
 associated with this session.  If the credentials have not
 yet been loaded, this will attempt to load them.  If they
 have already been loaded, this will return the cached
 credentials.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ibm_boto3.session.Session.get_partition_for_region">
+<tt class="descname">get_partition_for_region</tt><big>(</big><em>region_name</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_partition_for_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_partition_for_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the partition name of a particular region.</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>region_name</strong> (<em>string</em>) -- Name of the region to list partition for (e.g.,
+us-east-1).</dd>
+<dt class="field-name">Return type</dt><dd class="field-body">string</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">Returns the respective partition name (e.g., aws).</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -410,7 +422,7 @@ for more details.</p>
         <li class="right" >
           <a href="resources.html" title="Resources reference"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.11.0 documentation</a> &raquo;</li>
+        <li><a href="../../index.html">ibm-cos-sdk 2.12.0 documentation</a> &raquo;</li>
           <li><a href="index.html" >Core references</a> &raquo;</li> 
       </ul>
     </div>
