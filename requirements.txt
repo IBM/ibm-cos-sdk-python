@@ -1,6 +1,3 @@
--e git://github.com/ibm/ibm-cos-sdk-python-core.git@master#egg=ibm_cos_sdk_core
--e git://github.com/boto/jmespath.git@develop#egg=jmespath
--e git://github.com/ibm/ibm-cos-sdk-python-s3transfer.git@master#egg=ibm_cos_sdk_s3transfer
-nose==1.3.7
-mock==1.3.0
-wheel==0.37.0
+-e git+https://github.com/ibm/ibm-cos-sdk-python-core.git@master#egg=ibm_cos_sdk_core
+-e git+https://github.com/boto/jmespath.git@develop#egg=jmespath
+-e git+https://github.com/ibm/ibm-cos-sdk-python-s3transfer.git@master#egg=ibm_cos_sdk_s3transfer

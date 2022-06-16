@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2.12.0
+
+### Content
+
+#### Features
+
+* Cloud Object Storage Replication
+
+#### Defect Fixes
+
+* IBM Python SDK aligned with AWS Python SDK - Boto3(v1.21.18), Botocore(v1.24.18) and S3transfer(v0.5.2)
+* Update dependencies
+
 ## 2.11.0
 
 ### Content
@@ -13,6 +26,9 @@
 
 * COSSDK-84126: <https://github.com/IBM/ibm-cos-sdk-python/issues/44>
 * COSSDK-84466: <https://github.com/IBM/ibm-cos-sdk-python/issues/45>
+* COSSDK-83683: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/14>
+* COSSDK-84467: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/15>
+* COSSDK-84467: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/12>
 * IBM Python SDK aligned with AWS Python SDK - Boto3(v1.18.44), Botocore(v1.21.44) and S3transfer(v0.5.0)
 * Legacy notice for `cos-aspera`
 * Update dependencies

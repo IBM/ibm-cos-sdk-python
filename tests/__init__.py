@@ -12,28 +12,9 @@
 # language governing permissions and limitations under the License.
 
 import random
-import sys
 import time
-
-from ibm_botocore.compat import six
-
-
 import unittest
-
-
-# Python 3 includes mocking, while 2 requires an extra module.
-if sys.version_info[0] == 2:
-    import mock
-else:
-    from unittest import mock
-
-
-# In python 3, order matters when calling assertEqual to
-# compare lists and dictionaries with lists. Therefore,
-# assertItemsEqual needs to be used but it is renamed to
-# assertCountEqual in python 3.
-if six.PY2:
-    unittest.TestCase.assertCountEqual = unittest.TestCase.assertItemsEqual
+from unittest import mock
 
 
 def unique_id(name):
@@ -43,8 +24,7 @@ def unique_id(name):
     integration tests in parallel that must create remote
     resources.
     """
-    return '{0}-{1}-{2}'.format(name, int(time.time()),
-                                random.randint(0, 10000))
+    return f'{name}-{int(time.time())}-{random.randint(0, 10000)}'
 
 
 class BaseTestCase(unittest.TestCase):
@@ -52,6 +32,7 @@ class BaseTestCase(unittest.TestCase):
     A base test case which mocks out the low-level session to prevent
     any actual calls to Botocore.
     """
+
     def setUp(self):
         self.bc_session_patch = mock.patch('ibm_botocore.session.Session')
         self.bc_session_cls = self.bc_session_patch.start()

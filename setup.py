@@ -2,16 +2,16 @@
 import os
 import re
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 ROOT = os.path.dirname(__file__)
 VERSION_RE = re.compile(r'''__version__ = ['"]([a-z0-9.]+)['"]''')
 
 
 requires = [
-    'ibm-cos-sdk-core==2.11.0',
-    'ibm-cos-sdk-s3transfer==2.11.0',
-    'jmespath>=0.7.1,<1.0.0'
+    'ibm-cos-sdk-core==2.12.0',
+    'ibm-cos-sdk-s3transfer==2.12.0',
+    'jmespath>=0.10.0,<1.0.0'
 ]
 
 
@@ -30,12 +30,7 @@ setup(
     url='https://github.com/ibm/ibm-cos-sdk-python',
     scripts=[],
     packages=find_packages(exclude=['tests*']),
-    package_data={
-        'ibm_boto3': [
-            'data/aws/resources/*.json',
-            'examples/*.rst'
-        ]
-    },
+    package_data={'ibm_boto3': ['data/aws/resources/*.json', 'examples/*.rst']},
     include_package_data=True,
     install_requires=requires,
     license="Apache License 2.0",
@@ -51,6 +46,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     project_urls={
         'Documentation': 'https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python',

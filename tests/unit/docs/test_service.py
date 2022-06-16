@@ -11,11 +11,11 @@
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
 import os
-import mock
 
 import ibm_boto3
-from tests.unit.docs import BaseDocsTest
 from ibm_boto3.docs.service import ServiceDocumenter
+from tests import mock
+from tests.unit.docs import BaseDocsTest
 
 
 class TestServiceDocumenter(BaseDocsTest):
@@ -98,7 +98,7 @@ class TestServiceDocumenter(BaseDocsTest):
         os.remove(self.resource_model_file)
         service_documenter = ServiceDocumenter('myservice', self.session)
         contents = service_documenter.document_service().decode('utf-8')
-        self.assertNotIn('Service Resource', contents)
+        assert 'Service Resource' not in contents
 
     def test_document_service_no_paginators(self):
         # Delete the resource model so that the resource is not documented
@@ -107,7 +107,7 @@ class TestServiceDocumenter(BaseDocsTest):
         os.remove(self.paginator_model_file)
         service_documenter = ServiceDocumenter('myservice', self.session)
         contents = service_documenter.document_service().decode('utf-8')
-        self.assertNotIn('Paginators', contents)
+        assert 'Paginators' not in contents
 
     def test_document_service_no_waiter(self):
         # Delete the resource model so that the resource is not documented
@@ -116,26 +116,25 @@ class TestServiceDocumenter(BaseDocsTest):
         os.remove(self.waiter_model_file)
         service_documenter = ServiceDocumenter('myservice', self.session)
         contents = service_documenter.document_service().decode('utf-8')
-        self.assertNotIn('Waiters', contents)
+        assert 'Waiters' not in contents
 
     def test_creates_correct_path_to_examples_based_on_service_name(self):
-        path = os.sep.join([os.path.dirname(ibm_boto3.__file__),
-                            'examples', 'myservice.rst'])
+        path = os.sep.join(
+            [os.path.dirname(ibm_boto3.__file__), 'examples', 'myservice.rst']
+        )
         path = os.path.realpath(path)
         with mock.patch('os.path.isfile') as isfile:
             isfile.return_value = False
             s = ServiceDocumenter('myservice', self.session)
             s.document_service()
-            self.assertEqual(
-                isfile.call_args_list[-1],
-                mock.call(path))
+            assert isfile.call_args_list[-1] == mock.call(path)
 
     def test_injects_examples_when_found(self):
-        examples_path = os.sep.join([os.path.dirname(__file__), '..', 'data',
-                                     'examples'])
-        service_documenter = ServiceDocumenter(
-            'myservice', self.session)
+        examples_path = os.sep.join(
+            [os.path.dirname(__file__), '..', 'data', 'examples']
+        )
+        service_documenter = ServiceDocumenter('myservice', self.session)
         service_documenter.EXAMPLE_PATH = examples_path
         contents = service_documenter.document_service().decode('utf-8')
-        self.assertIn('This is an example', contents)
-        self.assertNotIn('This is for another service', contents)
+        assert 'This is an example' in contents
+        assert 'This is for another service' not in contents
