@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.12.2
+
+### Content
+
+#### Defect Fixes
+
+* COSSDK-95884: <https://github.com/IBM/ibm-cos-sdk-python/issues/48>
+* Update dependencies
+
 ## 2.12.1
 
 ### Content
