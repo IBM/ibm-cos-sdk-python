@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.12.1 documentation</title>
+    <title>ibm_boto3.resources.factory &mdash; ibm-cos-sdk 2.12.2 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.12.1',
+        VERSION:     '2.12.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.1 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.1 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -143,7 +143,7 @@
 
 
 <div class="viewcode-block" id="ResourceFactory"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">[docs]</a><span class="k">class</span> <span class="nc">ResourceFactory</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory to create new :py:class:`~ibm_boto3.resources.base.ServiceResource`</span>
 <span class="sd">    classes from a :py:class:`~ibm_boto3.resources.model.ResourceModel`. There are</span>
 <span class="sd">    two types of lookups that can be done: one on the service itself (e.g. an</span>
@@ -158,7 +158,7 @@
 <div class="viewcode-block" id="ResourceFactory.load_from_definition"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory.load_from_definition">[docs]</a>    <span class="k">def</span> <span class="nf">load_from_definition</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">single_resource_json_definition</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads a resource from a model, creating a new</span>
 <span class="sd">        :py:class:`~ibm_boto3.resources.base.ServiceResource` subclass</span>
 <span class="sd">        with the correct properties and methods, named based on the service</span>
@@ -275,7 +275,7 @@
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">base_classes</span><span class="p">),</span> <span class="n">attrs</span><span class="p">)</span>
 </div>
     <span class="k">def</span> <span class="nf">_load_identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Populate required identifiers. These are arguments without which</span>
 <span class="sd">        the resource cannot be used. Identifiers become arguments for</span>
 <span class="sd">        operations on the resource.</span>
@@ -289,7 +289,7 @@
     <span class="k">def</span> <span class="nf">_load_actions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Actions on the resource become methods, with the ``load`` method</span>
 <span class="sd">        being a special case which sets internal data for attributes, and</span>
 <span class="sd">        ``reload`` is an alias for ``load``.</span>
@@ -313,7 +313,7 @@
     <span class="k">def</span> <span class="nf">_load_attributes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load resource attributes based on the resource shape. The shape</span>
 <span class="sd">        name is referenced in the resource JSON, but the shape itself</span>
 <span class="sd">        is defined in the Botocore service JSON, hence the need for</span>
@@ -349,7 +349,7 @@
             <span class="n">attrs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span>
 
     <span class="k">def</span> <span class="nf">_load_collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load resource collections from the model. Each collection becomes</span>
 <span class="sd">        a :py:class:`~ibm_boto3.resources.collection.CollectionManager` instance</span>
 <span class="sd">        on the resource instance, which allows you to iterate and filter</span>
@@ -365,7 +365,7 @@
     <span class="k">def</span> <span class="nf">_load_has_relations</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load related resources, which are defined via a ``has``</span>
 <span class="sd">        relationship but conceptually come in two forms:</span>
 
@@ -403,7 +403,7 @@
         <span class="n">_subresources</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_subresources</span><span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">get_available_subresources</span><span class="p">(</span><span class="n">factory_self</span><span class="p">):</span>
-            <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            Returns a list of all the available sub-resources for this</span>
 <span class="sd">            Resource.</span>
 
@@ -418,7 +418,7 @@
     <span class="k">def</span> <span class="nf">_load_waiters</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">resource_model</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load resource waiters from the model. Each waiter allows you to</span>
 <span class="sd">        wait until a resource reaches a specific state by polling the state</span>
 <span class="sd">        of the resource.</span>
@@ -431,7 +431,7 @@
             <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_create_identifier</span><span class="p">(</span><span class="n">factory_self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a read-only property for identifier attributes.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -456,7 +456,7 @@
     <span class="k">def</span> <span class="nf">_create_identifier_alias</span><span class="p">(</span>
         <span class="n">factory_self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">member_model</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a read-only property that aliases an identifier.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -483,7 +483,7 @@
         <span class="n">member_model</span><span class="p">,</span>
         <span class="n">service_context</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new property on the resource to lazy-load its value</span>
 <span class="sd">        via the resource&#39;s ``load`` method (if it exists).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -517,7 +517,7 @@
     <span class="k">def</span> <span class="nf">_create_waiter</span><span class="p">(</span>
         <span class="n">factory_self</span><span class="p">,</span> <span class="n">resource_waiter_model</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new wait method for each resource where both a waiter and</span>
 <span class="sd">        resource model is defined.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -543,7 +543,7 @@
     <span class="k">def</span> <span class="nf">_create_collection</span><span class="p">(</span>
         <span class="n">factory_self</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">collection_model</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new property on the resource to lazy-load a collection.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">cls</span> <span class="o">=</span> <span class="n">factory_self</span><span class="o">.</span><span class="n">_collection_factory</span><span class="o">.</span><span class="n">load_from_definition</span><span class="p">(</span>
@@ -570,7 +570,7 @@
     <span class="k">def</span> <span class="nf">_create_reference</span><span class="p">(</span>
         <span class="n">factory_self</span><span class="p">,</span> <span class="n">reference_model</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new property on the resource to lazy-load a reference.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># References are essentially an action with no request</span>
@@ -611,7 +611,7 @@
     <span class="k">def</span> <span class="nf">_create_class_partial</span><span class="p">(</span>
         <span class="n">factory_self</span><span class="p">,</span> <span class="n">subresource_model</span><span class="p">,</span> <span class="n">resource_name</span><span class="p">,</span> <span class="n">service_context</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new method which acts as a functools.partial, passing</span>
 <span class="sd">        along the instance&#39;s low-level `client` to the new resource</span>
 <span class="sd">        class&#39; constructor.</span>
@@ -661,7 +661,7 @@
         <span class="n">service_context</span><span class="p">,</span>
         <span class="n">is_load</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new method which makes a request to the underlying</span>
 <span class="sd">        AWS service.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -731,7 +731,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>

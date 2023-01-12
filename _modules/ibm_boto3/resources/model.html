@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.model &mdash; ibm-cos-sdk 2.12.1 documentation</title>
+    <title>ibm_boto3.resources.model &mdash; ibm-cos-sdk 2.12.2 documentation</title>
     
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.12.1',
+        VERSION:     '2.12.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.1 documentation" href="../../../index.html" />
+    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../../index.html" />
     <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
   
    
@@ -48,7 +48,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
       </ul>
@@ -60,7 +60,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.1 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -148,7 +148,7 @@
 
 
 <div class="viewcode-block" id="Identifier"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Identifier">[docs]</a><span class="k">class</span> <span class="nc">Identifier</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A resource identifier, given by its name.</span>
 
 <span class="sd">    :type name: string</span>
@@ -162,7 +162,7 @@
 
 </div>
 <div class="viewcode-block" id="Action"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Action">[docs]</a><span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A service operation action.</span>
 
 <span class="sd">    :type name: string</span>
@@ -193,7 +193,7 @@
 
 </div>
 <div class="viewcode-block" id="DefinitionWithParams"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams">[docs]</a><span class="k">class</span> <span class="nc">DefinitionWithParams</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An item which has parameters exposed via the ``params`` property.</span>
 <span class="sd">    A request has an operation and parameters, while a waiter has</span>
 <span class="sd">    a name, a low-level waiter name and parameters.</span>
@@ -207,7 +207,7 @@
 
     <span class="nd">@property</span>
 <div class="viewcode-block" id="DefinitionWithParams.params"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams.params">[docs]</a>    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of auto-filled parameters for this request.</span>
 
 <span class="sd">        :type: list(:py:class:`Parameter`)</span>
@@ -221,7 +221,7 @@
 
 </div></div>
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An auto-filled parameter which has a source and target. For example,</span>
 <span class="sd">    the ``QueueUrl`` may be auto-filled from a resource&#39;s ``url`` identifier</span>
 <span class="sd">    when making calls to ``queue.receive_messages``.</span>
@@ -254,7 +254,7 @@
 
 </div>
 <div class="viewcode-block" id="Request"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Request">[docs]</a><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A service operation action request.</span>
 
 <span class="sd">    :type definition: dict</span>
@@ -269,7 +269,7 @@
 
 </div>
 <div class="viewcode-block" id="Waiter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Waiter">[docs]</a><span class="k">class</span> <span class="nc">Waiter</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An event waiter specification.</span>
 
 <span class="sd">    :type name: string</span>
@@ -291,7 +291,7 @@
 
 </div>
 <div class="viewcode-block" id="ResponseResource"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource">[docs]</a><span class="k">class</span> <span class="nc">ResponseResource</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A resource response to create after performing an action.</span>
 
 <span class="sd">    :type definition: dict</span>
@@ -312,7 +312,7 @@
 
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResponseResource.identifiers"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.identifiers">[docs]</a>    <span class="k">def</span> <span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A list of resource identifiers.</span>
 
 <span class="sd">        :type: list(:py:class:`Identifier`)</span>
@@ -326,7 +326,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResponseResource.model"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.model">[docs]</a>    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the resource model for the response resource.</span>
 
 <span class="sd">        :type: :py:class:`ResourceModel`</span>
@@ -337,7 +337,7 @@
 
 </div></div>
 <div class="viewcode-block" id="Collection"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Collection">[docs]</a><span class="k">class</span> <span class="nc">Collection</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A group of resources. See :py:class:`Action`.</span>
 
 <span class="sd">    :type name: string</span>
@@ -350,7 +350,7 @@
 
     <span class="nd">@property</span>
 <div class="viewcode-block" id="Collection.batch_actions"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Collection.batch_actions">[docs]</a>    <span class="k">def</span> <span class="nf">batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of batch actions supported by the resource type</span>
 <span class="sd">        contained in this action. This is a shortcut for accessing</span>
 <span class="sd">        the same information through the resource model.</span>
@@ -361,7 +361,7 @@
 
 </div></div>
 <div class="viewcode-block" id="ResourceModel"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel">[docs]</a><span class="k">class</span> <span class="nc">ResourceModel</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A model representing a resource, defined via a JSON description</span>
 <span class="sd">    format. A resource has identifiers, attributes, actions,</span>
 <span class="sd">    sub-resources, references and collections. For more information</span>
@@ -386,7 +386,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ResourceModel.load_rename_map"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">[docs]</a>    <span class="k">def</span> <span class="nf">load_rename_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a name translation map given a shape. This will set</span>
 <span class="sd">        up renamed values for any collisions, e.g. if the shape,</span>
 <span class="sd">        an action, and a subresource all are all named ``foo``</span>
@@ -464,7 +464,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">)</span>
 </div>
     <span class="k">def</span> <span class="nf">_load_name_with_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a name with a given category, possibly renaming it</span>
 <span class="sd">        if that name is already in use. The name will be stored</span>
 <span class="sd">        in ``names`` and possibly be set up in ``self._renamed``.</span>
@@ -499,7 +499,7 @@
         <span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a possibly renamed value given a category and name. This</span>
 <span class="sd">        uses the rename map set up in ``load_rename_map``, so that</span>
 <span class="sd">        method must be called once first.</span>
@@ -520,7 +520,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ResourceModel.get_attributes"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.get_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a dictionary of attribute names to original name and shape</span>
 <span class="sd">        models that represent the attributes of this resource. Looks</span>
 <span class="sd">        like the following:</span>
@@ -551,7 +551,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.identifiers"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.identifiers">[docs]</a>    <span class="k">def</span> <span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of resource identifiers.</span>
 
 <span class="sd">        :type: list(:py:class:`Identifier`)</span>
@@ -569,7 +569,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.load"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the load action for this resource, if it is defined.</span>
 
 <span class="sd">        :type: :py:class:`Action` or ``None``</span>
@@ -583,7 +583,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.actions"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.actions">[docs]</a>    <span class="k">def</span> <span class="nf">actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of actions for this resource.</span>
 
 <span class="sd">        :type: list(:py:class:`Action`)</span>
@@ -598,7 +598,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.batch_actions"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.batch_actions">[docs]</a>    <span class="k">def</span> <span class="nf">batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of batch actions for this resource.</span>
 
 <span class="sd">        :type: list(:py:class:`Action`)</span>
@@ -612,7 +612,7 @@
         <span class="k">return</span> <span class="n">actions</span>
 </div>
     <span class="k">def</span> <span class="nf">_get_has_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a ``has`` relationship definition from a model, where the</span>
 <span class="sd">        service resource model is treated special in that it contains</span>
 <span class="sd">        a relationship to every resource defined for the service. This</span>
@@ -670,7 +670,7 @@
         <span class="k">return</span> <span class="n">definition</span>
 
     <span class="k">def</span> <span class="nf">_get_related_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subresources</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of sub-resources or references.</span>
 
 <span class="sd">        :type subresources: bool</span>
@@ -702,7 +702,7 @@
 
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.subresources"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.subresources">[docs]</a>    <span class="k">def</span> <span class="nf">subresources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of sub-resources.</span>
 
 <span class="sd">        :type: list(:py:class:`Action`)</span>
@@ -711,7 +711,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.references"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.references">[docs]</a>    <span class="k">def</span> <span class="nf">references</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of reference resources.</span>
 
 <span class="sd">        :type: list(:py:class:`Action`)</span>
@@ -720,7 +720,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.collections"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of collections for this resource.</span>
 
 <span class="sd">        :type: list(:py:class:`Collection`)</span>
@@ -735,7 +735,7 @@
 </div>
     <span class="nd">@property</span>
 <div class="viewcode-block" id="ResourceModel.waiters"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.waiters">[docs]</a>    <span class="k">def</span> <span class="nf">waiters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of waiters for this resource.</span>
 
 <span class="sd">        :type: list(:py:class:`Waiter`)</span>
@@ -763,7 +763,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.1 documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
       </ul>
