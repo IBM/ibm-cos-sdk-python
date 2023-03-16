@@ -1,11 +1,10 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
@@ -15,31 +14,30 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.collection &mdash; ibm-cos-sdk 2.12.2 documentation</title>
-    
+    <title>ibm_boto3.resources.collection &#8212; ibm-cos-sdk 2.13.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.12.2',
+        VERSION:     '2.13.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../../index.html" />
-    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
   
    
 
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -48,9 +46,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.13.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -300,8 +298,8 @@
 
             <span class="c1"># Stop reading pages if we&#39;ve reached out limit</span>
             <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">limit</span><span class="p">:</span>
-                <span class="k">break</span>
-</div>
+                <span class="k">break</span></div>
+
 <div class="viewcode-block" id="ResourceCollection.all"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get all items from the collection, optionally with a custom</span>
@@ -321,8 +319,8 @@
 <span class="sd">            &gt;&gt;&gt; len(queues)</span>
 <span class="sd">            2</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span></div>
+
 <div class="viewcode-block" id="ResourceCollection.filter"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get items from the collection, passing keyword arguments along</span>
@@ -345,8 +343,8 @@
 
 <span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="ResourceCollection.limit"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.limit">[docs]</a>    <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return at most this many resources.</span>
@@ -363,8 +361,8 @@
 <span class="sd">        :param count: Return no more than this many items</span>
 <span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">count</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="ResourceCollection.page_size"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.page_size">[docs]</a>    <span class="k">def</span> <span class="nf">page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fetch at most this many resources per service request.</span>
@@ -376,9 +374,9 @@
 <span class="sd">        :param count: Fetch this many items per request</span>
 <span class="sd">        :rtype: :py:class:`ResourceCollection`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span></div></div>
 
-</div></div>
+
 <div class="viewcode-block" id="CollectionManager"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager">[docs]</a><span class="k">class</span> <span class="nc">CollectionManager</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A collection manager provides access to resource collection instances,</span>
@@ -458,35 +456,35 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection_cls</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handler</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
-    <span class="c1"># Set up some methods to proxy ResourceCollection methods</span></div>
+    <span class="c1"># Set up some methods to proxy ResourceCollection methods</span>
 <div class="viewcode-block" id="CollectionManager.all"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">()</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">()</span></div>
+
     <span class="nb">all</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="vm">__doc__</span>
 
 <div class="viewcode-block" id="CollectionManager.filter"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
     <span class="nb">filter</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">filter</span><span class="o">.</span><span class="vm">__doc__</span>
 
 <div class="viewcode-block" id="CollectionManager.limit"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.limit">[docs]</a>    <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="n">count</span><span class="p">)</span></div>
+
     <span class="n">limit</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">limit</span><span class="o">.</span><span class="vm">__doc__</span>
 
 <div class="viewcode-block" id="CollectionManager.page_size"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.page_size">[docs]</a>    <span class="k">def</span> <span class="nf">page_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="n">count</span><span class="p">)</span></div>
+
     <span class="n">page_size</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">page_size</span><span class="o">.</span><span class="vm">__doc__</span>
 
 <div class="viewcode-block" id="CollectionManager.pages"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.pages">[docs]</a>    <span class="k">def</span> <span class="nf">pages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">()</span><span class="o">.</span><span class="n">pages</span><span class="p">()</span>
-</div>
-    <span class="n">pages</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">pages</span><span class="o">.</span><span class="vm">__doc__</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">()</span><span class="o">.</span><span class="n">pages</span><span class="p">()</span></div>
 
-</div>
+    <span class="n">pages</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">ResourceCollection</span><span class="o">.</span><span class="n">pages</span><span class="o">.</span><span class="vm">__doc__</span></div>
+
+
 <div class="viewcode-block" id="CollectionFactory"><a class="viewcode-back" href="../../../reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory">[docs]</a><span class="k">class</span> <span class="nc">CollectionFactory</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A factory to create new</span>
@@ -563,8 +561,8 @@
         <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;_collection_cls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">collection_cls</span>
         <span class="n">cls_name</span> <span class="o">+=</span> <span class="s1">&#39;Manager&#39;</span>
 
-        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="p">(</span><span class="n">CollectionManager</span><span class="p">,),</span> <span class="n">attrs</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="p">(</span><span class="n">CollectionManager</span><span class="p">,),</span> <span class="n">attrs</span><span class="p">)</span></div>
+
     <span class="k">def</span> <span class="nf">_load_batch_actions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">attrs</span><span class="p">,</span>
@@ -694,7 +692,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -703,9 +701,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" >ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
 <div class="footer">

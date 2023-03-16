@@ -1,11 +1,10 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
@@ -15,31 +14,30 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.resources.action &mdash; ibm-cos-sdk 2.12.2 documentation</title>
-    
+    <title>ibm_boto3.resources.action &#8212; ibm-cos-sdk 2.13.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.12.2',
+        VERSION:     '2.13.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../../index.html" />
-    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
   
    
 
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -48,9 +46,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.13.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -206,9 +204,9 @@
 
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Response: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="BatchAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.BatchAction">[docs]</a><span class="k">class</span> <span class="nc">BatchAction</span><span class="p">(</span><span class="n">ServiceAction</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An action which operates on a batch of items in a collection, typically</span>
@@ -282,9 +280,9 @@
 
             <span class="n">responses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_response_handler</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="n">responses</span>
+        <span class="k">return</span> <span class="n">responses</span></div>
 
-</div>
+
 <div class="viewcode-block" id="WaiterAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.WaiterAction">[docs]</a><span class="k">class</span> <span class="nc">WaiterAction</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class representing a callable waiter action on a resource, for example</span>
@@ -331,9 +329,9 @@
         <span class="n">waiter</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waiter</span><span class="p">(</span><span class="n">client_waiter_name</span><span class="p">)</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">waiter</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Response: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Response: </span><span class="si">%r</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="CustomModeledAction"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction">[docs]</a><span class="k">class</span> <span class="nc">CustomModeledAction</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A custom, modeled action to inject into a resource.&quot;&quot;&quot;</span>
 
@@ -379,7 +377,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -388,9 +386,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" >ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
 <div class="footer">

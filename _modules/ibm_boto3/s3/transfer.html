@@ -1,11 +1,10 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
@@ -15,31 +14,30 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.s3.transfer &mdash; ibm-cos-sdk 2.12.2 documentation</title>
-    
+    <title>ibm_boto3.s3.transfer &#8212; ibm-cos-sdk 2.13.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.12.2',
+        VERSION:     '2.13.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../../index.html" />
-    <link rel="up" title="ibm_boto3" href="../../ibm_boto3.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
   
    
 
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -48,9 +46,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.13.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -355,9 +353,9 @@
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">:</span>
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">value</span><span class="p">)</span>
         <span class="c1"># Always set the value of the actual name provided.</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">:</span>
     <span class="n">ALLOWED_DOWNLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_DOWNLOAD_ARGS</span>
     <span class="n">ALLOWED_UPLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_UPLOAD_ARGS</span>
@@ -412,8 +410,8 @@
                 <span class="s2">&quot;Failed to upload </span><span class="si">{}</span><span class="s2"> to </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">]),</span> <span class="n">e</span>
                 <span class="p">)</span>
-            <span class="p">)</span>
-</div>
+            <span class="p">)</span></div>
+
 <div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
@@ -441,8 +439,8 @@
         <span class="c1"># catching the ibm_boto3 one instead of the ibm_s3transfer exception to do</span>
         <span class="c1"># their own retries.</span>
         <span class="k">except</span> <span class="n">S3TransferRetriesExceededError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">RetriesExceededError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">last_exception</span><span class="p">)</span>
-</div>
+            <span class="k">raise</span> <span class="n">RetriesExceededError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">last_exception</span><span class="p">)</span></div>
+
     <span class="k">def</span> <span class="nf">_get_subscribers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
@@ -452,9 +450,9 @@
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
 
-</div>
+
 <span class="k">class</span> <span class="nc">ProgressCallbackInvoker</span><span class="p">(</span><span class="n">BaseSubscriber</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A back-compat wrapper to invoke a provided callback via a subscriber</span>
 
@@ -474,7 +472,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -483,9 +481,9 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" >ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
 <div class="footer">

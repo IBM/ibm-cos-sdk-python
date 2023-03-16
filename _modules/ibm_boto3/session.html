@@ -1,11 +1,10 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
@@ -15,31 +14,30 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.session &mdash; ibm-cos-sdk 2.12.2 documentation</title>
-    
+    <title>ibm_boto3.session &#8212; ibm-cos-sdk 2.13.0 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.12.2',
+        VERSION:     '2.13.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../index.html" />
-    <link rel="up" title="ibm_boto3" href="../ibm_boto3.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
   
    
 
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -48,9 +46,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../ibm_boto3.html" accesskey="U">ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../ibm_boto3.html" accesskey="U">ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -60,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -254,33 +252,33 @@
         <span class="p">)</span>
 
     <span class="nd">@property</span>
-<div class="viewcode-block" id="Session.profile_name"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.profile_name">[docs]</a>    <span class="k">def</span> <span class="nf">profile_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">profile_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The **read-only** profile name.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">profile</span> <span class="ow">or</span> <span class="s1">&#39;default&#39;</span>
-</div>
+
     <span class="nd">@property</span>
-<div class="viewcode-block" id="Session.region_name"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.region_name">[docs]</a>    <span class="k">def</span> <span class="nf">region_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">region_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The **read-only** region name.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_config_variable</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)</span>
-</div>
+
     <span class="nd">@property</span>
-<div class="viewcode-block" id="Session.events"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.events">[docs]</a>    <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The event emitter for a session</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s1">&#39;event_emitter&#39;</span><span class="p">)</span>
-</div>
+
     <span class="nd">@property</span>
-<div class="viewcode-block" id="Session.available_profiles"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.available_profiles">[docs]</a>    <span class="k">def</span> <span class="nf">available_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">available_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The profiles available to the session credentials</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">available_profiles</span>
-</div>
+
     <span class="k">def</span> <span class="nf">_setup_loader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Setup loader paths so that we can load resources.</span>
@@ -298,8 +296,8 @@
 <span class="sd">        :rtype: list</span>
 <span class="sd">        :return: List of service names</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_services</span><span class="p">()</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_services</span><span class="p">()</span></div>
+
 <div class="viewcode-block" id="Session.get_available_resources"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.get_available_resources">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of available services that can be loaded as resource</span>
@@ -308,16 +306,16 @@
 <span class="sd">        :rtype: list</span>
 <span class="sd">        :return: List of service names</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">list_available_services</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s1">&#39;resources-1&#39;</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loader</span><span class="o">.</span><span class="n">list_available_services</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s1">&#39;resources-1&#39;</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Session.get_available_partitions"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.get_available_partitions">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Lists the available partitions</span>
 
 <span class="sd">        :rtype: list</span>
 <span class="sd">        :return: Returns a list of partition names (e.g., [&quot;aws&quot;, &quot;aws-cn&quot;])</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_partitions</span><span class="p">()</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_available_partitions</span><span class="p">()</span></div>
+
 <div class="viewcode-block" id="Session.get_available_regions"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.get_available_regions">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_regions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">service_name</span><span class="p">,</span> <span class="n">partition_name</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">,</span> <span class="n">allow_non_regional</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">):</span>
@@ -342,8 +340,8 @@
             <span class="n">service_name</span><span class="o">=</span><span class="n">service_name</span><span class="p">,</span>
             <span class="n">partition_name</span><span class="o">=</span><span class="n">partition_name</span><span class="p">,</span>
             <span class="n">allow_non_regional</span><span class="o">=</span><span class="n">allow_non_regional</span><span class="p">,</span>
-        <span class="p">)</span>
-</div>
+        <span class="p">)</span></div>
+
 <div class="viewcode-block" id="Session.get_credentials"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.get_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">get_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the :class:`ibm_botocore.credentials.Credentials` object</span>
@@ -352,8 +350,8 @@
 <span class="sd">        have already been loaded, this will return the cached</span>
 <span class="sd">        credentials.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">()</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_credentials</span><span class="p">()</span></div>
+
 <div class="viewcode-block" id="Session.get_partition_for_region"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.get_partition_for_region">[docs]</a>    <span class="k">def</span> <span class="nf">get_partition_for_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region_name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Lists the partition name of a particular region.</span>
 
@@ -364,8 +362,8 @@
 <span class="sd">        :rtype: string</span>
 <span class="sd">        :return: Returns the respective partition name (e.g., aws).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_partition_for_region</span><span class="p">(</span><span class="n">region_name</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get_partition_for_region</span><span class="p">(</span><span class="n">region_name</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Session.client"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.client">[docs]</a>    <span class="k">def</span> <span class="nf">client</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">service_name</span><span class="p">,</span>
@@ -487,8 +485,8 @@
             <span class="n">auth_function</span><span class="o">=</span><span class="n">auth_function</span><span class="p">,</span>
             <span class="n">token_manager</span><span class="o">=</span><span class="n">token_manager</span><span class="p">,</span>
             <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
-        <span class="p">)</span>
-</div>
+        <span class="p">)</span></div>
+
 <div class="viewcode-block" id="Session.resource"><a class="viewcode-back" href="../../reference/core/session.html#ibm_boto3.session.Session.resource">[docs]</a>    <span class="k">def</span> <span class="nf">resource</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">service_name</span><span class="p">,</span>
@@ -683,8 +681,8 @@
             <span class="n">service_context</span><span class="o">=</span><span class="n">service_context</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">)</span></div>
+
     <span class="k">def</span> <span class="nf">_register_default_handlers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="c1"># S3 customizations</span>
@@ -713,7 +711,7 @@
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -722,9 +720,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../ibm_boto3.html" >ibm_boto3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../ibm_boto3.html" >ibm_boto3</a> &#187;</li> 
       </ul>
     </div>
 <div class="footer">

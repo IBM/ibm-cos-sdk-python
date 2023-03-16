@@ -1,11 +1,10 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
@@ -15,25 +14,24 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Session reference &mdash; ibm-cos-sdk 2.12.2 documentation</title>
-    
+    <title>Session reference &#8212; ibm-cos-sdk 2.13.0 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.12.2',
+        VERSION:     '2.13.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="ibm-cos-sdk 2.12.2 documentation" href="../../index.html" />
-    <link rel="up" title="Core references" href="index.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Customization references" href="../customizations/index.html" />
     <link rel="prev" title="Resources reference" href="resources.html" />
   
@@ -41,7 +39,7 @@
 
   </head>
   <body>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -56,8 +54,8 @@
         <li class="right" >
           <a href="resources.html" title="Resources reference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">Core references</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Core references</a> &#187;</li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -67,7 +65,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.12.2 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.0 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -83,7 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="collections.html">Collections reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ibm_boto3.html">IBM Boto3 reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html">Resources reference</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Session reference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Session reference</a></li>
 </ul>
 </li>
 </ul>
@@ -130,54 +128,62 @@
 <span id="session-reference"></span><span id="ref-core-session"></span><h1>Session reference<a class="headerlink" href="#module-ibm_boto3.session" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="ibm_boto3.session.Session">
-<em class="property">class </em><tt class="descclassname">ibm_boto3.session.</tt><tt class="descname">Session</tt><big>(</big><em>aws_access_key_id=None</em>, <em>aws_secret_access_key=None</em>, <em>aws_session_token=None</em>, <em>region_name=None</em>, <em>ibm_api_key_id=None</em>, <em>ibm_service_instance_id=None</em>, <em>ibm_auth_endpoint=None</em>, <em>auth_function=None</em>, <em>token_manager=None</em>, <em>botocore_session=None</em>, <em>profile_name=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ibm_boto3.session.</code><code class="descname">Session</code><span class="sig-paren">(</span><em>aws_access_key_id=None</em>, <em>aws_secret_access_key=None</em>, <em>aws_session_token=None</em>, <em>region_name=None</em>, <em>ibm_api_key_id=None</em>, <em>ibm_service_instance_id=None</em>, <em>ibm_auth_endpoint=None</em>, <em>auth_function=None</em>, <em>token_manager=None</em>, <em>botocore_session=None</em>, <em>profile_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session" title="Permalink to this definition">¶</a></dt>
 <dd><p>A session stores configuration state and allows you to create service
 clients and resources.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
-<li><strong>aws_access_key_id</strong> (<em>string</em>) -- AWS access key ID</li>
-<li><strong>aws_secret_access_key</strong> (<em>string</em>) -- AWS secret access key</li>
-<li><strong>aws_session_token</strong> (<em>string</em>) -- AWS temporary session token</li>
-<li><strong>region_name</strong> (<em>string</em>) -- Default region when creating new connections</li>
-<li><strong>ibm_api_key_id</strong> (<em>str</em>) -- IBM api key used for IAM authentication.</li>
-<li><strong>ibm_service_instance_id</strong> (<em>str</em>) -- Service Instance ID used for
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>aws_access_key_id</strong> (<em>string</em>) – AWS access key ID</li>
+<li><strong>aws_secret_access_key</strong> (<em>string</em>) – AWS secret access key</li>
+<li><strong>aws_session_token</strong> (<em>string</em>) – AWS temporary session token</li>
+<li><strong>region_name</strong> (<em>string</em>) – Default region when creating new connections</li>
+<li><strong>ibm_api_key_id</strong> (<em>str</em>) – IBM api key used for IAM authentication.</li>
+<li><strong>ibm_service_instance_id</strong> (<em>str</em>) – Service Instance ID used for
 PUT bucket and GET service requests.</li>
-<li><strong>ibm_auth_endpoint</strong> (<em>str</em>) -- URL used for IAM authentication.</li>
-<li><strong>token_manager</strong> (<em>TokenManager</em>) -- custom token manager to use.</li>
-<li><strong>auth_function</strong> (<em>function</em>) -- function that does custom authentication
+<li><strong>ibm_auth_endpoint</strong> (<em>str</em>) – URL used for IAM authentication.</li>
+<li><strong>token_manager</strong> (<em>TokenManager</em>) – custom token manager to use.</li>
+<li><strong>auth_function</strong> (<em>function</em>) – function that does custom authentication
 and returns json with token, refresh token, expiry time
 and token type.</li>
-<li><strong>botocore_session</strong> (<em>ibm_botocore.session.Session</em>) -- Use this Botocore session instead of creating
+<li><strong>botocore_session</strong> (<em>ibm_botocore.session.Session</em>) – Use this Botocore session instead of creating
 a new default one.</li>
-<li><strong>profile_name</strong> (<em>string</em>) -- The name of a profile to use. If not given, then
+<li><strong>profile_name</strong> (<em>string</em>) – The name of a profile to use. If not given, then
 the default profile is used.</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="attribute">
 <dt id="ibm_boto3.session.Session.available_profiles">
-<tt class="descname">available_profiles</tt><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.available_profiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.available_profiles" title="Permalink to this definition">¶</a></dt>
+<code class="descname">available_profiles</code><a class="headerlink" href="#ibm_boto3.session.Session.available_profiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>The profiles available to the session credentials</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.client">
-<tt class="descname">client</tt><big>(</big><em>service_name</em>, <em>region_name=None</em>, <em>api_version=None</em>, <em>use_ssl=True</em>, <em>verify=None</em>, <em>endpoint_url=None</em>, <em>aws_access_key_id=None</em>, <em>aws_secret_access_key=None</em>, <em>aws_session_token=None</em>, <em>ibm_api_key_id=None</em>, <em>ibm_service_instance_id=None</em>, <em>ibm_auth_endpoint=None</em>, <em>auth_function=None</em>, <em>token_manager=None</em>, <em>config=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.client" title="Permalink to this definition">¶</a></dt>
+<code class="descname">client</code><span class="sig-paren">(</span><em>service_name</em>, <em>region_name=None</em>, <em>api_version=None</em>, <em>use_ssl=True</em>, <em>verify=None</em>, <em>endpoint_url=None</em>, <em>aws_access_key_id=None</em>, <em>aws_secret_access_key=None</em>, <em>aws_session_token=None</em>, <em>ibm_api_key_id=None</em>, <em>ibm_service_instance_id=None</em>, <em>ibm_auth_endpoint=None</em>, <em>auth_function=None</em>, <em>token_manager=None</em>, <em>config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a low-level service client by name.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
-<li><strong>service_name</strong> (<em>string</em>) -- The name of a service, e.g. 's3'. You can
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service_name</strong> (<em>string</em>) – The name of a service, e.g. ‘s3’. You can
 get a list of available services via
-<a class="reference internal" href="#ibm_boto3.session.Session.get_available_services" title="ibm_boto3.session.Session.get_available_services"><tt class="xref py py-meth docutils literal"><span class="pre">get_available_services()</span></tt></a>.</li>
-<li><strong>region_name</strong> (<em>string</em>) -- The name of the region associated with the client.
+<a class="reference internal" href="#ibm_boto3.session.Session.get_available_services" title="ibm_boto3.session.Session.get_available_services"><code class="xref py py-meth docutils literal"><span class="pre">get_available_services()</span></code></a>.</li>
+<li><strong>region_name</strong> (<em>string</em>) – The name of the region associated with the client.
 A client is associated with a single region.</li>
-<li><strong>api_version</strong> (<em>string</em>) -- The API version to use.  By default, ibm_botocore will
+<li><strong>api_version</strong> (<em>string</em>) – The API version to use.  By default, ibm_botocore will
 use the latest API version when creating a client.  You only need
 to specify this parameter if you want to use a previous API version
 of the client.</li>
-<li><strong>use_ssl</strong> (<em>boolean</em>) -- Whether or not to use SSL.  By default, SSL is used.
+<li><strong>use_ssl</strong> (<em>boolean</em>) – Whether or not to use SSL.  By default, SSL is used.
 Note that not all services support non-ssl connections.</li>
-<li><strong>verify</strong> (<em>boolean/string</em>) -- <p>Whether or not to verify SSL certificates.  By default
+<li><strong>verify</strong> (<em>boolean/string</em>) – <p>Whether or not to verify SSL certificates.  By default
 SSL certificates are verified.  You can provide the following
 values:</p>
 <ul>
@@ -189,104 +195,131 @@ uses.  You can specify this argument if you want to use a
 different CA cert bundle than the one used by ibm_botocore.</li>
 </ul>
 </li>
-<li><strong>endpoint_url</strong> (<em>string</em>) -- The complete URL to use for the constructed
+<li><strong>endpoint_url</strong> (<em>string</em>) – The complete URL to use for the constructed
 client. Normally, ibm_botocore will automatically construct the
 appropriate URL to use when communicating with a service.  You
-can specify a complete URL (including the &quot;http/https&quot; scheme)
+can specify a complete URL (including the “http/https” scheme)
 to override this behavior.  If this value is provided,
-then <tt class="docutils literal"><span class="pre">use_ssl</span></tt> is ignored.</li>
-<li><strong>aws_access_key_id</strong> (<em>string</em>) -- The access key to use when creating
+then <code class="docutils literal"><span class="pre">use_ssl</span></code> is ignored.</li>
+<li><strong>aws_access_key_id</strong> (<em>string</em>) – The access key to use when creating
 the client.  This is entirely optional, and if not provided,
 the credentials configured for the session will automatically
 be used.  You only need to provide this argument if you want
 to override the credentials used for this specific client.</li>
-<li><strong>aws_secret_access_key</strong> (<em>string</em>) -- The secret key to use when creating
+<li><strong>aws_secret_access_key</strong> (<em>string</em>) – The secret key to use when creating
 the client.  Same semantics as aws_access_key_id above.</li>
-<li><strong>aws_session_token</strong> (<em>string</em>) -- The session token to use when creating
+<li><strong>aws_session_token</strong> (<em>string</em>) – The session token to use when creating
 the client.  Same semantics as aws_access_key_id above.</li>
-<li><strong>ibm_api_key_id</strong> (<em>str</em>) -- IBM api key used for IAM authentication.</li>
-<li><strong>ibm_service_instance_id</strong> (<em>str</em>) -- Service Instance ID used for
+<li><strong>ibm_api_key_id</strong> (<em>str</em>) – IBM api key used for IAM authentication.</li>
+<li><strong>ibm_service_instance_id</strong> (<em>str</em>) – Service Instance ID used for
 PUT bucket and GET service requests.</li>
-<li><strong>ibm_auth_endpoint</strong> (<em>str</em>) -- URL used for IAM authentication.</li>
-<li><strong>token_manager</strong> (<em>TokenManager</em>) -- custom token manager to use.</li>
-<li><strong>auth_function</strong> (<em>function</em>) -- function that does custom authentication
+<li><strong>ibm_auth_endpoint</strong> (<em>str</em>) – URL used for IAM authentication.</li>
+<li><strong>token_manager</strong> (<em>TokenManager</em>) – custom token manager to use.</li>
+<li><strong>auth_function</strong> (<em>function</em>) – function that does custom authentication
 and returns json with token, refresh token, expiry time
 and token type.</li>
-<li><strong>config</strong> (<em>ibm_botocore.client.Config</em>) -- Advanced client configuration options. If region_name
+<li><strong>config</strong> (<em>ibm_botocore.client.Config</em>) – Advanced client configuration options. If region_name
 is specified in the client config, its value will take precedence
 over environment variables and configuration values, but not over
 a region_name value passed explicitly to the method. See
 <a class="reference external" href="https://botocore.readthedocs.io/en/stable/reference/config.html">ibm_botocore config documentation</a>
 for more details.</li>
 </ul>
-</dd>
-<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">Service client instance</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Service client instance</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ibm_boto3.session.Session.events">
-<tt class="descname">events</tt><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.events"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.events" title="Permalink to this definition">¶</a></dt>
+<code class="descname">events</code><a class="headerlink" href="#ibm_boto3.session.Session.events" title="Permalink to this definition">¶</a></dt>
 <dd><p>The event emitter for a session</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_available_partitions">
-<tt class="descname">get_available_partitions</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_partitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_partitions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_available_partitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_partitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_partitions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the available partitions</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Return type</dt><dd class="field-body">list</dd>
-<dt class="field-name">Returns</dt><dd class="field-body">Returns a list of partition names (e.g., [&quot;aws&quot;, &quot;aws-cn&quot;])</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Returns a list of partition names (e.g., [“aws”, “aws-cn”])</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_available_regions">
-<tt class="descname">get_available_regions</tt><big>(</big><em>service_name</em>, <em>partition_name='aws'</em>, <em>allow_non_regional=False</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_regions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_regions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_available_regions</code><span class="sig-paren">(</span><em>service_name</em>, <em>partition_name='aws'</em>, <em>allow_non_regional=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_regions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_regions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the region and endpoint names of a particular partition.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
-<li><strong>service_name</strong> (<em>string</em>) -- Name of a service to list endpoint for (e.g., s3).</li>
-<li><strong>partition_name</strong> (<em>string</em>) -- Name of the partition to limit endpoints to.
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service_name</strong> (<em>string</em>) – Name of a service to list endpoint for (e.g., s3).</li>
+<li><strong>partition_name</strong> (<em>string</em>) – Name of the partition to limit endpoints to.
 (e.g., aws for the public AWS endpoints, aws-cn for AWS China
 endpoints, aws-us-gov for AWS GovCloud (US) Endpoints, etc.)</li>
-<li><strong>allow_non_regional</strong> (<em>bool</em>) -- Set to True to include endpoints that are
+<li><strong>allow_non_regional</strong> (<em>bool</em>) – Set to True to include endpoints that are
 not regional endpoints (e.g., s3-external-1,
 fips-us-gov-west-1, etc).</li>
 </ul>
-</dd>
-<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">Returns a list of endpoint names (e.g., [&quot;us-east-1&quot;]).</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Returns a list of endpoint names (e.g., [“us-east-1”]).</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_available_resources">
-<tt class="descname">get_available_resources</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_resources" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_available_resources</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_resources"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_resources" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of available services that can be loaded as resource
-clients via <a class="reference internal" href="#ibm_boto3.session.Session.resource" title="ibm_boto3.session.Session.resource"><tt class="xref py py-meth docutils literal"><span class="pre">Session.resource()</span></tt></a>.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Return type</dt><dd class="field-body">list</dd>
-<dt class="field-name">Returns</dt><dd class="field-body">List of service names</dd>
-</dl>
+clients via <a class="reference internal" href="#ibm_boto3.session.Session.resource" title="ibm_boto3.session.Session.resource"><code class="xref py py-meth docutils literal"><span class="pre">Session.resource()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of service names</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_available_services">
-<tt class="descname">get_available_services</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_services"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_services" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_available_services</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_available_services"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_available_services" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of available services that can be loaded as low-level
-clients via <a class="reference internal" href="#ibm_boto3.session.Session.client" title="ibm_boto3.session.Session.client"><tt class="xref py py-meth docutils literal"><span class="pre">Session.client()</span></tt></a>.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Return type</dt><dd class="field-body">list</dd>
-<dt class="field-name">Returns</dt><dd class="field-body">List of service names</dd>
-</dl>
+clients via <a class="reference internal" href="#ibm_boto3.session.Session.client" title="ibm_boto3.session.Session.client"><code class="xref py py-meth docutils literal"><span class="pre">Session.client()</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of service names</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_credentials">
-<tt class="descname">get_credentials</tt><big>(</big><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_credentials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the <tt class="xref py py-class docutils literal"><span class="pre">ibm_botocore.credentials.Credentials</span></tt> object
+<code class="descname">get_credentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <code class="xref py py-class docutils literal"><span class="pre">ibm_botocore.credentials.Credentials</span></code> object
 associated with this session.  If the credentials have not
 yet been loaded, this will attempt to load them.  If they
 have already been loaded, this will return the cached
@@ -295,46 +328,56 @@ credentials.</p>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.get_partition_for_region">
-<tt class="descname">get_partition_for_region</tt><big>(</big><em>region_name</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_partition_for_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_partition_for_region" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_partition_for_region</code><span class="sig-paren">(</span><em>region_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.get_partition_for_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.get_partition_for_region" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the partition name of a particular region.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><strong>region_name</strong> (<em>string</em>) -- Name of the region to list partition for (e.g.,
-us-east-1).</dd>
-<dt class="field-name">Return type</dt><dd class="field-body">string</dd>
-<dt class="field-name">Returns</dt><dd class="field-body">Returns the respective partition name (e.g., aws).</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>region_name</strong> (<em>string</em>) – Name of the region to list partition for (e.g.,
+us-east-1).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns the respective partition name (e.g., aws).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ibm_boto3.session.Session.profile_name">
-<tt class="descname">profile_name</tt><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.profile_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.profile_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">profile_name</code><a class="headerlink" href="#ibm_boto3.session.Session.profile_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <strong>read-only</strong> profile name.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ibm_boto3.session.Session.region_name">
-<tt class="descname">region_name</tt><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.region_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.region_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">region_name</code><a class="headerlink" href="#ibm_boto3.session.Session.region_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <strong>read-only</strong> region name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ibm_boto3.session.Session.resource">
-<tt class="descname">resource</tt><big>(</big><em>service_name</em>, <em>region_name=None</em>, <em>api_version=None</em>, <em>use_ssl=True</em>, <em>verify=None</em>, <em>endpoint_url=None</em>, <em>aws_access_key_id=None</em>, <em>aws_secret_access_key=None</em>, <em>aws_session_token=None</em>, <em>ibm_api_key_id=None</em>, <em>ibm_service_instance_id=None</em>, <em>ibm_auth_endpoint=None</em>, <em>auth_function=None</em>, <em>token_manager=None</em>, <em>config=None</em><big>)</big><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.resource" title="Permalink to this definition">¶</a></dt>
+<code class="descname">resource</code><span class="sig-paren">(</span><em>service_name</em>, <em>region_name=None</em>, <em>api_version=None</em>, <em>use_ssl=True</em>, <em>verify=None</em>, <em>endpoint_url=None</em>, <em>aws_access_key_id=None</em>, <em>aws_secret_access_key=None</em>, <em>aws_session_token=None</em>, <em>ibm_api_key_id=None</em>, <em>ibm_service_instance_id=None</em>, <em>ibm_auth_endpoint=None</em>, <em>auth_function=None</em>, <em>token_manager=None</em>, <em>config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/session.html#Session.resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.session.Session.resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a resource service client by name.</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
-<li><strong>service_name</strong> (<em>string</em>) -- The name of a service, e.g. 's3'.  You can
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service_name</strong> (<em>string</em>) – The name of a service, e.g. ‘s3’.  You can
 get a list of available services via
-<a class="reference internal" href="#ibm_boto3.session.Session.get_available_resources" title="ibm_boto3.session.Session.get_available_resources"><tt class="xref py py-meth docutils literal"><span class="pre">get_available_resources()</span></tt></a>.</li>
-<li><strong>region_name</strong> (<em>string</em>) -- The name of the region associated with the client.
+<a class="reference internal" href="#ibm_boto3.session.Session.get_available_resources" title="ibm_boto3.session.Session.get_available_resources"><code class="xref py py-meth docutils literal"><span class="pre">get_available_resources()</span></code></a>.</li>
+<li><strong>region_name</strong> (<em>string</em>) – The name of the region associated with the client.
 A client is associated with a single region.</li>
-<li><strong>api_version</strong> (<em>string</em>) -- The API version to use.  By default, ibm_botocore will
+<li><strong>api_version</strong> (<em>string</em>) – The API version to use.  By default, ibm_botocore will
 use the latest API version when creating a client.  You only need
 to specify this parameter if you want to use a previous API version
 of the client.</li>
-<li><strong>use_ssl</strong> (<em>boolean</em>) -- Whether or not to use SSL.  By default, SSL is used.
+<li><strong>use_ssl</strong> (<em>boolean</em>) – Whether or not to use SSL.  By default, SSL is used.
 Note that not all services support non-ssl connections.</li>
-<li><strong>verify</strong> (<em>boolean/string</em>) -- <p>Whether or not to verify SSL certificates.  By default
+<li><strong>verify</strong> (<em>boolean/string</em>) – <p>Whether or not to verify SSL certificates.  By default
 SSL certificates are verified.  You can provide the following
 values:</p>
 <ul>
@@ -346,30 +389,30 @@ uses.  You can specify this argument if you want to use a
 different CA cert bundle than the one used by ibm_botocore.</li>
 </ul>
 </li>
-<li><strong>endpoint_url</strong> (<em>string</em>) -- The complete URL to use for the constructed
+<li><strong>endpoint_url</strong> (<em>string</em>) – The complete URL to use for the constructed
 client. Normally, ibm_botocore will automatically construct the
 appropriate URL to use when communicating with a service.  You
-can specify a complete URL (including the &quot;http/https&quot; scheme)
+can specify a complete URL (including the “http/https” scheme)
 to override this behavior.  If this value is provided,
-then <tt class="docutils literal"><span class="pre">use_ssl</span></tt> is ignored.</li>
-<li><strong>aws_access_key_id</strong> (<em>string</em>) -- The access key to use when creating
+then <code class="docutils literal"><span class="pre">use_ssl</span></code> is ignored.</li>
+<li><strong>aws_access_key_id</strong> (<em>string</em>) – The access key to use when creating
 the client.  This is entirely optional, and if not provided,
 the credentials configured for the session will automatically
 be used.  You only need to provide this argument if you want
 to override the credentials used for this specific client.</li>
-<li><strong>aws_secret_access_key</strong> (<em>string</em>) -- The secret key to use when creating
+<li><strong>aws_secret_access_key</strong> (<em>string</em>) – The secret key to use when creating
 the client.  Same semantics as aws_access_key_id above.</li>
-<li><strong>aws_session_token</strong> (<em>string</em>) -- The session token to use when creating
+<li><strong>aws_session_token</strong> (<em>string</em>) – The session token to use when creating
 the client.  Same semantics as aws_access_key_id above.</li>
-<li><strong>ibm_api_key_id</strong> (<em>string</em>) -- IBM api key used for IAM authentication.</li>
-<li><strong>ibm_service_instance_id</strong> (<em>string</em>) -- Service Instance ID used for
+<li><strong>ibm_api_key_id</strong> (<em>string</em>) – IBM api key used for IAM authentication.</li>
+<li><strong>ibm_service_instance_id</strong> (<em>string</em>) – Service Instance ID used for
 PUT bucket and GET service requests.</li>
-<li><strong>ibm_auth_endpoint</strong> (<em>string</em>) -- URL used for IAM authentication.</li>
-<li><strong>token_manager</strong> (<em>TokenManager</em>) -- custom token manager to use.</li>
-<li><strong>auth_function</strong> (<em>function</em>) -- function that does custom authentication
+<li><strong>ibm_auth_endpoint</strong> (<em>string</em>) – URL used for IAM authentication.</li>
+<li><strong>token_manager</strong> (<em>TokenManager</em>) – custom token manager to use.</li>
+<li><strong>auth_function</strong> (<em>function</em>) – function that does custom authentication
 and returns json with token, refresh token, expiry time
 and token type.</li>
-<li><strong>config</strong> (<em>ibm_botocore.client.Config</em>) -- <p>Advanced client configuration options. If region_name
+<li><strong>config</strong> (<em>ibm_botocore.client.Config</em>) – <p>Advanced client configuration options. If region_name
 is specified in the client config, its value will take precedence
 over environment variables and configuration values, but not over
 a region_name value passed explicitly to the method.  If
@@ -379,10 +422,13 @@ the default user_agent_extra provided by the resource API. See
 for more details.</p>
 </li>
 </ul>
-</dd>
-<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">Subclass of <a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><tt class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></tt></a></p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Subclass of <a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -407,7 +453,7 @@ for more details.</p>
         </div>
         <div class="clearfix"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -422,8 +468,8 @@ for more details.</p>
         <li class="right" >
           <a href="resources.html" title="Resources reference"
              >previous</a> |</li>
-        <li><a href="../../index.html">ibm-cos-sdk 2.12.2 documentation</a> &raquo;</li>
-          <li><a href="index.html" >Core references</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Core references</a> &#187;</li> 
       </ul>
     </div>
 <div class="footer">
