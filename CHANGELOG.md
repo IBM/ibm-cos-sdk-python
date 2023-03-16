@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2.13.0
+
+### Content
+
+#### Features
+
+* S3 Compatible Object Lock Support
+* One Rate Active Plan Support
+
+#### Defect Fixes
+
+* Update dependencies
+
 ## 2.12.2
 
 ### Content
