@@ -27,7 +27,7 @@ You\'ll need:
 * Token acquisition endpoint.
 * Service endpoint.
 
-These values can be found in the IBM Cloud Console by [generating a \'service credential\'](https://cloud.ibm.com/docs/services/cloud-object-storage/iam/service-credentials.html).
+These values can be found in the IBM Cloud Console by [generating a \'service credential\'](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-service-credentials).
 
 ## Using Python
 
