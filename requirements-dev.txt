@@ -1,8 +1,8 @@
-wheel==0.40.0
+wheel==0.41.2
 coverage==5.5
 
 # Pytest specific deps
-pytest==7.3.1
+pytest==7.4.1
 pytest-cov==2.12.1
 atomicwrites>=1.0 # Windows requirement
 colorama>0.3.0 # Windows requirement

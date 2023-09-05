@@ -9,8 +9,8 @@ VERSION_RE = re.compile(r'''__version__ = ['"]([a-z0-9.]+)['"]''')
 
 
 requires = [
-    'ibm-cos-sdk-core==2.13.1',
-    'ibm-cos-sdk-s3transfer==2.13.1',
+    'ibm-cos-sdk-core==2.13.2',
+    'ibm-cos-sdk-s3transfer==2.13.2',
     'jmespath>=0.10.0,<=1.0.1'
 ]
 
@@ -47,6 +47,7 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
     ],
     project_urls={
         'Documentation': 'https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python',

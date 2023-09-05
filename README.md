@@ -82,7 +82,7 @@ Feel free to use GitHub issues for tracking bugs and feature requests, but for h
 
 ## Language Support Policy
 
-IBM supports [current public releases](https://devguide.python.org/#status-of-python-branches). IBM will deprecate language versions 90 days after a version reaches end-of-life. All clients will need to upgrade to a supported version before the end of the grace period.
+IBM supports [current public releases](https://devguide.python.org/versions/#versions). IBM will deprecate language versions 90 days after a version reaches end-of-life. All clients will need to upgrade to a supported version before the end of the grace period.
 
 ## License
 
