@@ -14,13 +14,13 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>ibm_boto3.s3.transfer &#8212; ibm-cos-sdk 2.13.1 documentation</title>
+    <title>ibm_boto3.s3.transfer &#8212; ibm-cos-sdk 2.13.2 documentation</title>
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '2.13.1',
+        VERSION:     '2.13.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" accesskey="U">ibm_boto3</a> &#187;</li> 
       </ul>
@@ -58,7 +58,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">ibm-cos-sdk 2.13.1 documentation</a><div class="sidebar-block">
+    ../../../index.html" class="text-logo">ibm-cos-sdk 2.13.2 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -237,6 +237,8 @@
 
 
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">PathLike</span><span class="p">,</span> <span class="n">fspath</span>
+
 <span class="kn">from</span> <span class="nn">ibm_botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
 <span class="kn">from</span> <span class="nn">ibm_s3transfer.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">RetriesExceededError</span> <span class="k">as</span> <span class="n">S3TransferRetriesExceededError</span><span class="p">,</span>
@@ -325,7 +327,7 @@
 
 <span class="sd">        :param use_threads: If True, threads will be used when performing</span>
 <span class="sd">            S3 transfers. If False, no threads will be used in</span>
-<span class="sd">            performing transfers: all logic will be ran in the main thread.</span>
+<span class="sd">            performing transfers; all logic will be run in the main thread.</span>
 
 <span class="sd">        :param max_bandwidth: The maximum bandwidth that will be consumed</span>
 <span class="sd">            in uploading and downloading file content. The value is an integer</span>
@@ -392,8 +394,10 @@
 <span class="sd">            :py:meth:`S3.Client.upload_file`</span>
 <span class="sd">            :py:meth:`S3.Client.upload_fileobj`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">PathLike</span><span class="p">):</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">fspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string or a path-like object&#39;</span><span class="p">)</span>
 
         <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subscribers</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
         <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span>
@@ -424,8 +428,10 @@
 <span class="sd">            :py:meth:`S3.Client.download_file`</span>
 <span class="sd">            :py:meth:`S3.Client.download_fileobj`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">PathLike</span><span class="p">):</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">fspath</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Filename must be a string or a path-like object&#39;</span><span class="p">)</span>
 
         <span class="n">subscribers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_subscribers</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
         <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
@@ -481,7 +487,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ibm-cos-sdk 2.13.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../../ibm_boto3.html" >ibm_boto3</a> &#187;</li> 
       </ul>
