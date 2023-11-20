@@ -14,13 +14,13 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 &#8212; ibm-cos-sdk 2.13.2 documentation</title>
+    <title>S3 &#8212; ibm-cos-sdk 2.13.3 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.13.2',
+        VERSION:     '2.13.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -54,7 +54,7 @@
         <li class="right" >
           <a href="index.html" title="Available services"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Available services</a> &#187;</li> 
       </ul>
     </div>
@@ -65,7 +65,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.2 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.3 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -142,36 +142,36 @@
           <div class="document clearer body">
             
   <div class="section" id="s3">
-<h1><a class="toc-backref" href="#id179">S3</a><a class="headerlink" href="#s3" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#toc-entry-1">S3</a><a class="headerlink" href="#s3" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#s3" id="id179">S3</a><ul>
-<li><a class="reference internal" href="#client" id="id180">Client</a></li>
-<li><a class="reference internal" href="#paginators" id="id181">Paginators</a></li>
-<li><a class="reference internal" href="#waiters" id="id182">Waiters</a></li>
-<li><a class="reference internal" href="#service-resource" id="id183">Service Resource</a></li>
-<li><a class="reference internal" href="#bucket" id="id184">Bucket</a></li>
-<li><a class="reference internal" href="#bucketacl" id="id185">BucketAcl</a></li>
-<li><a class="reference internal" href="#bucketcors" id="id186">BucketCors</a></li>
-<li><a class="reference internal" href="#bucketlifecycleconfiguration" id="id187">BucketLifecycleConfiguration</a></li>
-<li><a class="reference internal" href="#buckettagging" id="id188">BucketTagging</a></li>
-<li><a class="reference internal" href="#bucketversioning" id="id189">BucketVersioning</a></li>
-<li><a class="reference internal" href="#bucketwebsite" id="id190">BucketWebsite</a></li>
-<li><a class="reference internal" href="#multipartupload" id="id191">MultipartUpload</a></li>
-<li><a class="reference internal" href="#multipartuploadpart" id="id192">MultipartUploadPart</a></li>
-<li><a class="reference internal" href="#object" id="id193">Object</a></li>
-<li><a class="reference internal" href="#bucketprotection" id="id194">BucketProtection</a></li>
-<li><a class="reference internal" href="#objectprotection" id="id195">ObjectProtection</a></li>
-<li><a class="reference internal" href="#objectacl" id="id196">ObjectAcl</a></li>
-<li><a class="reference internal" href="#objectsummary" id="id197">ObjectSummary</a></li>
-<li><a class="reference internal" href="#objectversion" id="id198">ObjectVersion</a></li>
+<li><a class="reference internal" href="#s3" id="toc-entry-1">S3</a><ul>
+<li><a class="reference internal" href="#client" id="toc-entry-2">Client</a></li>
+<li><a class="reference internal" href="#paginators" id="toc-entry-3">Paginators</a></li>
+<li><a class="reference internal" href="#waiters" id="toc-entry-4">Waiters</a></li>
+<li><a class="reference internal" href="#service-resource" id="toc-entry-5">Service Resource</a></li>
+<li><a class="reference internal" href="#bucket" id="toc-entry-6">Bucket</a></li>
+<li><a class="reference internal" href="#bucketacl" id="toc-entry-7">BucketAcl</a></li>
+<li><a class="reference internal" href="#bucketcors" id="toc-entry-8">BucketCors</a></li>
+<li><a class="reference internal" href="#bucketlifecycleconfiguration" id="toc-entry-9">BucketLifecycleConfiguration</a></li>
+<li><a class="reference internal" href="#buckettagging" id="toc-entry-10">BucketTagging</a></li>
+<li><a class="reference internal" href="#bucketversioning" id="toc-entry-11">BucketVersioning</a></li>
+<li><a class="reference internal" href="#bucketwebsite" id="toc-entry-12">BucketWebsite</a></li>
+<li><a class="reference internal" href="#multipartupload" id="toc-entry-13">MultipartUpload</a></li>
+<li><a class="reference internal" href="#multipartuploadpart" id="toc-entry-14">MultipartUploadPart</a></li>
+<li><a class="reference internal" href="#object" id="toc-entry-15">Object</a></li>
+<li><a class="reference internal" href="#bucketprotection" id="toc-entry-16">BucketProtection</a></li>
+<li><a class="reference internal" href="#objectprotection" id="toc-entry-17">ObjectProtection</a></li>
+<li><a class="reference internal" href="#objectacl" id="toc-entry-18">ObjectAcl</a></li>
+<li><a class="reference internal" href="#objectsummary" id="toc-entry-19">ObjectSummary</a></li>
+<li><a class="reference internal" href="#objectversion" id="toc-entry-20">ObjectVersion</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="client">
-<h2><a class="toc-backref" href="#id180">Client</a><a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-2">Client</a><a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.Client">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">Client</code><a class="headerlink" href="#S3.Client" title="Permalink to this definition">¶</a></dt>
@@ -12167,7 +12167,7 @@ upload.</li>
 
 </div>
 <div class="section" id="paginators">
-<h2><a class="toc-backref" href="#id181">Paginators</a><a class="headerlink" href="#paginators" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-3">Paginators</a><a class="headerlink" href="#paginators" title="Permalink to this headline">¶</a></h2>
 <p>The available paginators are:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#S3.Paginator.ListBucketsExtended" title="S3.Paginator.ListBucketsExtended"><code class="xref py py-class docutils literal"><span class="pre">S3.Paginator.ListBucketsExtended</span></code></a></li>
@@ -13325,7 +13325,7 @@ upload.</li>
 
 </div>
 <div class="section" id="waiters">
-<h2><a class="toc-backref" href="#id182">Waiters</a><a class="headerlink" href="#waiters" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-4">Waiters</a><a class="headerlink" href="#waiters" title="Permalink to this headline">¶</a></h2>
 <p>The available waiters are:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#S3.Waiter.BucketExists" title="S3.Waiter.BucketExists"><code class="xref py py-class docutils literal"><span class="pre">S3.Waiter.BucketExists</span></code></a></li>
@@ -13607,7 +13607,7 @@ upload.</li>
 
 </div>
 <div class="section" id="service-resource">
-<h2><a class="toc-backref" href="#id183">Service Resource</a><a class="headerlink" href="#service-resource" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-5">Service Resource</a><a class="headerlink" href="#service-resource" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ServiceResource">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">ServiceResource</code><a class="headerlink" href="#S3.ServiceResource" title="Permalink to this definition">¶</a></dt>
@@ -14266,7 +14266,7 @@ For more information about collections refer to the <span class="xref std std-re
 
 </div>
 <div class="section" id="bucket">
-<h2><a class="toc-backref" href="#id184">Bucket</a><a class="headerlink" href="#bucket" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-6">Bucket</a><a class="headerlink" href="#bucket" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.Bucket">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">Bucket</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Bucket" title="Permalink to this definition">¶</a></dt>
@@ -17818,7 +17818,7 @@ For more information about waiters refer to the <span class="xref std std-ref">R
 
 </div>
 <div class="section" id="bucketacl">
-<h2><a class="toc-backref" href="#id185">BucketAcl</a><a class="headerlink" href="#bucketacl" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-7">BucketAcl</a><a class="headerlink" href="#bucketacl" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketAcl">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketAcl</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketAcl" title="Permalink to this definition">¶</a></dt>
@@ -18223,7 +18223,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="bucketcors">
-<h2><a class="toc-backref" href="#id186">BucketCors</a><a class="headerlink" href="#bucketcors" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-8">BucketCors</a><a class="headerlink" href="#bucketcors" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketCors">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketCors</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketCors" title="Permalink to this definition">¶</a></dt>
@@ -18538,7 +18538,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="bucketlifecycleconfiguration">
-<h2><a class="toc-backref" href="#id187">BucketLifecycleConfiguration</a><a class="headerlink" href="#bucketlifecycleconfiguration" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-9">BucketLifecycleConfiguration</a><a class="headerlink" href="#bucketlifecycleconfiguration" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketLifecycleConfiguration">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketLifecycleConfiguration</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketLifecycleConfiguration" title="Permalink to this definition">¶</a></dt>
@@ -18959,7 +18959,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="buckettagging">
-<h2><a class="toc-backref" href="#id188">BucketTagging</a><a class="headerlink" href="#buckettagging" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-10">BucketTagging</a><a class="headerlink" href="#buckettagging" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketTagging">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketTagging</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketTagging" title="Permalink to this definition">¶</a></dt>
@@ -19230,7 +19230,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="bucketversioning">
-<h2><a class="toc-backref" href="#id189">BucketVersioning</a><a class="headerlink" href="#bucketversioning" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-11">BucketVersioning</a><a class="headerlink" href="#bucketversioning" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketVersioning">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketVersioning</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketVersioning" title="Permalink to this definition">¶</a></dt>
@@ -19542,7 +19542,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="bucketwebsite">
-<h2><a class="toc-backref" href="#id190">BucketWebsite</a><a class="headerlink" href="#bucketwebsite" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-12">BucketWebsite</a><a class="headerlink" href="#bucketwebsite" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketWebsite">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketWebsite</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketWebsite" title="Permalink to this definition">¶</a></dt>
@@ -19988,7 +19988,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="multipartupload">
-<h2><a class="toc-backref" href="#id191">MultipartUpload</a><a class="headerlink" href="#multipartupload" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-13">MultipartUpload</a><a class="headerlink" href="#multipartupload" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.MultipartUpload">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">MultipartUpload</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>object_key</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.MultipartUpload" title="Permalink to this definition">¶</a></dt>
@@ -20490,7 +20490,7 @@ For more information about collections refer to the <span class="xref std std-re
 
 </div>
 <div class="section" id="multipartuploadpart">
-<h2><a class="toc-backref" href="#id192">MultipartUploadPart</a><a class="headerlink" href="#multipartuploadpart" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-14">MultipartUploadPart</a><a class="headerlink" href="#multipartuploadpart" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.MultipartUploadPart">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">MultipartUploadPart</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>object_key</em>, <em>multipart_upload_id</em>, <em>part_number</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.MultipartUploadPart" title="Permalink to this definition">¶</a></dt>
@@ -20937,7 +20937,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="object">
-<h2><a class="toc-backref" href="#id193">Object</a><a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-15">Object</a><a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.Object">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">Object</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Object" title="Permalink to this definition">¶</a></dt>
@@ -23004,7 +23004,7 @@ For more information about waiters refer to the <span class="xref std std-ref">R
 
 </div>
 <div class="section" id="bucketprotection">
-<h2><a class="toc-backref" href="#id194">BucketProtection</a><a class="headerlink" href="#bucketprotection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-16">BucketProtection</a><a class="headerlink" href="#bucketprotection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.BucketProtection">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">BucketProtection</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.BucketProtection" title="Permalink to this definition">¶</a></dt>
@@ -23218,7 +23218,7 @@ resource</td>
 
 </div>
 <div class="section" id="objectprotection">
-<h2><a class="toc-backref" href="#id195">ObjectProtection</a><a class="headerlink" href="#objectprotection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-17">ObjectProtection</a><a class="headerlink" href="#objectprotection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectProtection">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">ObjectProtection</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>object_key</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.ObjectProtection" title="Permalink to this definition">¶</a></dt>
@@ -23517,7 +23517,7 @@ resource</td>
 
 </div>
 <div class="section" id="objectacl">
-<h2><a class="toc-backref" href="#id196">ObjectAcl</a><a class="headerlink" href="#objectacl" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-18">ObjectAcl</a><a class="headerlink" href="#objectacl" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectAcl">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">ObjectAcl</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>object_key</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.ObjectAcl" title="Permalink to this definition">¶</a></dt>
@@ -23969,7 +23969,7 @@ For more information about sub-resources refer to the <span class="xref std std-
 
 </div>
 <div class="section" id="objectsummary">
-<h2><a class="toc-backref" href="#id197">ObjectSummary</a><a class="headerlink" href="#objectsummary" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-19">ObjectSummary</a><a class="headerlink" href="#objectsummary" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectSummary">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">ObjectSummary</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.ObjectSummary" title="Permalink to this definition">¶</a></dt>
@@ -25505,7 +25505,7 @@ For more information about waiters refer to the <span class="xref std std-ref">R
 
 </div>
 <div class="section" id="objectversion">
-<h2><a class="toc-backref" href="#id198">ObjectVersion</a><a class="headerlink" href="#objectversion" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-20">ObjectVersion</a><a class="headerlink" href="#objectversion" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="S3.ObjectVersion">
 <em class="property">class </em><code class="descclassname">S3.</code><code class="descname">ObjectVersion</code><span class="sig-paren">(</span><em>bucket_name</em>, <em>object_key</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#S3.ObjectVersion" title="Permalink to this definition">¶</a></dt>
@@ -26365,7 +26365,7 @@ For more information about sub-resources refer to the <span class="xref std std-
         <li class="right" >
           <a href="index.html" title="Available services"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Available services</a> &#187;</li> 
       </ul>
     </div>
