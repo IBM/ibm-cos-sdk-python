@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.13.4
+
+### Content
+
+#### Defect Fixes
+
+* COSSDK-104927: <https://github.com/IBM/ibm-cos-sdk-python/issues/60>
+* COSSDK-104927: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/22>
+* Internal fixes and improvements
+
 ## 2.13.3
 
 ### Content
