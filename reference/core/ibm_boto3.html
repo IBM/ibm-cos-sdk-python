@@ -1,10 +1,11 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
@@ -14,22 +15,15 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>IBM Boto3 reference &#8212; ibm-cos-sdk 2.13.3 documentation</title>
-    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.13.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <title>IBM Boto3 reference &#8212; ibm-cos-sdk 2.13.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/guzzle.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Resources reference" href="resources.html" />
@@ -37,8 +31,7 @@
   
    
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -54,8 +47,9 @@
         <li class="right" >
           <a href="collections.html" title="Collections reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Core references</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Core references</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">IBM Boto3 reference</a></li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -65,7 +59,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.3 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.4 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -79,7 +73,15 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Core references</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="boto3.html">ibm-cos-sdk Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collections.html">Collections reference</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">IBM Boto3 reference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IBM Boto3 reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.NullHandler"><code class="docutils literal notranslate"><span class="pre">NullHandler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.client"><code class="docutils literal notranslate"><span class="pre">client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.resource"><code class="docutils literal notranslate"><span class="pre">resource()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.set_stream_logger"><code class="docutils literal notranslate"><span class="pre">set_stream_logger()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.setup_default_session"><code class="docutils literal notranslate"><span class="pre">setup_default_session()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.turn_debug_on"><code class="docutils literal notranslate"><span class="pre">turn_debug_on()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html">Resources reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session.html">Session reference</a></li>
 </ul>
@@ -124,80 +126,79 @@
 <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
           <div class="document clearer body">
             
-  <div class="section" id="ibm-boto3-reference">
-<span id="ref-core-init"></span><h1>IBM Boto3 reference<a class="headerlink" href="#ibm-boto3-reference" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-ibm_boto3"></span><dl class="class">
-<dt id="ibm_boto3.NullHandler">
-<em class="property">class </em><code class="descclassname">ibm_boto3.</code><code class="descname">NullHandler</code><span class="sig-paren">(</span><em>level=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#NullHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.NullHandler" title="Permalink to this definition">¶</a></dt>
+  <section id="ibm-boto3-reference">
+<span id="ref-core-init"></span><h1>IBM Boto3 reference<a class="headerlink" href="#ibm-boto3-reference" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-ibm_boto3"></span><dl class="py class">
+<dt class="sig sig-object py" id="ibm_boto3.NullHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.</span></span><span class="sig-name descname"><span class="pre">NullHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#NullHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.NullHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes the instance - basically setting the formatter to None
 and the filter list to empty.</p>
-<dl class="method">
-<dt id="ibm_boto3.NullHandler.emit">
-<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#NullHandler.emit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.NullHandler.emit">
+<span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#NullHandler.emit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record.</p>
+<p>This version is intended to be implemented by subclasses and so
+raises a NotImplementedError.</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="ibm_boto3.client">
-<code class="descclassname">ibm_boto3.</code><code class="descname">client</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.client" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="ibm_boto3.client">
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.</span></span><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a low-level service client by name using the default session.</p>
-<p>See <a class="reference internal" href="session.html#ibm_boto3.session.Session.client" title="ibm_boto3.session.Session.client"><code class="xref py py-meth docutils literal"><span class="pre">ibm_boto3.session.Session.client()</span></code></a>.</p>
+<p>See <a class="reference internal" href="session.html#ibm_boto3.session.Session.client" title="ibm_boto3.session.Session.client"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ibm_boto3.session.Session.client()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="ibm_boto3.resource">
-<code class="descclassname">ibm_boto3.</code><code class="descname">resource</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resource" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="ibm_boto3.resource">
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.</span></span><span class="sig-name descname"><span class="pre">resource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#resource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a resource service client by name using the default session.</p>
-<p>See <a class="reference internal" href="session.html#ibm_boto3.session.Session.resource" title="ibm_boto3.session.Session.resource"><code class="xref py py-meth docutils literal"><span class="pre">ibm_boto3.session.Session.resource()</span></code></a>.</p>
+<p>See <a class="reference internal" href="session.html#ibm_boto3.session.Session.resource" title="ibm_boto3.session.Session.resource"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ibm_boto3.session.Session.resource()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="ibm_boto3.set_stream_logger">
-<code class="descclassname">ibm_boto3.</code><code class="descname">set_stream_logger</code><span class="sig-paren">(</span><em>name='ibm_boto3'</em>, <em>level=10</em>, <em>format_string=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#set_stream_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.set_stream_logger" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="ibm_boto3.set_stream_logger">
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.</span></span><span class="sig-name descname"><span class="pre">set_stream_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ibm_boto3'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#set_stream_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.set_stream_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a stream handler for the given name and level to the logging module.
-By default, this logs all ibm_boto3 messages to <code class="docutils literal"><span class="pre">stdout</span></code>.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
+By default, this logs all ibm_boto3 messages to <code class="docutils literal notranslate"><span class="pre">stdout</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ibm_boto3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ibm_boto3</span><span class="o">.</span><span class="n">set_stream_logger</span><span class="p">(</span><span class="s1">&#39;ibm_boto3.resources&#39;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For debugging purposes a good choice is to set the stream logger to <code class="docutils literal"><span class="pre">''</span></code>
+<p>For debugging purposes a good choice is to set the stream logger to <code class="docutils literal notranslate"><span class="pre">''</span></code>
 which is equivalent to saying “log everything”.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Be aware that when logging anything from <code class="docutils literal"><span class="pre">'ibm_botocore'</span></code> the full wire
+<p class="admonition-title">Warning</p>
+<p>Be aware that when logging anything from <code class="docutils literal notranslate"><span class="pre">'ibm_botocore'</span></code> the full wire
 trace will appear in your logs. If your payloads contain sensitive data
 this should not be used in production.</p>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> (<em>string</em>) – Log name</li>
-<li><strong>level</strong> (<em>int</em>) – Logging level, e.g. <code class="docutils literal"><span class="pre">logging.INFO</span></code></li>
-<li><strong>format_string</strong> (<em>str</em>) – Log message format</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – Log name</p></li>
+<li><p><strong>level</strong> (<em>int</em>) – Logging level, e.g. <code class="docutils literal notranslate"><span class="pre">logging.INFO</span></code></p></li>
+<li><p><strong>format_string</strong> (<em>str</em>) – Log message format</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="ibm_boto3.setup_default_session">
-<code class="descclassname">ibm_boto3.</code><code class="descname">setup_default_session</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#setup_default_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.setup_default_session" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="ibm_boto3.setup_default_session">
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.</span></span><span class="sig-name descname"><span class="pre">setup_default_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#setup_default_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.setup_default_session" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set up a default session, passing through any parameters to the session
 constructor. There is no need to call this unless you wish to pass custom
 parameters, because a default session will be created for you.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="ibm_boto3.turn_debug_on">
-<code class="descclassname">ibm_boto3.</code><code class="descname">turn_debug_on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#turn_debug_on"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.turn_debug_on" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="ibm_boto3.turn_debug_on">
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.</span></span><span class="sig-name descname"><span class="pre">turn_debug_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3.html#turn_debug_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.turn_debug_on" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</div>
+</section>
 
 
           </div>
@@ -232,8 +233,9 @@ parameters, because a default session will be created for you.</p>
         <li class="right" >
           <a href="collections.html" title="Collections reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Core references</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Core references</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">IBM Boto3 reference</a></li> 
       </ul>
     </div>
 <div class="footer">

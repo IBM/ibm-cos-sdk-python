@@ -1,10 +1,11 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
@@ -14,22 +15,15 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Collections reference &#8212; ibm-cos-sdk 2.13.3 documentation</title>
-    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.13.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <title>Collections reference &#8212; ibm-cos-sdk 2.13.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/guzzle.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="IBM Boto3 reference" href="ibm_boto3.html" />
@@ -37,8 +31,7 @@
   
    
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -54,8 +47,9 @@
         <li class="right" >
           <a href="boto3.html" title="ibm-cos-sdk Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Core references</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Core references</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Collections reference</a></li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -65,7 +59,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.3 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.4 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -78,7 +72,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Core references</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="boto3.html">ibm-cos-sdk Reference</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Collections reference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Collections reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.resources.collection.CollectionFactory"><code class="docutils literal notranslate"><span class="pre">CollectionFactory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager"><code class="docutils literal notranslate"><span class="pre">CollectionManager</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection"><code class="docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ibm_boto3.html">IBM Boto3 reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html">Resources reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session.html">Session reference</a></li>
@@ -124,99 +123,91 @@
 <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
           <div class="document clearer body">
             
-  <div class="section" id="module-ibm_boto3.resources.collection">
-<span id="collections-reference"></span><span id="ref-core-collections"></span><h1>Collections reference<a class="headerlink" href="#module-ibm_boto3.resources.collection" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="ibm_boto3.resources.collection.CollectionFactory">
-<em class="property">class </em><code class="descclassname">ibm_boto3.resources.collection.</code><code class="descname">CollectionFactory</code><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionFactory" title="Permalink to this definition">¶</a></dt>
+  <section id="module-ibm_boto3.resources.collection">
+<span id="collections-reference"></span><span id="ref-core-collections"></span><h1>Collections reference<a class="headerlink" href="#module-ibm_boto3.resources.collection" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.collection.</span></span><span class="sig-name descname"><span class="pre">CollectionFactory</span></span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>A factory to create new
-<a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager" title="ibm_boto3.resources.collection.CollectionManager"><code class="xref py py-class docutils literal"><span class="pre">CollectionManager</span></code></a> and <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a>
-subclasses from a <a class="reference internal" href="resources.html#ibm_boto3.resources.model.Collection" title="ibm_boto3.resources.model.Collection"><code class="xref py py-class docutils literal"><span class="pre">Collection</span></code></a>
+<a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager" title="ibm_boto3.resources.collection.CollectionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">CollectionManager</span></code></a> and <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a>
+subclasses from a <a class="reference internal" href="resources.html#ibm_boto3.resources.model.Collection" title="ibm_boto3.resources.model.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code></a>
 model. These subclasses include methods to perform batch operations.</p>
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionFactory.load_from_definition">
-<code class="descname">load_from_definition</code><span class="sig-paren">(</span><em>resource_name</em>, <em>collection_model</em>, <em>service_context</em>, <em>event_emitter</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionFactory.load_from_definition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionFactory.load_from_definition" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionFactory.load_from_definition">
+<span class="sig-name descname"><span class="pre">load_from_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_emitter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionFactory.load_from_definition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionFactory.load_from_definition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a collection from a model, creating a new
-<a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager" title="ibm_boto3.resources.collection.CollectionManager"><code class="xref py py-class docutils literal"><span class="pre">CollectionManager</span></code></a> subclass
+<a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager" title="ibm_boto3.resources.collection.CollectionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">CollectionManager</span></code></a> subclass
 with the correct properties and methods, named based on the service
 and resource name, e.g. ec2.InstanceCollectionManager. It also
-creates a new <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a> subclass which is used
+creates a new <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a> subclass which is used
 by the new manager class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>resource_name</strong> (<em>string</em>) – Name of the resource to look up. For services,
-this should match the <code class="docutils literal"><span class="pre">service_name</span></code>.</li>
-<li><strong>service_context</strong> (<code class="xref py py-class docutils literal"><span class="pre">ServiceContext</span></code>) – Context about the AWS service</li>
-<li><strong>event_emitter</strong> (<code class="xref py py-class docutils literal"><span class="pre">HierarchialEmitter</span></code>) – An event emitter</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resource_name</strong> (<em>string</em>) – Name of the resource to look up. For services,
+this should match the <code class="docutils literal notranslate"><span class="pre">service_name</span></code>.</p></li>
+<li><p><strong>service_context</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceContext</span></code>) – Context about the AWS service</p></li>
+<li><p><strong>event_emitter</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">HierarchialEmitter</span></code>) – An event emitter</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">Subclass of <a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager" title="ibm_boto3.resources.collection.CollectionManager"><code class="xref py py-class docutils literal"><span class="pre">CollectionManager</span></code></a></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The collection class.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Subclass of <a class="reference internal" href="#ibm_boto3.resources.collection.CollectionManager" title="ibm_boto3.resources.collection.CollectionManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">CollectionManager</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The collection class.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="ibm_boto3.resources.collection.CollectionManager">
-<em class="property">class </em><code class="descclassname">ibm_boto3.resources.collection.</code><code class="descname">CollectionManager</code><span class="sig-paren">(</span><em>collection_model</em>, <em>parent</em>, <em>factory</em>, <em>service_context</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.collection.</span></span><span class="sig-name descname"><span class="pre">CollectionManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection manager provides access to resource collection instances,
 which can be iterated and filtered. The manager exposes some
 convenience functions that are also found on resource collections,
-such as <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection.all" title="ibm_boto3.resources.collection.ResourceCollection.all"><code class="xref py py-meth docutils literal"><span class="pre">all()</span></code></a> and
-<a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection.filter" title="ibm_boto3.resources.collection.ResourceCollection.filter"><code class="xref py py-meth docutils literal"><span class="pre">filter()</span></code></a>.</p>
+such as <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection.all" title="ibm_boto3.resources.collection.ResourceCollection.all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">all()</span></code></a> and
+<a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection.filter" title="ibm_boto3.resources.collection.ResourceCollection.filter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">filter()</span></code></a>.</p>
 <p>Get all items:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Get only some items via filtering:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">QueueNamePrefix</span><span class="o">=</span><span class="s1">&#39;AWS&#39;</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">QueueNamePrefix</span><span class="o">=</span><span class="s1">&#39;AWS&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Get whole pages of items:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A collection manager is not iterable. You <strong>must</strong> call one of the
-methods that return a <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a> before trying
+methods that return a <a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a> before trying
 to iterate, slice, or convert to a list.</p>
 <p>See the <span class="xref std std-ref">guide_collections</span> guide for a high-level overview
 of collections, including when remote service requests are performed.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>model</strong> – Collection model</li>
-<li><strong>parent</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></code></a>) – The collection’s parent resource</li>
-<li><strong>factory</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.factory.ResourceFactory" title="ibm_boto3.resources.factory.ResourceFactory"><code class="xref py py-class docutils literal"><span class="pre">ResourceFactory</span></code></a>) – The resource factory to create new resources</li>
-<li><strong>service_context</strong> (<code class="xref py py-class docutils literal"><span class="pre">ServiceContext</span></code>) – Context about the AWS service</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – Collection model</p></li>
+<li><p><strong>parent</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceResource</span></code></a>) – The collection’s parent resource</p></li>
+<li><p><strong>factory</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.factory.ResourceFactory" title="ibm_boto3.resources.factory.ResourceFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceFactory</span></code></a>) – The resource factory to create new resources</p></li>
+<li><p><strong>service_context</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceContext</span></code>) – Context about the AWS service</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionManager.all">
-<code class="descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.all" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager.all">
+<span class="sig-name descname"><span class="pre">all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all items from the collection, optionally with a custom
 page size and item count limit.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 <span class="s1">&#39;https://url1&#39;</span>
@@ -230,15 +221,15 @@ individual resource instances. Example use:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionManager.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.filter" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get items from the collection, passing keyword arguments along
 as parameters to the underlying service operation, which are
 typically used to filter the results.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Param</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">):</span>
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 <span class="s1">&#39;https://url1&#39;</span>
@@ -250,37 +241,32 @@ individual resource instances. Example use:</p>
 <span class="mi">2</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionManager.iterator">
-<code class="descname">iterator</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.iterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.iterator" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager.iterator">
+<span class="sig-name descname"><span class="pre">iterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.iterator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.iterator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a resource collection iterator from this manager.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An iterable representing the collection of resources</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An iterable representing the collection of resources</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionManager.limit">
-<code class="descname">limit</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.limit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.limit" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.limit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return at most this many resources.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="go">&#39;bucket1&#39;</span>
 <span class="go">&#39;bucket2&#39;</span>
@@ -289,48 +275,44 @@ individual resource instances. Example use:</p>
 <span class="go">&#39;bucket5&#39;</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<em>int</em>) – Return no more than this many items</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – Return no more than this many items</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionManager.page_size">
-<code class="descname">page_size</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.page_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.page_size" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager.page_size">
+<span class="sig-name descname"><span class="pre">page_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.page_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.page_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch at most this many resources per service request.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<em>int</em>) – Fetch this many items per request</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – Fetch this many items per request</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.CollectionManager.pages">
-<code class="descname">pages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.pages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.pages" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.CollectionManager.pages">
+<span class="sig-name descname"><span class="pre">pages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#CollectionManager.pages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.CollectionManager.pages" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generator which yields pages of resource instances after
 doing the appropriate service operation calls and handling
 any pagination on your behalf. Non-paginated calls will
 return a single page of items.</p>
 <p>Page size, item limit, and filter parameters are applied
 if they have previously been set.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">bucket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
@@ -338,50 +320,44 @@ if they have previously been set.</p>
 <span class="go">&#39;key2&#39;</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list(<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></code></a>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of resource instances</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceResource</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of resource instances</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="ibm_boto3.resources.collection.ResourceCollection">
-<em class="property">class </em><code class="descclassname">ibm_boto3.resources.collection.</code><code class="descname">ResourceCollection</code><span class="sig-paren">(</span><em>model</em>, <em>parent</em>, <em>handler</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.ResourceCollection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.collection.</span></span><span class="sig-name descname"><span class="pre">ResourceCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a collection of resources, which can be iterated through,
 optionally with filtering. Collections automatically handle pagination
 for you.</p>
 <p>See <span class="xref std std-ref">guide_collections</span> for a high-level overview of collections,
 including when remote service requests are performed.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>model</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.model.Collection" title="ibm_boto3.resources.model.Collection"><code class="xref py py-class docutils literal"><span class="pre">Collection</span></code></a>) – Collection model</li>
-<li><strong>parent</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></code></a>) – The collection’s parent resource</li>
-<li><strong>handler</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.response.ResourceHandler" title="ibm_boto3.resources.response.ResourceHandler"><code class="xref py py-class docutils literal"><span class="pre">ResourceHandler</span></code></a>) – The resource response handler used to create resource
-instances</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.model.Collection" title="ibm_boto3.resources.model.Collection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code></a>) – Collection model</p></li>
+<li><p><strong>parent</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceResource</span></code></a>) – The collection’s parent resource</p></li>
+<li><p><strong>handler</strong> (<a class="reference internal" href="resources.html#ibm_boto3.resources.response.ResourceHandler" title="ibm_boto3.resources.response.ResourceHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceHandler</span></code></a>) – The resource response handler used to create resource
+instances</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.ResourceCollection.all">
-<code class="descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.all" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.ResourceCollection.all">
+<span class="sig-name descname"><span class="pre">all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all items from the collection, optionally with a custom
 page size and item count limit.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 <span class="s1">&#39;https://url1&#39;</span>
@@ -395,15 +371,15 @@ individual resource instances. Example use:</p>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.ResourceCollection.filter">
-<code class="descname">filter</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.filter" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.ResourceCollection.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get items from the collection, passing keyword arguments along
 as parameters to the underlying service operation, which are
 typically used to filter the results.</p>
 <p>This method returns an iterable generator which yields
 individual resource instances. Example use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate through items</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">queue</span> <span class="ow">in</span> <span class="n">sqs</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Param</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">):</span>
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 <span class="s1">&#39;https://url1&#39;</span>
@@ -415,21 +391,18 @@ individual resource instances. Example use:</p>
 <span class="mi">2</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.ResourceCollection.limit">
-<code class="descname">limit</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.limit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.limit" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.ResourceCollection.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.limit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.limit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return at most this many resources.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="go">&#39;bucket1&#39;</span>
 <span class="go">&#39;bucket2&#39;</span>
@@ -438,48 +411,44 @@ individual resource instances. Example use:</p>
 <span class="go">&#39;bucket5&#39;</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<em>int</em>) – Return no more than this many items</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – Return no more than this many items</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.ResourceCollection.page_size">
-<code class="descname">page_size</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.page_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.page_size" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.ResourceCollection.page_size">
+<span class="sig-name descname"><span class="pre">page_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.page_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.page_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch at most this many resources per service request.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page_size</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> (<em>int</em>) – Fetch this many items per request</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal"><span class="pre">ResourceCollection</span></code></a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – Fetch this many items per request</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ibm_boto3.resources.collection.ResourceCollection" title="ibm_boto3.resources.collection.ResourceCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceCollection</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.resources.collection.ResourceCollection.pages">
-<code class="descname">pages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.pages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.pages" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.resources.collection.ResourceCollection.pages">
+<span class="sig-name descname"><span class="pre">pages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/collection.html#ResourceCollection.pages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.collection.ResourceCollection.pages" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generator which yields pages of resource instances after
 doing the appropriate service operation calls and handling
 any pagination on your behalf. Non-paginated calls will
 return a single page of items.</p>
 <p>Page size, item limit, and filter parameters are applied
 if they have previously been set.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">bucket</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">pages</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
@@ -487,21 +456,19 @@ if they have previously been set.</p>
 <span class="go">&#39;key2&#39;</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list(<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal"><span class="pre">ServiceResource</span></code></a>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of resource instances</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(<a class="reference internal" href="resources.html#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceResource</span></code></a>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of resource instances</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
@@ -536,8 +503,9 @@ if they have previously been set.</p>
         <li class="right" >
           <a href="boto3.html" title="ibm-cos-sdk Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Core references</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Core references</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Collections reference</a></li> 
       </ul>
     </div>
 <div class="footer">

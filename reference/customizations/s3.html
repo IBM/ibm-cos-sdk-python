@@ -1,10 +1,11 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   
   <!-- Licensed under the Apache 2.0 License -->
   <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
@@ -14,30 +15,22 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>S3 customization reference &#8212; ibm-cos-sdk 2.13.3 documentation</title>
-    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.13.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <title>S3 customization reference &#8212; ibm-cos-sdk 2.13.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/guzzle.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="Customization references" href="index.html" />
   
    
 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -50,8 +43,9 @@
         <li class="right" >
           <a href="index.html" title="Customization references"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Customization references</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Customization references</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">S3 customization reference</a></li> 
       </ul>
     </div>
     <div class="container-wrapper">
@@ -61,7 +55,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.3 documentation</a><div class="sidebar-block">
+    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.4 documentation</a><div class="sidebar-block">
   <div class="sidebar-wrapper">
     <h2>Table Of Contents</h2>
   </div>
@@ -119,37 +113,35 @@
 <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
           <div class="document clearer body">
             
-  <div class="section" id="s3-customization-reference">
-<span id="ref-custom-s3"></span><h1>S3 customization reference<a class="headerlink" href="#s3-customization-reference" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="s3-transfers">
-<h2>S3 transfers<a class="headerlink" href="#s3-transfers" title="Permalink to this headline">¶</a></h2>
+  <section id="s3-customization-reference">
+<span id="ref-custom-s3"></span><h1>S3 customization reference<a class="headerlink" href="#s3-customization-reference" title="Permalink to this heading">¶</a></h1>
+<section id="s3-transfers">
+<h2>S3 transfers<a class="headerlink" href="#s3-transfers" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">All classes documented below are considered public and thus will not be
-exposed to breaking changes. If a class from the <code class="docutils literal"><span class="pre">ibm_boto3.s3.transfer</span></code>
+<p class="admonition-title">Note</p>
+<p>All classes documented below are considered public and thus will not be
+exposed to breaking changes. If a class from the <code class="docutils literal notranslate"><span class="pre">ibm_boto3.s3.transfer</span></code>
 module is not documented below, it is considered internal and users
 should be very cautious in directly using them because breaking changes may
 be introduced from version to version of the library.</p>
 </div>
-<dl class="class">
-<dt id="ibm_boto3.s3.transfer.TransferConfig">
-<em class="property">class </em><code class="descclassname">ibm_boto3.s3.transfer.</code><code class="descname">TransferConfig</code><span class="sig-paren">(</span><em>multipart_threshold=8388608</em>, <em>max_concurrency=10</em>, <em>multipart_chunksize=8388608</em>, <em>num_download_attempts=5</em>, <em>max_io_queue=100</em>, <em>io_chunksize=262144</em>, <em>use_threads=True</em>, <em>max_bandwidth=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#TransferConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.TransferConfig" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.TransferConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.s3.transfer.</span></span><span class="sig-name descname"><span class="pre">TransferConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multipart_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8388608</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_concurrency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipart_chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8388608</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_download_attempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_io_queue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_chunksize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">262144</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_bandwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#TransferConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.TransferConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configuration object for managed S3 transfers</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>multipart_threshold</strong> – The transfer size threshold for which
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>multipart_threshold</strong> – The transfer size threshold for which
 multipart uploads, downloads, and copies will automatically be
-triggered.</li>
-<li><strong>max_concurrency</strong> – The maximum number of threads that will be
-making requests to perform a transfer. If <code class="docutils literal"><span class="pre">use_threads</span></code> is
-set to <code class="docutils literal"><span class="pre">False</span></code>, the value provided is ignored as the transfer
-will only ever use the main thread.</li>
-<li><strong>multipart_chunksize</strong> – The partition size of each part for a
-multipart transfer.</li>
-<li><strong>num_download_attempts</strong> – The number of download attempts that
+triggered.</p></li>
+<li><p><strong>max_concurrency</strong> – The maximum number of threads that will be
+making requests to perform a transfer. If <code class="docutils literal notranslate"><span class="pre">use_threads</span></code> is
+set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the value provided is ignored as the transfer
+will only ever use the main thread.</p></li>
+<li><p><strong>multipart_chunksize</strong> – The partition size of each part for a
+multipart transfer.</p></li>
+<li><p><strong>num_download_attempts</strong> – The number of download attempts that
 will be retried upon errors with downloading an object in S3.
 Note that these retries account for errors that occur when
 streaming  down the data from s3 (i.e. socket errors and read
@@ -157,74 +149,72 @@ timeouts that occur after receiving an OK response from s3).
 Other retryable exceptions such as throttling errors and 5xx
 errors are already retried by ibm_botocore (this default is 5). This
 does not take into account the number of exceptions retried by
-ibm_botocore.</li>
-<li><strong>max_io_queue</strong> – The maximum amount of read parts that can be
+ibm_botocore.</p></li>
+<li><p><strong>max_io_queue</strong> – The maximum amount of read parts that can be
 queued in memory to be written for a download. The size of each
-of these read parts is at most the size of <code class="docutils literal"><span class="pre">io_chunksize</span></code>.</li>
-<li><strong>io_chunksize</strong> – The max size of each chunk in the io queue.
-Currently, this is size used when <code class="docutils literal"><span class="pre">read</span></code> is called on the
-downloaded stream as well.</li>
-<li><strong>use_threads</strong> – If True, threads will be used when performing
+of these read parts is at most the size of <code class="docutils literal notranslate"><span class="pre">io_chunksize</span></code>.</p></li>
+<li><p><strong>io_chunksize</strong> – The max size of each chunk in the io queue.
+Currently, this is size used when <code class="docutils literal notranslate"><span class="pre">read</span></code> is called on the
+downloaded stream as well.</p></li>
+<li><p><strong>use_threads</strong> – If True, threads will be used when performing
 S3 transfers. If False, no threads will be used in
-performing transfers; all logic will be run in the main thread.</li>
-<li><strong>max_bandwidth</strong> – The maximum bandwidth that will be consumed
+performing transfers; all logic will be run in the main thread.</p></li>
+<li><p><strong>max_bandwidth</strong> – The maximum bandwidth that will be consumed
 in uploading and downloading file content. The value is an integer
-in terms of bytes per second.</li>
+in terms of bytes per second.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="ibm_boto3.s3.transfer.TransferConfig.ALIAS">
-<code class="descname">ALIAS</code><em class="property"> = {'max_concurrency': 'max_request_concurrency', 'max_io_queue': 'max_io_queue_size'}</em><a class="headerlink" href="#ibm_boto3.s3.transfer.TransferConfig.ALIAS" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.TransferConfig.ALIAS">
+<span class="sig-name descname"><span class="pre">ALIAS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'max_concurrency':</span> <span class="pre">'max_request_concurrency',</span> <span class="pre">'max_io_queue':</span> <span class="pre">'max_io_queue_size'}</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.TransferConfig.ALIAS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="ibm_boto3.s3.transfer.S3Transfer">
-<em class="property">class </em><code class="descclassname">ibm_boto3.s3.transfer.</code><code class="descname">S3Transfer</code><span class="sig-paren">(</span><em>client=None</em>, <em>config=None</em>, <em>osutil=None</em>, <em>manager=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">
-<code class="descname">ALLOWED_DOWNLOAD_ARGS</code><em class="property"> = ['VersionId', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'RequestPayer', 'ExpectedBucketOwner']</em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.s3.transfer.</span></span><span class="sig-name descname"><span class="pre">S3Transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osutil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">
+<span class="sig-name descname"><span class="pre">ALLOWED_DOWNLOAD_ARGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['VersionId',</span> <span class="pre">'SSECustomerAlgorithm',</span> <span class="pre">'SSECustomerKey',</span> <span class="pre">'SSECustomerKeyMD5',</span> <span class="pre">'RequestPayer',</span> <span class="pre">'ExpectedBucketOwner']</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
-<code class="descname">ALLOWED_UPLOAD_ARGS</code><em class="property"> = ['ACL', 'CacheControl', 'ContentDisposition', 'ContentEncoding', 'ContentLanguage', 'ContentType', 'ExpectedBucketOwner', 'Expires', 'GrantFullControl', 'GrantRead', 'GrantReadACP', 'GrantWriteACP', 'Metadata', 'ObjectLockLegalHoldStatus', 'ObjectLockMode', 'ObjectLockRetainUntilDate', 'RequestPayer', 'RetentionExpirationDate', 'RetentionLegalHoldId', 'RetentionPeriod', 'ServerSideEncryption', 'StorageClass', 'SSECustomerAlgorithm', 'SSECustomerKey', 'SSECustomerKeyMD5', 'SSEKMSKeyId', 'SSEKMSEncryptionContext', 'Tagging', 'WebsiteRedirectLocation']</em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
+<span class="sig-name descname"><span class="pre">ALLOWED_UPLOAD_ARGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ACL',</span> <span class="pre">'CacheControl',</span> <span class="pre">'ContentDisposition',</span> <span class="pre">'ContentEncoding',</span> <span class="pre">'ContentLanguage',</span> <span class="pre">'ContentType',</span> <span class="pre">'ExpectedBucketOwner',</span> <span class="pre">'Expires',</span> <span class="pre">'GrantFullControl',</span> <span class="pre">'GrantRead',</span> <span class="pre">'GrantReadACP',</span> <span class="pre">'GrantWriteACP',</span> <span class="pre">'Metadata',</span> <span class="pre">'ObjectLockLegalHoldStatus',</span> <span class="pre">'ObjectLockMode',</span> <span class="pre">'ObjectLockRetainUntilDate',</span> <span class="pre">'RequestPayer',</span> <span class="pre">'RetentionExpirationDate',</span> <span class="pre">'RetentionLegalHoldId',</span> <span class="pre">'RetentionPeriod',</span> <span class="pre">'ServerSideEncryption',</span> <span class="pre">'StorageClass',</span> <span class="pre">'SSECustomerAlgorithm',</span> <span class="pre">'SSECustomerKey',</span> <span class="pre">'SSECustomerKeyMD5',</span> <span class="pre">'SSEKMSKeyId',</span> <span class="pre">'SSEKMSEncryptionContext',</span> <span class="pre">'Tagging',</span> <span class="pre">'WebsiteRedirectLocation']</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.s3.transfer.S3Transfer.download_file">
-<code class="descname">download_file</code><span class="sig-paren">(</span><em>bucket</em>, <em>key</em>, <em>filename</em>, <em>extra_args=None</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer.download_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.download_file" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer.download_file">
+<span class="sig-name descname"><span class="pre">download_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer.download_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.download_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download an S3 object to a file.</p>
 <p>Variants have also been injected into S3 client, Bucket and Object.
 You don’t have to use S3Transfer.download_file() directly.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="../services/s3.html#S3.Client.download_file" title="S3.Client.download_file"><code class="xref py py-meth docutils literal"><span class="pre">S3.Client.download_file()</span></code></a>
-<a class="reference internal" href="../services/s3.html#S3.Client.download_fileobj" title="S3.Client.download_fileobj"><code class="xref py py-meth docutils literal"><span class="pre">S3.Client.download_fileobj()</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../services/s3.html#S3.Client.download_file" title="S3.Client.download_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">S3.Client.download_file()</span></code></a>
+<a class="reference internal" href="../services/s3.html#S3.Client.download_fileobj" title="S3.Client.download_fileobj"><code class="xref py py-meth docutils literal notranslate"><span class="pre">S3.Client.download_fileobj()</span></code></a></p>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="ibm_boto3.s3.transfer.S3Transfer.upload_file">
-<code class="descname">upload_file</code><span class="sig-paren">(</span><em>filename</em>, <em>bucket</em>, <em>key</em>, <em>callback=None</em>, <em>extra_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer.upload_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.upload_file" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer.upload_file">
+<span class="sig-name descname"><span class="pre">upload_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer.upload_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.upload_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upload a file to an S3 object.</p>
 <p>Variants have also been injected into S3 client, Bucket and Object.
 You don’t have to use S3Transfer.upload_file() directly.</p>
 <div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="../services/s3.html#S3.Client.upload_file" title="S3.Client.upload_file"><code class="xref py py-meth docutils literal"><span class="pre">S3.Client.upload_file()</span></code></a>
-<a class="reference internal" href="../services/s3.html#S3.Client.upload_fileobj" title="S3.Client.upload_fileobj"><code class="xref py py-meth docutils literal"><span class="pre">S3.Client.upload_fileobj()</span></code></a></p>
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../services/s3.html#S3.Client.upload_file" title="S3.Client.upload_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">S3.Client.upload_file()</span></code></a>
+<a class="reference internal" href="../services/s3.html#S3.Client.upload_fileobj" title="S3.Client.upload_fileobj"><code class="xref py py-meth docutils literal notranslate"><span class="pre">S3.Client.upload_fileobj()</span></code></a></p>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -253,8 +243,9 @@ You don’t have to use S3Transfer.upload_file() directly.</p>
         <li class="right" >
           <a href="index.html" title="Customization references"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.3 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Customization references</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Customization references</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">S3 customization reference</a></li> 
       </ul>
     </div>
 <div class="footer">

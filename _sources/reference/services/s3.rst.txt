@@ -7364,7 +7364,8 @@ Client
                     'Days': 123
                 },
                 'EnablePermanentRetention': True|False
-            }
+            },
+            'IbmProtectionManagementState': 'active'
         }
       **Response Structure** 
 
@@ -7402,6 +7403,13 @@ Client
 
           - **EnablePermanentRetention** *(boolean) --* Enable permanent retention for an object.
       
+        
+
+        - **IbmProtectionManagementState** *(string) --* 
+
+          Indicates whether this bucket has an active protection management state. This header is only included if protection management is activated on a bucket
+
+          
     
 
   .. py:method:: get_bucket_replication(**kwargs)
@@ -9600,7 +9608,8 @@ Client
                         'Years': 123
                     }
                 }
-            }
+            },
+            'IbmProtectionManagementState': 'active'
         }
       **Response Structure** 
 
@@ -9659,6 +9668,13 @@ Client
           
         
       
+        
+
+        - **IbmProtectionManagementState** *(string) --* 
+
+          Indicates whether this bucket has an active protection management state. This header is only included if protection management is activated on a bucket
+
+          
     
 
   .. py:method:: get_object_retention(**kwargs)
