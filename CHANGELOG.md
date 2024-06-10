@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2.13.5
+
+### Content
+
+#### Defect Fixes
+
+* IBM Python SDK aligned with AWS Python SDK - Boto3(v1.34.39), Botocore(v1.34.39) and S3transfer(v0.10.0)
+* Update dependencies
+
 ## 2.13.4
 
 ### Content

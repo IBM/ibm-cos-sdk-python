@@ -122,7 +122,9 @@ transfer.  For example:
 
 
 """
-from os import PathLike, fspath
+import logging
+import threading
+from os import PathLike, fspath, getpid
 
 from ibm_botocore.exceptions import ClientError
 from ibm_s3transfer.exceptions import (
@@ -138,6 +140,8 @@ from ibm_boto3.exceptions import RetriesExceededError, S3UploadFailedError
 
 KB = 1024
 MB = KB * KB
+
+logger = logging.getLogger(__name__)
 
 
 def create_transfer_manager(client, config, osutil=None):

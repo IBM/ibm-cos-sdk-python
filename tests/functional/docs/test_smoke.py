@@ -10,6 +10,10 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+import os
+import shutil
+import tempfile
+
 import ibm_botocore.session
 import pytest
 from ibm_botocore import xform_name
@@ -17,6 +21,9 @@ from ibm_botocore.exceptions import DataNotFoundError
 
 import ibm_boto3
 from ibm_boto3.docs.service import ServiceDocumenter
+
+DOCS_ROOT_DIR = None
+ROOT_SERVICES_PATH = None
 
 
 @pytest.fixture
@@ -30,8 +37,16 @@ def ibm_boto3_session():
 
 
 def all_services():
+    # Create temporary directory before testing.
+    global DOCS_ROOT_DIR, ROOT_SERVICES_PATH
+    DOCS_ROOT_DIR = tempfile.mkdtemp()
+    ROOT_SERVICES_PATH = os.path.join(
+        tempfile.mkdtemp(), 'reference', 'services'
+    )
     session = ibm_boto3.Session(region_name='us-east-1')
     yield from session.get_available_services()
+    # Clean up temporary directory after testing.
+    shutil.rmtree(DOCS_ROOT_DIR)
 
 
 @pytest.fixture
@@ -45,7 +60,7 @@ def test_documentation(
     ibm_boto3_session, ibm_botocore_session, available_resources, service_name
 ):
     generated_docs = ServiceDocumenter(
-        service_name, session=ibm_boto3_session
+        service_name, session=ibm_boto3_session, root_docs_path=ROOT_SERVICES_PATH
     ).document_service()
     generated_docs = generated_docs.decode('utf-8')
     client = ibm_boto3.client(service_name, 'us-east-1')
@@ -59,7 +74,6 @@ def test_documentation(
     # If the service has resources, make sure the service resource
     # is at least documented.
     if service_name in available_resources:
-
         resource = ibm_boto3.resource(service_name, 'us-east-1')
         _assert_has_resource_documentation(
             generated_docs, service_name, resource
@@ -68,12 +82,13 @@ def test_documentation(
     # If the client can paginate, make sure the paginators are documented.
     try:
         paginator_model = ibm_botocore_session.get_paginator_model(service_name)
-        _assert_has_paginator_documentation(
-            generated_docs,
-            service_name,
-            client,
-            sorted(paginator_model._paginator_config),
-        )
+        if paginator_model._paginator_config:
+            _assert_has_paginator_documentation(
+                generated_docs,
+                service_name,
+                client,
+                sorted(paginator_model._paginator_config),
+            )
     except DataNotFoundError:
         pass
 
@@ -108,13 +123,19 @@ def _assert_has_client_documentation(generated_docs, service_name, client):
         '  A low-level client representing',
         '    import ibm_boto3',
         '    client = ibm_boto3.client(\'%s\')' % service_name,
-        '  These are the available methods:',
-        '  *   :py:meth:`~%s.Client.get_paginator`' % class_name,
-        '  *   :py:meth:`~%s.Client.get_waiter`' % class_name,
-        '  .. py:method:: get_paginator(operation_name)',
-        '  .. py:method:: get_waiter(waiter_name)',
+        'These are the available methods:',
+        '  %s/client/get_paginator' % service_name,
+        '  %s/client/get_waiter' % service_name,
     ]
     _assert_contains_lines_in_order(ref_lines, generated_docs)
+    for method_name in ['get_paginator', 'get_waiter']:
+        _assert_contains_lines_in_order(
+            [
+                f'{method_name}',
+                f'.. py:method:: {client.__class__.__name__}.Client.{method_name}(',
+            ],
+            get_nested_file_contents(service_name, 'client', method_name),
+        )
 
 
 def _assert_has_paginator_documentation(
@@ -127,19 +148,20 @@ def _assert_has_paginator_documentation(
         'The available paginators are:',
     ]
     for paginator_name in paginator_names:
-        ref_lines.append(
-            '* :py:class:`{}.Paginator.{}`'.format(
-                client.__class__.__name__, paginator_name
-            )
-        )
+        ref_lines.append(f'  {service_name}/paginator/{paginator_name}')
 
     for paginator_name in paginator_names:
-        ref_lines.append(
-            '.. py:class:: {}.Paginator.{}'.format(
-                client.__class__.__name__, paginator_name
-            )
+        _assert_contains_lines_in_order(
+            [
+                '.. py:class:: {}.Paginator.{}'.format(
+                    client.__class__.__name__, paginator_name
+                ),
+                '  .. py:method:: paginate(',
+            ],
+            get_nested_file_contents(
+                service_name, 'paginator', paginator_name
+            ),
         )
-        ref_lines.append('  .. py:method:: paginate(')
 
     _assert_contains_lines_in_order(ref_lines, generated_docs)
 
@@ -149,28 +171,35 @@ def _assert_has_waiter_documentation(
 ):
     ref_lines = ['=======', 'Waiters', '=======', 'The available waiters are:']
     for waiter_name in waiter_model.waiter_names:
-        ref_lines.append(
-            '* :py:class:`{}.Waiter.{}`'.format(
-                client.__class__.__name__, waiter_name
-            )
-        )
+        ref_lines.append(f'  {service_name}/waiter/{waiter_name}')
 
     for waiter_name in waiter_model.waiter_names:
-        ref_lines.append(
-            '.. py:class:: {}.Waiter.{}'.format(
-                client.__class__.__name__, waiter_name
-            )
+        _assert_contains_lines_in_order(
+            [
+                '.. py:class:: {}.Waiter.{}'.format(
+                    client.__class__.__name__, waiter_name
+                ),
+                '    waiter = client.get_waiter(\'%s\')'
+                % xform_name(waiter_name),
+                '  .. py:method:: wait(',
+            ],
+            get_nested_file_contents(service_name, 'waiter', waiter_name),
         )
-        ref_lines.append(
-            '    waiter = client.get_waiter(\'%s\')' % xform_name(waiter_name)
-        )
-        ref_lines.append('  .. py:method:: wait(')
 
     _assert_contains_lines_in_order(ref_lines, generated_docs)
 
 
 def _assert_has_resource_documentation(generated_docs, service_name, resource):
     ref_lines = [
+        '=======',
+        'Resources',
+        '=======',
+        'The available resources are:',
+    ]
+    ref_lines.append(f'  {service_name}/service-resource/index')
+    _assert_contains_lines_in_order(ref_lines, generated_docs)
+
+    service_resource_ref_lines = [
         '================',
         'Service Resource',
         '================',
@@ -180,4 +209,18 @@ def _assert_has_resource_documentation(generated_docs, service_name, resource):
         '    import ibm_boto3',
         f'    {service_name} = ibm_boto3.resource(\'{service_name}\')',
     ]
-    _assert_contains_lines_in_order(ref_lines, generated_docs)
+    _assert_contains_lines_in_order(
+        service_resource_ref_lines,
+        get_nested_file_contents(service_name, 'service-resource', 'index'),
+    )
+
+
+def get_nested_file_contents(service_name, sub_folder, file_name):
+    service_file_path = os.path.join(
+        ROOT_SERVICES_PATH,
+        service_name,
+        sub_folder,
+        f'{file_name}.rst',
+    )
+    with open(service_file_path, 'rb') as f:
+        return f.read().decode('utf-8')

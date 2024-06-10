@@ -16,11 +16,23 @@ from tests.unit.docs import BaseDocsTest
 
 class TestActionDocumenter(BaseDocsTest):
     def test_document_service_resource_actions(self):
-        action_documenter = ActionDocumenter(self.resource)
+        action_documenter = ActionDocumenter(
+            self.resource, self.root_services_path
+        )
         action_documenter.document_actions(self.doc_structure)
         self.assert_contains_lines_in_order(
             [
-                '.. py:method:: sample_operation(**kwargs)',
+                '-------\nActions\n-------',
+                'Actions call operations on resources.  They may',
+                'automatically handle the passing in of arguments set',
+                'from identifiers and some attributes.',
+                'For more information about actions refer to the ',
+            ]
+        )
+        self.assert_contains_lines_in_order(
+            [
+                'sample_operation',
+                '.. py:method:: MyService.ServiceResource.sample_operation(**kwargs)',
                 '  **Request Syntax**',
                 '  ::',
                 '    response = myservice.sample_operation(',
@@ -43,26 +55,47 @@ class TestActionDocumenter(BaseDocsTest):
                 '    - *(dict) --*',
                 '      - **Foo** *(string) --* Documents Foo',
                 '      - **Bar** *(string) --* Documents Bar',
-            ]
+            ],
+            self.get_nested_service_contents(
+                'myservice', 'service-resource', 'sample_operation'
+            ),
         )
 
     def test_document_nonservice_resource_actions(self):
         subresource = self.resource.Sample('mysample')
-        action_documenter = ActionDocumenter(subresource)
+        action_documenter = ActionDocumenter(
+            subresource, self.root_services_path
+        )
         action_documenter.document_actions(self.doc_structure)
         self.assert_contains_lines_in_order(
             [
-                '.. py:method:: load()',
+                '-------\nActions\n-------',
+                'Actions call operations on resources.  They may',
+                'automatically handle the passing in of arguments set',
+                'from identifiers and some attributes.',
+                'For more information about actions refer to the ',
+            ]
+        )
+        self.assert_contains_lines_in_order(
+            [
+                'load',
+                '.. py:method:: MyService.Sample.load()',
                 (
                     '  Calls :py:meth:`MyService.Client.sample_operation` to update '
                     'the attributes of the Sample resource'
                 ),
-                '  **Request Syntax** ',
+                '  **Request Syntax**',
                 '  ::',
                 '    sample.load()',
                 '  :returns: None',
-                '.. py:method:: operate(**kwargs)',
-                '  **Request Syntax** ',
+            ],
+            self.get_nested_service_contents('myservice', 'sample', 'load'),
+        )
+        self.assert_contains_lines_in_order(
+            [
+                'operate',
+                '.. py:method:: MyService.Sample.operate(**kwargs)',
+                '  **Request Syntax**',
                 '  ::',
                 '    response = sample.operate(',
                 "        Bar='string'",
@@ -72,24 +105,43 @@ class TestActionDocumenter(BaseDocsTest):
                 '  :rtype: dict',
                 '  :returns: ',
                 '    ',
-                '    **Response Syntax** ',
+                '    **Response Syntax**',
                 '    ::',
                 '      {',
                 "          'Foo': 'string',",
                 "          'Bar': 'string'",
                 '      }',
-                '    **Response Structure** ',
+                '    **Response Structure**',
                 '    - *(dict) --* ',
                 '      - **Foo** *(string) --* Documents Foo',
                 '      - **Bar** *(string) --* Documents Bar',
-                '.. py:method:: reload()',
+            ],
+            self.get_nested_service_contents('myservice', 'sample', 'operate'),
+        )
+        self.assert_contains_lines_in_order(
+            [
+                'reload',
+                '.. py:method:: MyService.Sample.reload()',
                 (
                     '  Calls :py:meth:`MyService.Client.sample_operation` to update '
                     'the attributes of the Sample resource'
                 ),
-                '  **Request Syntax** ',
+                '  **Request Syntax**',
                 '  ::',
                 '    sample.reload()',
                 '  :returns: None',
-            ]
+            ],
+            self.get_nested_service_contents('myservice', 'sample', 'reload'),
+        )
+        self.assert_contains_lines_in_order(
+            [
+                'get_available_subresources',
+                '.. py:method:: MyService.Sample.get_available_subresources()',
+                'Returns a list of all the available sub-resources for this',
+                ':returns: A list containing the name of each sub-resource for this',
+                ':rtype: list of str',
+            ],
+            self.get_nested_service_contents(
+                'myservice', 'sample', 'get_available_subresources'
+            ),
         )

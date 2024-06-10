@@ -10,11 +10,14 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+import os
+
 from ibm_botocore import xform_name
+from ibm_botocore.docs.bcdoc.restdoc import DocumentStructure
 from ibm_botocore.docs.method import get_instance_public_methods
 from ibm_botocore.docs.utils import DocumentedShape
 
-from ibm_boto3.docs.base import BaseDocumenter
+from ibm_boto3.docs.base import NestedDocumenter
 from ibm_boto3.docs.method import document_model_driven_resource_method
 from ibm_boto3.docs.utils import (
     add_resource_type_overview,
@@ -22,7 +25,7 @@ from ibm_boto3.docs.utils import (
 )
 
 
-class CollectionDocumenter(BaseDocumenter):
+class CollectionDocumenter(NestedDocumenter):
     def document_collections(self, section):
         collections = self._resource.meta.resource_model.collections
         collections_list = []
@@ -39,7 +42,26 @@ class CollectionDocumenter(BaseDocumenter):
         for collection in collections:
             collection_section = section.add_new_section(collection.name)
             collections_list.append(collection.name)
+            # Create a new DocumentStructure for each collection and add contents.
+            collection_doc = DocumentStructure(collection.name, target='html')
+            breadcrumb_section = collection_doc.add_new_section('breadcrumb')
+            breadcrumb_section.style.ref(self._resource_class_name, 'index')
+            breadcrumb_section.write(f' / Collection / {collection.name}')
+            collection_doc.add_title_section(collection.name)
+            collection_section = collection_doc.add_new_section(
+                collection.name,
+                context={'qualifier': f'{self.class_name}.'},
+            )
             self._document_collection(collection_section, collection)
+
+            # Write collections in individual/nested files.
+            # Path: <root>/reference/services/<service>/<resource_name>/<collection_name>.rst
+            collections_dir_path = os.path.join(
+                self._root_docs_path,
+                f'{self._service_name}',
+                f'{self._resource_sub_path}',
+            )
+            collection_doc.write_to_file(collections_dir_path, collection.name)
 
     def _document_collection(self, section, collection):
         methods = get_instance_public_methods(
@@ -73,7 +95,9 @@ class CollectionDocumenter(BaseDocumenter):
 
 
 def document_collection_object(
-    section, collection_model, include_signature=True
+    section,
+    collection_model,
+    include_signature=True,
 ):
     """Documents a collection resource object
 
@@ -85,7 +109,10 @@ def document_collection_object(
         It is useful for generating docstrings.
     """
     if include_signature:
-        section.style.start_sphinx_py_attr(collection_model.name)
+        full_collection_name = (
+            f"{section.context.get('qualifier', '')}{collection_model.name}"
+        )
+        section.style.start_sphinx_py_attr(full_collection_name)
     section.include_doc_string(
         f'A collection of {collection_model.resource.type} resources.'
     )

@@ -16,11 +16,22 @@ from tests.unit.docs import BaseDocsTest
 
 class TestCollectionDocumenter(BaseDocsTest):
     def test_document_collections(self):
-        collection_documenter = CollectionDocumenter(self.resource)
+        collection_documenter = CollectionDocumenter(
+            self.resource, self.root_services_path
+        )
         collection_documenter.document_collections(self.doc_structure)
         self.assert_contains_lines_in_order(
             [
-                '.. py:attribute:: samples',
+                '-----------\nCollections\n-----------',
+                'Collections provide an interface to iterate over and ',
+                'manipulate groups of resources. ',
+                'For more information about collections refer to the ',
+            ]
+        )
+        self.assert_contains_lines_in_order(
+            [
+                'samples',
+                '.. py:attribute:: MyService.ServiceResource.samples',
                 '  A collection of Sample resources.'
                 'A Sample Collection will include all resources by default, '
                 'and extreme caution should be taken when performing actions '
@@ -30,7 +41,7 @@ class TestCollectionDocumenter(BaseDocsTest):
                     '    Creates an iterable of all Sample resources in the '
                     'collection.'
                 ),
-                '    **Request Syntax** ',
+                '    **Request Syntax**',
                 '    ::',
                 '      sample_iterator = myservice.samples.all()',
                 '    :rtype: list(:py:class:`myservice.Sample`)',
@@ -43,7 +54,7 @@ class TestCollectionDocumenter(BaseDocsTest):
                     'if no filters are provided, and extreme caution should be '
                     'taken when performing actions on all resources'
                 ),
-                '    **Request Syntax** ',
+                '    **Request Syntax**',
                 '    ::',
                 '      sample_iterator = myservice.samples.filter(',
                 "          Foo='string',",
@@ -60,7 +71,7 @@ class TestCollectionDocumenter(BaseDocsTest):
                     '    Creates an iterable up to a specified amount of '
                     'Sample resources in the collection.'
                 ),
-                '    **Request Syntax** ',
+                '    **Request Syntax**',
                 '    ::',
                 '      sample_iterator = myservice.samples.limit(',
                 '          count=123',
@@ -73,7 +84,7 @@ class TestCollectionDocumenter(BaseDocsTest):
                 '    :rtype: list(:py:class:`myservice.Sample`)',
                 '    :returns: A list of Sample resources',
                 '  .. py:method:: operate(**kwargs)',
-                '    **Request Syntax** ',
+                '    **Request Syntax**',
                 '      response = myservice.samples.operate(',
                 "          Foo='string',",
                 "          Bar='string'",
@@ -84,13 +95,13 @@ class TestCollectionDocumenter(BaseDocsTest):
                 '    :param Bar: Documents Bar',
                 '    :rtype: dict',
                 '    :returns: ',
-                '      **Response Syntax** ',
+                '      **Response Syntax**',
                 '      ::',
                 '        {',
                 "            'Foo': 'string',",
                 "            'Bar': 'string'",
                 '        }',
-                '      **Response Structure** ',
+                '      **Response Structure**',
                 '      - *(dict) --* ',
                 '        - **Foo** *(string) --* Documents Foo',
                 '        - **Bar** *(string) --* Documents Bar',
@@ -100,7 +111,7 @@ class TestCollectionDocumenter(BaseDocsTest):
                     'collection, but limits the number of items returned by '
                     'each service call by the specified amount.'
                 ),
-                '    **Request Syntax** ',
+                '    **Request Syntax**',
                 '    ::',
                 '',
                 '      sample_iterator = myservice.samples.page_size(',
@@ -114,5 +125,8 @@ class TestCollectionDocumenter(BaseDocsTest):
                 '    :rtype: list(:py:class:`myservice.Sample`)',
                 '    :returns: A list of Sample resources',
                 '    ',
-            ]
+            ],
+            self.get_nested_service_contents(
+                'myservice', 'service-resource', 'samples'
+            ),
         )

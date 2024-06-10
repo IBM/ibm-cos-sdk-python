@@ -10,6 +10,8 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+import copy as python_copy
+
 from ibm_botocore.exceptions import ClientError
 
 from ibm_boto3 import utils
@@ -110,11 +112,11 @@ def upload_file(
     Usage::
 
         import ibm_boto3
-        s3 = ibm_boto3.resource('s3')
-        s3.meta.client.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
+        s3 = ibm_boto3.client('s3')
+        s3.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
 
-    Similar behavior as S3Transfer's upload_file() method,
-    except that parameters are capitalized. Detailed examples can be found at
+    Similar behavior as S3Transfer's upload_file() method, except that
+    argument names are capitalized. Detailed examples can be found at
     :ref:`S3Transfer's Usage <ref_ibm_s3transfer_usage>`.
 
     :type Filename: str

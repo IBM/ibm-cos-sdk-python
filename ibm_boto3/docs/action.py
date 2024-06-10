@@ -10,7 +10,10 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+import os
+
 from ibm_botocore import xform_name
+from ibm_botocore.docs.bcdoc.restdoc import DocumentStructure
 from ibm_botocore.docs.method import (
     document_custom_method,
     document_model_driven_method,
@@ -18,7 +21,7 @@ from ibm_botocore.docs.method import (
 from ibm_botocore.model import OperationModel
 from ibm_botocore.utils import get_service_module_name
 
-from ibm_boto3.docs.base import BaseDocumenter
+from ibm_boto3.docs.base import NestedDocumenter
 from ibm_boto3.docs.method import document_model_driven_resource_method
 from ibm_boto3.docs.utils import (
     add_resource_type_overview,
@@ -26,8 +29,23 @@ from ibm_boto3.docs.utils import (
     get_resource_public_actions,
 )
 
+PUT_DATA_WARNING_MESSAGE = """
+.. warning::
+    It is recommended to use the :py:meth:`put_metric_data`
+    :doc:`client method <../../cloudwatch/client/put_metric_data>`
+    instead. If you would still like to use this resource method,
+    please make sure that ``MetricData[].MetricName`` is equal to
+    the metric resource's ``name`` attribute.
+"""
 
-class ActionDocumenter(BaseDocumenter):
+WARNING_MESSAGES = {
+    "Metric": {"put_data": PUT_DATA_WARNING_MESSAGE},
+}
+
+IGNORE_PARAMS = {"Metric": {"put_data": ["Namespace"]}}
+
+
+class ActionDocumenter(NestedDocumenter):
     def document_actions(self, section):
         modeled_actions_list = self._resource_model.actions
         modeled_actions = {}
@@ -47,9 +65,21 @@ class ActionDocumenter(BaseDocumenter):
             ),
             intro_link='actions_intro',
         )
-
+        resource_warnings = WARNING_MESSAGES.get(self._resource_name, {})
         for action_name in sorted(resource_actions):
-            action_section = section.add_new_section(action_name)
+            # Create a new DocumentStructure for each action and add contents.
+            action_doc = DocumentStructure(action_name, target='html')
+            breadcrumb_section = action_doc.add_new_section('breadcrumb')
+            breadcrumb_section.style.ref(self._resource_class_name, 'index')
+            breadcrumb_section.write(f' / Action / {action_name}')
+            action_doc.add_title_section(action_name)
+            warning_message = resource_warnings.get(action_name)
+            if warning_message is not None:
+                action_doc.add_new_section("warning").write(warning_message)
+            action_section = action_doc.add_new_section(
+                action_name,
+                context={'qualifier': f'{self.class_name}.'},
+            )
             if action_name in ['load', 'reload'] and self._resource_model.load:
                 document_load_reload_action(
                     section=action_section,
@@ -71,6 +101,14 @@ class ActionDocumenter(BaseDocumenter):
                 document_custom_method(
                     action_section, action_name, resource_actions[action_name]
                 )
+            # Write actions in individual/nested files.
+            # Path: <root>/reference/services/<service>/<resource_name>/<action_name>.rst
+            actions_dir_path = os.path.join(
+                self._root_docs_path,
+                f'{self._service_name}',
+                f'{self._resource_sub_path}',
+            )
+            action_doc.write_to_file(actions_dir_path, action_name)
 
 
 def document_action(
@@ -99,8 +137,10 @@ def document_action(
     operation_model = service_model.operation_model(
         action_model.request.operation
     )
-    ignore_params = get_resource_ignore_params(action_model.request.params)
-
+    ignore_params = IGNORE_PARAMS.get(resource_name, {}).get(
+        action_model.name,
+        get_resource_ignore_params(action_model.request.params),
+    )
     example_return_value = 'response'
     if action_model.resource:
         example_return_value = xform_name(action_model.resource.type)
@@ -110,9 +150,12 @@ def document_action(
     example_prefix = '{} = {}.{}'.format(
         example_return_value, example_resource_name, action_model.name
     )
+    full_action_name = (
+        f"{section.context.get('qualifier', '')}{action_model.name}"
+    )
     document_model_driven_resource_method(
         section=section,
-        method_name=action_model.name,
+        method_name=full_action_name,
         operation_model=operation_model,
         event_emitter=event_emitter,
         method_description=operation_model.documentation,
@@ -162,9 +205,10 @@ def document_load_reload_action(
     if service_model.service_name == resource_name:
         example_resource_name = resource_name
     example_prefix = f'{example_resource_name}.{action_name}'
+    full_action_name = f"{section.context.get('qualifier', '')}{action_name}"
     document_model_driven_method(
         section=section,
-        method_name=action_name,
+        method_name=full_action_name,
         operation_model=OperationModel({}, service_model),
         event_emitter=event_emitter,
         method_description=description,

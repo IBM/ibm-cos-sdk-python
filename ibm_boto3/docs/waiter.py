@@ -10,20 +10,23 @@
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+import os
+
 from ibm_botocore import xform_name
+from ibm_botocore.docs.bcdoc.restdoc import DocumentStructure
 from ibm_botocore.docs.method import document_model_driven_method
 from ibm_botocore.utils import get_service_module_name
 
-from ibm_boto3.docs.base import BaseDocumenter
+from ibm_boto3.docs.base import NestedDocumenter
 from ibm_boto3.docs.utils import (
     add_resource_type_overview,
     get_resource_ignore_params,
 )
 
 
-class WaiterResourceDocumenter(BaseDocumenter):
-    def __init__(self, resource, service_waiter_model):
-        super().__init__(resource)
+class WaiterResourceDocumenter(NestedDocumenter):
+    def __init__(self, resource, service_waiter_model, root_docs_path):
+        super().__init__(resource, root_docs_path)
         self._service_waiter_model = service_waiter_model
 
     def document_resource_waiters(self, section):
@@ -42,6 +45,16 @@ class WaiterResourceDocumenter(BaseDocumenter):
         for waiter in waiters:
             waiter_section = section.add_new_section(waiter.name)
             waiter_list.append(waiter.name)
+            # Create a new DocumentStructure for each waiter and add contents.
+            waiter_doc = DocumentStructure(waiter.name, target='html')
+            breadcrumb_section = waiter_doc.add_new_section('breadcrumb')
+            breadcrumb_section.style.ref(self._resource_class_name, 'index')
+            breadcrumb_section.write(f' / Waiter / {waiter.name}')
+            waiter_doc.add_title_section(waiter.name)
+            waiter_section = waiter_doc.add_new_section(
+                waiter.name,
+                context={'qualifier': f'{self.class_name}.'},
+            )
             document_resource_waiter(
                 section=waiter_section,
                 resource_name=self._resource_name,
@@ -50,6 +63,14 @@ class WaiterResourceDocumenter(BaseDocumenter):
                 resource_waiter_model=waiter,
                 service_waiter_model=self._service_waiter_model,
             )
+            # Write waiters in individual/nested files.
+            # Path: <root>/reference/services/<service>/<resource_name>/<waiter_name>.rst
+            waiters_dir_path = os.path.join(
+                self._root_docs_path,
+                f'{self._service_name}',
+                f'{self._resource_sub_path}',
+            )
+            waiter_doc.write_to_file(waiters_dir_path, waiter.name)
 
 
 def document_resource_waiter(
@@ -70,7 +91,7 @@ def document_resource_waiter(
     service_module_name = get_service_module_name(service_model)
     description = (
         'Waits until this {} is {}. This method calls '
-        ':py:meth:`{}.Waiter.{}.wait` which polls. '
+        ':py:meth:`{}.Waiter.{}.wait` which polls '
         ':py:meth:`{}.Client.{}` every {} seconds until '
         'a successful state is reached. An error is returned '
         'after {} failed checks.'.format(
@@ -87,9 +108,12 @@ def document_resource_waiter(
     example_prefix = '{}.{}'.format(
         xform_name(resource_name), resource_waiter_model.name
     )
+    full_waiter_name = (
+        f"{section.context.get('qualifier', '')}{resource_waiter_model.name}"
+    )
     document_model_driven_method(
         section=section,
-        method_name=resource_waiter_model.name,
+        method_name=full_waiter_name,
         operation_model=operation_model,
         event_emitter=event_emitter,
         example_prefix=example_prefix,

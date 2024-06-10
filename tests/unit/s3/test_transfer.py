@@ -10,10 +10,12 @@
 # distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 # ANY KIND, either express or implied. See the License for the specific
 # language governing permissions and limitations under the License.
+import copy
 import pathlib
 from tempfile import NamedTemporaryFile
 
 import pytest
+from ibm_botocore.credentials import Credentials
 from ibm_s3transfer.futures import NonThreadedExecutor
 from ibm_s3transfer.manager import TransferManager
 
@@ -32,9 +34,18 @@ from ibm_boto3.s3.transfer import (
 from tests import mock, unittest
 
 
+def create_mock_client(region_name='us-west-2'):
+    client = mock.Mock()
+    client.meta.region_name = region_name
+    client._get_credentials.return_value = Credentials(
+        'access', 'secret', 'token'
+    )
+    return client
+
+
 class TestCreateTransferManager(unittest.TestCase):
     def test_create_transfer_manager(self):
-        client = object()
+        client = create_mock_client()
         config = TransferConfig()
         osutil = OSUtils()
         with mock.patch('ibm_boto3.s3.transfer.TransferManager') as manager:
@@ -42,7 +53,7 @@ class TestCreateTransferManager(unittest.TestCase):
             assert manager.call_args == mock.call(client, config, osutil, None)
 
     def test_create_transfer_manager_with_no_threads(self):
-        client = object()
+        client = create_mock_client()
         config = TransferConfig()
         config.use_threads = False
         with mock.patch('ibm_boto3.s3.transfer.TransferManager') as manager:
@@ -125,7 +136,7 @@ class TestProgressCallbackInvoker(unittest.TestCase):
 
 class TestS3Transfer(unittest.TestCase):
     def setUp(self):
-        self.client = mock.Mock()
+        self.client = create_mock_client()
         self.manager = mock.Mock(TransferManager(self.client))
         self.transfer = S3Transfer(manager=self.manager)
         self.callback = mock.Mock()
@@ -242,12 +253,14 @@ class TestS3Transfer(unittest.TestCase):
             self.transfer.upload_file('smallfile', 'bucket', 'key')
 
     def test_can_create_with_just_client(self):
-        transfer = S3Transfer(client=mock.Mock())
+        transfer = S3Transfer(client=create_mock_client())
         assert isinstance(transfer, S3Transfer)
 
     def test_can_create_with_extra_configurations(self):
         transfer = S3Transfer(
-            client=mock.Mock(), config=TransferConfig(), osutil=OSUtils()
+            client=create_mock_client(),
+            config=TransferConfig(),
+            osutil=OSUtils(),
         )
         assert isinstance(transfer, S3Transfer)
 
@@ -268,12 +281,12 @@ class TestS3Transfer(unittest.TestCase):
             S3Transfer(osutil=mock.Mock(), manager=self.manager)
 
     def test_upload_requires_string_filename(self):
-        transfer = S3Transfer(client=mock.Mock())
+        transfer = S3Transfer(client=create_mock_client())
         with pytest.raises(ValueError):
             transfer.upload_file(filename=object(), bucket='foo', key='bar')
 
     def test_download_requires_string_filename(self):
-        transfer = S3Transfer(client=mock.Mock())
+        transfer = S3Transfer(client=create_mock_client())
         with pytest.raises(ValueError):
             transfer.download_file(bucket='foo', key='bar', filename=object())
 
