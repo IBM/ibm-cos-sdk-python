@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / object_lock_retain_until_date
+
+*****************************
+object_lock_retain_until_date
+*****************************
+
+
+
+.. py:attribute:: S3.Object.object_lock_retain_until_date
+
+  
+
+  - *(datetime) --* 
+
+    The date and time when the Object Lock retention period expires. This header is only returned if the requester has the ``s3:GetObjectRetention`` permission.
+
+    

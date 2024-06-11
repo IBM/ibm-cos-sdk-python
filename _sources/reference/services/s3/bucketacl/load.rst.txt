@@ -1,0 +1,21 @@
+:doc:`BucketAcl <index>` / Action / load
+
+****
+load
+****
+
+
+
+.. py:method:: S3.BucketAcl.load()
+
+  Calls :py:meth:`S3.Client.get_bucket_acl` to update the attributes of the BucketAcl resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_  
+
+
+  **Request Syntax**
+
+  ::
+
+    bucket_acl.load()
+  :returns: None

@@ -1,0 +1,324 @@
+:doc:`S3 <../../s3>` / Client / upload_part
+
+***********
+upload_part
+***********
+
+
+
+.. py:method:: S3.Client.upload_part(**kwargs)
+
+  
+
+  Uploads a part in a multipart upload.
+
+   
+
+  .. note::
+
+    
+
+    In this operation, you provide part data in your request. However, you have an option to specify your existing Amazon S3 object as a data source for the part you are uploading. To upload a part from an existing object, you use the `UploadPartCopy <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html>`__ operation.
+
+    
+
+   
+
+  You must initiate a multipart upload (see `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__) before you can upload any part. In response to your initiate request, Amazon S3 returns an upload ID, a unique identifier, that you must include in your upload part request.
+
+   
+
+  Part numbers can be any number from 1 to 10,000, inclusive. A part number uniquely identifies a part and also defines its position within the object being created. If you upload a new part using the same part number that was used with a previous part, the previously uploaded part is overwritten. Each part must be at least 5 MB in size, except the last part. There is no size limit on the last part of your multipart upload.
+
+   
+
+  To ensure that data is not corrupted when traversing the network, specify the ``Content-MD5`` header in the upload part request. Amazon S3 checks the part data against the provided MD5 value. If they do not match, Amazon S3 returns an error.
+
+   
+
+  If the upload request is signed with Signature Version 4, then Amazon Web Services S3 uses the ``x-amz-content-sha256`` header as a checksum instead of ``Content-MD5``. For more information see `Authenticating Requests\: Using the Authorization Header (Amazon Web Services Signature Version 4) <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html>`__.
+
+   
+
+  **Note:** After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.
+
+   
+
+  For more information on multipart uploads, go to `Multipart Upload Overview <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html>`__ in the *Amazon S3 User Guide *.
+
+   
+
+  For information on the permissions required to use the multipart upload API, go to `Multipart Upload and Permissions <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  You can optionally request server-side encryption where Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it for you when you access it. You have the option of providing your own encryption key, or you can use the Amazon Web Services managed encryption keys. If you choose to provide your own encryption key, the request headers you provide in the request must match the headers you used in the request to initiate the upload by using `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__. For more information, go to `Using Server-Side Encryption <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  Server-side encryption is supported by the S3 Multipart Upload actions. Unless you are using a customer-provided encryption key, you don't need to specify the encryption parameters in each UploadPart request. Instead, you only need to specify the server-side encryption parameters in the initial Initiate Multipart request. For more information, see `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__.
+
+   
+
+  If you requested server-side encryption using a customer-provided encryption key in your initiate multipart upload request, you must provide identical encryption information in each part upload using the following headers.
+
+   
+
+  
+  * x-amz-server-side-encryption-customer-algorithm
+   
+  * x-amz-server-side-encryption-customer-key
+   
+  * x-amz-server-side-encryption-customer-key-MD5
+  
+
+   
+
+  **Special Errors**
+
+   
+
+  
+  * 
+
+    
+    * *Code: NoSuchUpload*
+     
+    * *Cause: The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.*
+     
+    * *HTTP Status Code: 404 Not Found*
+     
+    * *SOAP Fault Code Prefix: Client*
+    
+
+  
+  
+
+   
+
+  **Related Resources**
+
+   
+
+  
+  * `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__
+   
+  * `CompleteMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html>`__
+   
+  * `AbortMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html>`__
+   
+  * `ListParts <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html>`__
+   
+  * `ListMultipartUploads <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/UploadPart>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.upload_part(
+        Body=b'bytes'|file,
+        Bucket='string',
+        ContentLength=123,
+        ContentMD5='string',
+        Key='string',
+        PartNumber=123,
+        UploadId='string',
+        SSECustomerAlgorithm='string',
+        SSECustomerKey='string',
+        RequestPayer='requester',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Body: bytes or seekable file-like object
+  :param Body: 
+
+    Object data.
+
+    
+
+  
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket to which the multipart upload was initiated.
+
+     
+
+    When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form *AccessPointName*-*AccountId*.*outpostID*.s3-outposts.*Region*.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ContentLength: integer
+  :param ContentLength: 
+
+    Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+
+    
+
+  
+  :type ContentMD5: string
+  :param ContentMD5: 
+
+    The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    Object key for which the multipart upload was initiated.
+
+    
+
+  
+  :type PartNumber: integer
+  :param PartNumber: **[REQUIRED]** 
+
+    Part number of part being uploaded. This is a positive integer between 1 and 10,000.
+
+    
+
+  
+  :type UploadId: string
+  :param UploadId: **[REQUIRED]** 
+
+    Upload ID identifying the multipart upload whose part is being uploaded.
+
+    
+
+  
+  :type SSECustomerAlgorithm: string
+  :param SSECustomerAlgorithm: 
+
+    Specifies the algorithm to use to when encrypting the object (for example, AES256).
+
+    
+
+  
+  :type SSECustomerKey: string
+  :param SSECustomerKey: 
+
+    Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the ``x-amz-server-side-encryption-customer-algorithm header``. This must be the same encryption key specified in the initiate multipart upload request.
+
+    
+
+  
+  :type SSECustomerKeyMD5: string
+  :param SSECustomerKeyMD5: 
+
+    Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+
+        Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
+
+
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'ServerSideEncryption': 'AES256',
+          'ETag': 'string',
+          'SSECustomerAlgorithm': 'string',
+          'SSECustomerKeyMD5': 'string',
+          'SSEKMSKeyId': 'string',
+          'RequestCharged': 'requester'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **ServerSideEncryption** *(string) --* 
+
+        The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+
+        
+      
+
+      - **ETag** *(string) --* 
+
+        Entity tag for the uploaded object.
+
+        
+      
+
+      - **SSECustomerAlgorithm** *(string) --* 
+
+        If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+
+        
+      
+
+      - **SSECustomerKeyMD5** *(string) --* 
+
+        If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
+
+        
+      
+
+      - **SSEKMSKeyId** *(string) --* Not returned by COS.
+      
+
+      - **RequestCharged** *(string) --* 
+
+        If present, indicates that the requester was successfully charged for the request.
+
+        
+  
+
+  **Examples**
+
+  The following example uploads part 1 of a multipart upload. The example specifies a file name for the part data. The Upload ID is same that is returned by the initiate multipart upload.
+  ::
+
+    response = client.upload_part(
+        Body='fileToUpload',
+        Bucket='examplebucket',
+        Key='examplelargeobject',
+        PartNumber='1',
+        UploadId='xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'ETag': '"d8c2eafd90c266e19ab9dcacc479f8af"',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

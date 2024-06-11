@@ -1,0 +1,24 @@
+:doc:`Object <index>` / Attribute / metadata
+
+********
+metadata
+********
+
+
+
+.. py:attribute:: S3.Object.metadata
+
+  
+
+  - *(dict) --* 
+
+    A map of metadata to store with the object in S3.
+
+    
+    
+
+    - *(string) --* 
+      
+
+      - *(string) --* 
+

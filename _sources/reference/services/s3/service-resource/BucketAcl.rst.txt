@@ -1,0 +1,20 @@
+:doc:`ServiceResource <index>` / Sub-Resource / BucketAcl
+
+*********
+BucketAcl
+*********
+
+
+
+.. py:method:: S3.ServiceResource.BucketAcl(bucket_name)
+
+  Creates a BucketAcl resource.::
+
+    bucket_acl = s3.BucketAcl('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketAcl's bucket_name identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.BucketAcl`
+  :returns: A BucketAcl resource
+  

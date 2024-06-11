@@ -1,0 +1,76 @@
+:doc:`ObjectProtection <index>` / Action / list_legal_holds
+
+****************
+list_legal_holds
+****************
+
+
+
+.. py:method:: S3.ObjectProtection.list_legal_holds(**kwargs)
+
+  Returns a list of legal holds on an object
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListLegalHolds>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = object_protection.list_legal_holds(
+        MirrorDestination='string'
+    )
+    
+  :type MirrorDestination: string
+  :param MirrorDestination: Mirror source for object reads.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'CreateTime': datetime(2015, 1, 1),
+          'LegalHolds': [
+              {
+                  'Date': datetime(2015, 1, 1),
+                  'ID': 'string'
+              },
+          ],
+          'RetentionPeriod': 123,
+          'RetentionPeriodExpirationDate': datetime(2015, 1, 1)
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **CreateTime** *(datetime) --* 
+      
+
+      - **LegalHolds** *(list) --* 
+        
+
+        - *(dict) --* 
+          
+
+          - **Date** *(datetime) --* 
+          
+
+          - **ID** *(string) --* 
+      
+    
+      
+
+      - **RetentionPeriod** *(integer) --* Retention period in seconds.
+      
+
+      - **RetentionPeriodExpirationDate** *(datetime) --* Date on which the retention period will expire.
+  

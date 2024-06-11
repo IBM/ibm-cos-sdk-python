@@ -1,0 +1,206 @@
+:doc:`S3 <../../s3>` / Client / get_bucket_metrics_configuration
+
+********************************
+get_bucket_metrics_configuration
+********************************
+
+
+
+.. py:method:: S3.Client.get_bucket_metrics_configuration(**kwargs)
+
+  
+
+  Gets a metrics configuration (specified by the metrics configuration ID) from the bucket. Note that this doesn't include the daily storage metrics.
+
+   
+
+  To use this operation, you must have permissions to perform the ``s3:GetMetricsConfiguration`` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  For information about CloudWatch request metrics for Amazon S3, see `Monitoring Metrics with Amazon CloudWatch <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html>`__.
+
+   
+
+  The following operations are related to ``GetBucketMetricsConfiguration``:
+
+   
+
+  
+  * `PutBucketMetricsConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html>`__
+   
+  * `DeleteBucketMetricsConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html>`__
+   
+  * `ListBucketMetricsConfigurations <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html>`__
+   
+  * `Monitoring Metrics with Amazon CloudWatch <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketMetricsConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_bucket_metrics_configuration(
+        Bucket='string',
+        Id='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket containing the metrics configuration to retrieve.
+
+    
+
+  
+  :type Id: string
+  :param Id: **[REQUIRED]** 
+
+    The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'MetricsConfiguration': {
+              'Id': 'string',
+              'Filter': {
+                  'Prefix': 'string',
+                  'Tag': {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+                  'And': {
+                      'Prefix': 'string',
+                      'Tags': [
+                          {
+                              'Key': 'string',
+                              'Value': 'string'
+                          },
+                      ]
+                  }
+              }
+          }
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **MetricsConfiguration** *(dict) --* 
+
+        Specifies the metrics configuration.
+
+        
+        
+
+        - **Id** *(string) --* 
+
+          The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
+
+          
+        
+
+        - **Filter** *(dict) --* 
+
+          Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction (MetricsAndOperator).
+
+          
+          
+
+          - **Prefix** *(string) --* 
+
+            The prefix used when evaluating a metrics filter.
+
+            
+          
+
+          - **Tag** *(dict) --* 
+
+            The tag used when evaluating a metrics filter.
+
+            
+            
+
+            - **Key** *(string) --* 
+
+              Name of the object key.
+
+              
+            
+
+            - **Value** *(string) --* 
+
+              Value of the tag.
+
+              
+        
+          
+
+          - **And** *(dict) --* 
+
+            A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+
+            
+            
+
+            - **Prefix** *(string) --* 
+
+              The prefix used when evaluating an AND predicate.
+
+              
+            
+
+            - **Tags** *(list) --* 
+
+              The list of tags used when evaluating an AND predicate.
+
+              
+              
+
+              - *(dict) --* 
+
+                A container of a key value name pair.
+
+                
+                
+
+                - **Key** *(string) --* 
+
+                  Name of the object key.
+
+                  
+                
+
+                - **Value** *(string) --* 
+
+                  Value of the tag.
+
+                  
+            
+          
+        
+      
+    
+  

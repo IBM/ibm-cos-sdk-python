@@ -1,0 +1,234 @@
+:doc:`S3 <../../s3>` / Client / get_bucket_inventory_configuration
+
+**********************************
+get_bucket_inventory_configuration
+**********************************
+
+
+
+.. py:method:: S3.Client.get_bucket_inventory_configuration(**kwargs)
+
+  
+
+  Returns an inventory configuration (identified by the inventory configuration ID) from the bucket.
+
+   
+
+  To use this operation, you must have permissions to perform the ``s3:GetInventoryConfiguration`` action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  For information about the Amazon S3 inventory feature, see `Amazon S3 Inventory <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html>`__.
+
+   
+
+  The following operations are related to ``GetBucketInventoryConfiguration``:
+
+   
+
+  
+  * `DeleteBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html>`__
+   
+  * `ListBucketInventoryConfigurations <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html>`__
+   
+  * `PutBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketInventoryConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_bucket_inventory_configuration(
+        Bucket='string',
+        Id='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket containing the inventory configuration to retrieve.
+
+    
+
+  
+  :type Id: string
+  :param Id: **[REQUIRED]** 
+
+    The ID used to identify the inventory configuration.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'InventoryConfiguration': {
+              'Destination': {
+                  'S3BucketDestination': {
+                      'AccountId': 'string',
+                      'Bucket': 'string',
+                      'Format': 'CSV',
+                      'Prefix': 'string'
+                  }
+              },
+              'IsEnabled': True|False,
+              'Filter': {
+                  'Prefix': 'string'
+              },
+              'Id': 'string',
+              'IncludedObjectVersions': 'All'|'Current',
+              'OptionalFields': [
+                  'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'BucketKeyStatus'|'ObjectLockRetainUntilDate'|'ObjectLockMode'|'ObjectLockLegalHoldStatus',
+              ],
+              'Schedule': {
+                  'Frequency': 'Daily'|'Weekly'
+              }
+          }
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **InventoryConfiguration** *(dict) --* 
+
+        Specifies the inventory configuration.
+
+        
+        
+
+        - **Destination** *(dict) --* 
+
+          Contains information about where to publish the inventory results.
+
+          
+          
+
+          - **S3BucketDestination** *(dict) --* 
+
+            Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+
+            
+            
+
+            - **AccountId** *(string) --* 
+
+              The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+
+               
+
+              .. note::
+
+                
+
+                Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
+
+                
+
+              
+            
+
+            - **Bucket** *(string) --* 
+
+              The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
+
+              
+            
+
+            - **Format** *(string) --* 
+
+              Specifies the output format of the inventory results.
+
+              
+            
+
+            - **Prefix** *(string) --* 
+
+              The prefix that is prepended to all inventory results.
+
+              
+        
+      
+        
+
+        - **IsEnabled** *(boolean) --* 
+
+          Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
+
+          
+        
+
+        - **Filter** *(dict) --* 
+
+          Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+
+          
+          
+
+          - **Prefix** *(string) --* 
+
+            The prefix that an object must have to be included in the inventory results.
+
+            
+      
+        
+
+        - **Id** *(string) --* 
+
+          The ID used to identify the inventory configuration.
+
+          
+        
+
+        - **IncludedObjectVersions** *(string) --* 
+
+          Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
+
+          
+        
+
+        - **OptionalFields** *(list) --* 
+
+          Contains the optional fields that are included in the inventory results.
+
+          
+          
+
+          - *(string) --* 
+      
+        
+
+        - **Schedule** *(dict) --* 
+
+          Specifies the schedule for generating inventory results.
+
+          
+          
+
+          - **Frequency** *(string) --* 
+
+            Specifies how frequently inventory results are produced.
+
+            
+      
+    
+  

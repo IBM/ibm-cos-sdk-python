@@ -1,0 +1,344 @@
+:doc:`S3 <../../s3>` / Paginator / ListParts
+
+*********
+ListParts
+*********
+
+
+
+.. py:class:: S3.Paginator.ListParts
+
+  ::
+
+    
+    paginator = client.get_paginator('list_parts')
+
+  
+  
+
+  .. py:method:: paginate(**kwargs)
+
+    Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_parts`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_    
+
+
+    **Request Syntax**
+    ::
+
+      response_iterator = paginator.paginate(
+          Bucket='string',
+          Key='string',
+          MirrorDestination='string',
+          UploadId='string',
+          RequestPayer='requester',
+          ExpectedBucketOwner='string',
+          PaginationConfig={
+              'MaxItems': 123,
+              'PageSize': 123,
+              'StartingToken': 'string'
+          }
+      )
+      
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The name of the bucket to which the parts are being uploaded.
+
+       
+
+      When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+       
+
+      When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+      
+
+    
+    :type Key: string
+    :param Key: **[REQUIRED]** 
+
+      Object key for which the multipart upload was initiated.
+
+      
+
+    
+    :type MirrorDestination: string
+    :param MirrorDestination: Mirror source for object reads.
+
+    
+    :type UploadId: string
+    :param UploadId: **[REQUIRED]** 
+
+      Upload ID identifying the multipart upload whose parts are being listed.
+
+      
+
+    
+    :type RequestPayer: string
+    :param RequestPayer: Ignored by COS if present.
+
+    
+    :type ExpectedBucketOwner: string
+    :param ExpectedBucketOwner: 
+
+      The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+      
+
+    
+    :type PaginationConfig: dict
+    :param PaginationConfig: 
+
+      A dictionary that provides parameters to control pagination.
+
+      
+
+    
+      - **MaxItems** *(integer) --* 
+
+        The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+
+        
+
+      
+      - **PageSize** *(integer) --* 
+
+        The size of each page.
+
+        
+
+      
+      - **StartingToken** *(string) --* 
+
+        A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+
+        
+
+      
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax**
+
+      
+      ::
+
+        {
+            'AbortDate': datetime(2015, 1, 1),
+            'AbortRuleId': 'string',
+            'Bucket': 'string',
+            'Key': 'string',
+            'UploadId': 'string',
+            'PartNumberMarker': 123,
+            'MaxParts': 123,
+            'IsTruncated': True|False,
+            'Parts': [
+                {
+                    'PartNumber': 123,
+                    'LastModified': datetime(2015, 1, 1),
+                    'ETag': 'string',
+                    'Size': 123
+                },
+            ],
+            'Initiator': {
+                'ID': 'string',
+                'DisplayName': 'string'
+            },
+            'Owner': {
+                'DisplayName': 'string',
+                'ID': 'string'
+            },
+            'StorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR',
+            'RequestCharged': 'requester',
+            'NextToken': 'string'
+        }
+        
+      **Response Structure**
+
+      
+
+      - *(dict) --* 
+        
+
+        - **AbortDate** *(datetime) --* 
+
+          If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see `Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config>`__.
+
+           
+
+          The response will also include the ``x-amz-abort-rule-id`` header that will provide the ID of the lifecycle configuration rule that defines this action.
+
+          
+        
+
+        - **AbortRuleId** *(string) --* 
+
+          This header is returned along with the ``x-amz-abort-date`` header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
+
+          
+        
+
+        - **Bucket** *(string) --* 
+
+          The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.
+
+          
+        
+
+        - **Key** *(string) --* 
+
+          Object key for which the multipart upload was initiated.
+
+          
+        
+
+        - **UploadId** *(string) --* 
+
+          Upload ID identifying the multipart upload whose parts are being listed.
+
+          
+        
+
+        - **PartNumberMarker** *(integer) --* 
+
+          When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
+
+          
+        
+
+        - **MaxParts** *(integer) --* 
+
+          Maximum number of parts that were allowed in the response.
+
+          
+        
+
+        - **IsTruncated** *(boolean) --* 
+
+          Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.
+
+          
+        
+
+        - **Parts** *(list) --* 
+
+          Container for elements related to a particular part. A response can contain zero or more ``Part`` elements.
+
+          
+          
+
+          - *(dict) --* 
+
+            Container for elements related to a part.
+
+            
+            
+
+            - **PartNumber** *(integer) --* 
+
+              Part number identifying the part. This is a positive integer between 1 and 10,000.
+
+              
+            
+
+            - **LastModified** *(datetime) --* 
+
+              Date and time at which the part was uploaded.
+
+              
+            
+
+            - **ETag** *(string) --* 
+
+              Entity tag returned when the part was uploaded.
+
+              
+            
+
+            - **Size** *(integer) --* 
+
+              Size in bytes of the uploaded part data.
+
+              
+        
+      
+        
+
+        - **Initiator** *(dict) --* 
+
+          Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the ``Owner`` element. If the initiator is an IAM User, this element provides the user ARN and display name.
+
+          
+          
+
+          - **ID** *(string) --* 
+
+            If the principal is an Amazon Web Services account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
+
+             
+
+            .. note::
+
+              
+
+              **Directory buckets** - If the principal is an Amazon Web Services account, it provides the Amazon Web Services account ID. If the principal is an IAM User, it provides a user ARN value.
+
+              
+
+            
+          
+
+          - **DisplayName** *(string) --* 
+
+            Name of the Principal.
+
+            
+      
+        
+
+        - **Owner** *(dict) --* 
+
+          Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.
+
+          
+          
+
+          - **DisplayName** *(string) --* 
+
+            Container for the display name of the owner.
+
+            
+          
+
+          - **ID** *(string) --* 
+
+            Container for the ID of the owner.
+
+            
+      
+        
+
+        - **StorageClass** *(string) --* 
+
+          Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.
+
+          
+        
+
+        - **RequestCharged** *(string) --* 
+
+          If present, indicates that the requester was successfully charged for the request.
+
+          
+        
+
+        - **NextToken** *(string) --* 
+
+          A token to resume pagination.
+
+          
+    

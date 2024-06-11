@@ -1,0 +1,31 @@
+:doc:`BucketAcl <index>` / Attribute / owner
+
+*****
+owner
+*****
+
+
+
+.. py:attribute:: S3.BucketAcl.owner
+
+  
+
+  - *(dict) --* 
+
+    Container for the bucket owner's display name and ID.
+
+    
+    
+
+    - **DisplayName** *(string) --* 
+
+      Container for the display name of the owner.
+
+      
+    
+
+    - **ID** *(string) --* 
+
+      Container for the ID of the owner.
+
+      

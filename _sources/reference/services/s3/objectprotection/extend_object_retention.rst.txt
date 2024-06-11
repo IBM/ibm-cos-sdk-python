@@ -1,0 +1,43 @@
+:doc:`ObjectProtection <index>` / Action / extend_object_retention
+
+***********************
+extend_object_retention
+***********************
+
+
+
+.. py:method:: S3.ObjectProtection.extend_object_retention(**kwargs)
+
+  This implementation of the POST operation uses the extendRetention sub-resource to extend the retention period of a protected object in a protected vault.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ExtendObjectRetention>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = object_protection.extend_object_retention(
+        AdditionalRetentionPeriod=123,
+        ExtendRetentionFromCurrentTime=123,
+        NewRetentionExpirationDate=datetime(2015, 1, 1),
+        NewRetentionPeriod=123
+    )
+    
+  :type AdditionalRetentionPeriod: integer
+  :param AdditionalRetentionPeriod: Additional time, in seconds, to add to the existing retention period for the object. If this field and New-Retention-Time and/or New-Retention-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+  
+  :type ExtendRetentionFromCurrentTime: integer
+  :param ExtendRetentionFromCurrentTime: Retention Period in seconds. The Retention will be enforced from the object creation time until current time + the value in this header. This value has to be within the ranges defined for the bucket. If this field and Additional-Retention-Period and/or New-Retention-Period and/or New-Retentiion-Expiration-Date are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+  
+  :type NewRetentionExpirationDate: datetime
+  :param NewRetentionExpirationDate: A new retention date to use for the object in place of the existing retention date. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Period and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+  
+  :type NewRetentionPeriod: integer
+  :param NewRetentionPeriod: Retention period, in seconds, to use for the object in place of the existing retention period stored for the object. If this value is less than the existing value stored for the object, a 400 error will be returned. If this field and Additional-Retention-Period and/or New-Retention-Expiration-Date and/or Extend-Retention-From-Current-Time are specified, a 400 error will be returned. If none of the Request Headers are specified, a 400 error will be returned to the user. The retention period of an object may be extended up to bucket maximum retention period from the time of the request.
+
+  
+  
+  :returns: None

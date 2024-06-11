@@ -1,0 +1,13 @@
+:doc:`BucketProtection <index>` / Attribute / status
+
+******
+status
+******
+
+
+
+.. py:attribute:: S3.BucketProtection.status
+
+  
+
+  - *(string) --* Retention status of a bucket.

@@ -1,0 +1,272 @@
+:doc:`S3 <../../s3>` / Client / list_bucket_inventory_configurations
+
+************************************
+list_bucket_inventory_configurations
+************************************
+
+
+
+.. py:method:: S3.Client.list_bucket_inventory_configurations(**kwargs)
+
+  
+
+  Returns a list of inventory configurations for the bucket. You can have up to 1,000 analytics configurations per bucket.
+
+   
+
+  This action supports list pagination and does not return more than 100 configurations at a time. Always check the ``IsTruncated`` element in the response. If there are no more configurations to list, ``IsTruncated`` is set to false. If there are more configurations to list, ``IsTruncated`` is set to true, and there is a value in ``NextContinuationToken``. You use the ``NextContinuationToken`` value to continue the pagination of the list by passing the value in continuation-token in the request to ``GET`` the next page.
+
+   
+
+  To use this operation, you must have permissions to perform the ``s3:GetInventoryConfiguration`` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  For information about the Amazon S3 inventory feature, see `Amazon S3 Inventory <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html>`__
+
+   
+
+  The following operations are related to ``ListBucketInventoryConfigurations``:
+
+   
+
+  
+  * `GetBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html>`__
+   
+  * `DeleteBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html>`__
+   
+  * `PutBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketInventoryConfigurations>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.list_bucket_inventory_configurations(
+        Bucket='string',
+        ContinuationToken='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket containing the inventory configurations to retrieve.
+
+    
+
+  
+  :type ContinuationToken: string
+  :param ContinuationToken: 
+
+    The marker used to continue an inventory configuration listing that has been truncated. Use the ``NextContinuationToken`` from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'ContinuationToken': 'string',
+          'InventoryConfigurationList': [
+              {
+                  'Destination': {
+                      'S3BucketDestination': {
+                          'AccountId': 'string',
+                          'Bucket': 'string',
+                          'Format': 'CSV',
+                          'Prefix': 'string'
+                      }
+                  },
+                  'IsEnabled': True|False,
+                  'Filter': {
+                      'Prefix': 'string'
+                  },
+                  'Id': 'string',
+                  'IncludedObjectVersions': 'All'|'Current',
+                  'OptionalFields': [
+                      'Size'|'LastModifiedDate'|'StorageClass'|'ETag'|'IsMultipartUploaded'|'ReplicationStatus'|'BucketKeyStatus'|'ObjectLockRetainUntilDate'|'ObjectLockMode'|'ObjectLockLegalHoldStatus',
+                  ],
+                  'Schedule': {
+                      'Frequency': 'Daily'|'Weekly'
+                  }
+              },
+          ],
+          'IsTruncated': True|False,
+          'NextContinuationToken': 'string'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **ContinuationToken** *(string) --* 
+
+        If sent in the request, the marker that is used as a starting point for this inventory configuration list response.
+
+        
+      
+
+      - **InventoryConfigurationList** *(list) --* 
+
+        The list of inventory configurations for a bucket.
+
+        
+        
+
+        - *(dict) --* 
+
+          Specifies the inventory configuration for an Amazon S3 bucket. For more information, see `GET Bucket inventory <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html>`__ in the *Amazon S3 API Reference*.
+
+          
+          
+
+          - **Destination** *(dict) --* 
+
+            Contains information about where to publish the inventory results.
+
+            
+            
+
+            - **S3BucketDestination** *(dict) --* 
+
+              Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+
+              
+              
+
+              - **AccountId** *(string) --* 
+
+                The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+
+                 
+
+                .. note::
+
+                  
+
+                  Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
+
+                  
+
+                
+              
+
+              - **Bucket** *(string) --* 
+
+                The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
+
+                
+              
+
+              - **Format** *(string) --* 
+
+                Specifies the output format of the inventory results.
+
+                
+              
+
+              - **Prefix** *(string) --* 
+
+                The prefix that is prepended to all inventory results.
+
+                
+          
+        
+          
+
+          - **IsEnabled** *(boolean) --* 
+
+            Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
+
+            
+          
+
+          - **Filter** *(dict) --* 
+
+            Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+
+            
+            
+
+            - **Prefix** *(string) --* 
+
+              The prefix that an object must have to be included in the inventory results.
+
+              
+        
+          
+
+          - **Id** *(string) --* 
+
+            The ID used to identify the inventory configuration.
+
+            
+          
+
+          - **IncludedObjectVersions** *(string) --* 
+
+            Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
+
+            
+          
+
+          - **OptionalFields** *(list) --* 
+
+            Contains the optional fields that are included in the inventory results.
+
+            
+            
+
+            - *(string) --* 
+        
+          
+
+          - **Schedule** *(dict) --* 
+
+            Specifies the schedule for generating inventory results.
+
+            
+            
+
+            - **Frequency** *(string) --* 
+
+              Specifies how frequently inventory results are produced.
+
+              
+        
+      
+    
+      
+
+      - **IsTruncated** *(boolean) --* 
+
+        Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.
+
+        
+      
+
+      - **NextContinuationToken** *(string) --* 
+
+        The marker used to continue this inventory configuration listing. Use the ``NextContinuationToken`` from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+
+        
+  

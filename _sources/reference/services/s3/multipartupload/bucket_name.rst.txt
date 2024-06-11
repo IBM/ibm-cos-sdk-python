@@ -1,0 +1,11 @@
+:doc:`MultipartUpload <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.MultipartUpload.bucket_name
+
+  *(string)* The MultipartUpload's bucket_name identifier. This **must** be set.

@@ -1,0 +1,13 @@
+:doc:`Object <index>` / Attribute / retention_period
+
+****************
+retention_period
+****************
+
+
+
+.. py:attribute:: S3.Object.retention_period
+
+  
+
+  - *(integer) --* Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.

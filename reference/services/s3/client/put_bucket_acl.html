@@ -1,0 +1,553 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="put_bucket_analytics_configuration" href="put_bucket_analytics_configuration.html" /><link rel="prev" title="put_bucket_accelerate_configuration" href="put_bucket_accelerate_configuration.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>put_bucket_acl - ibm-cos-sdk 2.13.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../s3.html">S3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../core/index.html">Core references</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/boto3.html">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/collections.html">Collections reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/ibm_boto3.html">IBM Boto3 reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/resources.html">Resources reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/session.html">Session reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference internal" href="../../s3.html"><span class="doc">S3</span></a> / Client / put_bucket_acl</p>
+<section id="put-bucket-acl">
+<h1>put_bucket_acl<a class="headerlink" href="#put-bucket-acl" title="Permalink to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="S3.Client.put_bucket_acl">
+<span class="sig-prename descclassname"><span class="pre">S3.Client.</span></span><span class="sig-name descname"><span class="pre">put_bucket_acl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Client.put_bucket_acl" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets the permissions on an existing bucket using access control lists (ACL). For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set the ACL of a bucket, you must have <code class="docutils literal notranslate"><span class="pre">WRITE_ACP</span></code> permission.</p>
+<p>You can use one of the following two ways to set a bucket’s permissions:</p>
+<ul class="simple">
+<li><p>Specify the ACL in the request body</p></li>
+<li><p>Specify permissions using request headers</p></li>
+</ul>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>You cannot specify access permission using both the body and the request headers.</p>
+</div>
+<p>Depending on your application needs, you may choose to set the ACL on a bucket using either the request body or the headers. For example, if you have an existing application that updates a bucket ACL using the request body, then you can continue to use that approach.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions. You must use policies to grant access to your bucket and the objects in it. Requests to set ACLs or update ACLs fail and return the <code class="docutils literal notranslate"><span class="pre">AccessControlListNotSupported</span></code> error code. Requests to read ACLs are still supported. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling object ownership</a> in the <em>Amazon S3 User Guide</em>.</p>
+</div>
+<h3>Access Permissions</h3>
+<p>You can set access permissions using one of the following methods:</p>
+<ul>
+<li><p>Specify a canned ACL with the <code class="docutils literal notranslate"><span class="pre">x-amz-acl</span></code> request header. Amazon S3 supports a set of predefined ACLs, known as <em>canned ACLs</em>. Each canned ACL has a predefined set of grantees and permissions. Specify the canned ACL name as the value of <code class="docutils literal notranslate"><span class="pre">x-amz-acl</span></code>. If you use this header, you cannot use other access control-specific headers in your request. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p></li>
+<li><p>Specify access permissions explicitly with the <code class="docutils literal notranslate"><span class="pre">x-amz-grant-read</span></code>, <code class="docutils literal notranslate"><span class="pre">x-amz-grant-read-acp</span></code>, <code class="docutils literal notranslate"><span class="pre">x-amz-grant-write-acp</span></code>, and <code class="docutils literal notranslate"><span class="pre">x-amz-grant-full-control</span></code> headers. When using these headers, you specify explicit access permissions and grantees (Amazon Web Services accounts or Amazon S3 groups) who will receive the permission. If you use these ACL-specific headers, you cannot use the <code class="docutils literal notranslate"><span class="pre">x-amz-acl</span></code> header to set a canned ACL. These parameters map to the set of permissions that Amazon S3 supports in an ACL. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a>. You specify each grantee as a type=value pair, where the type is one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> – if the value specified is the canonical user ID of an Amazon Web Services account</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uri</span></code> – if you are granting permissions to a predefined group</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emailAddress</span></code> – if the value specified is the email address of an Amazon Web Services account</p></li>
+</ul>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>US East (N. Virginia)</p></li>
+<li><p>US West (N. California)</p></li>
+<li><p>US West (Oregon)</p></li>
+<li><p>Asia Pacific (Singapore)</p></li>
+<li><p>Asia Pacific (Sydney)</p></li>
+<li><p>Asia Pacific (Tokyo)</p></li>
+<li><p>Europe (Ireland)</p></li>
+<li><p>South America (São Paulo)</p></li>
+</ul>
+</div></blockquote>
+<p>For a list of all the Amazon S3 supported Regions and endpoints, see <a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
+</div>
+</li>
+</ul>
+<p>For example, the following <code class="docutils literal notranslate"><span class="pre">x-amz-grant-write</span></code> header grants create, overwrite, and delete objects permission to LogDelivery group predefined by Amazon S3 and two Amazon Web Services accounts identified by their email addresses.</p>
+<p><code class="docutils literal notranslate"><span class="pre">x-amz-grant-write:</span> <span class="pre">uri=&quot;http://acs.amazonaws.com/groups/s3/LogDelivery&quot;,</span> <span class="pre">id=&quot;111122223333&quot;,</span> <span class="pre">id=&quot;555566667777&quot;</span></code></p>
+<p>You can use either a canned ACL or specify access permissions explicitly. You cannot do both.</p>
+<h3>Grantee Values</h3>
+<p>You can specify the person (grantee) to whom you’re assigning access rights (using request elements) in the following ways:</p>
+<ul class="simple">
+<li><p>By the person’s ID: <code class="docutils literal notranslate"><span class="pre">&lt;Grantee</span> <span class="pre">xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="pre">xsi:type=&quot;CanonicalUser&quot;&gt;&lt;ID&gt;&lt;&gt;ID&lt;&gt;&lt;/ID&gt;&lt;DisplayName&gt;&lt;&gt;GranteesEmail&lt;&gt;&lt;/DisplayName&gt;</span> <span class="pre">&lt;/Grantee&gt;</span></code> DisplayName is optional and ignored in the request</p></li>
+<li><p>By URI: <code class="docutils literal notranslate"><span class="pre">&lt;Grantee</span> <span class="pre">xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="pre">xsi:type=&quot;Group&quot;&gt;&lt;URI&gt;&lt;&gt;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&lt;&gt;&lt;/URI&gt;&lt;/Grantee&gt;</span></code></p></li>
+<li><p>By Email address: <code class="docutils literal notranslate"><span class="pre">&lt;Grantee</span> <span class="pre">xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="pre">xsi:type=&quot;AmazonCustomerByEmail&quot;&gt;&lt;EmailAddress&gt;&lt;&gt;Grantees&#64;email.com&lt;&gt;&lt;/EmailAddress&gt;lt;/Grantee&gt;</span></code> The grantee is resolved to the CanonicalUser and, in a response to a GET Object acl request, appears as the CanonicalUser.</p></li>
+</ul>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>US East (N. Virginia)</p></li>
+<li><p>US West (N. California)</p></li>
+<li><p>US West (Oregon)</p></li>
+<li><p>Asia Pacific (Singapore)</p></li>
+<li><p>Asia Pacific (Sydney)</p></li>
+<li><p>Asia Pacific (Tokyo)</p></li>
+<li><p>Europe (Ireland)</p></li>
+<li><p>South America (São Paulo)</p></li>
+</ul>
+</div></blockquote>
+<p>For a list of all the Amazon S3 supported Regions and endpoints, see <a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
+</div>
+<h3>Related Resources</h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></p></li>
+</ul>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketAcl">AWS API Documentation</a></p>
+<h3>Request Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put_bucket_acl</span><span class="p">(</span>
+    <span class="n">ACL</span><span class="o">=</span><span class="s1">&#39;private&#39;</span><span class="o">|</span><span class="s1">&#39;public-read&#39;</span><span class="o">|</span><span class="s1">&#39;public-read-write&#39;</span><span class="o">|</span><span class="s1">&#39;authenticated-read&#39;</span><span class="p">,</span>
+    <span class="n">AccessControlPolicy</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;Grants&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;Grantee&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;EmailAddress&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Type&#39;</span><span class="p">:</span> <span class="s1">&#39;CanonicalUser&#39;</span><span class="o">|</span><span class="s1">&#39;AmazonCustomerByEmail&#39;</span><span class="o">|</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;URI&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;Permission&#39;</span><span class="p">:</span> <span class="s1">&#39;FULL_CONTROL&#39;</span><span class="o">|</span><span class="s1">&#39;WRITE&#39;</span><span class="o">|</span><span class="s1">&#39;WRITE_ACP&#39;</span><span class="o">|</span><span class="s1">&#39;READ&#39;</span><span class="o">|</span><span class="s1">&#39;READ_ACP&#39;</span>
+            <span class="p">},</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">GrantFullControl</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">GrantRead</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">GrantReadACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">GrantWrite</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">GrantWriteACP</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ExpectedBucketOwner</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ACL</strong> (<em>string</em>) – The canned ACL to apply to the bucket.</p></li>
+<li><p><strong>AccessControlPolicy</strong> (<em>dict</em>) – <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
+<ul>
+<li><p><strong>Grants</strong> <em>(list) –</em></p>
+<p>A list of grants.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>Container for grant information.</p>
+<ul>
+<li><p><strong>Grantee</strong> <em>(dict) –</em></p>
+<p>The person being granted permissions.</p>
+<ul>
+<li><p><strong>DisplayName</strong> <em>(string) –</em></p>
+<p>Screen name of the grantee.</p>
+</li>
+<li><p><strong>EmailAddress</strong> <em>(string) –</em></p>
+<p>Email address of the grantee.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>Using email addresses to specify a grantee is only supported in the following Amazon Web Services Regions:</p>
+<ul class="simple">
+<li><p>US East (N. Virginia)</p></li>
+<li><p>US West (N. California)</p></li>
+<li><p>US West (Oregon)</p></li>
+<li><p>Asia Pacific (Singapore)</p></li>
+<li><p>Asia Pacific (Sydney)</p></li>
+<li><p>Asia Pacific (Tokyo)</p></li>
+<li><p>Europe (Ireland)</p></li>
+<li><p>South America (São Paulo)</p></li>
+</ul>
+<p>For a list of all the Amazon S3 supported Regions and endpoints, see <a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.</p>
+</div>
+</li>
+<li><p><strong>ID</strong> <em>(string) –</em></p>
+<p>The canonical user ID of the grantee.</p>
+</li>
+<li><p><strong>Type</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Type of grantee</p>
+</li>
+<li><p><strong>URI</strong> <em>(string) –</em></p>
+<p>URI of the grantee group.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Permission</strong> <em>(string) –</em></p>
+<p>Specifies the permission given to the grantee.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Owner</strong> <em>(dict) –</em></p>
+<p>Container for the bucket owner’s display name and ID.</p>
+<ul>
+<li><p><strong>DisplayName</strong> <em>(string) –</em></p>
+<p>Container for the display name of the owner.</p>
+</li>
+<li><p><strong>ID</strong> <em>(string) –</em></p>
+<p>Container for the ID of the owner.</p>
+</li>
+</ul>
+</li>
+</ul>
+</p></li>
+<li><p><strong>Bucket</strong> (<em>string</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>The bucket to which to apply the ACL.</p>
+</p></li>
+<li><p><strong>GrantFullControl</strong> (<em>string</em>) – Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p></li>
+<li><p><strong>GrantRead</strong> (<em>string</em>) – Allows grantee to list the objects in the bucket.</p></li>
+<li><p><strong>GrantReadACP</strong> (<em>string</em>) – Allows grantee to read the bucket ACL.</p></li>
+<li><p><strong>GrantWrite</strong> (<em>string</em>) – <p>Allows grantee to create new objects in the bucket.</p>
+<p>For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</p>
+</p></li>
+<li><p><strong>GrantWriteACP</strong> (<em>string</em>) – Allows grantee to write the ACL for the applicable bucket.</p></li>
+<li><p><strong>ExpectedBucketOwner</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<h3>Examples</h3>
+<p>The following example replaces existing ACL on a bucket. The ACL grants the bucket owner (specified using the owner ID) and write permission to the LogDelivery group. Because this is a replace operation, you must specify all the grants in your request. To incrementally add or remove ACL grants, you might use the console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put_bucket_acl</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;examplebucket&#39;</span><span class="p">,</span>
+    <span class="n">GrantFullControl</span><span class="o">=</span><span class="s1">&#39;id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484&#39;</span><span class="p">,</span>
+    <span class="n">GrantWrite</span><span class="o">=</span><span class="s1">&#39;uri=http://acs.amazonaws.com/groups/s3/LogDelivery&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="put_bucket_analytics_configuration.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">put_bucket_analytics_configuration</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="put_bucket_accelerate_configuration.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">put_bucket_accelerate_configuration</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="../../../../_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="sidebar-div show-div-md justify-content-left">
+            <label class="nav-close-icon" id="toc-menu-close" for="__toc" tabindex="0">
+                <div class="visually-hidden">Toggle site table of content right sidebar</div>
+                <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+            </label>
+        </div>
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">put_bucket_acl</a><ul>
+<li><a class="reference internal" href="#S3.Client.put_bucket_acl"><code class="docutils literal notranslate"><span class="pre">S3.Client.put_bucket_acl()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/furo.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/js/custom.js"></script>
+    </body>
+</html>

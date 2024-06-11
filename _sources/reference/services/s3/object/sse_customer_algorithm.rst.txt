@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / sse_customer_algorithm
+
+**********************
+sse_customer_algorithm
+**********************
+
+
+
+.. py:attribute:: S3.Object.sse_customer_algorithm
+
+  
+
+  - *(string) --* 
+
+    If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+
+    

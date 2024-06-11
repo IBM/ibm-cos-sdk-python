@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Versioning
+
+**********
+Versioning
+**********
+
+
+
+.. py:method:: S3.Bucket.Versioning()
+
+  Creates a BucketVersioning resource.::
+
+    bucket_versioning = bucket.Versioning()
+
+  
+  :rtype: :py:class:`S3.BucketVersioning`
+  :returns: A BucketVersioning resource
+  

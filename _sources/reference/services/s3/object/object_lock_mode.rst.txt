@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / object_lock_mode
+
+****************
+object_lock_mode
+****************
+
+
+
+.. py:attribute:: S3.Object.object_lock_mode
+
+  
+
+  - *(string) --* 
+
+    The Object Lock mode, if any, that's in effect for this object. This header is only returned if the requester has the ``s3:GetObjectRetention`` permission. For more information about S3 Object Lock, see `Object Lock <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__.
+
+    

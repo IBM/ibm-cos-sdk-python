@@ -1,0 +1,13 @@
+:doc:`Object <index>` / Attribute / retention_legal_hold_count
+
+**************************
+retention_legal_hold_count
+**************************
+
+
+
+.. py:attribute:: S3.Object.retention_legal_hold_count
+
+  
+
+  - *(integer) --* Returns the count of legal holds on the object. If there are no legal holds, the header is not returned

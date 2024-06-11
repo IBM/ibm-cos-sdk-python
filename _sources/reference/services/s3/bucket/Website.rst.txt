@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Website
+
+*******
+Website
+*******
+
+
+
+.. py:method:: S3.Bucket.Website()
+
+  Creates a BucketWebsite resource.::
+
+    bucket_website = bucket.Website()
+
+  
+  :rtype: :py:class:`S3.BucketWebsite`
+  :returns: A BucketWebsite resource
+  

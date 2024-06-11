@@ -1,0 +1,20 @@
+:doc:`MultipartUpload <index>` / Sub-Resource / Part
+
+****
+Part
+****
+
+
+
+.. py:method:: S3.MultipartUpload.Part(part_number)
+
+  Creates a MultipartUploadPart resource.::
+
+    multipart_upload_part = multipart_upload.Part('part_number')
+
+  :type part_number: string
+  :param part_number: The Part's part_number identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.MultipartUploadPart`
+  :returns: A MultipartUploadPart resource
+  

@@ -1,0 +1,11 @@
+:doc:`BucketTagging <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.BucketTagging.bucket_name
+
+  *(string)* The BucketTagging's bucket_name identifier. This **must** be set.

@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / content_disposition
+
+*******************
+content_disposition
+*******************
+
+
+
+.. py:attribute:: S3.Object.content_disposition
+
+  
+
+  - *(string) --* 
+
+    Specifies presentational information for the object.
+
+    

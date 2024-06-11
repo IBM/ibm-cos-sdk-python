@@ -1,0 +1,179 @@
+:doc:`Bucket <index>` / Collection / multipart_uploads
+
+*****************
+multipart_uploads
+*****************
+
+
+
+.. py:attribute:: S3.Bucket.multipart_uploads
+
+  A collection of MultipartUpload resources.A MultipartUpload Collection will include all resources by default, and extreme caution should be taken when performing actions on all resources.
+
+  .. py:method:: all()
+
+    Creates an iterable of all MultipartUpload resources in the collection.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
+
+    **Request Syntax**
+    ::
+
+      multipart_upload_iterator = bucket.multipart_uploads.all()
+      
+      
+    
+    :rtype: list(:py:class:`s3.MultipartUpload`)
+    :returns: A list of MultipartUpload resources
+    
+
+  .. py:method:: filter(**kwargs)
+
+    Creates an iterable of all MultipartUpload resources in the collection filtered by kwargs passed to method. A MultipartUpload collection will include all resources by default if no filters are provided, and extreme caution should be taken when performing actions on all resources.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
+
+    **Request Syntax**
+    ::
+
+      multipart_upload_iterator = bucket.multipart_uploads.filter(
+          Delimiter='string',
+          EncodingType='url',
+          KeyMarker='string',
+          MaxUploads=123,
+          MirrorDestination='string',
+          Prefix='string',
+          UploadIdMarker='string',
+          ExpectedBucketOwner='string'
+      )
+      
+    :type Delimiter: string
+    :param Delimiter: 
+
+      Character you use to group keys.
+
+       
+
+      All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, ``CommonPrefixes``. If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under ``CommonPrefixes`` result element are not returned elsewhere in the response.
+
+      
+
+    
+    :type EncodingType: string
+    :param EncodingType: 
+
+      Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key can contain any Unicode character; however, the XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+
+      
+
+    
+    :type KeyMarker: string
+    :param KeyMarker: 
+
+      Specifies the multipart upload after which listing should begin.
+
+       
+
+      .. note::
+
+        
+
+        
+        * **General purpose buckets** - For general purpose buckets, ``key-marker`` is an object key. Together with ``upload-id-marker``, this parameter specifies the multipart upload after which listing should begin. If ``upload-id-marker`` is not specified, only the keys lexicographically greater than the specified ``key-marker`` will be included in the list. If ``upload-id-marker`` is specified, any multipart uploads for a key equal to the ``key-marker`` might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified ``upload-id-marker``.
+         
+        * **Directory buckets** - For directory buckets, ``key-marker`` is obfuscated and isn't a real object key. The ``upload-id-marker`` parameter isn't supported by directory buckets. To list the additional multipart uploads, you only need to set the value of ``key-marker`` to the ``NextKeyMarker`` value from the previous response. In the ``ListMultipartUploads`` response, the multipart uploads aren't sorted lexicographically based on the object keys.
+        
+
+        
+
+      
+
+    
+    :type MaxUploads: integer
+    :param MaxUploads: 
+
+      Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.
+
+      
+
+    
+    :type MirrorDestination: string
+    :param MirrorDestination: Mirror source for object reads.
+
+    
+    :type Prefix: string
+    :param Prefix: 
+
+      Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
+
+      
+
+    
+    :type UploadIdMarker: string
+    :param UploadIdMarker: 
+
+      Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified ``upload-id-marker``.
+
+      
+
+    
+    :type ExpectedBucketOwner: string
+    :param ExpectedBucketOwner: 
+
+      The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+      
+
+    
+    
+    :rtype: list(:py:class:`s3.MultipartUpload`)
+    :returns: A list of MultipartUpload resources
+    
+
+  .. py:method:: limit(**kwargs)
+
+    Creates an iterable up to a specified amount of MultipartUpload resources in the collection.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
+
+    **Request Syntax**
+    ::
+
+      multipart_upload_iterator = bucket.multipart_uploads.limit(
+          count=123
+      )
+      
+    :type count: integer
+    :param count: The limit to the number of resources in the iterable.
+
+    
+    
+    :rtype: list(:py:class:`s3.MultipartUpload`)
+    :returns: A list of MultipartUpload resources
+    
+
+  .. py:method:: page_size(**kwargs)
+
+    Creates an iterable of all MultipartUpload resources in the collection, but limits the number of items returned by each service call by the specified amount.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
+
+    **Request Syntax**
+    ::
+
+      multipart_upload_iterator = bucket.multipart_uploads.page_size(
+          count=123
+      )
+      
+    :type count: integer
+    :param count: The number of items returned by each service call
+
+    
+    
+    :rtype: list(:py:class:`s3.MultipartUpload`)
+    :returns: A list of MultipartUpload resources
+    

@@ -1,0 +1,17 @@
+:doc:`ObjectVersion <index>` / Attribute / size
+
+****
+size
+****
+
+
+
+.. py:attribute:: S3.ObjectVersion.size
+
+  
+
+  - *(integer) --* 
+
+    Size in bytes of the object.
+
+    

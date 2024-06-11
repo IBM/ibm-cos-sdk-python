@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / parts_count
+
+***********
+parts_count
+***********
+
+
+
+.. py:attribute:: S3.Object.parts_count
+
+  
+
+  - *(integer) --* 
+
+    The count of parts this object has. This value is only returned if you specify ``partNumber`` in your request and the object was uploaded as a multipart upload.
+
+    

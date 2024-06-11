@@ -1,0 +1,13 @@
+:doc:`ObjectProtection <index>` / Attribute / retention_period
+
+****************
+retention_period
+****************
+
+
+
+.. py:attribute:: S3.ObjectProtection.retention_period
+
+  
+
+  - *(integer) --* Retention period in seconds.

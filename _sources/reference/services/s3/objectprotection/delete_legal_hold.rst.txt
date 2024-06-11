@@ -1,0 +1,28 @@
+:doc:`ObjectProtection <index>` / Action / delete_legal_hold
+
+*****************
+delete_legal_hold
+*****************
+
+
+
+.. py:method:: S3.ObjectProtection.delete_legal_hold(**kwargs)
+
+  Remove Legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteLegalHold>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = object_protection.delete_legal_hold(
+        RetentionLegalHoldId='string'
+    )
+    
+  :type RetentionLegalHoldId: string
+  :param RetentionLegalHoldId: **[REQUIRED]** 
+
+  
+  
+  :returns: None

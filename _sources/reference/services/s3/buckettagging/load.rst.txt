@@ -1,0 +1,21 @@
+:doc:`BucketTagging <index>` / Action / load
+
+****
+load
+****
+
+
+
+.. py:method:: S3.BucketTagging.load()
+
+  Calls :py:meth:`S3.Client.get_bucket_tagging` to update the attributes of the BucketTagging resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_  
+
+
+  **Request Syntax**
+
+  ::
+
+    bucket_tagging.load()
+  :returns: None

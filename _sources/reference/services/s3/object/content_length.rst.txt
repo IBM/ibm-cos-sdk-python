@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / content_length
+
+**************
+content_length
+**************
+
+
+
+.. py:attribute:: S3.Object.content_length
+
+  
+
+  - *(integer) --* 
+
+    Size of the body in bytes.
+
+    

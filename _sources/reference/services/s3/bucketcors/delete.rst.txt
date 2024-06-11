@@ -1,0 +1,52 @@
+:doc:`BucketCors <index>` / Action / delete
+
+******
+delete
+******
+
+
+
+.. py:method:: S3.BucketCors.delete(**kwargs)
+
+  
+
+  Deletes the ``cors`` configuration information set for the bucket.
+
+   
+
+  To use this operation, you must have permission to perform the ``s3:PutBucketCORS`` action. The bucket owner has this permission by default and can grant this permission to others.
+
+   
+
+  For information about ``cors``, see `Enabling Cross-Origin Resource Sharing <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  **Related Resources:**
+
+   
+
+  
+  * `PutBucketCors <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html>`__
+   
+  * `RESTOPTIONSobject <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = bucket_cors.delete(
+        ExpectedBucketOwner='string'
+    )
+    
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None

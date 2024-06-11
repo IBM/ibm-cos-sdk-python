@@ -1,0 +1,17 @@
+:doc:`MultipartUpload <index>` / Attribute / upload_id
+
+*********
+upload_id
+*********
+
+
+
+.. py:attribute:: S3.MultipartUpload.upload_id
+
+  
+
+  - *(string) --* 
+
+    Upload ID that identifies the multipart upload.
+
+    

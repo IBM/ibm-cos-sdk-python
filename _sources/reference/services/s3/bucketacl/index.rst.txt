@@ -1,0 +1,108 @@
+:doc:`S3 <../../s3>` / Resource / BucketAcl
+
+=========
+BucketAcl
+=========
+
+
+
+.. note::
+
+  Before using anything on this page, please refer to the resources :doc:`user guide <../../../../guide/resources>` for the most recent guidance on using resources.
+
+
+
+.. py:class:: S3.BucketAcl(bucket_name)
+
+  A resource representing an Amazon Simple Storage Service (S3) BucketAcl::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+    bucket_acl = s3.BucketAcl('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketAcl's bucket_name identifier. This **must** be set.
+  
+
+
+
+
+-----------
+Identifiers
+-----------
+
+
+
+Identifiers are properties of a resource that are set upon instantiation of the resource.
+For more information about identifiers refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+
+These are the resource's available identifiers:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  bucket_name
+
+
+
+----------
+Attributes
+----------
+
+
+
+Attributes provide access to the properties of a resource. Attributes are lazy-loaded the first time one is accessed via the :py:meth:`load` method.
+For more information about attributes refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+
+These are the resource's available attributes:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  grants
+  owner
+
+
+
+-------
+Actions
+-------
+
+
+
+Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+
+These are the resource's available actions:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  get_available_subresources
+  load
+  put
+  reload
+
+
+
+-------------
+Sub-resources
+-------------
+
+
+
+Sub-resources are methods that create a new instance of a child resource. This resource's identifiers get passed along to the child.
+For more information about sub-resources refer to the :ref:`Resources Introduction Guide<subresources_intro>`.
+
+These are the resource's available sub-resources:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  Bucket

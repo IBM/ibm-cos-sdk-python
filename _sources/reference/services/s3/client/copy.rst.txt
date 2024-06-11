@@ -1,0 +1,58 @@
+:doc:`S3 <../../s3>` / Client / copy
+
+****
+copy
+****
+
+
+
+.. py:method:: S3.Client.copy(CopySource, Bucket, Key, ExtraArgs=None, Callback=None, SourceClient=None, Config=None)
+
+    
+  Copy an object from one S3 location to another.
+  
+  This is a managed transfer which will perform a multipart copy in
+  multiple threads if necessary.
+  
+  Usage::
+  
+      import ibm_boto3
+      s3 = ibm_boto3.resource('s3')
+      copy_source = {
+          'Bucket': 'mybucket',
+          'Key': 'mykey'
+      }
+      s3.meta.client.copy(copy_source, 'otherbucket', 'otherkey')
+  
+  :type CopySource: dict
+  :param CopySource: The name of the source bucket, key name of the
+      source object, and optional version ID of the source object. The
+      dictionary format is:
+      ``{'Bucket': 'bucket', 'Key': 'key', 'VersionId': 'id'}``. Note
+      that the ``VersionId`` key is optional and may be omitted.
+  
+  :type Bucket: str
+  :param Bucket: The name of the bucket to copy to
+  
+  :type Key: str
+  :param Key: The name of the key to copy to
+  
+  :type ExtraArgs: dict
+  :param ExtraArgs: Extra arguments that may be passed to the
+      client operation. For allowed download arguments see
+      ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS.
+  
+  :type Callback: function
+  :param Callback: A method which takes a number of bytes transferred to
+      be periodically called during the copy.
+  
+  :type SourceClient: ibm_botocore or ibm_boto3 Client
+  :param SourceClient: The client to be used for operation that
+      may happen at the source object. For example, this client is
+      used for the head_object that determines the size of the copy.
+      If no client is provided, the current client is used as the client
+      for the source object.
+  
+  :type Config: ibm_boto3.s3.transfer.TransferConfig
+  :param Config: The transfer configuration to be used when performing the
+      copy.

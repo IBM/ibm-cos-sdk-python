@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Policy
+
+******
+Policy
+******
+
+
+
+.. py:method:: S3.Bucket.Policy()
+
+  Creates a BucketPolicy resource.::
+
+    bucket_policy = bucket.Policy()
+
+  
+  :rtype: :py:class:`S3.BucketPolicy`
+  :returns: A BucketPolicy resource
+  

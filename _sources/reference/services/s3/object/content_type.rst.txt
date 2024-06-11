@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / content_type
+
+************
+content_type
+************
+
+
+
+.. py:attribute:: S3.Object.content_type
+
+  
+
+  - *(string) --* 
+
+    A standard MIME type describing the format of the object data.
+
+    

@@ -1,0 +1,27 @@
+:doc:`Bucket <index>` / Waiter / wait_until_not_exists
+
+*********************
+wait_until_not_exists
+*********************
+
+
+
+.. py:method:: S3.Bucket.wait_until_not_exists(**kwargs)
+
+  Waits until this Bucket is not exists. This method calls :py:meth:`S3.Waiter.bucket_not_exists.wait` which polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_  
+
+
+  **Request Syntax**
+  ::
+
+    bucket.wait_until_not_exists(
+        ExpectedBucketOwner='string'
+    )
+    
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :returns: None

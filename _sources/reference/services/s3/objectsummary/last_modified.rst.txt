@@ -1,0 +1,17 @@
+:doc:`ObjectSummary <index>` / Attribute / last_modified
+
+*************
+last_modified
+*************
+
+
+
+.. py:attribute:: S3.ObjectSummary.last_modified
+
+  
+
+  - *(datetime) --* 
+
+    Creation date of the object.
+
+    

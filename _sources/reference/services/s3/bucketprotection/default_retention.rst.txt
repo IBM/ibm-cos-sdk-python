@@ -1,0 +1,16 @@
+:doc:`BucketProtection <index>` / Attribute / default_retention
+
+*****************
+default_retention
+*****************
+
+
+
+.. py:attribute:: S3.BucketProtection.default_retention
+
+  
+
+  - *(dict) --* Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+    
+
+    - **Days** *(integer) --* 

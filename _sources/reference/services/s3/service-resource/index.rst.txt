@@ -1,0 +1,97 @@
+:doc:`S3 <../../s3>` / Resource / ServiceResource
+
+================
+Service Resource
+================
+
+
+
+.. note::
+
+  Before using anything on this page, please refer to the resources :doc:`user guide <../../../../guide/resources>` for the most recent guidance on using resources.
+
+
+
+.. py:class:: S3.ServiceResource()
+
+  A resource representing Amazon Simple Storage Service (S3)::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+
+  
+
+
+
+
+-------
+Actions
+-------
+
+
+
+Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+
+These are the resource's available actions:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  create_bucket
+  get_available_subresources
+
+
+
+-------------
+Sub-resources
+-------------
+
+
+
+Sub-resources are methods that create a new instance of a child resource. This resource's identifiers get passed along to the child.
+For more information about sub-resources refer to the :ref:`Resources Introduction Guide<subresources_intro>`.
+
+These are the resource's available sub-resources:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  Bucket
+  BucketAcl
+  BucketCors
+  BucketLifecycleConfiguration
+  BucketProtection
+  BucketTagging
+  BucketVersioning
+  BucketWebsite
+  MultipartUpload
+  MultipartUploadPart
+  Object
+  ObjectAcl
+  ObjectProtection
+  ObjectSummary
+  ObjectVersion
+
+
+
+-----------
+Collections
+-----------
+
+
+
+Collections provide an interface to iterate over and manipulate groups of resources. 
+For more information about collections refer to the :ref:`Resources Introduction Guide<guide_collections>`.
+
+These are the resource's available collections:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  buckets

@@ -1,0 +1,11 @@
+:doc:`ObjectSummary <index>` / Identifier / key
+
+***
+key
+***
+
+
+
+.. py:attribute:: S3.ObjectSummary.key
+
+  *(string)* The ObjectSummary's key identifier. This **must** be set.

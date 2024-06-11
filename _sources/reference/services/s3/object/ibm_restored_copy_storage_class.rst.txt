@@ -1,0 +1,13 @@
+:doc:`Object <index>` / Attribute / ibm_restored_copy_storage_class
+
+*******************************
+ibm_restored_copy_storage_class
+*******************************
+
+
+
+.. py:attribute:: S3.Object.ibm_restored_copy_storage_class
+
+  
+
+  - *(string) --* This header is only included if an object has transition metadata. This header will indicate the transition storage class and time of transition. If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.

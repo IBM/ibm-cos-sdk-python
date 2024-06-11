@@ -1,0 +1,26 @@
+:doc:`ServiceResource <index>` / Sub-Resource / MultipartUploadPart
+
+*******************
+MultipartUploadPart
+*******************
+
+
+
+.. py:method:: S3.ServiceResource.MultipartUploadPart(bucket_name,object_key,multipart_upload_id,part_number)
+
+  Creates a MultipartUploadPart resource.::
+
+    multipart_upload_part = s3.MultipartUploadPart('bucket_name','object_key','multipart_upload_id','part_number')
+
+  :type bucket_name: string
+  :param bucket_name: The MultipartUploadPart's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The MultipartUploadPart's object_key identifier. This **must** be set.
+  :type multipart_upload_id: string
+  :param multipart_upload_id: The MultipartUploadPart's multipart_upload_id identifier. This **must** be set.
+  :type part_number: string
+  :param part_number: The MultipartUploadPart's part_number identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.MultipartUploadPart`
+  :returns: A MultipartUploadPart resource
+  

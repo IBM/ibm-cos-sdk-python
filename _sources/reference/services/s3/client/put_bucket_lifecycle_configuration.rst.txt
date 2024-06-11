@@ -1,0 +1,371 @@
+:doc:`S3 <../../s3>` / Client / put_bucket_lifecycle_configuration
+
+**********************************
+put_bucket_lifecycle_configuration
+**********************************
+
+
+
+.. py:method:: S3.Client.put_bucket_lifecycle_configuration(**kwargs)
+
+  
+
+  Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if you want to retain any configuration details, they must be included in the new lifecycle configuration. For information about lifecycle configuration, see `Managing your storage lifecycle <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html>`__.
+
+   
+
+  .. note::
+
+    
+
+    Bucket lifecycle configuration now supports specifying a lifecycle rule using an object key name prefix, one or more object tags, or a combination of both. Accordingly, this section describes the latest API. The previous version of the API supported filtering based only on an object key name prefix, which is supported for backward compatibility. For the related API description, see `PutBucketLifecycle <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html>`__.
+
+    
+
+   
+
+  **Rules**
+
+   
+
+  You specify the lifecycle configuration in your request body. The lifecycle configuration is specified as XML consisting of one or more rules. Each rule consists of the following:
+
+   
+
+  
+  * Filter identifying a subset of objects to which the rule applies. The filter can be based on a key name prefix, object tags, or a combination of both.
+   
+  * Status whether the rule is in effect.
+   
+  * One or more lifecycle transition and expiration actions that you want Amazon S3 to perform on the objects identified by the filter. If the state of your bucket is versioning-enabled or versioning-suspended, you can have many versions of the same object (one current version and zero or more noncurrent versions). Amazon S3 provides predefined actions that you can specify for current and noncurrent object versions.
+  
+
+   
+
+  For more information, see `Object Lifecycle Management <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html>`__ and `Lifecycle Configuration Elements <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html>`__.
+
+   
+
+  **Permissions**
+
+   
+
+  By default, all Amazon S3 resources are private, including buckets, objects, and related subresources (for example, lifecycle configuration and website configuration). Only the resource owner (that is, the Amazon Web Services account that created it) can access the resource. The resource owner can optionally grant access permissions to others by writing an access policy. For this operation, a user must get the ``s3:PutLifecycleConfiguration`` permission.
+
+   
+
+  You can also explicitly deny permissions. Explicit deny also supersedes any other permissions. If you want to block users or accounts from removing or deleting objects from your bucket, you must deny them permissions for the following actions:
+
+   
+
+  
+  * ``s3:DeleteObject``
+   
+  * ``s3:DeleteObjectVersion``
+   
+  * ``s3:PutLifecycleConfiguration``
+  
+
+   
+
+  For more information about permissions, see `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  The following are related to ``PutBucketLifecycleConfiguration``:
+
+   
+
+  
+  * `Examples of Lifecycle Configuration <https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html>`__
+   
+  * `GetBucketLifecycleConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html>`__
+   
+  * `DeleteBucketLifecycle <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketLifecycleConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.put_bucket_lifecycle_configuration(
+        Bucket='string',
+        LifecycleConfiguration={
+            'Rules': [
+                {
+                    'Expiration': {
+                        'Date': datetime(2015, 1, 1),
+                        'Days': 123,
+                        'ExpiredObjectDeleteMarker': True|False
+                    },
+                    'ID': 'string',
+                    'Filter': {
+                        'Prefix': 'string',
+                        'Tag': {
+                            'Key': 'string',
+                            'Value': 'string'
+                        }
+                    },
+                    'Status': 'Enabled'|'Disabled',
+                    'Transitions': [
+                        {
+                            'Date': datetime(2015, 1, 1),
+                            'Days': 123,
+                            'StorageClass': 'ACCELERATED'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'|'GLACIER_IR'
+                        },
+                    ],
+                    'NoncurrentVersionExpiration': {
+                        'NoncurrentDays': 123
+                    },
+                    'AbortIncompleteMultipartUpload': {
+                        'DaysAfterInitiation': 123
+                    }
+                },
+            ]
+        },
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket for which to set the configuration.
+
+    
+
+  
+  :type LifecycleConfiguration: dict
+  :param LifecycleConfiguration: 
+
+    Container for lifecycle rules. You can add as many as 1,000 rules.
+
+    
+
+  
+    - **Rules** *(list) --* **[REQUIRED]** 
+
+      A lifecycle rule for individual objects in an Amazon S3 bucket.
+
+      
+
+    
+      - *(dict) --* 
+
+        A lifecycle rule for individual objects in an Amazon S3 bucket.
+
+        
+
+      
+        - **Expiration** *(dict) --* 
+
+          Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
+
+          
+
+        
+          - **Date** *(datetime) --* 
+
+            Indicates at what date the object is to be moved or deleted. The date value must conform to the ISO 8601 format. The time is always midnight UTC.
+
+            
+
+          
+          - **Days** *(integer) --* 
+
+            Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
+
+            
+
+          
+          - **ExpiredObjectDeleteMarker** *(boolean) --* 
+
+            Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
+
+            
+
+          
+        
+        - **ID** *(string) --* 
+
+          Unique identifier for the rule. The value cannot be longer than 255 characters.
+
+          
+
+        
+        - **Filter** *(dict) --* **[REQUIRED]** 
+
+          The ``Filter`` is used to identify objects that a Lifecycle Rule applies to. A ``Filter`` must have exactly one of ``Prefix``, ``Tag``, or ``And`` specified. ``Filter`` is required if the ``LifecycleRule`` does not containt a ``Prefix`` element.
+
+          
+
+        
+          - **Prefix** *(string) --* 
+
+            Prefix identifying one or more objects to which the rule applies.
+
+             
+
+            .. warning::
+
+               
+
+              Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+              
+
+            
+
+          
+          - **Tag** *(dict) --* 
+
+            This tag must exist in the object's tag set in order for the rule to apply.
+
+            
+
+          
+            - **Key** *(string) --* **[REQUIRED]** 
+
+              Name of the object key.
+
+              
+
+            
+            - **Value** *(string) --* **[REQUIRED]** 
+
+              Value of the tag.
+
+              
+
+            
+          
+        
+        - **Status** *(string) --* **[REQUIRED]** 
+
+          If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
+
+          
+
+        
+        - **Transitions** *(list) --* 
+
+          Specifies when an Amazon S3 object transitions to a specified storage class.
+
+          
+
+        
+          - *(dict) --* 
+
+            Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see `Transitioning Objects Using Amazon S3 Lifecycle <https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html>`__ in the *Amazon S3 User Guide*.
+
+            
+
+          
+            - **Date** *(datetime) --* 
+
+              Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+
+              
+
+            
+            - **Days** *(integer) --* 
+
+              Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+
+              
+
+            
+            - **StorageClass** *(string) --* 
+
+              The storage class to which you want the object to transition.
+
+              
+
+            
+          
+      
+        - **NoncurrentVersionExpiration** *(dict) --* 
+
+          Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
+
+          
+
+        
+          - **NoncurrentDays** *(integer) --* 
+
+            Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. The value must be a non-zero positive integer. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations>`__ in the *Amazon S3 User Guide*.
+
+            
+
+          
+        
+        - **AbortIncompleteMultipartUpload** *(dict) --* 
+
+          Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see `Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config>`__ in the *Amazon S3 User Guide*.
+
+          
+
+        
+          - **DaysAfterInitiation** *(integer) --* 
+
+            Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+
+            
+
+          
+        
+      
+  
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None
+
+  **Examples**
+
+  The following example replaces existing lifecycle configuration, if any, on the specified bucket. 
+  ::
+
+    response = client.put_bucket_lifecycle_configuration(
+        Bucket='examplebucket',
+        LifecycleConfiguration={
+            'Rules': [
+                {
+                    'Expiration': {
+                        'Days': 3650,
+                    },
+                    'Filter': {
+                        'Prefix': 'documents/',
+                    },
+                    'ID': 'TestOnly',
+                    'Status': 'Enabled',
+                    'Transitions': [
+                        {
+                            'Days': 365,
+                            'StorageClass': 'GLACIER',
+                        },
+                    ],
+                },
+            ],
+        },
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

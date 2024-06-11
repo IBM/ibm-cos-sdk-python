@@ -1,0 +1,18 @@
+:doc:`MultipartUploadPart <index>` / Sub-Resource / MultipartUpload
+
+***************
+MultipartUpload
+***************
+
+
+
+.. py:method:: S3.MultipartUploadPart.MultipartUpload()
+
+  Creates a MultipartUpload resource.::
+
+    multipart_upload = multipart_upload_part.MultipartUpload()
+
+  
+  :rtype: :py:class:`S3.MultipartUpload`
+  :returns: A MultipartUpload resource
+  

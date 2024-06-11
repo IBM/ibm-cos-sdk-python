@@ -1,0 +1,619 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="list_objects" href="list_objects.html" /><link rel="prev" title="list_multipart_uploads" href="list_multipart_uploads.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>list_object_versions - ibm-cos-sdk 2.13.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../s3.html">S3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../core/index.html">Core references</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/boto3.html">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/collections.html">Collections reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/ibm_boto3.html">IBM Boto3 reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/resources.html">Resources reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/session.html">Session reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference internal" href="../../s3.html"><span class="doc">S3</span></a> / Client / list_object_versions</p>
+<section id="list-object-versions">
+<h1>list_object_versions<a class="headerlink" href="#list-object-versions" title="Permalink to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="S3.Client.list_object_versions">
+<span class="sig-prename descclassname"><span class="pre">S3.Client.</span></span><span class="sig-name descname"><span class="pre">list_object_versions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Client.list_object_versions" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns metadata about all versions of the objects in a bucket. You can also use request parameters as selection criteria to return metadata about a subset of all the object versions.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>To use this operation, you must have permissions to perform the <code class="docutils literal notranslate"><span class="pre">s3:ListBucketVersions</span></code> action. Be aware of the name difference.</p>
+</div>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>A 200 OK response can contain valid or invalid XML. Make sure to design your application to parse the contents of the response and handle it appropriately.</p>
+</div>
+<p>To use this operation, you must have READ access to the bucket.</p>
+<p>This action is not supported by Amazon S3 on Outposts.</p>
+<p>The following operations are related to <code class="docutils literal notranslate"><span class="pre">ListObjectVersions</span></code>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></p></li>
+</ul>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions">AWS API Documentation</a></p>
+<h3>Request Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">list_object_versions</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">Delimiter</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">EncodingType</span><span class="o">=</span><span class="s1">&#39;url&#39;</span><span class="p">,</span>
+    <span class="n">KeyMarker</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">MaxKeys</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">Prefix</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">VersionIdMarker</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ExpectedBucketOwner</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Bucket</strong> (<em>string</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>The bucket name that contains the objects.</p>
+<p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <em>AccessPointName</em>-<em>AccountId</em>.s3-accesspoint.*Region*.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <em>Amazon Simple Storage Service Developer Guide</em>.</p>
+</p></li>
+<li><p><strong>Delimiter</strong> (<em>string</em>) – A delimiter is a character that you specify to group keys. All keys that contain the same string between the <code class="docutils literal notranslate"><span class="pre">prefix</span></code> and the first occurrence of the delimiter are grouped under a single result element in <code class="docutils literal notranslate"><span class="pre">CommonPrefixes</span></code>. These groups are counted as one result against the <code class="docutils literal notranslate"><span class="pre">max-keys</span></code> limitation. These keys are not returned elsewhere in the response.</p></li>
+<li><p><strong>EncodingType</strong> (<em>string</em>) – Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key can contain any Unicode character; however, the XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p></li>
+<li><p><strong>KeyMarker</strong> (<em>string</em>) – Specifies the key to start with when listing objects in a bucket.</p></li>
+<li><p><strong>MaxKeys</strong> (<em>integer</em>) – Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code class="docutils literal notranslate"><span class="pre">max-keys</span></code> was exceeded, the response contains <code class="docutils literal notranslate"><span class="pre">&lt;isTruncated&gt;true&lt;/isTruncated&gt;</span></code>. To return the additional keys, see <code class="docutils literal notranslate"><span class="pre">key-marker</span></code> and <code class="docutils literal notranslate"><span class="pre">version-id-marker</span></code>.</p></li>
+<li><p><strong>Prefix</strong> (<em>string</em>) – Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using <code class="docutils literal notranslate"><span class="pre">prefix</span></code> to make groups in the same way that you’d use a folder in a file system.) You can use <code class="docutils literal notranslate"><span class="pre">prefix</span></code> with <code class="docutils literal notranslate"><span class="pre">delimiter</span></code> to roll up numerous objects into a single result under <code class="docutils literal notranslate"><span class="pre">CommonPrefixes</span></code>.</p></li>
+<li><p><strong>VersionIdMarker</strong> (<em>string</em>) – Specifies the object version you want to start listing from.</p></li>
+<li><p><strong>ExpectedBucketOwner</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><h3>Response Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;IsTruncated&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="o">|</span><span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;KeyMarker&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;VersionIdMarker&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NextKeyMarker&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NextVersionIdMarker&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Versions&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Size&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;STANDARD&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;IsLatest&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="o">|</span><span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;DeleteMarkers&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;IsLatest&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="o">|</span><span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Delimiter&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MaxKeys&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;CommonPrefixes&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;EncodingType&#39;</span><span class="p">:</span> <span class="s1">&#39;url&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h3>Response Structure</h3>
+<ul>
+<li><p><em>(dict) –</em></p>
+<ul>
+<li><p><strong>IsTruncated</strong> <em>(boolean) –</em></p>
+<p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request by using the <code class="docutils literal notranslate"><span class="pre">NextKeyMarker</span></code> and <code class="docutils literal notranslate"><span class="pre">NextVersionIdMarker</span></code> response parameters as a starting place in another request to return the rest of the results.</p>
+</li>
+<li><p><strong>KeyMarker</strong> <em>(string) –</em></p>
+<p>Marks the last key returned in a truncated response.</p>
+</li>
+<li><p><strong>VersionIdMarker</strong> <em>(string) –</em></p>
+<p>Marks the last version of the key returned in a truncated response.</p>
+</li>
+<li><p><strong>NextKeyMarker</strong> <em>(string) –</em></p>
+<p>When the number of responses exceeds the value of <code class="docutils literal notranslate"><span class="pre">MaxKeys</span></code>, <code class="docutils literal notranslate"><span class="pre">NextKeyMarker</span></code> specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.</p>
+</li>
+<li><p><strong>NextVersionIdMarker</strong> <em>(string) –</em></p>
+<p>When the number of responses exceeds the value of <code class="docutils literal notranslate"><span class="pre">MaxKeys</span></code>, <code class="docutils literal notranslate"><span class="pre">NextVersionIdMarker</span></code> specifies the first object version not returned that satisfies the search criteria. Use this value for the <code class="docutils literal notranslate"><span class="pre">version-id-marker</span></code> request parameter in a subsequent request.</p>
+</li>
+<li><p><strong>Versions</strong> <em>(list) –</em></p>
+<p>Container for version information.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>The version of an object.</p>
+<ul>
+<li><p><strong>ETag</strong> <em>(string) –</em></p>
+<p>The entity tag is an MD5 hash of that version of the object.</p>
+</li>
+<li><p><strong>Size</strong> <em>(integer) –</em></p>
+<p>Size in bytes of the object.</p>
+</li>
+<li><p><strong>StorageClass</strong> <em>(string) –</em></p>
+<p>The class of storage used to store the object.</p>
+</li>
+<li><p><strong>Key</strong> <em>(string) –</em></p>
+<p>The object key.</p>
+</li>
+<li><p><strong>VersionId</strong> <em>(string) –</em></p>
+<p>Version ID of an object.</p>
+</li>
+<li><p><strong>IsLatest</strong> <em>(boolean) –</em></p>
+<p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
+</li>
+<li><p><strong>LastModified</strong> <em>(datetime) –</em></p>
+<p>Date and time when the object was last modified.</p>
+</li>
+<li><p><strong>Owner</strong> <em>(dict) –</em></p>
+<p>Specifies the owner of the object.</p>
+<ul>
+<li><p><strong>DisplayName</strong> <em>(string) –</em></p>
+<p>Container for the display name of the owner.</p>
+</li>
+<li><p><strong>ID</strong> <em>(string) –</em></p>
+<p>Container for the ID of the owner.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>DeleteMarkers</strong> <em>(list) –</em></p>
+<p>Container for an object that is a delete marker.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>Information about the delete marker.</p>
+<ul>
+<li><p><strong>Owner</strong> <em>(dict) –</em></p>
+<p>The account that created the delete marker.&gt;</p>
+<ul>
+<li><p><strong>DisplayName</strong> <em>(string) –</em></p>
+<p>Container for the display name of the owner.</p>
+</li>
+<li><p><strong>ID</strong> <em>(string) –</em></p>
+<p>Container for the ID of the owner.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Key</strong> <em>(string) –</em></p>
+<p>The object key.</p>
+</li>
+<li><p><strong>VersionId</strong> <em>(string) –</em></p>
+<p>Version ID of an object.</p>
+</li>
+<li><p><strong>IsLatest</strong> <em>(boolean) –</em></p>
+<p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
+</li>
+<li><p><strong>LastModified</strong> <em>(datetime) –</em></p>
+<p>Date and time when the object was last modified.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Name</strong> <em>(string) –</em></p>
+<p>The bucket name.</p>
+</li>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>Selects objects that start with the value supplied by this parameter.</p>
+</li>
+<li><p><strong>Delimiter</strong> <em>(string) –</em></p>
+<p>The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in <code class="docutils literal notranslate"><span class="pre">CommonPrefixes</span></code>. These groups are counted as one result against the <code class="docutils literal notranslate"><span class="pre">max-keys</span></code> limitation. These keys are not returned elsewhere in the response.</p>
+</li>
+<li><p><strong>MaxKeys</strong> <em>(integer) –</em></p>
+<p>Specifies the maximum number of objects to return.</p>
+</li>
+<li><p><strong>CommonPrefixes</strong> <em>(list) –</em></p>
+<p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>Container for all (if there are any) keys between Prefix and the next occurrence of the string specified by a delimiter. CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/.</p>
+<ul>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>Container for the specified common prefix.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>EncodingType</strong> <em>(string) –</em></p>
+<p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
+<p>If you specify the <code class="docutils literal notranslate"><span class="pre">encoding-type</span></code> request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
+<p><code class="docutils literal notranslate"><span class="pre">KeyMarker,</span> <span class="pre">NextKeyMarker,</span> <span class="pre">Prefix,</span> <span class="pre">Key</span></code>, and <code class="docutils literal notranslate"><span class="pre">Delimiter</span></code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+<h3>Examples</h3>
+<p>The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">list_object_versions</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;examplebucket&#39;</span><span class="p">,</span>
+    <span class="n">Prefix</span><span class="o">=</span><span class="s1">&#39;HappyFace.jpg&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Versions&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;&quot;6805f2cfc46c0f04559748bb039d69ae&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;IsLatest&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;HappyFace.jpg&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;owner-display-name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;Size&#39;</span><span class="p">:</span> <span class="mi">3191</span><span class="p">,</span>
+            <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;STANDARD&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;null&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;&quot;6805f2cfc46c0f04559748bb039d69ae&quot;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;IsLatest&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;HappyFace.jpg&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">348</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;DisplayName&#39;</span><span class="p">:</span> <span class="s1">&#39;owner-display-name&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;Size&#39;</span><span class="p">:</span> <span class="mi">3191</span><span class="p">,</span>
+            <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;STANDARD&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="list_objects.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">list_objects</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="list_multipart_uploads.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">list_multipart_uploads</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="../../../../_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="sidebar-div show-div-md justify-content-left">
+            <label class="nav-close-icon" id="toc-menu-close" for="__toc" tabindex="0">
+                <div class="visually-hidden">Toggle site table of content right sidebar</div>
+                <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+            </label>
+        </div>
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">list_object_versions</a><ul>
+<li><a class="reference internal" href="#S3.Client.list_object_versions"><code class="docutils literal notranslate"><span class="pre">S3.Client.list_object_versions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/furo.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/js/custom.js"></script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+:doc:`ObjectVersion <index>` / Sub-Resource / Object
+
+******
+Object
+******
+
+
+
+.. py:method:: S3.ObjectVersion.Object()
+
+  Creates a Object resource.::
+
+    object = object_version.Object()
+
+  
+  :rtype: :py:class:`S3.Object`
+  :returns: A Object resource
+  

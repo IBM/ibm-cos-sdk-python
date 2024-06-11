@@ -1,0 +1,20 @@
+:doc:`ServiceResource <index>` / Sub-Resource / BucketTagging
+
+*************
+BucketTagging
+*************
+
+
+
+.. py:method:: S3.ServiceResource.BucketTagging(bucket_name)
+
+  Creates a BucketTagging resource.::
+
+    bucket_tagging = s3.BucketTagging('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketTagging's bucket_name identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.BucketTagging`
+  :returns: A BucketTagging resource
+  

@@ -1,0 +1,48 @@
+:doc:`S3 <../../s3>` / Client / upload_fileobj
+
+**************
+upload_fileobj
+**************
+
+
+
+.. py:method:: S3.Client.upload_fileobj(Fileobj, Bucket, Key, ExtraArgs=None, Callback=None, Config=None)
+
+    
+  Upload a file-like object to S3.
+  
+  The file-like object must be in binary mode.
+  
+  This is a managed transfer which will perform a multipart upload in
+  multiple threads if necessary.
+  
+  Usage::
+  
+      import ibm_boto3
+      s3 = ibm_boto3.client('s3')
+  
+      with open('filename', 'rb') as data:
+          s3.upload_fileobj(data, 'mybucket', 'mykey')
+  
+  :type Fileobj: a file-like object
+  :param Fileobj: A file-like object to upload. At a minimum, it must
+      implement the `read` method, and must return bytes.
+  
+  :type Bucket: str
+  :param Bucket: The name of the bucket to upload to.
+  
+  :type Key: str
+  :param Key: The name of the key to upload to.
+  
+  :type ExtraArgs: dict
+  :param ExtraArgs: Extra arguments that may be passed to the
+      client operation. For allowed upload arguments see
+      ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS.
+  
+  :type Callback: function
+  :param Callback: A method which takes a number of bytes transferred to
+      be periodically called during the upload.
+  
+  :type Config: ibm_boto3.s3.transfer.TransferConfig
+  :param Config: The transfer configuration to be used when performing the
+      upload.

@@ -1,0 +1,18 @@
+:doc:`MultipartUpload <index>` / Sub-Resource / Object
+
+******
+Object
+******
+
+
+
+.. py:method:: S3.MultipartUpload.Object()
+
+  Creates a Object resource.::
+
+    object = multipart_upload.Object()
+
+  
+  :rtype: :py:class:`S3.Object`
+  :returns: A Object resource
+  

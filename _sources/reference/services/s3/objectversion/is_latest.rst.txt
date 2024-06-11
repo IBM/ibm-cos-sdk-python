@@ -1,0 +1,17 @@
+:doc:`ObjectVersion <index>` / Attribute / is_latest
+
+*********
+is_latest
+*********
+
+
+
+.. py:attribute:: S3.ObjectVersion.is_latest
+
+  
+
+  - *(boolean) --* 
+
+    Specifies whether the object is (true) or is not (false) the latest version of an object.
+
+    

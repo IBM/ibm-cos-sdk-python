@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Notification
+
+************
+Notification
+************
+
+
+
+.. py:method:: S3.Bucket.Notification()
+
+  Creates a BucketNotification resource.::
+
+    bucket_notification = bucket.Notification()
+
+  
+  :rtype: :py:class:`S3.BucketNotification`
+  :returns: A BucketNotification resource
+  

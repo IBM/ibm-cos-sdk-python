@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Acl
+
+***
+Acl
+***
+
+
+
+.. py:method:: S3.Bucket.Acl()
+
+  Creates a BucketAcl resource.::
+
+    bucket_acl = bucket.Acl()
+
+  
+  :rtype: :py:class:`S3.BucketAcl`
+  :returns: A BucketAcl resource
+  

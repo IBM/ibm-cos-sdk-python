@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / e_tag
+
+*****
+e_tag
+*****
+
+
+
+.. py:attribute:: S3.Object.e_tag
+
+  
+
+  - *(string) --* 
+
+    An entity tag (ETag) is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
+
+    

@@ -1,0 +1,17 @@
+:doc:`MultipartUploadPart <index>` / Attribute / last_modified
+
+*************
+last_modified
+*************
+
+
+
+.. py:attribute:: S3.MultipartUploadPart.last_modified
+
+  
+
+  - *(datetime) --* 
+
+    Date and time at which the part was uploaded.
+
+    

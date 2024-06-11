@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / request_charged
+
+***************
+request_charged
+***************
+
+
+
+.. py:attribute:: S3.Object.request_charged
+
+  
+
+  - *(string) --* 
+
+    If present, indicates that the requester was successfully charged for the request.
+
+    

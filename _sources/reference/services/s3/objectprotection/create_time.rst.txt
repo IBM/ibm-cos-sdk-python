@@ -1,0 +1,13 @@
+:doc:`ObjectProtection <index>` / Attribute / create_time
+
+***********
+create_time
+***********
+
+
+
+.. py:attribute:: S3.ObjectProtection.create_time
+
+  
+
+  - *(datetime) --* 

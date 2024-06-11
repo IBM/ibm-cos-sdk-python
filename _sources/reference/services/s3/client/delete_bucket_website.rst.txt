@@ -1,0 +1,98 @@
+:doc:`S3 <../../s3>` / Client / delete_bucket_website
+
+*********************
+delete_bucket_website
+*********************
+
+
+
+.. py:method:: S3.Client.delete_bucket_website(**kwargs)
+
+  
+
+  .. note::
+
+    
+
+    This operation is not supported by directory buckets.
+
+    
+
+   
+
+  This action removes the website configuration for a bucket. Amazon S3 returns a ``200 OK`` response upon successfully deleting a website configuration on the specified bucket. You will get a ``200 OK`` response if the website configuration you are trying to delete does not exist on the bucket. Amazon S3 returns a ``404`` response if the bucket specified in the request does not exist.
+
+   
+
+  This DELETE action requires the ``S3:DeleteBucketWebsite`` permission. By default, only the bucket owner can delete the website configuration attached to a bucket. However, bucket owners can grant other users permission to delete the website configuration by writing a bucket policy granting them the ``S3:DeleteBucketWebsite`` permission.
+
+   
+
+  For more information about hosting websites, see `Hosting Websites on Amazon S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`__.
+
+   
+
+  The following operations are related to ``DeleteBucketWebsite``:
+
+   
+
+  
+  * `GetBucketWebsite <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html>`__
+   
+  * `PutBucketWebsite <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketWebsite>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.delete_bucket_website(
+        Bucket='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket name for which you want to remove the website configuration.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: 
+
+    The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+    
+
+  
+  
+  :returns: None
+
+  **Examples**
+
+  The following example deletes bucket website configuration.
+  ::
+
+    response = client.delete_bucket_website(
+        Bucket='examplebucket',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

@@ -1,0 +1,11 @@
+:doc:`ObjectVersion <index>` / Identifier / id
+
+**
+id
+**
+
+
+
+.. py:attribute:: S3.ObjectVersion.id
+
+  *(string)* The ObjectVersion's id identifier. This **must** be set.

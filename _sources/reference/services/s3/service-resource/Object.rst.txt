@@ -1,0 +1,22 @@
+:doc:`ServiceResource <index>` / Sub-Resource / Object
+
+******
+Object
+******
+
+
+
+.. py:method:: S3.ServiceResource.Object(bucket_name,key)
+
+  Creates a Object resource.::
+
+    object = s3.Object('bucket_name','key')
+
+  :type bucket_name: string
+  :param bucket_name: The Object's bucket_name identifier. This **must** be set.
+  :type key: string
+  :param key: The Object's key identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.Object`
+  :returns: A Object resource
+  

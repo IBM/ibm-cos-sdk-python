@@ -1,0 +1,13 @@
+:doc:`ObjectProtection <index>` / Attribute / retention_period_expiration_date
+
+********************************
+retention_period_expiration_date
+********************************
+
+
+
+.. py:attribute:: S3.ObjectProtection.retention_period_expiration_date
+
+  
+
+  - *(datetime) --* Date on which the retention period will expire.

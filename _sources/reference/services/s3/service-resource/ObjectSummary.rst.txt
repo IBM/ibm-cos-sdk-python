@@ -1,0 +1,22 @@
+:doc:`ServiceResource <index>` / Sub-Resource / ObjectSummary
+
+*************
+ObjectSummary
+*************
+
+
+
+.. py:method:: S3.ServiceResource.ObjectSummary(bucket_name,key)
+
+  Creates a ObjectSummary resource.::
+
+    object_summary = s3.ObjectSummary('bucket_name','key')
+
+  :type bucket_name: string
+  :param bucket_name: The ObjectSummary's bucket_name identifier. This **must** be set.
+  :type key: string
+  :param key: The ObjectSummary's key identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.ObjectSummary`
+  :returns: A ObjectSummary resource
+  

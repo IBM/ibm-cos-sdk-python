@@ -1,0 +1,11 @@
+:doc:`ObjectSummary <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.ObjectSummary.bucket_name
+
+  *(string)* The ObjectSummary's bucket_name identifier. This **must** be set.

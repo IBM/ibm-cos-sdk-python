@@ -1,0 +1,18 @@
+:doc:`Object <index>` / Sub-Resource / Protection
+
+**********
+Protection
+**********
+
+
+
+.. py:method:: S3.Object.Protection()
+
+  Creates a ObjectProtection resource.::
+
+    object_protection = object.Protection()
+
+  
+  :rtype: :py:class:`S3.ObjectProtection`
+  :returns: A ObjectProtection resource
+  

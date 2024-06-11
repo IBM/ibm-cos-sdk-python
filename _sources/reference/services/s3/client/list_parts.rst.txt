@@ -1,0 +1,395 @@
+:doc:`S3 <../../s3>` / Client / list_parts
+
+**********
+list_parts
+**********
+
+
+
+.. py:method:: S3.Client.list_parts(**kwargs)
+
+  
+
+  Lists the parts that have been uploaded for a specific multipart upload. This operation must include the upload ID, which you obtain by sending the initiate multipart upload request (see `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__). This request returns a maximum of 1,000 uploaded parts. The default number of parts returned is 1,000 parts. You can restrict the number of parts returned by specifying the ``max-parts`` request parameter. If your multipart upload consists of more than 1,000 parts, the response returns an ``IsTruncated`` field with the value of true, and a ``NextPartNumberMarker`` element. In subsequent ``ListParts`` requests you can include the part-number-marker query string parameter and set its value to the ``NextPartNumberMarker`` field value from the previous response.
+
+   
+
+  For more information on multipart uploads, see `Uploading Objects Using Multipart Upload <https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html>`__.
+
+   
+
+  For information on permissions required to use the multipart upload API, see `Multipart Upload and Permissions <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html>`__.
+
+   
+
+  The following operations are related to ``ListParts``:
+
+   
+
+  
+  * `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__
+   
+  * `UploadPart <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html>`__
+   
+  * `CompleteMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html>`__
+   
+  * `AbortMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html>`__
+   
+  * `ListMultipartUploads <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListParts>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.list_parts(
+        Bucket='string',
+        Key='string',
+        MaxParts=123,
+        MirrorDestination='string',
+        PartNumberMarker=123,
+        UploadId='string',
+        RequestPayer='requester',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket to which the parts are being uploaded.
+
+     
+
+    When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    Object key for which the multipart upload was initiated.
+
+    
+
+  
+  :type MaxParts: integer
+  :param MaxParts: 
+
+    Sets the maximum number of parts to return.
+
+    
+
+  
+  :type MirrorDestination: string
+  :param MirrorDestination: Mirror source for object reads.
+
+  
+  :type PartNumberMarker: integer
+  :param PartNumberMarker: 
+
+    Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
+
+    
+
+  
+  :type UploadId: string
+  :param UploadId: **[REQUIRED]** 
+
+    Upload ID identifying the multipart upload whose parts are being listed.
+
+    
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: 
+
+    The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+    
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'AbortDate': datetime(2015, 1, 1),
+          'AbortRuleId': 'string',
+          'Bucket': 'string',
+          'Key': 'string',
+          'UploadId': 'string',
+          'PartNumberMarker': 123,
+          'NextPartNumberMarker': 123,
+          'MaxParts': 123,
+          'IsTruncated': True|False,
+          'Parts': [
+              {
+                  'PartNumber': 123,
+                  'LastModified': datetime(2015, 1, 1),
+                  'ETag': 'string',
+                  'Size': 123
+              },
+          ],
+          'Initiator': {
+              'ID': 'string',
+              'DisplayName': 'string'
+          },
+          'Owner': {
+              'DisplayName': 'string',
+              'ID': 'string'
+          },
+          'StorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR',
+          'RequestCharged': 'requester'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **AbortDate** *(datetime) --* 
+
+        If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see `Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config>`__.
+
+         
+
+        The response will also include the ``x-amz-abort-rule-id`` header that will provide the ID of the lifecycle configuration rule that defines this action.
+
+        
+      
+
+      - **AbortRuleId** *(string) --* 
+
+        This header is returned along with the ``x-amz-abort-date`` header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.
+
+        
+      
+
+      - **Bucket** *(string) --* 
+
+        The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.
+
+        
+      
+
+      - **Key** *(string) --* 
+
+        Object key for which the multipart upload was initiated.
+
+        
+      
+
+      - **UploadId** *(string) --* 
+
+        Upload ID identifying the multipart upload whose parts are being listed.
+
+        
+      
+
+      - **PartNumberMarker** *(integer) --* 
+
+        When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
+
+        
+      
+
+      - **NextPartNumberMarker** *(integer) --* 
+
+        When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.
+
+        
+      
+
+      - **MaxParts** *(integer) --* 
+
+        Maximum number of parts that were allowed in the response.
+
+        
+      
+
+      - **IsTruncated** *(boolean) --* 
+
+        Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.
+
+        
+      
+
+      - **Parts** *(list) --* 
+
+        Container for elements related to a particular part. A response can contain zero or more ``Part`` elements.
+
+        
+        
+
+        - *(dict) --* 
+
+          Container for elements related to a part.
+
+          
+          
+
+          - **PartNumber** *(integer) --* 
+
+            Part number identifying the part. This is a positive integer between 1 and 10,000.
+
+            
+          
+
+          - **LastModified** *(datetime) --* 
+
+            Date and time at which the part was uploaded.
+
+            
+          
+
+          - **ETag** *(string) --* 
+
+            Entity tag returned when the part was uploaded.
+
+            
+          
+
+          - **Size** *(integer) --* 
+
+            Size in bytes of the uploaded part data.
+
+            
+      
+    
+      
+
+      - **Initiator** *(dict) --* 
+
+        Container element that identifies who initiated the multipart upload. If the initiator is an Amazon Web Services account, this element provides the same information as the ``Owner`` element. If the initiator is an IAM User, this element provides the user ARN and display name.
+
+        
+        
+
+        - **ID** *(string) --* 
+
+          If the principal is an Amazon Web Services account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
+
+           
+
+          .. note::
+
+            
+
+            **Directory buckets** - If the principal is an Amazon Web Services account, it provides the Amazon Web Services account ID. If the principal is an IAM User, it provides a user ARN value.
+
+            
+
+          
+        
+
+        - **DisplayName** *(string) --* 
+
+          Name of the Principal.
+
+          
+    
+      
+
+      - **Owner** *(dict) --* 
+
+        Container element that identifies the object owner, after the object is created. If multipart upload is initiated by an IAM user, this element provides the parent account ID and display name.
+
+        
+        
+
+        - **DisplayName** *(string) --* 
+
+          Container for the display name of the owner.
+
+          
+        
+
+        - **ID** *(string) --* 
+
+          Container for the ID of the owner.
+
+          
+    
+      
+
+      - **StorageClass** *(string) --* 
+
+        Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.
+
+        
+      
+
+      - **RequestCharged** *(string) --* 
+
+        If present, indicates that the requester was successfully charged for the request.
+
+        
+  
+
+  **Examples**
+
+  The following example lists parts uploaded for a specific multipart upload.
+  ::
+
+    response = client.list_parts(
+        Bucket='examplebucket',
+        Key='bigobject',
+        UploadId='example7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'Initiator': {
+            'DisplayName': 'owner-display-name',
+            'ID': 'examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc',
+        },
+        'Owner': {
+            'DisplayName': 'owner-display-name',
+            'ID': 'examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc',
+        },
+        'Parts': [
+            {
+                'ETag': '"d8c2eafd90c266e19ab9dcacc479f8af"',
+                'LastModified': datetime(2016, 12, 16, 0, 11, 42, 4, 351, 0),
+                'PartNumber': '1',
+                'Size': 26246026,
+            },
+            {
+                'ETag': '"d8c2eafd90c266e19ab9dcacc479f8af"',
+                'LastModified': datetime(2016, 12, 16, 0, 15, 1, 4, 351, 0),
+                'PartNumber': '2',
+                'Size': 26246026,
+            },
+        ],
+        'StorageClass': 'STANDARD',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

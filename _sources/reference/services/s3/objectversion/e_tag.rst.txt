@@ -1,0 +1,17 @@
+:doc:`ObjectVersion <index>` / Attribute / e_tag
+
+*****
+e_tag
+*****
+
+
+
+.. py:attribute:: S3.ObjectVersion.e_tag
+
+  
+
+  - *(string) --* 
+
+    The entity tag is an MD5 hash of that version of the object.
+
+    

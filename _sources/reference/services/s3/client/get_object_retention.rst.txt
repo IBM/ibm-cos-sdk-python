@@ -1,0 +1,124 @@
+:doc:`S3 <../../s3>` / Client / get_object_retention
+
+********************
+get_object_retention
+********************
+
+
+
+.. py:method:: S3.Client.get_object_retention(**kwargs)
+
+  
+
+  Retrieves an object's retention settings. For more information, see `Locking Objects <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__.
+
+   
+
+  This action is not supported by Amazon S3 on Outposts.
+
+   
+
+  The following action is related to ``GetObjectRetention``:
+
+   
+
+  
+  * `GetObjectAttributes <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectRetention>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_object_retention(
+        Bucket='string',
+        Key='string',
+        VersionId='string',
+        RequestPayer='requester',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket name containing the object whose retention settings you want to retrieve.
+
+     
+
+    When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using Access Points <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html>`__ in the *Amazon Simple Storage Service Developer Guide*.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    The key name for the object whose retention settings you want to retrieve.
+
+    
+
+  
+  :type VersionId: string
+  :param VersionId: 
+
+    The version ID for the object whose retention settings you want to retrieve.
+
+    
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'Retention': {
+              'Mode': 'GOVERNANCE'|'COMPLIANCE',
+              'RetainUntilDate': datetime(2015, 1, 1)
+          }
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **Retention** *(dict) --* 
+
+        The container element for an object's retention settings.
+
+        
+        
+
+        - **Mode** *(string) --* 
+
+          Indicates the Retention mode for the specified object.
+
+          
+        
+
+        - **RetainUntilDate** *(datetime) --* 
+
+          The date on which this Object Lock Retention will expire.
+
+          
+    
+  

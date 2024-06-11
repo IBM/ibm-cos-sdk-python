@@ -1,0 +1,82 @@
+:doc:`S3 <../../s3>` / Client / delete_bucket_inventory_configuration
+
+*************************************
+delete_bucket_inventory_configuration
+*************************************
+
+
+
+.. py:method:: S3.Client.delete_bucket_inventory_configuration(**kwargs)
+
+  
+
+  .. note::
+
+    
+
+    This operation is not supported by directory buckets.
+
+    
+
+   
+
+  Deletes an inventory configuration (identified by the inventory ID) from the bucket.
+
+   
+
+  To use this operation, you must have permissions to perform the ``s3:PutInventoryConfiguration`` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  For information about the Amazon S3 inventory feature, see `Amazon S3 Inventory <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html>`__.
+
+   
+
+  Operations related to ``DeleteBucketInventoryConfiguration`` include:
+
+   
+
+  
+  * `GetBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html>`__
+   
+  * `PutBucketInventoryConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html>`__
+   
+  * `ListBucketInventoryConfigurations <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketInventoryConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.delete_bucket_inventory_configuration(
+        Bucket='string',
+        Id='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket containing the inventory configuration to delete.
+
+    
+
+  
+  :type Id: string
+  :param Id: **[REQUIRED]** 
+
+    The ID used to identify the inventory configuration.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None

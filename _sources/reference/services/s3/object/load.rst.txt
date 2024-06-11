@@ -1,0 +1,21 @@
+:doc:`Object <index>` / Action / load
+
+****
+load
+****
+
+
+
+.. py:method:: S3.Object.load()
+
+  Calls :py:meth:`S3.Client.head_object` to update the attributes of the Object resource. Note that the load and reload methods are the same method and can be used interchangeably.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/None>`_  
+
+
+  **Request Syntax**
+
+  ::
+
+    object.load()
+  :returns: None

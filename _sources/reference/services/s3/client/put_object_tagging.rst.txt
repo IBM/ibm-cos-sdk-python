@@ -1,0 +1,273 @@
+:doc:`S3 <../../s3>` / Client / put_object_tagging
+
+******************
+put_object_tagging
+******************
+
+
+
+.. py:method:: S3.Client.put_object_tagging(**kwargs)
+
+  
+
+  Sets the supplied tag-set to an object that already exists in a bucket.
+
+   
+
+  A tag is a key-value pair. You can associate tags with an object by sending a PUT request against the tagging subresource that is associated with the object. You can retrieve tags by sending a GET request. For more information, see `GetObjectTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html>`__.
+
+   
+
+  For tagging-related restrictions related to characters and encodings, see `Tag Restrictions <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html>`__. Note that Amazon S3 limits the maximum number of tags to 10 tags per object.
+
+   
+
+  To use this operation, you must have permission to perform the ``s3:PutObjectTagging`` action. By default, the bucket owner has this permission and can grant this permission to others.
+
+   
+
+  To put tags of any other version, use the ``versionId`` query parameter. You also need permission for the ``s3:PutObjectVersionTagging`` action.
+
+   
+
+  For information about the Amazon S3 object tagging feature, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__.
+
+   
+
+  **Special Errors**
+
+   
+
+  
+  * 
+
+    
+    * *Code: InvalidTagError*
+     
+    * Cause: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For more information, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__.
+    
+
+  
+   
+  * 
+
+    
+    * *Code: MalformedXMLError*
+     
+    * *Cause: The XML provided does not match the schema.*
+    
+
+  
+   
+  * 
+
+    
+    * *Code: OperationAbortedError*
+     
+    * *Cause: A conflicting conditional action is currently in progress against this resource. Please try again.*
+    
+
+  
+   
+  * 
+
+    
+    * *Code: InternalError*
+     
+    * *Cause: The service was unable to apply the provided tag to the object.*
+    
+
+  
+  
+
+   
+
+  **Related Resources**
+
+   
+
+  
+  * `GetObjectTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html>`__
+   
+  * `DeleteObjectTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectTagging>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.put_object_tagging(
+        Bucket='string',
+        Key='string',
+        VersionId='string',
+        ContentMD5='string',
+        Tagging={
+            'TagSet': [
+                {
+                    'Key': 'string',
+                    'Value': 'string'
+                },
+            ]
+        },
+        ExpectedBucketOwner='string',
+        RequestPayer='requester'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket name containing the object.
+
+     
+
+    **Access points** - When you use this action with an access point, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    **S3 on Outposts** - When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `What is S3 on Outposts? <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    Name of the object key.
+
+    
+
+  
+  :type VersionId: string
+  :param VersionId: 
+
+    The versionId of the object that the tag-set will be added to.
+
+    
+
+  
+  :type ContentMD5: string
+  :param ContentMD5: 
+
+    The MD5 hash for the request body.
+
+     
+
+    For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.
+
+    
+
+  
+  :type Tagging: dict
+  :param Tagging: **[REQUIRED]** 
+
+    Container for the ``TagSet`` and ``Tag`` elements
+
+    
+
+  
+    - **TagSet** *(list) --* **[REQUIRED]** 
+
+      A collection for a set of tags
+
+      
+
+    
+      - *(dict) --* 
+
+        A container of a key value name pair.
+
+        
+
+      
+        - **Key** *(string) --* **[REQUIRED]** 
+
+          Name of the object key.
+
+          
+
+        
+        - **Value** *(string) --* **[REQUIRED]** 
+
+          Value of the tag.
+
+          
+
+        
+      
+  
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'VersionId': 'string'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **VersionId** *(string) --* 
+
+        The versionId of the object the tag-set was added to.
+
+        
+  
+
+  **Examples**
+
+  The following example adds tags to an existing object.
+  ::
+
+    response = client.put_object_tagging(
+        Bucket='examplebucket',
+        Key='HappyFace.jpg',
+        Tagging={
+            'TagSet': [
+                {
+                    'Key': 'Key3',
+                    'Value': 'Value3',
+                },
+                {
+                    'Key': 'Key4',
+                    'Value': 'Value4',
+                },
+            ],
+        },
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'VersionId': 'null',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

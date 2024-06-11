@@ -1,0 +1,11 @@
+:doc:`BucketLifecycleConfiguration <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.BucketLifecycleConfiguration.bucket_name
+
+  *(string)* The BucketLifecycleConfiguration's bucket_name identifier. This **must** be set.

@@ -1,0 +1,23 @@
+:doc:`S3 <../../s3>` / Client / can_paginate
+
+************
+can_paginate
+************
+
+
+
+.. py:method:: S3.Client.can_paginate(operation_name)
+
+    
+  Check if an operation can be paginated.
+  
+  :type operation_name: string
+  :param operation_name: The operation name.  This is the same name
+      as the method name on the client.  For example, if the
+      method name is ``create_foo``, and you'd normally invoke the
+      operation as ``client.create_foo(**kwargs)``, if the
+      ``create_foo`` operation can be paginated, you can use the
+      call ``client.get_paginator("create_foo")``.
+  
+  :return: ``True`` if the operation can be paginated,
+      ``False`` otherwise.

@@ -1,0 +1,11 @@
+:doc:`ObjectAcl <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.ObjectAcl.bucket_name
+
+  *(string)* The ObjectAcl's bucket_name identifier. This **must** be set.

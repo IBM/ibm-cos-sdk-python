@@ -1,0 +1,137 @@
+:doc:`S3 <../../s3>` / Resource / MultipartUpload
+
+===============
+MultipartUpload
+===============
+
+
+
+.. note::
+
+  Before using anything on this page, please refer to the resources :doc:`user guide <../../../../guide/resources>` for the most recent guidance on using resources.
+
+
+
+.. py:class:: S3.MultipartUpload(bucket_name,object_key,id)
+
+  A resource representing an Amazon Simple Storage Service (S3) MultipartUpload::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+    multipart_upload = s3.MultipartUpload('bucket_name','object_key','id')
+
+  :type bucket_name: string
+  :param bucket_name: The MultipartUpload's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The MultipartUpload's object_key identifier. This **must** be set.
+  :type id: string
+  :param id: The MultipartUpload's id identifier. This **must** be set.
+  
+
+
+
+
+-----------
+Identifiers
+-----------
+
+
+
+Identifiers are properties of a resource that are set upon instantiation of the resource.
+For more information about identifiers refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+
+These are the resource's available identifiers:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  bucket_name
+  object_key
+  id
+
+
+
+----------
+Attributes
+----------
+
+
+
+Attributes provide access to the properties of a resource. Attributes are lazy-loaded the first time one is accessed via the :py:meth:`load` method.
+For more information about attributes refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+
+These are the resource's available attributes:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  initiated
+  initiator
+  key
+  owner
+  storage_class
+  upload_id
+
+
+
+-------
+Actions
+-------
+
+
+
+Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+
+These are the resource's available actions:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  abort
+  complete
+  get_available_subresources
+
+
+
+-------------
+Sub-resources
+-------------
+
+
+
+Sub-resources are methods that create a new instance of a child resource. This resource's identifiers get passed along to the child.
+For more information about sub-resources refer to the :ref:`Resources Introduction Guide<subresources_intro>`.
+
+These are the resource's available sub-resources:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  Object
+  Part
+
+
+
+-----------
+Collections
+-----------
+
+
+
+Collections provide an interface to iterate over and manipulate groups of resources. 
+For more information about collections refer to the :ref:`Resources Introduction Guide<guide_collections>`.
+
+These are the resource's available collections:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  parts

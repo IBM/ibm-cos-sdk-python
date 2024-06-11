@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / content_language
+
+****************
+content_language
+****************
+
+
+
+.. py:attribute:: S3.Object.content_language
+
+  
+
+  - *(string) --* 
+
+    The language the content is in.
+
+    

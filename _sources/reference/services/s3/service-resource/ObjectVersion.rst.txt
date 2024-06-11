@@ -1,0 +1,24 @@
+:doc:`ServiceResource <index>` / Sub-Resource / ObjectVersion
+
+*************
+ObjectVersion
+*************
+
+
+
+.. py:method:: S3.ServiceResource.ObjectVersion(bucket_name,object_key,id)
+
+  Creates a ObjectVersion resource.::
+
+    object_version = s3.ObjectVersion('bucket_name','object_key','id')
+
+  :type bucket_name: string
+  :param bucket_name: The ObjectVersion's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The ObjectVersion's object_key identifier. This **must** be set.
+  :type id: string
+  :param id: The ObjectVersion's id identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.ObjectVersion`
+  :returns: A ObjectVersion resource
+  

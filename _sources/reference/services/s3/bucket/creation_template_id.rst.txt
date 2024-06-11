@@ -1,0 +1,13 @@
+:doc:`Bucket <index>` / Attribute / creation_template_id
+
+********************
+creation_template_id
+********************
+
+
+
+.. py:attribute:: S3.Bucket.creation_template_id
+
+  
+
+  - *(string) --* The template identifier applied at bucket creation. IBM COS returns this field only if a template was used.

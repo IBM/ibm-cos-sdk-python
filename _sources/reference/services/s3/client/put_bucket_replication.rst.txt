@@ -1,0 +1,417 @@
+:doc:`S3 <../../s3>` / Client / put_bucket_replication
+
+**********************
+put_bucket_replication
+**********************
+
+
+
+.. py:method:: S3.Client.put_bucket_replication(**kwargs)
+
+  
+
+  Creates a replication configuration or replaces an existing one. For more information, see `Replication <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  Specify the replication configuration in the request body. In the replication configuration, you provide the name of the destination bucket or buckets where you want Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your behalf, and other relevant information.
+
+   
+
+  A replication configuration must include at least one rule, and can contain a maximum of 1,000. Each rule identifies a subset of objects to replicate by filtering the objects in the source bucket. To choose additional subsets of objects to replicate, add a rule for each subset.
+
+   
+
+  To specify a subset of the objects in the source bucket to apply a replication rule to, add the Filter element as a child of the Rule element. You can filter objects based on an object key prefix, one or more object tags, or both. When you add the Filter element in the configuration, you must also add the following elements: ``DeleteMarkerReplication``, ``Status``, and ``Priority``.
+
+   
+
+  .. note::
+
+    
+
+    If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see `Backward Compatibility <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations>`__.
+
+    
+
+   
+
+  For information about enabling versioning on a bucket, see `Using Versioning <https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html>`__.
+
+   
+
+  **Handling Replication of Encrypted Objects**
+
+   
+
+  By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects, add the following: ``SourceSelectionCriteria``, ``SseKmsEncryptedObjects``, ``Status``, ``EncryptionConfiguration``, and ``ReplicaKmsKeyID``. For information about replication configuration, see `Replicating Objects Created with SSE Using KMS keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html>`__.
+
+   
+
+  For information on ``PutBucketReplication`` errors, see `List of replication-related error codes <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList>`__
+
+   
+
+  **Permissions**
+
+   
+
+  To create a ``PutBucketReplication`` request, you must have ``s3:PutReplicationConfiguration`` permissions for the bucket.
+
+   
+
+  By default, a resource owner, in this case the Amazon Web Services account that created the bucket, can perform this operation. The resource owner can also grant others permissions to perform the operation. For more information about permissions, see `Specifying Permissions in a Policy <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  .. note::
+
+    
+
+    To perform this operation, the user or role performing the action must have the `iam\:PassRole <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html>`__ permission.
+
+    
+
+   
+
+  The following operations are related to ``PutBucketReplication``:
+
+   
+
+  
+  * `GetBucketReplication <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html>`__
+   
+  * `DeleteBucketReplication <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.put_bucket_replication(
+        Bucket='string',
+        ReplicationConfiguration={
+            'Role': 'string',
+            'Rules': [
+                {
+                    'ID': 'string',
+                    'Priority': 123,
+                    'Prefix': 'string',
+                    'Filter': {
+                        'Prefix': 'string',
+                        'Tag': {
+                            'Key': 'string',
+                            'Value': 'string'
+                        },
+                        'And': {
+                            'Prefix': 'string',
+                            'Tags': [
+                                {
+                                    'Key': 'string',
+                                    'Value': 'string'
+                                },
+                            ]
+                        }
+                    },
+                    'Status': 'Enabled'|'Disabled',
+                    'Destination': {
+                        'Bucket': 'string',
+                        'StorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR'
+                    },
+                    'DeleteMarkerReplication': {
+                        'Status': 'Enabled'|'Disabled'
+                    }
+                },
+            ]
+        },
+        Token='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket
+
+    
+
+  
+  :type ReplicationConfiguration: dict
+  :param ReplicationConfiguration: **[REQUIRED]** 
+
+    A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+
+    
+
+  
+    - **Role** *(string) --* Not supported by COS
+
+    
+    - **Rules** *(list) --* **[REQUIRED]** 
+
+      A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
+
+      
+
+    
+      - *(dict) --* 
+
+        Specifies which Amazon S3 objects to replicate and where to store the replicas.
+
+        
+
+      
+        - **ID** *(string) --* 
+
+          A unique identifier for the rule. The maximum value is 255 characters.
+
+          
+
+        
+        - **Priority** *(integer) --* **[REQUIRED]** 
+
+          The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.
+
+           
+
+          For more information, see `Replication <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html>`__ in the *Amazon Simple Storage Service Developer Guide*.
+
+          
+
+        
+        - **Prefix** *(string) --* 
+
+          An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.
+
+           
+
+          .. warning::
+
+             
+
+            Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+            
+
+          
+
+        
+        - **Filter** *(dict) --* **[REQUIRED]** 
+
+          Specifies which Amazon S3 objects to replicate and where to store the replicas.
+
+          
+
+        
+          - **Prefix** *(string) --* 
+
+            An object key name prefix that identifies the subset of objects to which the rule applies.
+
+            
+
+          
+          - **Tag** *(dict) --* 
+
+            A container for specifying a tag key and value.
+
+             
+
+            The rule applies only to objects that have the tag in their tag set.
+
+            
+
+          
+            - **Key** *(string) --* **[REQUIRED]** 
+
+              Name of the object key.
+
+              
+
+            
+            - **Value** *(string) --* **[REQUIRED]** 
+
+              Value of the tag.
+
+              
+
+            
+          
+          - **And** *(dict) --* 
+
+            A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
+
+             
+
+            
+            * If you specify both a ``Prefix`` and a ``Tag`` filter, wrap these filters in an ``And`` tag.
+             
+            * If you specify a filter based on multiple tags, wrap the ``Tag`` elements in an ``And`` tag.
+            
+
+            
+
+          
+            - **Prefix** *(string) --* 
+
+              An object key name prefix that identifies the subset of objects to which the rule applies.
+
+              
+
+            
+            - **Tags** *(list) --* 
+
+              An array of tags containing key and value pairs.
+
+              
+
+            
+              - *(dict) --* 
+
+                A container of a key value name pair.
+
+                
+
+              
+                - **Key** *(string) --* **[REQUIRED]** 
+
+                  Name of the object key.
+
+                  
+
+                
+                - **Value** *(string) --* **[REQUIRED]** 
+
+                  Value of the tag.
+
+                  
+
+                
+              
+          
+          
+        
+        - **Status** *(string) --* **[REQUIRED]** 
+
+          Specifies whether the rule is enabled.
+
+          
+
+        
+        - **Destination** *(dict) --* **[REQUIRED]** 
+
+          A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+
+          
+
+        
+          - **Bucket** *(string) --* **[REQUIRED]** 
+
+            The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+
+            
+
+          
+          - **StorageClass** *(string) --* 
+
+            The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+
+             
+
+            For valid values, see the ``StorageClass`` element of the `PUT Bucket replication <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html>`__ action in the *Amazon Simple Storage Service API Reference*.
+
+            
+
+          
+        
+        - **DeleteMarkerReplication** *(dict) --* **[REQUIRED]** 
+
+          Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see `Basic Rule Configuration <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config>`__.
+
+           
+
+          For more information about delete marker replication, see `Basic Rule Configuration <https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html>`__.
+
+           
+
+          .. note::
+
+            
+
+            If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see `Backward Compatibility <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations>`__.
+
+            
+
+          
+
+        
+          - **Status** *(string) --* **[REQUIRED]** 
+
+            Indicates whether to replicate delete markers.
+
+             
+
+            .. note::
+
+              
+
+              Indicates whether to replicate delete markers.
+
+              
+
+            
+
+          
+        
+      
+  
+  
+  :type Token: string
+  :param Token: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None
+
+  **Examples**
+
+  The following example sets replication configuration on a bucket.
+  ::
+
+    response = client.put_bucket_replication(
+        Bucket='examplebucket',
+        ReplicationConfiguration={
+            'Role': 'arn:aws:iam::123456789012:role/examplerole',
+            'Rules': [
+                {
+                    'Destination': {
+                        'Bucket': 'arn:aws:s3:::destinationbucket',
+                        'StorageClass': 'STANDARD',
+                    },
+                    'Prefix': '',
+                    'Status': 'Enabled',
+                },
+            ],
+        },
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

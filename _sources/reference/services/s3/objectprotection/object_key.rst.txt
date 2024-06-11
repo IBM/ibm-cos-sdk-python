@@ -1,0 +1,11 @@
+:doc:`ObjectProtection <index>` / Identifier / object_key
+
+**********
+object_key
+**********
+
+
+
+.. py:attribute:: S3.ObjectProtection.object_key
+
+  *(string)* The ObjectProtection's object_key identifier. This **must** be set.

@@ -1,0 +1,17 @@
+:doc:`MultipartUpload <index>` / Attribute / key
+
+***
+key
+***
+
+
+
+.. py:attribute:: S3.MultipartUpload.key
+
+  
+
+  - *(string) --* 
+
+    Key of the object for which the multipart upload was initiated.
+
+    

@@ -1,0 +1,562 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="put_bucket_tagging" href="put_bucket_tagging.html" /><link rel="prev" title="put_bucket_protection_configuration" href="put_bucket_protection_configuration.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>put_bucket_replication - ibm-cos-sdk 2.13.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../s3.html">S3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../core/index.html">Core references</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/boto3.html">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/collections.html">Collections reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/ibm_boto3.html">IBM Boto3 reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/resources.html">Resources reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/session.html">Session reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference internal" href="../../s3.html"><span class="doc">S3</span></a> / Client / put_bucket_replication</p>
+<section id="put-bucket-replication">
+<h1>put_bucket_replication<a class="headerlink" href="#put-bucket-replication" title="Permalink to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="S3.Client.put_bucket_replication">
+<span class="sig-prename descclassname"><span class="pre">S3.Client.</span></span><span class="sig-name descname"><span class="pre">put_bucket_replication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Client.put_bucket_replication" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a replication configuration or replaces an existing one. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <em>Amazon S3 User Guide</em>.</p>
+<p>Specify the replication configuration in the request body. In the replication configuration, you provide the name of the destination bucket or buckets where you want Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your behalf, and other relevant information.</p>
+<p>A replication configuration must include at least one rule, and can contain a maximum of 1,000. Each rule identifies a subset of objects to replicate by filtering the objects in the source bucket. To choose additional subsets of objects to replicate, add a rule for each subset.</p>
+<p>To specify a subset of the objects in the source bucket to apply a replication rule to, add the Filter element as a child of the Rule element. You can filter objects based on an object key prefix, one or more object tags, or both. When you add the Filter element in the configuration, you must also add the following elements: <code class="docutils literal notranslate"><span class="pre">DeleteMarkerReplication</span></code>, <code class="docutils literal notranslate"><span class="pre">Status</span></code>, and <code class="docutils literal notranslate"><span class="pre">Priority</span></code>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
+</div>
+<p>For information about enabling versioning on a bucket, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using Versioning</a>.</p>
+<h3>Handling Replication of Encrypted Objects</h3>
+<p>By default, Amazon S3 doesn’t replicate objects that are stored at rest using server-side encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects, add the following: <code class="docutils literal notranslate"><span class="pre">SourceSelectionCriteria</span></code>, <code class="docutils literal notranslate"><span class="pre">SseKmsEncryptedObjects</span></code>, <code class="docutils literal notranslate"><span class="pre">Status</span></code>, <code class="docutils literal notranslate"><span class="pre">EncryptionConfiguration</span></code>, and <code class="docutils literal notranslate"><span class="pre">ReplicaKmsKeyID</span></code>. For information about replication configuration, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating Objects Created with SSE Using KMS keys</a>.</p>
+<p>For information on <code class="docutils literal notranslate"><span class="pre">PutBucketReplication</span></code> errors, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of replication-related error codes</a></p>
+<h3>Permissions</h3>
+<p>To create a <code class="docutils literal notranslate"><span class="pre">PutBucketReplication</span></code> request, you must have <code class="docutils literal notranslate"><span class="pre">s3:PutReplicationConfiguration</span></code> permissions for the bucket.</p>
+<p>By default, a resource owner, in this case the Amazon Web Services account that created the bucket, can perform this operation. The resource owner can also grant others permissions to perform the operation. For more information about permissions, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a> and <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>To perform this operation, the user or role performing the action must have the <a class="reference external" href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
+</div>
+<p>The following operations are related to <code class="docutils literal notranslate"><span class="pre">PutBucketReplication</span></code>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a></p></li>
+</ul>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplication">AWS API Documentation</a></p>
+<h3>Request Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put_bucket_replication</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ReplicationConfiguration</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;Role&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Rules&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Priority&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Filter&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Tag&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                    <span class="p">},</span>
+                    <span class="s1">&#39;And&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Tags&#39;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                                <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                            <span class="p">},</span>
+                        <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;Enabled&#39;</span><span class="o">|</span><span class="s1">&#39;Disabled&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Destination&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;Bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;ACCELERATED&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD&#39;</span><span class="o">|</span><span class="s1">&#39;REDUCED_REDUNDANCY&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD_IA&#39;</span><span class="o">|</span><span class="s1">&#39;ONEZONE_IA&#39;</span><span class="o">|</span><span class="s1">&#39;INTELLIGENT_TIERING&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER&#39;</span><span class="o">|</span><span class="s1">&#39;DEEP_ARCHIVE&#39;</span><span class="o">|</span><span class="s1">&#39;OUTPOSTS&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER_IR&#39;</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;DeleteMarkerReplication&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;Enabled&#39;</span><span class="o">|</span><span class="s1">&#39;Disabled&#39;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="n">Token</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ExpectedBucketOwner</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Bucket</strong> (<em>string</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>The name of the bucket</p>
+</p></li>
+<li><p><strong>ReplicationConfiguration</strong> (<em>dict</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
+<ul>
+<li><p><strong>Role</strong> <em>(string) –</em> Not supported by COS</p></li>
+<li><p><strong>Rules</strong> <em>(list) –</em> <strong>[REQUIRED]</strong></p>
+<p>A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>Specifies which Amazon S3 objects to replicate and where to store the replicas.</p>
+<ul>
+<li><p><strong>ID</strong> <em>(string) –</em></p>
+<p>A unique identifier for the rule. The maximum value is 255 characters.</p>
+</li>
+<li><p><strong>Priority</strong> <em>(integer) –</em> <strong>[REQUIRED]</strong></p>
+<p>The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.</p>
+<p>For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <em>Amazon Simple Storage Service Developer Guide</em>.</p>
+</li>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
+<li><p><strong>Filter</strong> <em>(dict) –</em> <strong>[REQUIRED]</strong></p>
+<p>Specifies which Amazon S3 objects to replicate and where to store the replicas.</p>
+<ul>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
+</li>
+<li><p><strong>Tag</strong> <em>(dict) –</em></p>
+<p>A container for specifying a tag key and value.</p>
+<p>The rule applies only to objects that have the tag in their tag set.</p>
+<ul>
+<li><p><strong>Key</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Name of the object key.</p>
+</li>
+<li><p><strong>Value</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Value of the tag.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>And</strong> <em>(dict) –</em></p>
+<p>A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:</p>
+<ul class="simple">
+<li><p>If you specify both a <code class="docutils literal notranslate"><span class="pre">Prefix</span></code> and a <code class="docutils literal notranslate"><span class="pre">Tag</span></code> filter, wrap these filters in an <code class="docutils literal notranslate"><span class="pre">And</span></code> tag.</p></li>
+<li><p>If you specify a filter based on multiple tags, wrap the <code class="docutils literal notranslate"><span class="pre">Tag</span></code> elements in an <code class="docutils literal notranslate"><span class="pre">And</span></code> tag.</p></li>
+</ul>
+<ul>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
+</li>
+<li><p><strong>Tags</strong> <em>(list) –</em></p>
+<p>An array of tags containing key and value pairs.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>A container of a key value name pair.</p>
+<ul>
+<li><p><strong>Key</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Name of the object key.</p>
+</li>
+<li><p><strong>Value</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Value of the tag.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Status</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Specifies whether the rule is enabled.</p>
+</li>
+<li><p><strong>Destination</strong> <em>(dict) –</em> <strong>[REQUIRED]</strong></p>
+<p>A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>
+<ul>
+<li><p><strong>Bucket</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.</p>
+</li>
+<li><p><strong>StorageClass</strong> <em>(string) –</em></p>
+<p>The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.</p>
+<p>For valid values, see the <code class="docutils literal notranslate"><span class="pre">StorageClass</span></code> element of the <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT Bucket replication</a> action in the <em>Amazon Simple Storage Service API Reference</em>.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>DeleteMarkerReplication</strong> <em>(dict) –</em> <strong>[REQUIRED]</strong></p>
+<p>Specifies whether Amazon S3 replicates delete markers. If you specify a <code class="docutils literal notranslate"><span class="pre">Filter</span></code> in your replication configuration, you must also include a <code class="docutils literal notranslate"><span class="pre">DeleteMarkerReplication</span></code> element. If your <code class="docutils literal notranslate"><span class="pre">Filter</span></code> includes a <code class="docutils literal notranslate"><span class="pre">Tag</span></code> element, the <code class="docutils literal notranslate"><span class="pre">DeleteMarkerReplication</span></code> <code class="docutils literal notranslate"><span class="pre">Status</span></code> must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic Rule Configuration</a>.</p>
+<p>For more information about delete marker replication, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html">Basic Rule Configuration</a>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
+</div>
+<ul>
+<li><p><strong>Status</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Indicates whether to replicate delete markers.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>Indicates whether to replicate delete markers.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p></li>
+<li><p><strong>Token</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+<li><p><strong>ExpectedBucketOwner</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<h3>Examples</h3>
+<p>The following example sets replication configuration on a bucket.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put_bucket_replication</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;examplebucket&#39;</span><span class="p">,</span>
+    <span class="n">ReplicationConfiguration</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;Role&#39;</span><span class="p">:</span> <span class="s1">&#39;arn:aws:iam::123456789012:role/examplerole&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Rules&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;Destination&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;Bucket&#39;</span><span class="p">:</span> <span class="s1">&#39;arn:aws:s3:::destinationbucket&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;STANDARD&#39;</span><span class="p">,</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;Enabled&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="put_bucket_tagging.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">put_bucket_tagging</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="put_bucket_protection_configuration.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">put_bucket_protection_configuration</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="../../../../_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="sidebar-div show-div-md justify-content-left">
+            <label class="nav-close-icon" id="toc-menu-close" for="__toc" tabindex="0">
+                <div class="visually-hidden">Toggle site table of content right sidebar</div>
+                <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+            </label>
+        </div>
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">put_bucket_replication</a><ul>
+<li><a class="reference internal" href="#S3.Client.put_bucket_replication"><code class="docutils literal notranslate"><span class="pre">S3.Client.put_bucket_replication()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/furo.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/js/custom.js"></script>
+    </body>
+</html>

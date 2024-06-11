@@ -1,0 +1,11 @@
+:doc:`MultipartUpload <index>` / Identifier / id
+
+**
+id
+**
+
+
+
+.. py:attribute:: S3.MultipartUpload.id
+
+  *(string)* The MultipartUpload's id identifier. This **must** be set.

@@ -1,0 +1,11 @@
+:doc:`BucketProtection <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.BucketProtection.bucket_name
+
+  *(string)* The BucketProtection's bucket_name identifier. This **must** be set.

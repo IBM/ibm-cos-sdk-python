@@ -1,0 +1,176 @@
+:doc:`S3 <../../s3>` / Paginator / ListBucketsExtended
+
+*******************
+ListBucketsExtended
+*******************
+
+
+
+.. py:class:: S3.Paginator.ListBucketsExtended
+
+  ::
+
+    
+    paginator = client.get_paginator('list_buckets_extended')
+
+  
+  
+
+  .. py:method:: paginate(**kwargs)
+
+    Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_buckets_extended`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketsExtended>`_    
+
+
+    **Request Syntax**
+    ::
+
+      response_iterator = paginator.paginate(
+          IBMServiceInstanceId='string',
+          Prefix='string',
+          PaginationConfig={
+              'MaxItems': 123,
+              'PageSize': 123,
+              'StartingToken': 'string'
+          }
+      )
+      
+    :type IBMServiceInstanceId: string
+    :param IBMServiceInstanceId: The owning storage account. All buckets owned by this storage account are returned.
+
+    
+    :type Prefix: string
+    :param Prefix: Limits the response to keys that begin with the specified prefix.
+
+    
+    :type PaginationConfig: dict
+    :param PaginationConfig: 
+
+      A dictionary that provides parameters to control pagination.
+
+      
+
+    
+      - **MaxItems** *(integer) --* 
+
+        The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+
+        
+
+      
+      - **PageSize** *(integer) --* 
+
+        The size of each page.
+
+        
+
+      
+      - **StartingToken** *(string) --* 
+
+        A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+
+        
+
+      
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax**
+
+      
+      ::
+
+        {
+            'IsTruncated': True|False,
+            'NextMarker': 'string',
+            'Buckets': [
+                {
+                    'Name': 'string',
+                    'CreationDate': datetime(2015, 1, 1),
+                    'CreationTemplateId': 'string',
+                    'LocationConstraint': 'au-syd-onerate_active'|'ca-tor-onerate_active'|'br-sao-onerate_active'|'jp-osa-onerate_active'|'jp-tok-onerate_active'|'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-east-onerate_active'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'us-south-onerate_active'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-gb-onerate_active'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'eu-de-onerate_active'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'ams03-onerate_active'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'che01-onerate_active'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'mil01-onerate_active'|'mon01-onerate_active'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'par01-onerate_active'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'sjc04-onerate_active'|'sng01-onerate_active'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
+                },
+            ],
+            'Owner': {
+                'DisplayName': 'string',
+                'ID': 'string'
+            },
+            'NextToken': 'string'
+        }
+        
+      **Response Structure**
+
+      
+
+      - *(dict) --* 
+        
+
+        - **IsTruncated** *(boolean) --* 
+        
+
+        - **NextMarker** *(string) --* 
+        
+
+        - **Buckets** *(list) --* 
+          
+
+          - *(dict) --* 
+
+            In terms of implementation, a Bucket is a resource.
+
+            
+            
+
+            - **Name** *(string) --* 
+
+              The name of the bucket.
+
+              
+            
+
+            - **CreationDate** *(datetime) --* 
+
+              Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.
+
+              
+            
+
+            - **CreationTemplateId** *(string) --* The template identifier applied at bucket creation. IBM COS returns this field only if a template was used.
+            
+
+            - **LocationConstraint** *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+        
+      
+        
+
+        - **Owner** *(dict) --* 
+
+          Container for the owner's display name and ID.
+
+          
+          
+
+          - **DisplayName** *(string) --* 
+
+            Container for the display name of the owner.
+
+            
+          
+
+          - **ID** *(string) --* 
+
+            Container for the ID of the owner.
+
+            
+      
+        
+
+        - **NextToken** *(string) --* 
+
+          A token to resume pagination.
+
+          
+    

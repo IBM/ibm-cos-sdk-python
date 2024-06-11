@@ -1,0 +1,13 @@
+:doc:`Object <index>` / Attribute / retention_expiration_date
+
+*************************
+retention_expiration_date
+*************************
+
+
+
+.. py:attribute:: S3.Object.retention_expiration_date
+
+  
+
+  - *(datetime) --* Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.

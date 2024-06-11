@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / accept_ranges
+
+*************
+accept_ranges
+*************
+
+
+
+.. py:attribute:: S3.Object.accept_ranges
+
+  
+
+  - *(string) --* 
+
+    Indicates that a range of bytes was specified.
+
+    

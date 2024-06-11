@@ -1,0 +1,105 @@
+:doc:`S3 <../../s3>` / Client / get_bucket_protection_configuration
+
+***********************************
+get_bucket_protection_configuration
+***********************************
+
+
+
+.. py:method:: S3.Client.get_bucket_protection_configuration(**kwargs)
+
+  Returns the protection configuration of a bucket.EnablePermanentRetention flag will only be returned if the flag is set to true for a bucket.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketProtectionConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_bucket_protection_configuration(
+        Bucket='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the Amazon S3 bucket whose policy status you want to retrieve.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'ProtectionConfiguration': {
+              'Status': 'Retention',
+              'MinimumRetention': {
+                  'Days': 123
+              },
+              'DefaultRetention': {
+                  'Days': 123
+              },
+              'MaximumRetention': {
+                  'Days': 123
+              },
+              'EnablePermanentRetention': True|False
+          },
+          'IbmProtectionManagementState': 'active'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **ProtectionConfiguration** *(dict) --* 
+        
+
+        - **Status** *(string) --* Retention status of a bucket.
+        
+
+        - **MinimumRetention** *(dict) --* Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.
+          
+
+          - **Days** *(integer) --* 
+      
+        
+
+        - **DefaultRetention** *(dict) --* Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+          
+
+          - **Days** *(integer) --* 
+      
+        
+
+        - **MaximumRetention** *(dict) --* Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+          
+
+          - **Days** *(integer) --* 
+      
+        
+
+        - **EnablePermanentRetention** *(boolean) --* Enable permanent retention for an object.
+    
+      
+
+      - **IbmProtectionManagementState** *(string) --* 
+
+        Indicates whether this bucket has an active protection management state. This header is only included if protection management is activated on a bucket
+
+        
+  

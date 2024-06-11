@@ -1,0 +1,294 @@
+:doc:`S3 <../../s3>` / Client / get_bucket_analytics_configuration
+
+**********************************
+get_bucket_analytics_configuration
+**********************************
+
+
+
+.. py:method:: S3.Client.get_bucket_analytics_configuration(**kwargs)
+
+  
+
+  This implementation of the GET action returns an analytics configuration (identified by the analytics configuration ID) from the bucket.
+
+   
+
+  To use this operation, you must have permissions to perform the ``s3:GetAnalyticsConfiguration`` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  For information about Amazon S3 analytics feature, see `Amazon S3 Analytics – Storage Class Analysis <https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  **Related Resources**
+
+   
+
+  
+  * `DeleteBucketAnalyticsConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html>`__
+   
+  * `ListBucketAnalyticsConfigurations <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html>`__
+   
+  * `PutBucketAnalyticsConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketAnalyticsConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_bucket_analytics_configuration(
+        Bucket='string',
+        Id='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket from which an analytics configuration is retrieved.
+
+    
+
+  
+  :type Id: string
+  :param Id: **[REQUIRED]** 
+
+    The ID that identifies the analytics configuration.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'AnalyticsConfiguration': {
+              'Id': 'string',
+              'Filter': {
+                  'Prefix': 'string',
+                  'Tag': {
+                      'Key': 'string',
+                      'Value': 'string'
+                  },
+                  'And': {
+                      'Prefix': 'string',
+                      'Tags': [
+                          {
+                              'Key': 'string',
+                              'Value': 'string'
+                          },
+                      ]
+                  }
+              },
+              'StorageClassAnalysis': {
+                  'DataExport': {
+                      'OutputSchemaVersion': 'V_1',
+                      'Destination': {
+                          'S3BucketDestination': {
+                              'Format': 'CSV',
+                              'BucketAccountId': 'string',
+                              'Bucket': 'string',
+                              'Prefix': 'string'
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **AnalyticsConfiguration** *(dict) --* 
+
+        The configuration and any analyses for the analytics filter.
+
+        
+        
+
+        - **Id** *(string) --* 
+
+          The ID that identifies the analytics configuration.
+
+          
+        
+
+        - **Filter** *(dict) --* 
+
+          The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+
+          
+          
+
+          - **Prefix** *(string) --* 
+
+            The prefix to use when evaluating an analytics filter.
+
+            
+          
+
+          - **Tag** *(dict) --* 
+
+            The tag to use when evaluating an analytics filter.
+
+            
+            
+
+            - **Key** *(string) --* 
+
+              Name of the object key.
+
+              
+            
+
+            - **Value** *(string) --* 
+
+              Value of the tag.
+
+              
+        
+          
+
+          - **And** *(dict) --* 
+
+            A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
+
+            
+            
+
+            - **Prefix** *(string) --* 
+
+              The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.
+
+              
+            
+
+            - **Tags** *(list) --* 
+
+              The list of tags to use when evaluating an AND predicate.
+
+              
+              
+
+              - *(dict) --* 
+
+                A container of a key value name pair.
+
+                
+                
+
+                - **Key** *(string) --* 
+
+                  Name of the object key.
+
+                  
+                
+
+                - **Value** *(string) --* 
+
+                  Value of the tag.
+
+                  
+            
+          
+        
+      
+        
+
+        - **StorageClassAnalysis** *(dict) --* 
+
+          Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+
+          
+          
+
+          - **DataExport** *(dict) --* 
+
+            Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+
+            
+            
+
+            - **OutputSchemaVersion** *(string) --* 
+
+              The version of the output schema to use when exporting data. Must be ``V_1``.
+
+              
+            
+
+            - **Destination** *(dict) --* 
+
+              The place to store the data for an analysis.
+
+              
+              
+
+              - **S3BucketDestination** *(dict) --* 
+
+                A destination signifying output to an S3 bucket.
+
+                
+                
+
+                - **Format** *(string) --* 
+
+                  Specifies the file format used when exporting data to Amazon S3.
+
+                  
+                
+
+                - **BucketAccountId** *(string) --* 
+
+                  The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+
+                   
+
+                  .. note::
+
+                    
+
+                    Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
+
+                    
+
+                  
+                
+
+                - **Bucket** *(string) --* 
+
+                  The Amazon Resource Name (ARN) of the bucket to which data is exported.
+
+                  
+                
+
+                - **Prefix** *(string) --* 
+
+                  The prefix to use when exporting data. The prefix is prepended to all results.
+
+                  
+            
+          
+        
+      
+    
+  

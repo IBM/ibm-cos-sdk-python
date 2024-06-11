@@ -1,0 +1,82 @@
+:doc:`S3 <../../s3>` / Waiter / BucketNotExists
+
+***************
+BucketNotExists
+***************
+
+
+
+.. py:class:: S3.Waiter.BucketNotExists
+
+  ::
+
+    
+    waiter = client.get_waiter('bucket_not_exists')
+
+  
+  
+
+  .. py:method:: wait(**kwargs)
+
+    Polls :py:meth:`S3.Client.head_bucket` every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/HeadBucket>`_    
+
+
+    **Request Syntax**
+    ::
+
+      waiter.wait(
+          Bucket='string',
+          ExpectedBucketOwner='string',
+          WaiterConfig={
+              'Delay': 123,
+              'MaxAttempts': 123
+          }
+      )
+      
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name.
+
+       
+
+      When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+       
+
+      When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+      
+
+    
+    :type ExpectedBucketOwner: string
+    :param ExpectedBucketOwner: Ignored by COS if present.
+
+    
+    :type WaiterConfig: dict
+    :param WaiterConfig: 
+
+      A dictionary that provides parameters to control waiting behavior.
+
+      
+
+    
+      - **Delay** *(integer) --* 
+
+        The amount of time in seconds to wait between attempts. Default: 5
+
+        
+
+      
+      - **MaxAttempts** *(integer) --* 
+
+        The maximum number of attempts to be made. Default: 20
+
+        
+
+      
+    
+    
+    :returns: None

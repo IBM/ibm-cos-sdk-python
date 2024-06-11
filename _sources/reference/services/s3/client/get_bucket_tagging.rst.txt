@@ -1,0 +1,163 @@
+:doc:`S3 <../../s3>` / Client / get_bucket_tagging
+
+******************
+get_bucket_tagging
+******************
+
+
+
+.. py:method:: S3.Client.get_bucket_tagging(**kwargs)
+
+  
+
+  Returns the tag set associated with the bucket.
+
+   
+
+  To use this operation, you must have permission to perform the ``s3:GetBucketTagging`` action. By default, the bucket owner has this permission and can grant this permission to others.
+
+   
+
+  ``GetBucketTagging`` has the following special error:
+
+   
+
+  
+  * Error code: ``NoSuchTagSet`` 
+
+    
+    * Description: There is no tag set associated with the bucket.
+    
+
+  
+  
+
+   
+
+  The following operations are related to ``GetBucketTagging``:
+
+   
+
+  
+  * `PutBucketTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html>`__
+   
+  * `DeleteBucketTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketTagging>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_bucket_tagging(
+        Bucket='string',
+        ExpectedBucketOwner='string',
+        MirrorDestination='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket for which to get the tagging information.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type MirrorDestination: string
+  :param MirrorDestination: Mirror source for object reads.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'TagSet': [
+              {
+                  'Key': 'string',
+                  'Value': 'string'
+              },
+          ]
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **TagSet** *(list) --* 
+
+        Contains the tag set.
+
+        
+        
+
+        - *(dict) --* 
+
+          A container of a key value name pair.
+
+          
+          
+
+          - **Key** *(string) --* 
+
+            Name of the object key.
+
+            
+          
+
+          - **Value** *(string) --* 
+
+            Value of the tag.
+
+            
+      
+    
+  
+
+  **Examples**
+
+  The following example returns tag set associated with a bucket
+  ::
+
+    response = client.get_bucket_tagging(
+        Bucket='examplebucket',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'TagSet': [
+            {
+                'Key': 'key1',
+                'Value': 'value1',
+            },
+            {
+                'Key': 'key2',
+                'Value': 'value2',
+            },
+        ],
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

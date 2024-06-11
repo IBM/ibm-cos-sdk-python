@@ -1,0 +1,22 @@
+:doc:`ServiceResource <index>` / Sub-Resource / ObjectProtection
+
+****************
+ObjectProtection
+****************
+
+
+
+.. py:method:: S3.ServiceResource.ObjectProtection(bucket_name,object_key)
+
+  Creates a ObjectProtection resource.::
+
+    object_protection = s3.ObjectProtection('bucket_name','object_key')
+
+  :type bucket_name: string
+  :param bucket_name: The ObjectProtection's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The ObjectProtection's object_key identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.ObjectProtection`
+  :returns: A ObjectProtection resource
+  

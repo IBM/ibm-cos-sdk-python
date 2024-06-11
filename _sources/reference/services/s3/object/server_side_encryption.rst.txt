@@ -1,0 +1,27 @@
+:doc:`Object <index>` / Attribute / server_side_encryption
+
+**********************
+server_side_encryption
+**********************
+
+
+
+.. py:attribute:: S3.Object.server_side_encryption
+
+  
+
+  - *(string) --* 
+
+    The server-side encryption algorithm used when you store this object in Amazon S3 (for example, ``AES256``, ``aws:kms``, ``aws:kms:dsse``).
+
+     
+
+    .. note::
+
+      
+
+      For directory buckets, only server-side encryption with Amazon S3 managed keys (SSE-S3) ( ``AES256``) is supported.
+
+      
+
+    

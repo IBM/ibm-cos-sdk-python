@@ -1,0 +1,325 @@
+:doc:`BucketWebsite <index>` / Action / put
+
+***
+put
+***
+
+
+
+.. py:method:: S3.BucketWebsite.put(**kwargs)
+
+  
+
+  Sets the configuration of the website that is specified in the ``website`` subresource. To configure a bucket as a website, you can add this subresource on the bucket with website configuration information such as the file name of the index document and any redirect rules. For more information, see `Hosting Websites on Amazon S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`__.
+
+   
+
+  This PUT action requires the ``S3:PutBucketWebsite`` permission. By default, only the bucket owner can configure the website attached to a bucket; however, bucket owners can allow other users to set the website configuration by writing a bucket policy that grants them the ``S3:PutBucketWebsite`` permission.
+
+   
+
+  To redirect all website requests sent to the bucket's website endpoint, you add a website configuration with the following elements. Because all requests are sent to another website, you don't need to provide index document name for the bucket.
+
+   
+
+  
+  * ``WebsiteConfiguration``
+   
+  * ``RedirectAllRequestsTo``
+   
+  * ``HostName``
+   
+  * ``Protocol``
+  
+
+   
+
+  If you want granular control over redirects, you can use the following elements to add routing rules that describe conditions for redirecting requests and information about the redirect destination. In this case, the website configuration must provide an index document for the bucket, because some requests might not be redirected.
+
+   
+
+  
+  * ``WebsiteConfiguration``
+   
+  * ``IndexDocument``
+   
+  * ``Suffix``
+   
+  * ``ErrorDocument``
+   
+  * ``Key``
+   
+  * ``RoutingRules``
+   
+  * ``RoutingRule``
+   
+  * ``Condition``
+   
+  * ``HttpErrorCodeReturnedEquals``
+   
+  * ``KeyPrefixEquals``
+   
+  * ``Redirect``
+   
+  * ``Protocol``
+   
+  * ``HostName``
+   
+  * ``ReplaceKeyPrefixWith``
+   
+  * ``ReplaceKeyWith``
+   
+  * ``HttpRedirectCode``
+  
+
+   
+
+  Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more than 50 routing rules, you can use object redirect. For more information, see `Configuring an Object Redirect <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html>`__ in the *Amazon S3 User Guide*.
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = bucket_website.put(
+        WebsiteConfiguration={
+            'ErrorDocument': {
+                'Key': 'string'
+            },
+            'IndexDocument': {
+                'Suffix': 'string'
+            },
+            'RedirectAllRequestsTo': {
+                'HostName': 'string',
+                'Protocol': 'http'|'https'
+            },
+            'RoutingRules': [
+                {
+                    'Condition': {
+                        'HttpErrorCodeReturnedEquals': 'string',
+                        'KeyPrefixEquals': 'string'
+                    },
+                    'Redirect': {
+                        'HostName': 'string',
+                        'HttpRedirectCode': 'string',
+                        'Protocol': 'http'|'https',
+                        'ReplaceKeyPrefixWith': 'string',
+                        'ReplaceKeyWith': 'string'
+                    }
+                },
+            ]
+        },
+        ExpectedBucketOwner='string'
+    )
+    
+  :type WebsiteConfiguration: dict
+  :param WebsiteConfiguration: **[REQUIRED]** 
+
+    Container for the request.
+
+    
+
+  
+    - **ErrorDocument** *(dict) --* 
+
+      The name of the error document for the website.
+
+      
+
+    
+      - **Key** *(string) --* **[REQUIRED]** 
+
+        The object key name to use when a 4XX class error occurs.
+
+         
+
+        .. warning::
+
+           
+
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+          
+
+        
+
+      
+    
+    - **IndexDocument** *(dict) --* 
+
+      The name of the index document for the website.
+
+      
+
+    
+      - **Suffix** *(string) --* **[REQUIRED]** 
+
+        A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+
+         
+
+        .. warning::
+
+           
+
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+          
+
+        
+
+      
+    
+    - **RedirectAllRequestsTo** *(dict) --* 
+
+      The redirect behavior for every request to this bucket's website endpoint.
+
+       
+
+      .. warning::
+
+         
+
+        If you specify this property, you can't specify any other property.
+
+        
+
+      
+
+    
+      - **HostName** *(string) --* **[REQUIRED]** 
+
+        Name of the host where requests are redirected.
+
+        
+
+      
+      - **Protocol** *(string) --* 
+
+        Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+        
+
+      
+    
+    - **RoutingRules** *(list) --* 
+
+      Rules that define when a redirect is applied and the redirect behavior.
+
+      
+
+    
+      - *(dict) --* 
+
+        Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see `Configuring advanced conditional redirects <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects>`__ in the *Amazon S3 User Guide*.
+
+        
+
+      
+        - **Condition** *(dict) --* 
+
+          A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+
+          
+
+        
+          - **HttpErrorCodeReturnedEquals** *(string) --* 
+
+            The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+
+            
+
+          
+          - **KeyPrefixEquals** *(string) --* 
+
+            The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``/docs``, which identifies all objects in the ``docs/`` folder. Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+
+             
+
+            .. warning::
+
+               
+
+              Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+              
+
+            
+
+          
+        
+        - **Redirect** *(dict) --* **[REQUIRED]** 
+
+          Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+
+          
+
+        
+          - **HostName** *(string) --* 
+
+            The host name to use in the redirect request.
+
+            
+
+          
+          - **HttpRedirectCode** *(string) --* 
+
+            The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+
+            
+
+          
+          - **Protocol** *(string) --* 
+
+            Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+            
+
+          
+          - **ReplaceKeyPrefixWith** *(string) --* 
+
+            The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/``, you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+
+             
+
+            .. warning::
+
+               
+
+              Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+              
+
+            
+
+          
+          - **ReplaceKeyWith** *(string) --* 
+
+            The specific object key to use in the redirect request. For example, redirect request to ``error.html``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+
+             
+
+            .. warning::
+
+               
+
+              Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+              
+
+            
+
+          
+        
+      
+  
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None

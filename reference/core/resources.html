@@ -1,135 +1,237 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Session reference" href="session.html" /><link rel="prev" title="IBM Boto3 reference" href="ibm_boto3.html" />
 
-<!DOCTYPE html>
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>Resources reference - ibm-cos-sdk 2.13.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    
+    
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
-  <!-- Licensed under the Apache 2.0 License -->
-  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
-  <!-- Licensed under the SIL Open Font License -->
-  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
   
-    <title>Resources reference &#8212; ibm-cos-sdk 2.13.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/guzzle.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Session reference" href="session.html" />
-    <link rel="prev" title="IBM Boto3 reference" href="ibm_boto3.html" />
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
   
-   
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="session.html" title="Session reference"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="ibm_boto3.html" title="IBM Boto3 reference"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Core references</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Resources reference</a></li> 
-      </ul>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
     </div>
-    <div class="container-wrapper">
-
-      <div id="mobile-toggle">
-        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
       </div>
-  <div id="left-column">
-    <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">ibm-cos-sdk 2.13.4 documentation</a><div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <h2>Table Of Contents</h2>
-  </div>
-  <div class="sidebar-toc">
-    
-    
-      <ul>
-<li class="toctree-l1"><a class="reference internal" href="../services/index.html">Available services</a></li>
+      <label class="toc-overlay-icon toc-header-icon" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../services/index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../services/s3.html">S3</a></li>
+</ul>
+</li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core references</a><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Core references</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="boto3.html">ibm-cos-sdk Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="collections.html">Collections reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ibm_boto3.html">IBM Boto3 reference</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Resources reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-ibm_boto3.resources.model">Resource model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ibm_boto3.resources.params">Request parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ibm_boto3.resources.response">Response handlers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ibm_boto3.resources.action">Resource actions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ibm_boto3.resources.base">Resource base</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ibm_boto3.resources.factory">Resource factory</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Resources reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="session.html">Session reference</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../customizations/index.html">Customization references</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
 </ul>
 
-    
-  </div>
-</div>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <div id="main-search">
-      <form class="form-inline" action="../../search.html" method="GET" role="form">
-        <div class="input-group">
-          <input name="q" type="text" class="form-control" placeholder="Search...">
-        </div>
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
-</div>
+</div></div>
+      </div>
       
     </div>
-  </div>
-        <div id="right-column">
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
           
-
-          <div role="navigation" aria-label="breadcrumbs navigation">
-            <ol class="breadcrumb">
-              <li><a href="../../index.html">Docs</a></li>
-              
-                <li><a href="index.html">Core references</a></li>
-              
-              <li>Resources reference</li>
-            </ol>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
           </div>
-          
-<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
-          <div class="document clearer body">
-            
-  <section id="resources-reference">
-<span id="ref-core-resources"></span><h1>Resources reference<a class="headerlink" href="#resources-reference" title="Permalink to this heading">¶</a></h1>
+          <label class="toc-overlay-icon toc-content-icon" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="resources-reference">
+<span id="ref-core-resources"></span><h1>Resources reference<a class="headerlink" href="#resources-reference" title="Permalink to this heading">#</a></h1>
 <section id="module-ibm_boto3.resources.model">
-<span id="resource-model"></span><h2>Resource model<a class="headerlink" href="#module-ibm_boto3.resources.model" title="Permalink to this heading">¶</a></h2>
+<span id="resource-model"></span><h2>Resource model<a class="headerlink" href="#module-ibm_boto3.resources.model" title="Permalink to this heading">#</a></h2>
 <p>The models defined in this file represent the resource JSON description
 format and provide a layer of abstraction from the raw JSON. The advantages
 of this are:</p>
@@ -141,7 +243,7 @@ of this are:</p>
 classes as well as by the documentation generator.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Action">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Action" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Action" title="Permalink to this definition">#</a></dt>
 <dd><p>A service operation action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -154,25 +256,25 @@ classes as well as by the documentation generator.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Action.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the action</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Action.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.path" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.path" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The JMESPath search path or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Action.request">
-<span class="sig-name descname"><span class="pre">request</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">request</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.request" title="Permalink to this definition">#</a></dt>
 <dd><p>(<a class="reference internal" href="#ibm_boto3.resources.model.Request" title="ibm_boto3.resources.model.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>) This action’s request or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Action.resource">
-<span class="sig-name descname"><span class="pre">resource</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.resource" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resource</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Action.resource" title="Permalink to this definition">#</a></dt>
 <dd><p>(<a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource" title="ibm_boto3.resources.model.ResponseResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResponseResource</span></code></a>) This action’s resource or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
@@ -180,7 +282,7 @@ classes as well as by the documentation generator.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Collection">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Collection" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Collection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Collection" title="Permalink to this definition">#</a></dt>
 <dd><p>A group of resources. See <a class="reference internal" href="#ibm_boto3.resources.model.Action" title="ibm_boto3.resources.model.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -193,7 +295,7 @@ classes as well as by the documentation generator.</p>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Collection.batch_actions">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">batch_actions</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.batch_actions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">batch_actions</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.batch_actions" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of batch actions supported by the resource type
 contained in this action. This is a shortcut for accessing
 the same information through the resource model.</p>
@@ -206,25 +308,25 @@ the same information through the resource model.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Collection.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the action</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Collection.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.path" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.path" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The JMESPath search path or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Collection.request">
-<span class="sig-name descname"><span class="pre">request</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.request" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">request</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.request" title="Permalink to this definition">#</a></dt>
 <dd><p>(<a class="reference internal" href="#ibm_boto3.resources.model.Request" title="ibm_boto3.resources.model.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>) This action’s request or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Collection.resource">
-<span class="sig-name descname"><span class="pre">resource</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.resource" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resource</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Collection.resource" title="Permalink to this definition">#</a></dt>
 <dd><p>(<a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource" title="ibm_boto3.resources.model.ResponseResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResponseResource</span></code></a>) This action’s resource or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
@@ -232,7 +334,7 @@ the same information through the resource model.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.DefinitionWithParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">DefinitionWithParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#DefinitionWithParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.DefinitionWithParams" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">DefinitionWithParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#DefinitionWithParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.DefinitionWithParams" title="Permalink to this definition">#</a></dt>
 <dd><p>An item which has parameters exposed via the <code class="docutils literal notranslate"><span class="pre">params</span></code> property.
 A request has an operation and parameters, while a waiter has
 a name, a low-level waiter name and parameters.</p>
@@ -243,7 +345,7 @@ a name, a low-level waiter name and parameters.</p>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.DefinitionWithParams.params">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#ibm_boto3.resources.model.DefinitionWithParams.params" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#ibm_boto3.resources.model.DefinitionWithParams.params" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of auto-filled parameters for this request.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -256,7 +358,7 @@ a name, a low-level waiter name and parameters.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Identifier">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">member_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Identifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Identifier" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Identifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">member_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Identifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Identifier" title="Permalink to this definition">#</a></dt>
 <dd><p>A resource identifier, given by its name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -265,7 +367,7 @@ a name, a low-level waiter name and parameters.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Identifier.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Identifier.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Identifier.name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the identifier</p>
 </dd></dl>
 
@@ -273,7 +375,7 @@ a name, a low-level waiter name and parameters.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Parameter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Parameter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Parameter" title="Permalink to this definition">#</a></dt>
 <dd><p>An auto-filled parameter which has a source and target. For example,
 the <code class="docutils literal notranslate"><span class="pre">QueueUrl</span></code> may be auto-filled from a resource’s <code class="docutils literal notranslate"><span class="pre">url</span></code> identifier
 when making calls to <code class="docutils literal notranslate"><span class="pre">queue.receive_messages</span></code>.</p>
@@ -288,31 +390,31 @@ when making calls to <code class="docutils literal notranslate"><span class="pre
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Parameter.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the source, if given</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Parameter.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.path" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.path" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The JMESPath query of the source</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Parameter.source">
-<span class="sig-name descname"><span class="pre">source</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.source" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">source</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.source" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) Where the source is defined</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Parameter.target">
-<span class="sig-name descname"><span class="pre">target</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.target" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">target</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.target" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The destination parameter name</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Parameter.value">
-<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Parameter.value" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string|int|float|bool</span></code>) The source constant value</p>
 </dd></dl>
 
@@ -320,7 +422,7 @@ when making calls to <code class="docutils literal notranslate"><span class="pre
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Request">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Request" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Request" title="Permalink to this definition">#</a></dt>
 <dd><p>A service operation action request.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -329,13 +431,13 @@ when making calls to <code class="docutils literal notranslate"><span class="pre
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Request.operation">
-<span class="sig-name descname"><span class="pre">operation</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Request.operation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">operation</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Request.operation" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the low-level service operation</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Request.params">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Request.params" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Request.params" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of auto-filled parameters for this request.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -348,7 +450,7 @@ when making calls to <code class="docutils literal notranslate"><span class="pre
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">ResourceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">ResourceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel" title="Permalink to this definition">#</a></dt>
 <dd><p>A model representing a resource, defined via a JSON description
 format. A resource has identifiers, attributes, actions,
 sub-resources, references and collections. For more information
@@ -364,7 +466,7 @@ on resources, see <span class="xref std std-ref">guide_resources</span>.</p>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.actions">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.actions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.actions" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of actions for this resource.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -375,7 +477,7 @@ on resources, see <span class="xref std std-ref">guide_resources</span>.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.batch_actions">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">batch_actions</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.batch_actions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">batch_actions</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.batch_actions" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of batch actions for this resource.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -386,7 +488,7 @@ on resources, see <span class="xref std std-ref">guide_resources</span>.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.collections">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">collections</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.collections" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">collections</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.collections" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of collections for this resource.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -397,7 +499,7 @@ on resources, see <span class="xref std std-ref">guide_resources</span>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.get_attributes">
-<span class="sig-name descname"><span class="pre">get_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel.get_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.get_attributes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_attributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel.get_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.get_attributes" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a dictionary of attribute names to original name and shape
 models that represent the attributes of this resource. Looks
 like the following:</p>
@@ -423,7 +525,7 @@ like the following:</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.identifiers">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifiers</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.identifiers" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifiers</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.identifiers" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of resource identifiers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -434,7 +536,7 @@ like the following:</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.load">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.load" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.load" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the load action for this resource, if it is defined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -445,7 +547,7 @@ like the following:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.load_rename_map">
-<span class="sig-name descname"><span class="pre">load_rename_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel.load_rename_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.load_rename_map" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_rename_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResourceModel.load_rename_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.load_rename_map" title="Permalink to this definition">#</a></dt>
 <dd><p>Load a name translation map given a shape. This will set
 up renamed values for any collisions, e.g. if the shape,
 an action, and a subresource all are all named <code class="docutils literal notranslate"><span class="pre">foo</span></code>
@@ -486,13 +588,13 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of this resource</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.references">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">references</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.references" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">references</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.references" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of reference resources.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -503,13 +605,13 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.shape">
-<span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.shape" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.shape" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The service shape name for this resource or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.subresources">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subresources</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.subresources" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subresources</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.subresources" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of sub-resources.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -520,7 +622,7 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResourceModel.waiters">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">waiters</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.waiters" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">waiters</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResourceModel.waiters" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of waiters for this resource.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -533,7 +635,7 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResponseResource">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">ResponseResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResponseResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">ResponseResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_defs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#ResponseResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource" title="Permalink to this definition">#</a></dt>
 <dd><p>A resource response to create after performing an action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -545,7 +647,7 @@ are unlikely to collide with anything but other subresources.</p>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResponseResource.identifiers">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifiers</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.identifiers" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identifiers</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.identifiers" title="Permalink to this definition">#</a></dt>
 <dd><p>A list of resource identifiers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -556,7 +658,7 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResponseResource.model">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.model" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the resource model for the response resource.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -567,13 +669,13 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResponseResource.path">
-<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.path" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.path" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The JMESPath search query or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.ResponseResource.type">
-<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#ibm_boto3.resources.model.ResponseResource.type" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the response resource type</p>
 </dd></dl>
 
@@ -581,7 +683,7 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Waiter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Waiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Waiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Waiter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.model.</span></span><span class="sig-name descname"><span class="pre">Waiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">definition</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/model.html#Waiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.model.Waiter" title="Permalink to this definition">#</a></dt>
 <dd><p>An event waiter specification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -593,18 +695,18 @@ are unlikely to collide with anything but other subresources.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Waiter.PREFIX">
-<span class="sig-name descname"><span class="pre">PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WaitUntil'</span></em><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.PREFIX" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WaitUntil'</span></em><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.PREFIX" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Waiter.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of this waiter</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Waiter.params">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.params" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.params" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a list of auto-filled parameters for this request.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -615,7 +717,7 @@ are unlikely to collide with anything but other subresources.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.model.Waiter.waiter_name">
-<span class="sig-name descname"><span class="pre">waiter_name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.waiter_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">waiter_name</span></span><a class="headerlink" href="#ibm_boto3.resources.model.Waiter.waiter_name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The name of the underlying event waiter</p>
 </dd></dl>
 
@@ -623,10 +725,10 @@ are unlikely to collide with anything but other subresources.</p>
 
 </section>
 <section id="module-ibm_boto3.resources.params">
-<span id="request-parameters"></span><h2>Request parameters<a class="headerlink" href="#module-ibm_boto3.resources.params" title="Permalink to this heading">¶</a></h2>
+<span id="request-parameters"></span><h2>Request parameters<a class="headerlink" href="#module-ibm_boto3.resources.params" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="ibm_boto3.resources.params.build_param_structure">
-<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.params.</span></span><span class="sig-name descname"><span class="pre">build_param_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/params.html#build_param_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.params.build_param_structure" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.params.</span></span><span class="sig-name descname"><span class="pre">build_param_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/params.html#build_param_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.params.build_param_structure" title="Permalink to this definition">#</a></dt>
 <dd><p>This method provides a basic reverse JMESPath implementation that
 lets you go from a JMESPath-like string to a possibly deeply nested
 object. The <code class="docutils literal notranslate"><span class="pre">params</span></code> are mutated in-place, so subsequent calls
@@ -645,7 +747,7 @@ can modify the same element by its index.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibm_boto3.resources.params.create_request_parameters">
-<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.params.</span></span><span class="sig-name descname"><span class="pre">create_request_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/params.html#create_request_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.params.create_request_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.params.</span></span><span class="sig-name descname"><span class="pre">create_request_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/params.html#create_request_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.params.create_request_parameters" title="Permalink to this definition">#</a></dt>
 <dd><p>Handle request parameters that can be filled in from identifiers,
 resource data members or constants.</p>
 <p>By passing <code class="docutils literal notranslate"><span class="pre">params</span></code>, you can invoke this method multiple times and
@@ -654,7 +756,7 @@ for reverse JMESPath expressions that append to lists.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parent</strong> (<a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which this action is attached.</p></li>
+<li><p><strong>parent</strong> (<a class="reference internal" href="../services/s3/service-resource/index.html#S3.ServiceResource" title="S3.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which this action is attached.</p></li>
 <li><p><strong>request_model</strong> (<a class="reference internal" href="#ibm_boto3.resources.model.Request" title="ibm_boto3.resources.model.Request"><code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></a>) – The action request model.</p></li>
 <li><p><strong>params</strong> (<em>dict</em>) – If set, then add to this existing dict. It is both
 edited in-place and returned.</p></li>
@@ -672,14 +774,14 @@ edited in-place and returned.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibm_boto3.resources.params.get_data_member">
-<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.params.</span></span><span class="sig-name descname"><span class="pre">get_data_member</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/params.html#get_data_member"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.params.get_data_member" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.params.</span></span><span class="sig-name descname"><span class="pre">get_data_member</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/params.html#get_data_member"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.params.get_data_member" title="Permalink to this definition">#</a></dt>
 <dd><p>Get a data member from a parent using a JMESPath search query,
 loading the parent if required. If the parent cannot be loaded
 and no data is present then an exception is raised.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parent</strong> (<a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which contains data we
+<li><p><strong>parent</strong> (<a class="reference internal" href="../services/s3/service-resource/index.html#S3.ServiceResource" title="S3.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which contains data we
 are interested in.</p></li>
 <li><p><strong>path</strong> (<em>string</em>) – The JMESPath expression to query</p></li>
 </ul>
@@ -696,10 +798,10 @@ resource cannot be loaded.</p>
 
 </section>
 <section id="module-ibm_boto3.resources.response">
-<span id="response-handlers"></span><h2>Response handlers<a class="headerlink" href="#module-ibm_boto3.resources.response" title="Permalink to this heading">¶</a></h2>
+<span id="response-handlers"></span><h2>Response handlers<a class="headerlink" href="#module-ibm_boto3.resources.response" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.response.RawHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">RawHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#RawHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.RawHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">RawHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#RawHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.RawHandler" title="Permalink to this definition">#</a></dt>
 <dd><p>A raw action response handler. This passed through the response
 dictionary, optionally after performing a JMESPath search if one
 has been defined for the action.</p>
@@ -718,7 +820,7 @@ has been defined for the action.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.response.ResourceHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">ResourceHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#ResourceHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.ResourceHandler" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">ResourceHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#ResourceHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.ResourceHandler" title="Permalink to this definition">#</a></dt>
 <dd><p>Creates a new resource or list of new resources from the low-level
 response based on the given response resource definition.</p>
 <dl class="field-list simple">
@@ -734,7 +836,7 @@ exists.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource">ServiceResource</a> or list</p>
+<dd class="field-even"><p><a class="reference internal" href="../services/s3/service-resource/index.html#S3.ServiceResource" title="S3.ServiceResource">ServiceResource</a> or list</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>New resource instance(s).</p>
@@ -742,20 +844,20 @@ exists.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ibm_boto3.resources.response.ResourceHandler.handle_response_item">
-<span class="sig-name descname"><span class="pre">handle_response_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifiers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#ResourceHandler.handle_response_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.ResourceHandler.handle_response_item" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">handle_response_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifiers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#ResourceHandler.handle_response_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.ResourceHandler.handle_response_item" title="Permalink to this definition">#</a></dt>
 <dd><p>Handles the creation of a single response item by setting
 parameters and creating the appropriate resource instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>resource_cls</strong> (<em>ServiceResource subclass</em>) – The resource class to instantiate.</p></li>
-<li><p><strong>parent</strong> (<a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which this action is attached.</p></li>
+<li><p><strong>parent</strong> (<a class="reference internal" href="../services/s3/service-resource/index.html#S3.ServiceResource" title="S3.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which this action is attached.</p></li>
 <li><p><strong>identifiers</strong> (<em>dict</em>) – Map of identifier names to value or values.</p></li>
 <li><p><strong>resource_data</strong> (<em>dict</em><em> or </em><em>None</em>) – Data for resource attributes.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource">ServiceResource</a></p>
+<dd class="field-even"><p><a class="reference internal" href="../services/s3/service-resource/index.html#S3.ServiceResource" title="S3.ServiceResource">ServiceResource</a></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>New resource instance.</p>
@@ -767,7 +869,7 @@ parameters and creating the appropriate resource instance.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibm_boto3.resources.response.all_not_none">
-<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">all_not_none</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#all_not_none"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.all_not_none" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">all_not_none</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#all_not_none"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.all_not_none" title="Permalink to this definition">#</a></dt>
 <dd><p>Return True if all elements of the iterable are not None (or if the
 iterable is empty). This is like the built-in <code class="docutils literal notranslate"><span class="pre">all</span></code>, except checks
 against None, so 0 and False are allowable values.</p>
@@ -775,7 +877,7 @@ against None, so 0 and False are allowable values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibm_boto3.resources.response.build_empty_response">
-<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">build_empty_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#build_empty_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.build_empty_response" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">build_empty_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operation_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#build_empty_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.build_empty_response" title="Permalink to this definition">#</a></dt>
 <dd><p>Creates an appropriate empty response for the type that is expected,
 based on the service model’s shape type. For example, a value that
 is normally a list would then return an empty list. A structure would
@@ -799,7 +901,7 @@ return an empty dict, and a number would return None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibm_boto3.resources.response.build_identifiers">
-<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">build_identifiers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifiers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#build_identifiers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.build_identifiers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.response.</span></span><span class="sig-name descname"><span class="pre">build_identifiers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">identifiers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_response</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/response.html#build_identifiers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.response.build_identifiers" title="Permalink to this definition">#</a></dt>
 <dd><p>Builds a mapping of identifier names to values based on the
 identifier source location, type, and target. Identifier
 values may be scalars or lists depending on the source type
@@ -809,7 +911,7 @@ and location.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>identifiers</strong> (<em>list</em>) – List of <a class="reference internal" href="#ibm_boto3.resources.model.Parameter" title="ibm_boto3.resources.model.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>
 definitions</p></li>
-<li><p><strong>parent</strong> (<a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which this action is attached.</p></li>
+<li><p><strong>parent</strong> (<a class="reference internal" href="../services/s3/service-resource/index.html#S3.ServiceResource" title="S3.ServiceResource"><em>ServiceResource</em></a>) – The resource instance to which this action is attached.</p></li>
 <li><p><strong>params</strong> (<em>dict</em>) – Request parameters sent to the service.</p></li>
 <li><p><strong>raw_response</strong> (<em>dict</em>) – Low-level operation response.</p></li>
 </ul>
@@ -825,10 +927,10 @@ definitions</p></li>
 
 </section>
 <section id="module-ibm_boto3.resources.action">
-<span id="resource-actions"></span><h2>Resource actions<a class="headerlink" href="#module-ibm_boto3.resources.action" title="Permalink to this heading">¶</a></h2>
+<span id="resource-actions"></span><h2>Resource actions<a class="headerlink" href="#module-ibm_boto3.resources.action" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.action.BatchAction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">BatchAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#BatchAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.BatchAction" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">BatchAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#BatchAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.BatchAction" title="Permalink to this definition">#</a></dt>
 <dd><p>An action which operates on a batch of items in a collection, typically
 a single page of results from the collection’s underlying service
 operation call. For example, this allows you to delete up to 999
@@ -848,7 +950,7 @@ this action is attached.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.action.CustomModeledAction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">CustomModeledAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_emitter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#CustomModeledAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.CustomModeledAction" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">CustomModeledAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_emitter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#CustomModeledAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.CustomModeledAction" title="Permalink to this definition">#</a></dt>
 <dd><p>A custom, modeled action to inject into a resource.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -866,14 +968,14 @@ the function is to be called on.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ibm_boto3.resources.action.CustomModeledAction.inject">
-<span class="sig-name descname"><span class="pre">inject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_attributes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#CustomModeledAction.inject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.CustomModeledAction.inject" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_attributes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#CustomModeledAction.inject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.CustomModeledAction.inject" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.action.ServiceAction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">ServiceAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#ServiceAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.ServiceAction" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">ServiceAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#ServiceAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.ServiceAction" title="Permalink to this definition">#</a></dt>
 <dd><p>A class representing a callable action on a resource, for example
 <code class="docutils literal notranslate"><span class="pre">sqs.get_queue_by_name(...)</span></code> or <code class="docutils literal notranslate"><span class="pre">s3.Bucket('foo').delete()</span></code>.
 The action may construct parameters from existing resource identifiers
@@ -892,7 +994,7 @@ this action is attached.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.action.WaiterAction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">WaiterAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waiter_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waiter_resource_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#WaiterAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.WaiterAction" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.action.</span></span><span class="sig-name descname"><span class="pre">WaiterAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waiter_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waiter_resource_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/action.html#WaiterAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.action.WaiterAction" title="Permalink to this definition">#</a></dt>
 <dd><p>A class representing a callable waiter action on a resource, for example
 <code class="docutils literal notranslate"><span class="pre">s3.Bucket('foo').wait_until_bucket_exists()</span></code>.
 The waiter action may construct parameters from existing resource
@@ -911,38 +1013,38 @@ resource. It usually begins with a
 
 </section>
 <section id="module-ibm_boto3.resources.base">
-<span id="resource-base"></span><h2>Resource base<a class="headerlink" href="#module-ibm_boto3.resources.base" title="Permalink to this heading">¶</a></h2>
+<span id="resource-base"></span><h2>Resource base<a class="headerlink" href="#module-ibm_boto3.resources.base" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ResourceMeta">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.base.</span></span><span class="sig-name descname"><span class="pre">ResourceMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/base.html#ResourceMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.base.</span></span><span class="sig-name descname"><span class="pre">ResourceMeta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/base.html#ResourceMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta" title="Permalink to this definition">#</a></dt>
 <dd><p>An object containing metadata about a resource.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ResourceMeta.client">
-<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.client" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.client" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClient</span></code>) Low-level Botocore client</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ResourceMeta.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/base.html#ResourceMeta.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.copy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/base.html#ResourceMeta.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.copy" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a copy of this metadata object.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ResourceMeta.data">
-<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.data" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">dict</span></code>) Loaded resource data attributes</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ResourceMeta.identifiers">
-<span class="sig-name descname"><span class="pre">identifiers</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.identifiers" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">identifiers</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.identifiers" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">list</span></code>) List of identifier names</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ResourceMeta.service_name">
-<span class="sig-name descname"><span class="pre">service_name</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.service_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">service_name</span></span><a class="headerlink" href="#ibm_boto3.resources.base.ResourceMeta.service_name" title="Permalink to this definition">#</a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">string</span></code>) The service name, e.g. ‘s3’</p>
 </dd></dl>
 
@@ -950,7 +1052,7 @@ resource. It usually begins with a
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ServiceResource">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.base.</span></span><span class="sig-name descname"><span class="pre">ServiceResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/base.html#ServiceResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.base.ServiceResource" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.base.</span></span><span class="sig-name descname"><span class="pre">ServiceResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/base.html#ServiceResource"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.base.ServiceResource" title="Permalink to this definition">#</a></dt>
 <dd><p>A base class for resources.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -959,7 +1061,7 @@ resource. It usually begins with a
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.resources.base.ServiceResource.meta">
-<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ibm_boto3.resources.base.ServiceResource.meta" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ibm_boto3.resources.base.ServiceResource.meta" title="Permalink to this definition">#</a></dt>
 <dd><p>Stores metadata about this resource instance, such as the
 <code class="docutils literal notranslate"><span class="pre">service_name</span></code>, the low-level <code class="docutils literal notranslate"><span class="pre">client</span></code> and any cached <code class="docutils literal notranslate"><span class="pre">data</span></code>
 from when the instance was hydrated. For example:</p>
@@ -978,10 +1080,10 @@ from when the instance was hydrated. For example:</p>
 
 </section>
 <section id="module-ibm_boto3.resources.factory">
-<span id="resource-factory"></span><h2>Resource factory<a class="headerlink" href="#module-ibm_boto3.resources.factory" title="Permalink to this heading">¶</a></h2>
+<span id="resource-factory"></span><h2>Resource factory<a class="headerlink" href="#module-ibm_boto3.resources.factory" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ibm_boto3.resources.factory.ResourceFactory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.factory.</span></span><span class="sig-name descname"><span class="pre">ResourceFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emitter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/factory.html#ResourceFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.factory.ResourceFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.resources.factory.</span></span><span class="sig-name descname"><span class="pre">ResourceFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emitter</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/factory.html#ResourceFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.factory.ResourceFactory" title="Permalink to this definition">#</a></dt>
 <dd><p>A factory to create new <a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceResource</span></code></a>
 classes from a <a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel" title="ibm_boto3.resources.model.ResourceModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceModel</span></code></a>. There are
 two types of lookups that can be done: one on the service itself (e.g. an
@@ -989,7 +1091,7 @@ SQS resource) and another on models contained within the service (e.g. an
 SQS Queue resource).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ibm_boto3.resources.factory.ResourceFactory.load_from_definition">
-<span class="sig-name descname"><span class="pre">load_from_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_resource_json_definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/factory.html#ResourceFactory.load_from_definition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.factory.ResourceFactory.load_from_definition" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_from_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_resource_json_definition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/resources/factory.html#ResourceFactory.load_from_definition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.resources.factory.ResourceFactory.load_from_definition" title="Permalink to this definition">#</a></dt>
 <dd><p>Loads a resource from a model, creating a new
 <a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource" title="ibm_boto3.resources.base.ServiceResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceResource</span></code></a> subclass
 with the correct properties and methods, named based on the service
@@ -1018,56 +1120,225 @@ definition.</p></li>
 </section>
 </section>
 
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="session.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Session reference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="ibm_boto3.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">IBM Boto3 reference</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="../../_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="sidebar-div show-div-md justify-content-left">
+            <label class="nav-close-icon" id="toc-menu-close" for="__toc" tabindex="0">
+                <div class="visually-hidden">Toggle site table of content right sidebar</div>
+                <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+            </label>
+        </div>
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Resources reference</a><ul>
+<li><a class="reference internal" href="#module-ibm_boto3.resources.model">Resource model</a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Action"><code class="docutils literal notranslate"><span class="pre">Action</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Action.name"><code class="docutils literal notranslate"><span class="pre">Action.name</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Action.path"><code class="docutils literal notranslate"><span class="pre">Action.path</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Action.request"><code class="docutils literal notranslate"><span class="pre">Action.request</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Action.resource"><code class="docutils literal notranslate"><span class="pre">Action.resource</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Collection"><code class="docutils literal notranslate"><span class="pre">Collection</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Collection.batch_actions"><code class="docutils literal notranslate"><span class="pre">Collection.batch_actions</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Collection.name"><code class="docutils literal notranslate"><span class="pre">Collection.name</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Collection.path"><code class="docutils literal notranslate"><span class="pre">Collection.path</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Collection.request"><code class="docutils literal notranslate"><span class="pre">Collection.request</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Collection.resource"><code class="docutils literal notranslate"><span class="pre">Collection.resource</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.DefinitionWithParams"><code class="docutils literal notranslate"><span class="pre">DefinitionWithParams</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.DefinitionWithParams.params"><code class="docutils literal notranslate"><span class="pre">DefinitionWithParams.params</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Identifier"><code class="docutils literal notranslate"><span class="pre">Identifier</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Identifier.name"><code class="docutils literal notranslate"><span class="pre">Identifier.name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Parameter"><code class="docutils literal notranslate"><span class="pre">Parameter</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Parameter.name"><code class="docutils literal notranslate"><span class="pre">Parameter.name</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Parameter.path"><code class="docutils literal notranslate"><span class="pre">Parameter.path</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Parameter.source"><code class="docutils literal notranslate"><span class="pre">Parameter.source</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Parameter.target"><code class="docutils literal notranslate"><span class="pre">Parameter.target</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Parameter.value"><code class="docutils literal notranslate"><span class="pre">Parameter.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Request"><code class="docutils literal notranslate"><span class="pre">Request</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Request.operation"><code class="docutils literal notranslate"><span class="pre">Request.operation</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Request.params"><code class="docutils literal notranslate"><span class="pre">Request.params</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel"><code class="docutils literal notranslate"><span class="pre">ResourceModel</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.actions"><code class="docutils literal notranslate"><span class="pre">ResourceModel.actions</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.batch_actions"><code class="docutils literal notranslate"><span class="pre">ResourceModel.batch_actions</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.collections"><code class="docutils literal notranslate"><span class="pre">ResourceModel.collections</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.get_attributes"><code class="docutils literal notranslate"><span class="pre">ResourceModel.get_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.identifiers"><code class="docutils literal notranslate"><span class="pre">ResourceModel.identifiers</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.load"><code class="docutils literal notranslate"><span class="pre">ResourceModel.load</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.load_rename_map"><code class="docutils literal notranslate"><span class="pre">ResourceModel.load_rename_map()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.name"><code class="docutils literal notranslate"><span class="pre">ResourceModel.name</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.references"><code class="docutils literal notranslate"><span class="pre">ResourceModel.references</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.shape"><code class="docutils literal notranslate"><span class="pre">ResourceModel.shape</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.subresources"><code class="docutils literal notranslate"><span class="pre">ResourceModel.subresources</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResourceModel.waiters"><code class="docutils literal notranslate"><span class="pre">ResourceModel.waiters</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource"><code class="docutils literal notranslate"><span class="pre">ResponseResource</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource.identifiers"><code class="docutils literal notranslate"><span class="pre">ResponseResource.identifiers</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource.model"><code class="docutils literal notranslate"><span class="pre">ResponseResource.model</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource.path"><code class="docutils literal notranslate"><span class="pre">ResponseResource.path</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.ResponseResource.type"><code class="docutils literal notranslate"><span class="pre">ResponseResource.type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Waiter"><code class="docutils literal notranslate"><span class="pre">Waiter</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Waiter.PREFIX"><code class="docutils literal notranslate"><span class="pre">Waiter.PREFIX</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Waiter.name"><code class="docutils literal notranslate"><span class="pre">Waiter.name</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Waiter.params"><code class="docutils literal notranslate"><span class="pre">Waiter.params</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.model.Waiter.waiter_name"><code class="docutils literal notranslate"><span class="pre">Waiter.waiter_name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ibm_boto3.resources.params">Request parameters</a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.params.build_param_structure"><code class="docutils literal notranslate"><span class="pre">build_param_structure()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.params.create_request_parameters"><code class="docutils literal notranslate"><span class="pre">create_request_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.params.get_data_member"><code class="docutils literal notranslate"><span class="pre">get_data_member()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ibm_boto3.resources.response">Response handlers</a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.response.RawHandler"><code class="docutils literal notranslate"><span class="pre">RawHandler</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.response.ResourceHandler"><code class="docutils literal notranslate"><span class="pre">ResourceHandler</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.response.ResourceHandler.handle_response_item"><code class="docutils literal notranslate"><span class="pre">ResourceHandler.handle_response_item()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.response.all_not_none"><code class="docutils literal notranslate"><span class="pre">all_not_none()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.response.build_empty_response"><code class="docutils literal notranslate"><span class="pre">build_empty_response()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.response.build_identifiers"><code class="docutils literal notranslate"><span class="pre">build_identifiers()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ibm_boto3.resources.action">Resource actions</a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.action.BatchAction"><code class="docutils literal notranslate"><span class="pre">BatchAction</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.action.CustomModeledAction"><code class="docutils literal notranslate"><span class="pre">CustomModeledAction</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.action.CustomModeledAction.inject"><code class="docutils literal notranslate"><span class="pre">CustomModeledAction.inject()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.action.ServiceAction"><code class="docutils literal notranslate"><span class="pre">ServiceAction</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.action.WaiterAction"><code class="docutils literal notranslate"><span class="pre">WaiterAction</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ibm_boto3.resources.base">Resource base</a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta"><code class="docutils literal notranslate"><span class="pre">ResourceMeta</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta.client"><code class="docutils literal notranslate"><span class="pre">ResourceMeta.client</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta.copy"><code class="docutils literal notranslate"><span class="pre">ResourceMeta.copy()</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta.data"><code class="docutils literal notranslate"><span class="pre">ResourceMeta.data</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta.identifiers"><code class="docutils literal notranslate"><span class="pre">ResourceMeta.identifiers</span></code></a></li>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ResourceMeta.service_name"><code class="docutils literal notranslate"><span class="pre">ResourceMeta.service_name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource"><code class="docutils literal notranslate"><span class="pre">ServiceResource</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.base.ServiceResource.meta"><code class="docutils literal notranslate"><span class="pre">ServiceResource.meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-ibm_boto3.resources.factory">Resource factory</a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.factory.ResourceFactory"><code class="docutils literal notranslate"><span class="pre">ResourceFactory</span></code></a><ul>
+<li><a class="reference internal" href="#ibm_boto3.resources.factory.ResourceFactory.load_from_definition"><code class="docutils literal notranslate"><span class="pre">ResourceFactory.load_from_definition()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
           </div>
-            
-  <div class="footer-relations">
-    
-      <div class="pull-left">
-        <a class="btn btn-default" href="ibm_boto3.html" title="previous chapter (use the left arrow)">IBM Boto3 reference</a>
-      </div>
-    
-      <div class="pull-right">
-        <a class="btn btn-default" href="session.html" title="next chapter (use the right arrow)">Session reference</a>
-      </div>
-    </div>
-    <div class="clearer"></div>
-  
         </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="session.html" title="Session reference"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ibm_boto3.html" title="IBM Boto3 reference"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Core references</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Resources reference</a></li> 
-      </ul>
-    </div>
-<div class="footer">
-    <script type="text/javascript" src="../../_static/shortbreadv1.js"></script>
-    <script type="text/javascript">
-            const shortbread = AWSCShortbread({
-                domain: ".amazonaws.com",  // Review this
-});
-            shortbread.checkForCookieConsent();
-    </script>
-    <!--Review links below-->
-    <a href="http://aws.amazon.com/privacy">Privacy</a> | <a href="http://aws.amazon.com/terms">Site Terms</a> | <a
-        href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a> |
-    &copy; Copyright 2021 IBM. Created using <a href="https://www.sphinx-doc.org/">Sphinx</a>.
-</div>
-  </body>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/furo.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/js/custom.js"></script>
+    </body>
 </html>

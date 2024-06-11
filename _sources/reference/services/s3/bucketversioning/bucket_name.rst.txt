@@ -1,0 +1,11 @@
+:doc:`BucketVersioning <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.BucketVersioning.bucket_name
+
+  *(string)* The BucketVersioning's bucket_name identifier. This **must** be set.

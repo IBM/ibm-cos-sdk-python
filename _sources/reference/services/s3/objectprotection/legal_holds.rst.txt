@@ -1,0 +1,23 @@
+:doc:`ObjectProtection <index>` / Attribute / legal_holds
+
+***********
+legal_holds
+***********
+
+
+
+.. py:attribute:: S3.ObjectProtection.legal_holds
+
+  
+
+  - *(list) --* 
+    
+
+    - *(dict) --* 
+      
+
+      - **Date** *(datetime) --* 
+      
+
+      - **ID** *(string) --* 
+  

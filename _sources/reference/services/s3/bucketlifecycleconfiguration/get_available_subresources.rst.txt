@@ -1,0 +1,17 @@
+:doc:`BucketLifecycleConfiguration <index>` / Action / get_available_subresources
+
+**************************
+get_available_subresources
+**************************
+
+
+
+.. py:method:: S3.BucketLifecycleConfiguration.get_available_subresources()
+
+    
+  Returns a list of all the available sub-resources for this
+  Resource.
+  
+  :returns: A list containing the name of each sub-resource for this
+      resource
+  :rtype: list of str

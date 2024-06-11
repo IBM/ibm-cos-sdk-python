@@ -1,0 +1,11 @@
+:doc:`BucketWebsite <index>` / Identifier / bucket_name
+
+***********
+bucket_name
+***********
+
+
+
+.. py:attribute:: S3.BucketWebsite.bucket_name
+
+  *(string)* The BucketWebsite's bucket_name identifier. This **must** be set.

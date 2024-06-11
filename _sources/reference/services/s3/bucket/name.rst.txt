@@ -1,0 +1,11 @@
+:doc:`Bucket <index>` / Identifier / name
+
+****
+name
+****
+
+
+
+.. py:attribute:: S3.Bucket.name
+
+  *(string)* The Bucket's name identifier. This **must** be set.

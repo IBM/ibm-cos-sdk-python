@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Logging
+
+*******
+Logging
+*******
+
+
+
+.. py:method:: S3.Bucket.Logging()
+
+  Creates a BucketLogging resource.::
+
+    bucket_logging = bucket.Logging()
+
+  
+  :rtype: :py:class:`S3.BucketLogging`
+  :returns: A BucketLogging resource
+  

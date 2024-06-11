@@ -1,0 +1,393 @@
+:doc:`S3 <../../s3>` / Client / complete_multipart_upload
+
+*************************
+complete_multipart_upload
+*************************
+
+
+
+.. py:method:: S3.Client.complete_multipart_upload(**kwargs)
+
+  
+
+  Completes a multipart upload by assembling previously uploaded parts.
+
+   
+
+  You first initiate the multipart upload and then upload all parts using the `UploadPart <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html>`__ operation. After successfully uploading all relevant parts of an upload, you call this action to complete the upload. Upon receiving this request, Amazon S3 concatenates all the parts in ascending order by part number to create a new object. In the Complete Multipart Upload request, you must provide the parts list. You must ensure that the parts list is complete. This action concatenates the parts that you provide in the list. For each part in the list, you must provide the part number and the ``ETag`` value, returned after that part was uploaded.
+
+   
+
+  Processing of a Complete Multipart Upload request could take several minutes to complete. After Amazon S3 begins processing the request, it sends an HTTP response header that specifies a 200 OK response. While processing is in progress, Amazon S3 periodically sends white space characters to keep the connection from timing out. Because a request could fail after the initial 200 OK response has been sent, it is important that you check the response body to determine whether the request succeeded.
+
+   
+
+  Note that if ``CompleteMultipartUpload`` fails, applications should be prepared to retry the failed requests. For more information, see `Amazon S3 Error Best Practices <https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html>`__.
+
+   
+
+  .. warning::
+
+     
+
+    You cannot use ``Content-Type: application/x-www-form-urlencoded`` with Complete Multipart Upload requests. Also, if you do not provide a ``Content-Type`` header, ``CompleteMultipartUpload`` returns a 200 OK response.
+
+     
+
+   
+
+  For more information about multipart uploads, see `Uploading Objects Using Multipart Upload <https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html>`__.
+
+   
+
+  For information about permissions required to use the multipart upload API, see `Multipart Upload and Permissions <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html>`__.
+
+   
+
+  ``CompleteMultipartUpload`` has the following special errors:
+
+   
+
+  
+  * Error code: ``EntityTooSmall`` 
+
+    
+    * Description: Your proposed upload is smaller than the minimum allowed object size. Each part must be at least 5 MB in size, except the last part.
+     
+    * 400 Bad Request
+    
+
+  
+   
+  * Error code: ``InvalidPart`` 
+
+    
+    * Description: One or more of the specified parts could not be found. The part might not have been uploaded, or the specified entity tag might not have matched the part's entity tag.
+     
+    * 400 Bad Request
+    
+
+  
+   
+  * Error code: ``InvalidPartOrder`` 
+
+    
+    * Description: The list of parts was not in ascending order. The parts list must be specified in order by part number.
+     
+    * 400 Bad Request
+    
+
+  
+   
+  * Error code: ``NoSuchUpload`` 
+
+    
+    * Description: The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.
+     
+    * 404 Not Found
+    
+
+  
+  
+
+   
+
+  The following operations are related to ``CompleteMultipartUpload``:
+
+   
+
+  
+  * `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__
+   
+  * `UploadPart <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html>`__
+   
+  * `AbortMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html>`__
+   
+  * `ListParts <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html>`__
+   
+  * `ListMultipartUploads <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.complete_multipart_upload(
+        Bucket='string',
+        Key='string',
+        MultipartUpload={
+            'Parts': [
+                {
+                    'ETag': 'string',
+                    'PartNumber': 123
+                },
+            ]
+        },
+        UploadId='string',
+        RequestPayer='requester',
+        ExpectedBucketOwner='string',
+        RetentionExpirationDate=datetime(2015, 1, 1),
+        RetentionLegalHoldId='string',
+        RetentionPeriod=123
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    Name of the bucket to which the multipart upload was initiated.
+
+     
+
+    When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    Object key for which the multipart upload was initiated.
+
+    
+
+  
+  :type MultipartUpload: dict
+  :param MultipartUpload: 
+
+    The container for the multipart upload request information.
+
+    
+
+  
+    - **Parts** *(list) --* 
+
+      Array of CompletedPart data types.
+
+       
+
+      If you do not supply a valid ``Part`` with your request, the service sends back an HTTP 400 response.
+
+      
+
+    
+      - *(dict) --* 
+
+        Details of the parts that were uploaded.
+
+        
+
+      
+        - **ETag** *(string) --* 
+
+          Entity tag returned when the part was uploaded.
+
+          
+
+        
+        - **PartNumber** *(integer) --* 
+
+          Part number that identifies the part. This is a positive integer between 1 and 10,000.
+
+           
+
+          .. note::
+
+            
+
+            
+            * **General purpose buckets** - In ``CompleteMultipartUpload``, when a additional checksum (including ``x-amz-checksum-crc32``, ``x-amz-checksum-crc32c``, ``x-amz-checksum-sha1``, or ``x-amz-checksum-sha256``) is applied to each part, the ``PartNumber`` must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP ``400 Bad Request`` status code and an ``InvalidPartOrder`` error code.
+             
+            * **Directory buckets** - In ``CompleteMultipartUpload``, the ``PartNumber`` must start at 1 and the part numbers must be consecutive.
+            
+
+            
+
+          
+
+        
+      
+  
+  
+  :type UploadId: string
+  :param UploadId: **[REQUIRED]** 
+
+    ID for the initiated multipart upload.
+
+    
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type RetentionExpirationDate: datetime
+  :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+  
+  :type RetentionLegalHoldId: string
+  :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+  
+  :type RetentionPeriod: integer
+  :param RetentionPeriod: Retention period to store on the object in seconds. RetentionPeriod and RetentionExpirationDate are mutually exclusive, if neither is specified the bucket's DefaultRetentionPeriod value will be used. **Indefinite retention(-1)** is a valid value. **Permanent retention(-2)**, is valid only if permanent retention is enabled for the bucket. **0** is a valid value if the bucket's MinimumRetention period is also 0.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'Location': 'string',
+          'Bucket': 'string',
+          'Key': 'string',
+          'Expiration': 'string',
+          'ETag': 'string',
+          'ServerSideEncryption': 'AES256',
+          'VersionId': 'string',
+          'SSEKMSKeyId': 'string',
+          'BucketKeyEnabled': True|False,
+          'RequestCharged': 'requester'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **Location** *(string) --* 
+
+        The URI that identifies the newly created object.
+
+        
+      
+
+      - **Bucket** *(string) --* 
+
+        The name of the bucket that contains the newly created object. Does not return the access point ARN or access point alias if used.
+
+         
+
+        When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+         
+
+        When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+        
+      
+
+      - **Key** *(string) --* 
+
+        The object key of the newly created object.
+
+        
+      
+
+      - **Expiration** *(string) --* 
+
+        If the object expiration is configured, this will contain the expiration date ( ``expiry-date``) and rule ID ( ``rule-id``). The value of ``rule-id`` is URL-encoded.
+
+        
+      
+
+      - **ETag** *(string) --* 
+
+        Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits. For more information about how the entity tag is calculated, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+        
+      
+
+      - **ServerSideEncryption** *(string) --* 
+
+        If you specified server-side encryption either with an Amazon S3-managed encryption key or an Amazon Web Services KMS key in your initiate multipart upload request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
+
+        
+      
+
+      - **VersionId** *(string) --* 
+
+        Version ID of the newly created object, in case the bucket has versioning turned on.
+
+        
+      
+
+      - **SSEKMSKeyId** *(string) --* 
+
+        If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key that was used for the object.
+
+        
+      
+
+      - **BucketKeyEnabled** *(boolean) --* 
+
+        Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Amazon Web Services KMS (SSE-KMS).
+
+        
+      
+
+      - **RequestCharged** *(string) --* 
+
+        If present, indicates that the requester was successfully charged for the request.
+
+        
+  
+
+  **Examples**
+
+  The following example completes a multipart upload.
+  ::
+
+    response = client.complete_multipart_upload(
+        Bucket='examplebucket',
+        Key='bigobject',
+        MultipartUpload={
+            'Parts': [
+                {
+                    'ETag': '"d8c2eafd90c266e19ab9dcacc479f8af"',
+                    'PartNumber': '1',
+                },
+                {
+                    'ETag': '"d8c2eafd90c266e19ab9dcacc479f8af"',
+                    'PartNumber': '2',
+                },
+            ],
+        },
+        UploadId='7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'Bucket': 'acexamplebucket',
+        'ETag': '"4d9031c7644d8081c2829f4ea23c55f7-2"',
+        'Key': 'bigobject',
+        'Location': 'https://examplebucket.s3.amazonaws.com/bigobject',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

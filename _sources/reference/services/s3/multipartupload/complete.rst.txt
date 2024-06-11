@@ -1,0 +1,215 @@
+:doc:`MultipartUpload <index>` / Action / complete
+
+********
+complete
+********
+
+
+
+.. py:method:: S3.MultipartUpload.complete(**kwargs)
+
+  
+
+  Completes a multipart upload by assembling previously uploaded parts.
+
+   
+
+  You first initiate the multipart upload and then upload all parts using the `UploadPart <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html>`__ operation. After successfully uploading all relevant parts of an upload, you call this action to complete the upload. Upon receiving this request, Amazon S3 concatenates all the parts in ascending order by part number to create a new object. In the Complete Multipart Upload request, you must provide the parts list. You must ensure that the parts list is complete. This action concatenates the parts that you provide in the list. For each part in the list, you must provide the part number and the ``ETag`` value, returned after that part was uploaded.
+
+   
+
+  Processing of a Complete Multipart Upload request could take several minutes to complete. After Amazon S3 begins processing the request, it sends an HTTP response header that specifies a 200 OK response. While processing is in progress, Amazon S3 periodically sends white space characters to keep the connection from timing out. Because a request could fail after the initial 200 OK response has been sent, it is important that you check the response body to determine whether the request succeeded.
+
+   
+
+  Note that if ``CompleteMultipartUpload`` fails, applications should be prepared to retry the failed requests. For more information, see `Amazon S3 Error Best Practices <https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html>`__.
+
+   
+
+  .. warning::
+
+     
+
+    You cannot use ``Content-Type: application/x-www-form-urlencoded`` with Complete Multipart Upload requests. Also, if you do not provide a ``Content-Type`` header, ``CompleteMultipartUpload`` returns a 200 OK response.
+
+     
+
+   
+
+  For more information about multipart uploads, see `Uploading Objects Using Multipart Upload <https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html>`__.
+
+   
+
+  For information about permissions required to use the multipart upload API, see `Multipart Upload and Permissions <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html>`__.
+
+   
+
+  ``CompleteMultipartUpload`` has the following special errors:
+
+   
+
+  
+  * Error code: ``EntityTooSmall`` 
+
+    
+    * Description: Your proposed upload is smaller than the minimum allowed object size. Each part must be at least 5 MB in size, except the last part.
+     
+    * 400 Bad Request
+    
+
+  
+   
+  * Error code: ``InvalidPart`` 
+
+    
+    * Description: One or more of the specified parts could not be found. The part might not have been uploaded, or the specified entity tag might not have matched the part's entity tag.
+     
+    * 400 Bad Request
+    
+
+  
+   
+  * Error code: ``InvalidPartOrder`` 
+
+    
+    * Description: The list of parts was not in ascending order. The parts list must be specified in order by part number.
+     
+    * 400 Bad Request
+    
+
+  
+   
+  * Error code: ``NoSuchUpload`` 
+
+    
+    * Description: The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.
+     
+    * 404 Not Found
+    
+
+  
+  
+
+   
+
+  The following operations are related to ``CompleteMultipartUpload``:
+
+   
+
+  
+  * `CreateMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html>`__
+   
+  * `UploadPart <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html>`__
+   
+  * `AbortMultipartUpload <https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html>`__
+   
+  * `ListParts <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html>`__
+   
+  * `ListMultipartUploads <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/CompleteMultipartUpload>`_  
+
+
+  **Request Syntax**
+  ::
+
+    object = multipart_upload.complete(
+        MultipartUpload={
+            'Parts': [
+                {
+                    'ETag': 'string',
+                    'PartNumber': 123
+                },
+            ]
+        },
+        RequestPayer='requester',
+        ExpectedBucketOwner='string',
+        RetentionExpirationDate=datetime(2015, 1, 1),
+        RetentionLegalHoldId='string',
+        RetentionPeriod=123
+    )
+    
+  :type MultipartUpload: dict
+  :param MultipartUpload: 
+
+    The container for the multipart upload request information.
+
+    
+
+  
+    - **Parts** *(list) --* 
+
+      Array of CompletedPart data types.
+
+       
+
+      If you do not supply a valid ``Part`` with your request, the service sends back an HTTP 400 response.
+
+      
+
+    
+      - *(dict) --* 
+
+        Details of the parts that were uploaded.
+
+        
+
+      
+        - **ETag** *(string) --* 
+
+          Entity tag returned when the part was uploaded.
+
+          
+
+        
+        - **PartNumber** *(integer) --* 
+
+          Part number that identifies the part. This is a positive integer between 1 and 10,000.
+
+           
+
+          .. note::
+
+            
+
+            
+            * **General purpose buckets** - In ``CompleteMultipartUpload``, when a additional checksum (including ``x-amz-checksum-crc32``, ``x-amz-checksum-crc32c``, ``x-amz-checksum-sha1``, or ``x-amz-checksum-sha256``) is applied to each part, the ``PartNumber`` must start at 1 and the part numbers must be consecutive. Otherwise, Amazon S3 generates an HTTP ``400 Bad Request`` status code and an ``InvalidPartOrder`` error code.
+             
+            * **Directory buckets** - In ``CompleteMultipartUpload``, the ``PartNumber`` must start at 1 and the part numbers must be consecutive.
+            
+
+            
+
+          
+
+        
+      
+  
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type RetentionExpirationDate: datetime
+  :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+  
+  :type RetentionLegalHoldId: string
+  :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+  
+  :type RetentionPeriod: integer
+  :param RetentionPeriod: Retention period to store on the object in seconds. RetentionPeriod and RetentionExpirationDate are mutually exclusive, if neither is specified the bucket's DefaultRetentionPeriod value will be used. **Indefinite retention(-1)** is a valid value. **Permanent retention(-2)**, is valid only if permanent retention is enabled for the bucket. **0** is a valid value if the bucket's MinimumRetention period is also 0.
+
+  
+  
+  :rtype: :py:class:`s3.Object`
+  :returns: Object resource
+  

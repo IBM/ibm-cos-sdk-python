@@ -1,0 +1,17 @@
+:doc:`Bucket <index>` / Attribute / creation_date
+
+*************
+creation_date
+*************
+
+
+
+.. py:attribute:: S3.Bucket.creation_date
+
+  
+
+  - *(datetime) --* 
+
+    Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.
+
+    

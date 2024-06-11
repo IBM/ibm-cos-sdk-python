@@ -1,0 +1,58 @@
+:doc:`Bucket <index>` / Action / delete
+
+******
+delete
+******
+
+
+
+.. py:method:: S3.Bucket.delete(**kwargs)
+
+  
+
+  Deletes the S3 bucket. All objects (including all object versions and delete markers) in the bucket must be deleted before the bucket itself can be deleted.
+
+   
+
+  **Related Resources**
+
+   
+
+  
+  * `CreateBucket <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html>`__
+   
+  * `DeleteObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucket>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = bucket.delete(
+        ExpectedBucketOwner='string'
+    )
+    
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: 
+
+    The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+     
+
+    .. note::
+
+      
+
+      For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code ``501 Not Implemented``.
+
+      
+
+    
+
+  
+  
+  :returns: None

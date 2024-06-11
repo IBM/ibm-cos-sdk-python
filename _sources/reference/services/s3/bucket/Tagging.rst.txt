@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Tagging
+
+*******
+Tagging
+*******
+
+
+
+.. py:method:: S3.Bucket.Tagging()
+
+  Creates a BucketTagging resource.::
+
+    bucket_tagging = bucket.Tagging()
+
+  
+  :rtype: :py:class:`S3.BucketTagging`
+  :returns: A BucketTagging resource
+  

@@ -1,0 +1,18 @@
+:doc:`BucketLifecycleConfiguration <index>` / Sub-Resource / Bucket
+
+******
+Bucket
+******
+
+
+
+.. py:method:: S3.BucketLifecycleConfiguration.Bucket()
+
+  Creates a Bucket resource.::
+
+    bucket = bucket_lifecycle_configuration.Bucket()
+
+  
+  :rtype: :py:class:`S3.Bucket`
+  :returns: A Bucket resource
+  

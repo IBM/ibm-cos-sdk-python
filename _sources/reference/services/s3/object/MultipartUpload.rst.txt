@@ -1,0 +1,20 @@
+:doc:`Object <index>` / Sub-Resource / MultipartUpload
+
+***************
+MultipartUpload
+***************
+
+
+
+.. py:method:: S3.Object.MultipartUpload(id)
+
+  Creates a MultipartUpload resource.::
+
+    multipart_upload = object.MultipartUpload('id')
+
+  :type id: string
+  :param id: The MultipartUpload's id identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.MultipartUpload`
+  :returns: A MultipartUpload resource
+  

@@ -1,0 +1,520 @@
+:doc:`Bucket <index>` / Action / put_object
+
+**********
+put_object
+**********
+
+
+
+.. py:method:: S3.Bucket.put_object(**kwargs)
+
+  
+
+  Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object to it.
+
+   
+
+  Amazon S3 never adds partial objects; if you receive a success response, Amazon S3 added the entire object to the bucket.
+
+   
+
+  Amazon S3 is a distributed system. If it receives multiple write requests for the same object simultaneously, it overwrites all but the last object written. Amazon S3 does not provide object locking; if you need this, make sure to build it into your application layer or use versioning instead.
+
+   
+
+  To ensure that data is not corrupted traversing the network, use the ``Content-MD5`` header. When you use this header, Amazon S3 checks the object against the provided MD5 value and, if they do not match, returns an error. Additionally, you can calculate the MD5 while putting an object to Amazon S3 and compare the returned ETag to the calculated MD5 value.
+
+   
+
+  .. note::
+
+    
+
+    
+    * To successfully complete the ``PutObject`` request, you must have the ``s3:PutObject`` in your IAM permissions.
+     
+    * To successfully change the objects acl of your ``PutObject`` request, you must have the ``s3:PutObjectAcl`` in your IAM permissions.
+     
+    * The ``Content-MD5`` header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information about Amazon S3 Object Lock, see `Amazon S3 Object Lock Overview <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html>`__ in the *Amazon S3 User Guide*.
+    
+
+    
+
+   
+
+  **Server-side Encryption**
+
+   
+
+  You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data when you access it. You have the option to provide your own encryption key or use Amazon Web Services managed encryption keys (SSE-S3 or SSE-KMS). For more information, see `Using Server-Side Encryption <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html>`__.
+
+   
+
+  If you request server-side encryption using Amazon Web Services Key Management Service (SSE-KMS), you can enable an S3 Bucket Key at the object-level. For more information, see `Amazon S3 Bucket Keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  **Access Control List (ACL)-Specific Request Headers**
+
+   
+
+  You can use headers to grant ACL- based permissions. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the ACL on the object. For more information, see `Access Control List (ACL) Overview <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html>`__ and `Managing ACLs Using the REST API <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html>`__.
+
+   
+
+  If the bucket that you're uploading objects to uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use this setting only accept PUT requests that don't specify an ACL or PUT requests that specify bucket owner full control ACLs, such as the ``bucket-owner-full-control`` canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a ``400`` error with the error code ``AccessControlListNotSupported``.
+
+   
+
+  For more information, see `Controlling ownership of objects and disabling ACLs <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  .. note::
+
+    
+
+    If your bucket uses the bucket owner enforced setting for Object Ownership, all objects written to the bucket by any account will be owned by the bucket owner.
+
+    
+
+   
+
+  **Storage Class Options**
+
+   
+
+  By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see `Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  **Versioning**
+
+   
+
+  If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID for the object being stored. Amazon S3 returns this ID in the response. When you enable versioning for a bucket, if Amazon S3 receives multiple write requests for the same object simultaneously, it stores all of the objects.
+
+   
+
+  For more information about versioning, see `Adding Objects to Versioning Enabled Buckets <https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html>`__. For information about returning the versioning state of a bucket, see `GetBucketVersioning <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html>`__.
+
+   
+
+  **Related Resources**
+
+   
+
+  
+  * `CopyObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html>`__
+   
+  * `DeleteObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObject>`_  
+
+
+  **Request Syntax**
+  ::
+
+    object = bucket.put_object(
+        ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
+        Body=b'bytes'|file,
+        CacheControl='string',
+        ContentDisposition='string',
+        ContentEncoding='string',
+        ContentLanguage='string',
+        ContentLength=123,
+        ContentMD5='string',
+        ContentType='string',
+        Expires=datetime(2015, 1, 1),
+        GrantFullControl='string',
+        GrantRead='string',
+        GrantReadACP='string',
+        GrantWriteACP='string',
+        Key='string',
+        Metadata={
+            'string': 'string'
+        },
+        RetentionExpirationDate=datetime(2015, 1, 1),
+        RetentionLegalHoldId='string',
+        RetentionPeriod=123,
+        ServerSideEncryption='AES256',
+        StorageClass='ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR',
+        WebsiteRedirectLocation='string',
+        SSECustomerAlgorithm='string',
+        SSECustomerKey='string',
+        SSEKMSKeyId='string',
+        RequestPayer='requester',
+        Tagging='string',
+        ObjectLockMode='GOVERNANCE'|'COMPLIANCE',
+        ObjectLockRetainUntilDate=datetime(2015, 1, 1),
+        ObjectLockLegalHoldStatus='ON'|'OFF',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type ACL: string
+  :param ACL: 
+
+    The canned ACL to apply to the object. For more information, see `Canned ACL <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When adding a new object, you can use headers to grant ACL-based permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the ACL on the object. By default, all objects are private. Only the owner has full access control. For more information, see `Access Control List (ACL) Overview <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html>`__ and `Managing ACLs Using the REST API <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    If the bucket that you're uploading objects to uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use this setting only accept PUT requests that don't specify an ACL or PUT requests that specify bucket owner full control ACLs, such as the ``bucket-owner-full-control`` canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a ``400`` error with the error code ``AccessControlListNotSupported``. For more information, see `Controlling ownership of objects and disabling ACLs <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    .. note::
+
+      
+
+      
+      * This functionality is not supported for directory buckets.
+       
+      * This functionality is not supported for Amazon S3 on Outposts.
+      
+
+      
+
+    
+
+  
+  :type Body: bytes or seekable file-like object
+  :param Body: 
+
+    Object data.
+
+    
+
+  
+  :type CacheControl: string
+  :param CacheControl: 
+
+    Can be used to specify caching behavior along the request/reply chain. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>`__.
+
+    
+
+  
+  :type ContentDisposition: string
+  :param ContentDisposition: 
+
+    Specifies presentational information for the object. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>`__.
+
+    
+
+  
+  :type ContentEncoding: string
+  :param ContentEncoding: 
+
+    Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11>`__.
+
+    
+
+  
+  :type ContentLanguage: string
+  :param ContentLanguage: 
+
+    The language the content is in.
+
+    
+
+  
+  :type ContentLength: integer
+  :param ContentLength: 
+
+    Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>`__.
+
+    
+
+  
+  :type ContentMD5: string
+  :param ContentMD5: 
+
+    The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see `REST Authentication <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html>`__.
+
+    
+
+  
+  :type ContentType: string
+  :param ContentType: 
+
+    A standard MIME type describing the format of the contents. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>`__.
+
+    
+
+  
+  :type Expires: datetime
+  :param Expires: 
+
+    The date and time at which the object is no longer cacheable. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>`__.
+
+    
+
+  
+  :type GrantFullControl: string
+  :param GrantFullControl: 
+
+    Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+
+     
+
+    .. note::
+
+      
+
+      
+      * This functionality is not supported for directory buckets.
+       
+      * This functionality is not supported for Amazon S3 on Outposts.
+      
+
+      
+
+    
+
+  
+  :type GrantRead: string
+  :param GrantRead: 
+
+    Allows grantee to read the object data and its metadata.
+
+     
+
+    .. note::
+
+      
+
+      
+      * This functionality is not supported for directory buckets.
+       
+      * This functionality is not supported for Amazon S3 on Outposts.
+      
+
+      
+
+    
+
+  
+  :type GrantReadACP: string
+  :param GrantReadACP: 
+
+    Allows grantee to read the object ACL.
+
+     
+
+    This action is not supported by Amazon S3 on Outposts.
+
+    
+
+  
+  :type GrantWriteACP: string
+  :param GrantWriteACP: 
+
+    Allows grantee to write the ACL for the applicable object.
+
+     
+
+    This action is not supported by Amazon S3 on Outposts.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    Object key for which the PUT action was initiated.
+
+    
+
+  
+  :type Metadata: dict
+  :param Metadata: 
+
+    A map of metadata to store with the object in S3.
+
+    
+
+  
+    - *(string) --* 
+
+    
+      - *(string) --* 
+
+      
+
+
+  :type RetentionExpirationDate: datetime
+  :param RetentionExpirationDate: Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket's DefaultRetention period will be used.
+
+  
+  :type RetentionLegalHoldId: string
+  :param RetentionLegalHoldId: A single legal hold to apply to the object. A legal hold is a character long string of max length 64. The object cannot be overwritten or deleted until all legal holds associated with the object are removed.
+
+  
+  :type RetentionPeriod: integer
+  :param RetentionPeriod: Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket's DefaultRetention period will be used. 0 is a legal value assuming the bucket's minimum retention period is also 0.
+
+  
+  :type ServerSideEncryption: string
+  :param ServerSideEncryption: 
+
+    The server-side encryption algorithm that was used when you store this object in Amazon S3 (for example, ``AES256``, ``aws:kms``, ``aws:kms:dsse``).
+
+     
+
+    **General purpose buckets** - You have four mutually exclusive options to protect data using server-side encryption in Amazon S3, depending on how you choose to manage the encryption keys. Specifically, the encryption key options are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS or DSSE-KMS), and customer-provided keys (SSE-C). Amazon S3 encrypts data with server-side encryption by using Amazon S3 managed keys (SSE-S3) by default. You can optionally tell Amazon S3 to encrypt data at rest by using server-side encryption with other key options. For more information, see `Using Server-Side Encryption <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    **Directory buckets** - For directory buckets, only the server-side encryption with Amazon S3 managed keys (SSE-S3) ( ``AES256``) value is supported.
+
+    
+
+  
+  :type StorageClass: string
+  :param StorageClass: 
+
+    By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. For more information, see `Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    .. note::
+
+      
+
+      
+      * For directory buckets, only the S3 Express One Zone storage class is supported to store newly created objects.
+       
+      * Amazon S3 on Outposts only uses the OUTPOSTS Storage Class.
+      
+
+      
+
+    
+
+  
+  :type WebsiteRedirectLocation: string
+  :param WebsiteRedirectLocation: 
+
+    If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see `Object Key and Metadata <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html>`__.
+
+     
+
+    In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:
+
+     
+
+    ``x-amz-website-redirect-location: /anotherPage.html``
+
+     
+
+    In the following example, the request header sets the object redirect to another website:
+
+     
+
+    ``x-amz-website-redirect-location: http://www.example.com/``
+
+     
+
+    For more information about website hosting in Amazon S3, see `Hosting Websites on Amazon S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`__ and `How to Configure Website Page Redirects <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html>`__.
+
+    
+
+  
+  :type SSECustomerAlgorithm: string
+  :param SSECustomerAlgorithm: 
+
+    Specifies the algorithm to use to when encrypting the object (for example, AES256).
+
+    
+
+  
+  :type SSECustomerKey: string
+  :param SSECustomerKey: 
+
+    Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the ``x-amz-server-side-encryption-customer-algorithm`` header.
+
+    
+
+  
+  :type SSECustomerKeyMD5: string
+  :param SSECustomerKeyMD5: 
+
+    Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+
+        Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
+
+
+
+  
+  :type SSEKMSKeyId: string
+  :param SSEKMSKeyId: 
+
+    If ``x-amz-server-side-encryption`` has a valid value of ``aws:kms`` or ``aws:kms:dsse``, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the Key Management Service (KMS) symmetric encryption customer managed key that was used for the object. If you specify ``x-amz-server-side-encryption:aws:kms`` or ``x-amz-server-side-encryption:aws:kms:dsse``, but do not provide `` x-amz-server-side-encryption-aws-kms-key-id``, Amazon S3 uses the Amazon Web Services managed key ( ``aws/s3``) to protect the data. If the KMS key does not exist in the same account that's issuing the command, you must use the full ARN and not just the ID.
+
+     
+
+    .. note::
+
+      
+
+      This functionality is not supported for directory buckets.
+
+      
+
+    
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type Tagging: string
+  :param Tagging: 
+
+    The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+
+    
+
+  
+  :type ObjectLockMode: string
+  :param ObjectLockMode: 
+
+    The Object Lock mode that you want to apply to this object.
+
+    
+
+  
+  :type ObjectLockRetainUntilDate: datetime
+  :param ObjectLockRetainUntilDate: 
+
+    The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.
+
+    
+
+  
+  :type ObjectLockLegalHoldStatus: string
+  :param ObjectLockLegalHoldStatus: 
+
+    Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see `Object Lock <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: 
+
+    The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+    
+
+  
+  
+  :rtype: :py:class:`s3.Object`
+  :returns: Object resource
+  

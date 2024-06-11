@@ -1,0 +1,17 @@
+:doc:`MultipartUploadPart <index>` / Attribute / e_tag
+
+*****
+e_tag
+*****
+
+
+
+.. py:attribute:: S3.MultipartUploadPart.e_tag
+
+  
+
+  - *(string) --* 
+
+    Entity tag returned when the part was uploaded.
+
+    

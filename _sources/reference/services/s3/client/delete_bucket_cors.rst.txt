@@ -1,0 +1,84 @@
+:doc:`S3 <../../s3>` / Client / delete_bucket_cors
+
+******************
+delete_bucket_cors
+******************
+
+
+
+.. py:method:: S3.Client.delete_bucket_cors(**kwargs)
+
+  
+
+  Deletes the ``cors`` configuration information set for the bucket.
+
+   
+
+  To use this operation, you must have permission to perform the ``s3:PutBucketCORS`` action. The bucket owner has this permission by default and can grant this permission to others.
+
+   
+
+  For information about ``cors``, see `Enabling Cross-Origin Resource Sharing <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html>`__ in the *Amazon S3 User Guide*.
+
+   
+
+  **Related Resources:**
+
+   
+
+  
+  * `PutBucketCors <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html>`__
+   
+  * `RESTOPTIONSobject <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTOPTIONSobject.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketCors>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.delete_bucket_cors(
+        Bucket='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    Specifies the bucket whose ``cors`` configuration is being deleted.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None
+
+  **Examples**
+
+  The following example deletes CORS configuration on a bucket.
+  ::
+
+    response = client.delete_bucket_cors(
+        Bucket='examplebucket',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

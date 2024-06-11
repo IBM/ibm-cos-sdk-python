@@ -1,0 +1,417 @@
+:doc:`S3 <../../s3>` / Paginator / ListObjectVersions
+
+******************
+ListObjectVersions
+******************
+
+
+
+.. py:class:: S3.Paginator.ListObjectVersions
+
+  ::
+
+    
+    paginator = client.get_paginator('list_object_versions')
+
+  
+  
+
+  .. py:method:: paginate(**kwargs)
+
+    Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_object_versions`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjectVersions>`_    
+
+
+    **Request Syntax**
+    ::
+
+      response_iterator = paginator.paginate(
+          Bucket='string',
+          Delimiter='string',
+          EncodingType='url',
+          Prefix='string',
+          ExpectedBucketOwner='string',
+          PaginationConfig={
+              'MaxItems': 123,
+              'PageSize': 123,
+              'StartingToken': 'string'
+          }
+      )
+      
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The bucket name that contains the objects.
+
+       
+
+      When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using Access Points <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html>`__ in the *Amazon Simple Storage Service Developer Guide*.
+
+      
+
+    
+    :type Delimiter: string
+    :param Delimiter: 
+
+      A delimiter is a character that you specify to group keys. All keys that contain the same string between the ``prefix`` and the first occurrence of the delimiter are grouped under a single result element in ``CommonPrefixes``. These groups are counted as one result against the ``max-keys`` limitation. These keys are not returned elsewhere in the response.
+
+      
+
+    
+    :type EncodingType: string
+    :param EncodingType: 
+
+      Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key can contain any Unicode character; however, the XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+
+      
+
+    
+    :type Prefix: string
+    :param Prefix: 
+
+      Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using ``prefix`` to make groups in the same way that you'd use a folder in a file system.) You can use ``prefix`` with ``delimiter`` to roll up numerous objects into a single result under ``CommonPrefixes``.
+
+      
+
+    
+    :type ExpectedBucketOwner: string
+    :param ExpectedBucketOwner: Ignored by COS if present.
+
+    
+    :type PaginationConfig: dict
+    :param PaginationConfig: 
+
+      A dictionary that provides parameters to control pagination.
+
+      
+
+    
+      - **MaxItems** *(integer) --* 
+
+        The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+
+        
+
+      
+      - **PageSize** *(integer) --* 
+
+        The size of each page.
+
+        
+
+      
+      - **StartingToken** *(string) --* 
+
+        A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+
+        
+
+      
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax**
+
+      
+      ::
+
+        {
+            'IsTruncated': True|False,
+            'KeyMarker': 'string',
+            'VersionIdMarker': 'string',
+            'Versions': [
+                {
+                    'ETag': 'string',
+                    'Size': 123,
+                    'StorageClass': 'STANDARD',
+                    'Key': 'string',
+                    'VersionId': 'string',
+                    'IsLatest': True|False,
+                    'LastModified': datetime(2015, 1, 1),
+                    'Owner': {
+                        'DisplayName': 'string',
+                        'ID': 'string'
+                    }
+                },
+            ],
+            'DeleteMarkers': [
+                {
+                    'Owner': {
+                        'DisplayName': 'string',
+                        'ID': 'string'
+                    },
+                    'Key': 'string',
+                    'VersionId': 'string',
+                    'IsLatest': True|False,
+                    'LastModified': datetime(2015, 1, 1)
+                },
+            ],
+            'Name': 'string',
+            'Prefix': 'string',
+            'Delimiter': 'string',
+            'MaxKeys': 123,
+            'CommonPrefixes': [
+                {
+                    'Prefix': 'string'
+                },
+            ],
+            'EncodingType': 'url',
+            'NextToken': 'string'
+        }
+        
+      **Response Structure**
+
+      
+
+      - *(dict) --* 
+        
+
+        - **IsTruncated** *(boolean) --* 
+
+          A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request by using the ``NextKeyMarker`` and ``NextVersionIdMarker`` response parameters as a starting place in another request to return the rest of the results.
+
+          
+        
+
+        - **KeyMarker** *(string) --* 
+
+          Marks the last key returned in a truncated response.
+
+          
+        
+
+        - **VersionIdMarker** *(string) --* 
+
+          Marks the last version of the key returned in a truncated response.
+
+          
+        
+
+        - **Versions** *(list) --* 
+
+          Container for version information.
+
+          
+          
+
+          - *(dict) --* 
+
+            The version of an object.
+
+            
+            
+
+            - **ETag** *(string) --* 
+
+              The entity tag is an MD5 hash of that version of the object.
+
+              
+            
+
+            - **Size** *(integer) --* 
+
+              Size in bytes of the object.
+
+              
+            
+
+            - **StorageClass** *(string) --* 
+
+              The class of storage used to store the object.
+
+              
+            
+
+            - **Key** *(string) --* 
+
+              The object key.
+
+              
+            
+
+            - **VersionId** *(string) --* 
+
+              Version ID of an object.
+
+              
+            
+
+            - **IsLatest** *(boolean) --* 
+
+              Specifies whether the object is (true) or is not (false) the latest version of an object.
+
+              
+            
+
+            - **LastModified** *(datetime) --* 
+
+              Date and time when the object was last modified.
+
+              
+            
+
+            - **Owner** *(dict) --* 
+
+              Specifies the owner of the object.
+
+              
+              
+
+              - **DisplayName** *(string) --* 
+
+                Container for the display name of the owner.
+
+                
+              
+
+              - **ID** *(string) --* 
+
+                Container for the ID of the owner.
+
+                
+          
+        
+      
+        
+
+        - **DeleteMarkers** *(list) --* 
+
+          Container for an object that is a delete marker.
+
+          
+          
+
+          - *(dict) --* 
+
+            Information about the delete marker.
+
+            
+            
+
+            - **Owner** *(dict) --* 
+
+              The account that created the delete marker.>
+
+              
+              
+
+              - **DisplayName** *(string) --* 
+
+                Container for the display name of the owner.
+
+                
+              
+
+              - **ID** *(string) --* 
+
+                Container for the ID of the owner.
+
+                
+          
+            
+
+            - **Key** *(string) --* 
+
+              The object key.
+
+              
+            
+
+            - **VersionId** *(string) --* 
+
+              Version ID of an object.
+
+              
+            
+
+            - **IsLatest** *(boolean) --* 
+
+              Specifies whether the object is (true) or is not (false) the latest version of an object.
+
+              
+            
+
+            - **LastModified** *(datetime) --* 
+
+              Date and time when the object was last modified.
+
+              
+        
+      
+        
+
+        - **Name** *(string) --* 
+
+          The bucket name.
+
+          
+        
+
+        - **Prefix** *(string) --* 
+
+          Selects objects that start with the value supplied by this parameter.
+
+          
+        
+
+        - **Delimiter** *(string) --* 
+
+          The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in ``CommonPrefixes``. These groups are counted as one result against the ``max-keys`` limitation. These keys are not returned elsewhere in the response.
+
+          
+        
+
+        - **MaxKeys** *(integer) --* 
+
+          Specifies the maximum number of objects to return.
+
+          
+        
+
+        - **CommonPrefixes** *(list) --* 
+
+          All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.
+
+          
+          
+
+          - *(dict) --* 
+
+            Container for all (if there are any) keys between Prefix and the next occurrence of the string specified by a delimiter. CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/.
+
+            
+            
+
+            - **Prefix** *(string) --* 
+
+              Container for the specified common prefix.
+
+              
+        
+      
+        
+
+        - **EncodingType** *(string) --* 
+
+          Encoding type used by Amazon S3 to encode object key names in the XML response.
+
+           
+
+          If you specify the ``encoding-type`` request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
+
+           
+
+          ``KeyMarker, NextKeyMarker, Prefix, Key``, and ``Delimiter``.
+
+          
+        
+
+        - **NextToken** *(string) --* 
+
+          A token to resume pagination.
+
+          
+    

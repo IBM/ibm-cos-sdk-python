@@ -1,0 +1,17 @@
+:doc:`ObjectVersion <index>` / Attribute / key
+
+***
+key
+***
+
+
+
+.. py:attribute:: S3.ObjectVersion.key
+
+  
+
+  - *(string) --* 
+
+    The object key.
+
+    

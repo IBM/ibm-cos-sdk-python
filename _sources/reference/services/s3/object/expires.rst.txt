@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / expires
+
+*******
+expires
+*******
+
+
+
+.. py:attribute:: S3.Object.expires
+
+  
+
+  - *(datetime) --* 
+
+    The date and time at which the object is no longer cacheable.
+
+    

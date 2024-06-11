@@ -1,0 +1,13 @@
+:doc:`BucketProtection <index>` / Attribute / enable_permanent_retention
+
+**************************
+enable_permanent_retention
+**************************
+
+
+
+.. py:attribute:: S3.BucketProtection.enable_permanent_retention
+
+  
+
+  - *(boolean) --* Enable permanent retention for an object.

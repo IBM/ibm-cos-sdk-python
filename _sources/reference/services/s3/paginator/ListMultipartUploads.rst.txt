@@ -1,0 +1,382 @@
+:doc:`S3 <../../s3>` / Paginator / ListMultipartUploads
+
+********************
+ListMultipartUploads
+********************
+
+
+
+.. py:class:: S3.Paginator.ListMultipartUploads
+
+  ::
+
+    
+    paginator = client.get_paginator('list_multipart_uploads')
+
+  
+  
+
+  .. py:method:: paginate(**kwargs)
+
+    Creates an iterator that will paginate through responses from :py:meth:`S3.Client.list_multipart_uploads`.
+
+    See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListMultipartUploads>`_    
+
+
+    **Request Syntax**
+    ::
+
+      response_iterator = paginator.paginate(
+          Bucket='string',
+          Delimiter='string',
+          EncodingType='url',
+          MirrorDestination='string',
+          Prefix='string',
+          ExpectedBucketOwner='string',
+          PaginationConfig={
+              'MaxItems': 123,
+              'PageSize': 123,
+              'StartingToken': 'string'
+          }
+      )
+      
+    :type Bucket: string
+    :param Bucket: **[REQUIRED]** 
+
+      The name of the bucket to which the multipart upload was initiated.
+
+       
+
+      **Directory buckets** - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format ``Bucket_name.s3express-az_id.region.amazonaws.com``. Path-style requests are not supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format ``bucket_base_name--az-id--x-s3`` (for example, ``DOC-EXAMPLE-BUCKET--usw2-az2--x-s3``). For information about bucket naming restrictions, see `Directory bucket naming rules <https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html>`__ in the *Amazon S3 User Guide*.
+
+       
+
+      **Access points** - When you use this action with an access point, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+       
+
+      .. note::
+
+        
+
+        Access points and Object Lambda access points are not supported by directory buckets.
+
+        
+
+       
+
+      **S3 on Outposts** - When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `What is S3 on Outposts? <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+      
+
+    
+    :type Delimiter: string
+    :param Delimiter: 
+
+      Character you use to group keys.
+
+       
+
+      All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, ``CommonPrefixes``. If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under ``CommonPrefixes`` result element are not returned elsewhere in the response.
+
+      
+
+    
+    :type EncodingType: string
+    :param EncodingType: 
+
+      Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key can contain any Unicode character; however, the XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+
+      
+
+    
+    :type MirrorDestination: string
+    :param MirrorDestination: Mirror source for object reads.
+
+    
+    :type Prefix: string
+    :param Prefix: 
+
+      Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)
+
+      
+
+    
+    :type ExpectedBucketOwner: string
+    :param ExpectedBucketOwner: 
+
+      The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code ``403 Forbidden`` (access denied).
+
+      
+
+    
+    :type PaginationConfig: dict
+    :param PaginationConfig: 
+
+      A dictionary that provides parameters to control pagination.
+
+      
+
+    
+      - **MaxItems** *(integer) --* 
+
+        The total number of items to return. If the total number of items available is more than the value specified in max-items then a ``NextToken`` will be provided in the output that you can use to resume pagination.
+
+        
+
+      
+      - **PageSize** *(integer) --* 
+
+        The size of each page.
+
+        
+
+      
+      - **StartingToken** *(string) --* 
+
+        A token to specify where to start paginating. This is the ``NextToken`` from a previous response.
+
+        
+
+      
+    
+    
+    :rtype: dict
+    :returns: 
+      
+      **Response Syntax**
+
+      
+      ::
+
+        {
+            'Bucket': 'string',
+            'KeyMarker': 'string',
+            'UploadIdMarker': 'string',
+            'Prefix': 'string',
+            'Delimiter': 'string',
+            'MaxUploads': 123,
+            'IsTruncated': True|False,
+            'Uploads': [
+                {
+                    'UploadId': 'string',
+                    'Key': 'string',
+                    'Initiated': datetime(2015, 1, 1),
+                    'StorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR',
+                    'Owner': {
+                        'DisplayName': 'string',
+                        'ID': 'string'
+                    },
+                    'Initiator': {
+                        'ID': 'string',
+                        'DisplayName': 'string'
+                    }
+                },
+            ],
+            'CommonPrefixes': [
+                {
+                    'Prefix': 'string'
+                },
+            ],
+            'EncodingType': 'url',
+            'NextToken': 'string'
+        }
+        
+      **Response Structure**
+
+      
+
+      - *(dict) --* 
+        
+
+        - **Bucket** *(string) --* 
+
+          The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.
+
+          
+        
+
+        - **KeyMarker** *(string) --* 
+
+          The key at or after which the listing began.
+
+          
+        
+
+        - **UploadIdMarker** *(string) --* 
+
+          Upload ID after which listing began.
+
+          
+        
+
+        - **Prefix** *(string) --* 
+
+          When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
+
+          
+        
+
+        - **Delimiter** *(string) --* 
+
+          Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.
+
+          
+        
+
+        - **MaxUploads** *(integer) --* 
+
+          Maximum number of multipart uploads that could have been included in the response.
+
+          
+        
+
+        - **IsTruncated** *(boolean) --* 
+
+          Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
+
+          
+        
+
+        - **Uploads** *(list) --* 
+
+          Container for elements related to a particular multipart upload. A response can contain zero or more ``Upload`` elements.
+
+          
+          
+
+          - *(dict) --* 
+
+            Container for the ``MultipartUpload`` for the Amazon S3 object.
+
+            
+            
+
+            - **UploadId** *(string) --* 
+
+              Upload ID that identifies the multipart upload.
+
+              
+            
+
+            - **Key** *(string) --* 
+
+              Key of the object for which the multipart upload was initiated.
+
+              
+            
+
+            - **Initiated** *(datetime) --* 
+
+              Date and time at which the multipart upload was initiated.
+
+              
+            
+
+            - **StorageClass** *(string) --* 
+
+              The class of storage used to store the object.
+
+              
+            
+
+            - **Owner** *(dict) --* 
+
+              Specifies the owner of the object that is part of the multipart upload.
+
+              
+              
+
+              - **DisplayName** *(string) --* 
+
+                Container for the display name of the owner.
+
+                
+              
+
+              - **ID** *(string) --* 
+
+                Container for the ID of the owner.
+
+                
+          
+            
+
+            - **Initiator** *(dict) --* 
+
+              Identifies who initiated the multipart upload.
+
+              
+              
+
+              - **ID** *(string) --* 
+
+                If the principal is an Amazon Web Services account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
+
+                 
+
+                .. note::
+
+                  
+
+                  **Directory buckets** - If the principal is an Amazon Web Services account, it provides the Amazon Web Services account ID. If the principal is an IAM User, it provides a user ARN value.
+
+                  
+
+                
+              
+
+              - **DisplayName** *(string) --* 
+
+                Name of the Principal.
+
+                
+          
+        
+      
+        
+
+        - **CommonPrefixes** *(list) --* 
+
+          If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a ``CommonPrefixes`` element. The distinct key prefixes are returned in the ``Prefix`` child element.
+
+          
+          
+
+          - *(dict) --* 
+
+            Container for all (if there are any) keys between Prefix and the next occurrence of the string specified by a delimiter. CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/.
+
+            
+            
+
+            - **Prefix** *(string) --* 
+
+              Container for the specified common prefix.
+
+              
+        
+      
+        
+
+        - **EncodingType** *(string) --* 
+
+          Encoding type used by Amazon S3 to encode object keys in the response.
+
+           
+
+          If you specify ``encoding-type`` request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:
+
+           
+
+          ``Delimiter``, ``KeyMarker``, ``Prefix``, ``NextKeyMarker``, ``Key``.
+
+          
+        
+
+        - **NextToken** *(string) --* 
+
+          A token to resume pagination.
+
+          
+    

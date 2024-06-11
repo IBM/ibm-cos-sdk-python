@@ -1,0 +1,740 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="get_object_acl" href="get_object_acl.html" /><link rel="prev" title="get_bucket_website" href="get_bucket_website.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>get_object - ibm-cos-sdk 2.13.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../s3.html">S3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../core/index.html">Core references</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/boto3.html">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/collections.html">Collections reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/ibm_boto3.html">IBM Boto3 reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/resources.html">Resources reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/session.html">Session reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference internal" href="../../s3.html"><span class="doc">S3</span></a> / Client / get_object</p>
+<section id="get-object">
+<h1>get_object<a class="headerlink" href="#get-object" title="Permalink to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="S3.Client.get_object">
+<span class="sig-prename descclassname"><span class="pre">S3.Client.</span></span><span class="sig-name descname"><span class="pre">get_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Client.get_object" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieves objects from Amazon S3. To use <code class="docutils literal notranslate"><span class="pre">GET</span></code>, you must have <code class="docutils literal notranslate"><span class="pre">READ</span></code> access to the object. If you grant <code class="docutils literal notranslate"><span class="pre">READ</span></code> access to the anonymous user, you can return the object without using an authorization header.</p>
+<p>An Amazon S3 bucket has no directory hierarchy such as you would find in a typical computer file system. You can, however, create a logical hierarchy by using object key names that imply a folder structure. For example, instead of naming an object <code class="docutils literal notranslate"><span class="pre">sample.jpg</span></code>, you can name it <code class="docutils literal notranslate"><span class="pre">photos/2006/February/sample.jpg</span></code>.</p>
+<p>To get an object from such a logical hierarchy, specify the full key name for the object in the <code class="docutils literal notranslate"><span class="pre">GET</span></code> operation. For a virtual hosted-style request example, if you have the object <code class="docutils literal notranslate"><span class="pre">photos/2006/February/sample.jpg</span></code>, specify the resource as <code class="docutils literal notranslate"><span class="pre">/photos/2006/February/sample.jpg</span></code>. For a path-style request example, if you have the object <code class="docutils literal notranslate"><span class="pre">photos/2006/February/sample.jpg</span></code> in the bucket named <code class="docutils literal notranslate"><span class="pre">examplebucket</span></code>, specify the resource as <code class="docutils literal notranslate"><span class="pre">/examplebucket/photos/2006/February/sample.jpg</span></code>. For more information about request types, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host Header Bucket Specification</a>.</p>
+<p>For more information about returning the ACL of an object, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
+<p>If the object you are retrieving is stored in the S3 Glacier or S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a copy using <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this action returns an <code class="docutils literal notranslate"><span class="pre">InvalidObjectStateError</span></code> error. For information about restoring archived objects, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived Objects</a>.</p>
+<p>Encryption request headers, like <code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption</span></code>, should not be sent for GET requests if your object uses server-side encryption with KMS keys (SSE-KMS) or server-side encryption with Amazon S3–managed encryption keys (SSE-S3). If your object does use these types of keys, you’ll get an HTTP 400 BadRequest error.</p>
+<p>If you encrypt an object by using server-side encryption with customer-provided encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object, you must use the following headers:</p>
+<ul class="simple">
+<li><p>x-amz-server-side-encryption-customer-algorithm</p></li>
+<li><p>x-amz-server-side-encryption-customer-key</p></li>
+<li><p>x-amz-server-side-encryption-customer-key-MD5</p></li>
+</ul>
+<p>For more information about SSE-C, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a>.</p>
+<p>Assuming you have the relevant permission to read object tags, the response also returns the <code class="docutils literal notranslate"><span class="pre">x-amz-tagging-count</span></code> header that provides the count of number of tags associated with the object. You can use <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve the tag set associated with an object.</p>
+<h3>Permissions</h3>
+<p>You need the relevant read object (or version) permission for this operation. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a Policy</a>. If the object you request does not exist, the error Amazon S3 returns depends on whether you also have the <code class="docutils literal notranslate"><span class="pre">s3:ListBucket</span></code> permission.</p>
+<ul class="simple">
+<li><p>If you have the <code class="docutils literal notranslate"><span class="pre">s3:ListBucket</span></code> permission on the bucket, Amazon S3 will return an HTTP status code 404 (“no such key”) error.</p></li>
+<li><p>If you don’t have the <code class="docutils literal notranslate"><span class="pre">s3:ListBucket</span></code> permission, Amazon S3 will return an HTTP status code 403 (“access denied”) error.</p></li>
+</ul>
+<h3>Versioning</h3>
+<p>By default, the GET action returns the current version of an object. To return a different version, use the <code class="docutils literal notranslate"><span class="pre">versionId</span></code> subresource.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><ul class="simple">
+<li><p>If you supply a <code class="docutils literal notranslate"><span class="pre">versionId</span></code>, you need the <code class="docutils literal notranslate"><span class="pre">s3:GetObjectVersion</span></code> permission to access a specific version of an object. If you request a specific version, you do not need to have the <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permission.</p></li>
+<li><p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was deleted and includes <code class="docutils literal notranslate"><span class="pre">x-amz-delete-marker:</span> <span class="pre">true</span></code> in the response.</p></li>
+</ul>
+</div>
+<p>For more information about versioning, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
+<h3>Overriding Response Header Values</h3>
+<p>There are times when you want to override certain response header values in a GET response. For example, you might override the <code class="docutils literal notranslate"><span class="pre">Content-Disposition</span></code> response header value in your GET request.</p>
+<p>You can override values for a set of response headers using the following query parameters. These response header values are sent only on a successful request, that is, when status code 200 OK is returned. The set of headers you can override using these parameters is a subset of the headers that Amazon S3 accepts when you create an object. The response headers that you can override for the GET response are <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code>, <code class="docutils literal notranslate"><span class="pre">Content-Language</span></code>, <code class="docutils literal notranslate"><span class="pre">Expires</span></code>, <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code>, <code class="docutils literal notranslate"><span class="pre">Content-Disposition</span></code>, and <code class="docutils literal notranslate"><span class="pre">Content-Encoding</span></code>. To override these header values in the GET response, you use the following request parameters.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>You must sign the request, either using an Authorization header or a presigned URL, when using these parameters. They cannot be used with an unsigned (anonymous) request.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">response-content-type</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response-content-language</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response-expires</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response-cache-control</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response-content-disposition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">response-content-encoding</span></code></p></li>
+</ul>
+<h3>Additional Considerations about Request Headers</h3>
+<p>If both of the <code class="docutils literal notranslate"><span class="pre">If-Match</span></code> and <code class="docutils literal notranslate"><span class="pre">If-Unmodified-Since</span></code> headers are present in the request as follows: <code class="docutils literal notranslate"><span class="pre">If-Match</span></code> condition evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, and; <code class="docutils literal notranslate"><span class="pre">If-Unmodified-Since</span></code> condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>; then, S3 returns 200 OK and the data requested.</p>
+<p>If both of the <code class="docutils literal notranslate"><span class="pre">If-None-Match</span></code> and <code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code> headers are present in the request as follows: `` If-None-Match`` condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, and; <code class="docutils literal notranslate"><span class="pre">If-Modified-Since</span></code> condition evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>; then, S3 returns 304 Not Modified response code.</p>
+<p>For more information about conditional requests, see <a class="reference external" href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
+<p>The following operations are related to <code class="docutils literal notranslate"><span class="pre">GetObject</span></code>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></p></li>
+</ul>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObject">AWS API Documentation</a></p>
+<h3>Request Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">IfMatch</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">IfModifiedSince</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">IfNoneMatch</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">IfUnmodifiedSince</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">MirrorDestination</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">Range</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ResponseCacheControl</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ResponseContentDisposition</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ResponseContentEncoding</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ResponseContentLanguage</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ResponseContentType</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ResponseExpires</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">VersionId</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">SSECustomerAlgorithm</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">SSECustomerKey</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">RequestPayer</span><span class="o">=</span><span class="s1">&#39;requester&#39;</span><span class="p">,</span>
+    <span class="n">PartNumber</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">ExpectedBucketOwner</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Bucket</strong> (<em>string</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>The bucket name containing the object.</p>
+<p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <em>AccessPointName</em>-<em>AccountId</em>.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <em>Amazon S3 User Guide</em>.</p>
+<p>When using an Object Lambda access point the hostname takes the form <em>AccessPointName</em>-<em>AccountId</em>.s3-object-lambda.*Region*.amazonaws.com.</p>
+<p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code class="docutils literal notranslate"><span class="pre">AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com</span></code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <em>Amazon S3 User Guide</em>.</p>
+</p></li>
+<li><p><strong>IfMatch</strong> (<em>string</em>) – Return the object only if its entity tag (ETag) is the same as the one specified; otherwise, return a 412 (precondition failed) error.</p></li>
+<li><p><strong>IfModifiedSince</strong> (<em>datetime</em>) – Return the object only if it has been modified since the specified time; otherwise, return a 304 (not modified) error.</p></li>
+<li><p><strong>IfNoneMatch</strong> (<em>string</em>) – Return the object only if its entity tag (ETag) is different from the one specified; otherwise, return a 304 (not modified) error.</p></li>
+<li><p><strong>IfUnmodifiedSince</strong> (<em>datetime</em>) – Return the object only if it has not been modified since the specified time; otherwise, return a 412 (precondition failed) error.</p></li>
+<li><p><strong>Key</strong> (<em>string</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>Key of the object to get.</p>
+</p></li>
+<li><p><strong>MirrorDestination</strong> (<em>string</em>) – Mirror source for object reads.</p></li>
+<li><p><strong>Range</strong> (<em>string</em>) – <p>Downloads the specified byte range of an object. For more information about the HTTP Range header, see <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc9110.html#name-range">https://www.rfc-editor.org/rfc/rfc9110.html#name-range</a>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>Amazon S3 doesn’t support retrieving multiple ranges of data per <code class="docutils literal notranslate"><span class="pre">GET</span></code> request.</p>
+</div>
+</p></li>
+<li><p><strong>ResponseCacheControl</strong> (<em>string</em>) – Sets the <code class="docutils literal notranslate"><span class="pre">Cache-Control</span></code> header of the response.</p></li>
+<li><p><strong>ResponseContentDisposition</strong> (<em>string</em>) – Sets the <code class="docutils literal notranslate"><span class="pre">Content-Disposition</span></code> header of the response.</p></li>
+<li><p><strong>ResponseContentEncoding</strong> (<em>string</em>) – Sets the <code class="docutils literal notranslate"><span class="pre">Content-Encoding</span></code> header of the response.</p></li>
+<li><p><strong>ResponseContentLanguage</strong> (<em>string</em>) – Sets the <code class="docutils literal notranslate"><span class="pre">Content-Language</span></code> header of the response.</p></li>
+<li><p><strong>ResponseContentType</strong> (<em>string</em>) – Sets the <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header of the response.</p></li>
+<li><p><strong>ResponseExpires</strong> (<em>datetime</em>) – Sets the <code class="docutils literal notranslate"><span class="pre">Expires</span></code> header of the response.</p></li>
+<li><p><strong>VersionId</strong> (<em>string</em>) – <p>Version ID used to reference a specific version of the object.</p>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">GetObject</span></code> operation returns the current version of an object. To return a different version, use the <code class="docutils literal notranslate"><span class="pre">versionId</span></code> subresource.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><ul>
+<li><p>If you include a <code class="docutils literal notranslate"><span class="pre">versionId</span></code> in your request header, you must have the <code class="docutils literal notranslate"><span class="pre">s3:GetObjectVersion</span></code> permission to access a specific version of an object. The <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permission is not required in this scenario.</p></li>
+<li><p>If you request the current version of an object without a specific <code class="docutils literal notranslate"><span class="pre">versionId</span></code> in the request header, only the <code class="docutils literal notranslate"><span class="pre">s3:GetObject</span></code> permission is required. The <code class="docutils literal notranslate"><span class="pre">s3:GetObjectVersion</span></code> permission is not required in this scenario.</p></li>
+<li><p><strong>Directory buckets</strong> - S3 Versioning isn’t enabled and supported for directory buckets. For this API operation, only the <code class="docutils literal notranslate"><span class="pre">null</span></code> value of the version ID is supported by directory buckets. You can only specify <code class="docutils literal notranslate"><span class="pre">null</span></code> to the <code class="docutils literal notranslate"><span class="pre">versionId</span></code> query parameter in the request.</p></li>
+</ul>
+</div>
+<p>For more information about versioning, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
+</p></li>
+<li><p><strong>SSECustomerAlgorithm</strong> (<em>string</em>) – <p>Specifies the algorithm to use when decrypting the object (for example, <code class="docutils literal notranslate"><span class="pre">AES256</span></code>).</p>
+<p>If you encrypt an object by using server-side encryption with customer-provided encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object, you must use the following headers:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-algorithm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-key</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-key-MD5</span></code></p></li>
+</ul>
+<p>For more information about SSE-C, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <em>Amazon S3 User Guide</em>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>This functionality is not supported for directory buckets.</p>
+</div>
+</p></li>
+<li><p><strong>SSECustomerKey</strong> (<em>string</em>) – <p>Specifies the customer-provided encryption key that you originally provided for Amazon S3 to encrypt the data before storing it. This value is used to decrypt the object when recovering it and must match the one used when storing the data. The key must be appropriate for use with the algorithm specified in the <code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-algorithm</span></code> header.</p>
+<p>If you encrypt an object by using server-side encryption with customer-provided encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object, you must use the following headers:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-algorithm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-key</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-key-MD5</span></code></p></li>
+</ul>
+<p>For more information about SSE-C, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <em>Amazon S3 User Guide</em>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>This functionality is not supported for directory buckets.</p>
+</div>
+</p></li>
+<li><p><strong>SSECustomerKeyMD5</strong> (<em>string</em>) – <p>Specifies the 128-bit MD5 digest of the customer-provided encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p>
+<p>If you encrypt an object by using server-side encryption with customer-provided encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object, you must use the following headers:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-algorithm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-key</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-amz-server-side-encryption-customer-key-MD5</span></code></p></li>
+</ul>
+<p>For more information about SSE-C, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys)</a> in the <em>Amazon S3 User Guide</em>.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>This functionality is not supported for directory buckets.</p>
+<blockquote>
+<div><p>Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required</p>
+</div></blockquote>
+</div>
+</p></li>
+<li><p><strong>RequestPayer</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+<li><p><strong>PartNumber</strong> (<em>integer</em>) – Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a ‘ranged’ GET request for the part specified. Useful for downloading just a part of an object.</p></li>
+<li><p><strong>ExpectedBucketOwner</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><h3>Response Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Body&#39;</span><span class="p">:</span> <span class="n">StreamingBody</span><span class="p">(),</span>
+    <span class="s1">&#39;DeleteMarker&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="o">|</span><span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;AcceptRanges&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Expiration&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Restore&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s1">&#39;ContentLength&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MissingMeta&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CacheControl&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentDisposition&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentEncoding&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentLanguage&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentRange&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Expires&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s1">&#39;WebsiteRedirectLocation&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ServerSideEncryption&#39;</span><span class="p">:</span> <span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Metadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;RetentionExpirationDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s1">&#39;RetentionLegalHoldCount&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;RetentionPeriod&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;SSECustomerAlgorithm&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSECustomerKeyMD5&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SSEKMSKeyId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;ACCELERATED&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD&#39;</span><span class="o">|</span><span class="s1">&#39;REDUCED_REDUNDANCY&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD_IA&#39;</span><span class="o">|</span><span class="s1">&#39;ONEZONE_IA&#39;</span><span class="o">|</span><span class="s1">&#39;INTELLIGENT_TIERING&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER&#39;</span><span class="o">|</span><span class="s1">&#39;DEEP_ARCHIVE&#39;</span><span class="o">|</span><span class="s1">&#39;OUTPOSTS&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER_IR&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RequestCharged&#39;</span><span class="p">:</span> <span class="s1">&#39;requester&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ReplicationStatus&#39;</span><span class="p">:</span> <span class="s1">&#39;COMPLETE&#39;</span><span class="o">|</span><span class="s1">&#39;PENDING&#39;</span><span class="o">|</span><span class="s1">&#39;FAILED&#39;</span><span class="o">|</span><span class="s1">&#39;REPLICA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PartsCount&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;TagCount&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s1">&#39;ObjectLockMode&#39;</span><span class="p">:</span> <span class="s1">&#39;GOVERNANCE&#39;</span><span class="o">|</span><span class="s1">&#39;COMPLIANCE&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ObjectLockRetainUntilDate&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="s1">&#39;ObjectLockLegalHoldStatus&#39;</span><span class="p">:</span> <span class="s1">&#39;ON&#39;</span><span class="o">|</span><span class="s1">&#39;OFF&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;IbmRestoredCopyStorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;ACCELERATED&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD&#39;</span><span class="o">|</span><span class="s1">&#39;REDUCED_REDUNDANCY&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD_IA&#39;</span><span class="o">|</span><span class="s1">&#39;ONEZONE_IA&#39;</span><span class="o">|</span><span class="s1">&#39;INTELLIGENT_TIERING&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER&#39;</span><span class="o">|</span><span class="s1">&#39;DEEP_ARCHIVE&#39;</span><span class="o">|</span><span class="s1">&#39;OUTPOSTS&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER_IR&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;IbmTransition&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<h3>Response Structure</h3>
+<ul>
+<li><p><em>(dict) –</em></p>
+<ul>
+<li><p><strong>Body</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">StreamingBody</span></code>) –</p>
+<p>Object data.</p>
+</li>
+<li><p><strong>DeleteMarker</strong> <em>(boolean) –</em></p>
+<p>Indicates whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><ul class="simple">
+<li><p>If the current version of the object is a delete marker, Amazon S3 behaves as if the object was deleted and includes <code class="docutils literal notranslate"><span class="pre">x-amz-delete-marker:</span> <span class="pre">true</span></code> in the response.</p></li>
+<li><p>If the specified version in the request is a delete marker, the response returns a <code class="docutils literal notranslate"><span class="pre">405</span> <span class="pre">Method</span> <span class="pre">Not</span> <span class="pre">Allowed</span></code> error and the <code class="docutils literal notranslate"><span class="pre">Last-Modified:</span> <span class="pre">timestamp</span></code> response header.</p></li>
+</ul>
+</div>
+</li>
+<li><p><strong>AcceptRanges</strong> <em>(string) –</em></p>
+<p>Indicates that a range of bytes was specified in the request.</p>
+</li>
+<li><p><strong>Expiration</strong> <em>(string) –</em></p>
+<p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the <code class="docutils literal notranslate"><span class="pre">expiry-date</span></code> and <code class="docutils literal notranslate"><span class="pre">rule-id</span></code> key-value pairs providing object expiration information. The value of the <code class="docutils literal notranslate"><span class="pre">rule-id</span></code> is URL-encoded.</p>
+</li>
+<li><p><strong>Restore</strong> <em>(string) –</em></p>
+<p>Provides information about object restoration action and expiration time of the restored object copy.</p>
+</li>
+<li><p><strong>LastModified</strong> <em>(datetime) –</em></p>
+<p>Creation date of the object.</p>
+</li>
+<li><p><strong>ContentLength</strong> <em>(integer) –</em></p>
+<p>Size of the body in bytes.</p>
+</li>
+<li><p><strong>ETag</strong> <em>(string) –</em></p>
+<p>An entity tag (ETag) is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
+</li>
+<li><p><strong>MissingMeta</strong> <em>(integer) –</em></p>
+<p>This is set to the number of metadata entries not returned in <code class="docutils literal notranslate"><span class="pre">x-amz-meta</span></code> headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p>
+</li>
+<li><p><strong>VersionId</strong> <em>(string) –</em></p>
+<p>Version of the object.</p>
+</li>
+<li><p><strong>CacheControl</strong> <em>(string) –</em></p>
+<p>Specifies caching behavior along the request/reply chain.</p>
+</li>
+<li><p><strong>ContentDisposition</strong> <em>(string) –</em></p>
+<p>Specifies presentational information for the object.</p>
+</li>
+<li><p><strong>ContentEncoding</strong> <em>(string) –</em></p>
+<p>Indicates what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
+</li>
+<li><p><strong>ContentLanguage</strong> <em>(string) –</em></p>
+<p>The language the content is in.</p>
+</li>
+<li><p><strong>ContentRange</strong> <em>(string) –</em></p>
+<p>The portion of the object returned in the response.</p>
+</li>
+<li><p><strong>ContentType</strong> <em>(string) –</em></p>
+<p>A standard MIME type describing the format of the object data.</p>
+</li>
+<li><p><strong>Expires</strong> <em>(datetime) –</em></p>
+<p>The date and time at which the object is no longer cacheable.</p>
+</li>
+<li><p><strong>WebsiteRedirectLocation</strong> <em>(string) –</em></p>
+<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
+</li>
+<li><p><strong>ServerSideEncryption</strong> <em>(string) –</em></p>
+<p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example, <code class="docutils literal notranslate"><span class="pre">AES256</span></code>, <code class="docutils literal notranslate"><span class="pre">aws:kms</span></code>, <code class="docutils literal notranslate"><span class="pre">aws:kms:dsse</span></code>).</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>For directory buckets, only server-side encryption with Amazon S3 managed keys (SSE-S3) ( <code class="docutils literal notranslate"><span class="pre">AES256</span></code>) is supported.</p>
+</div>
+</li>
+<li><p><strong>Metadata</strong> <em>(dict) –</em></p>
+<p>A map of metadata to store with the object in S3.</p>
+<ul class="simple">
+<li><p><em>(string) –</em></p>
+<ul>
+<li><p><em>(string) –</em></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>RetentionExpirationDate</strong> <em>(datetime) –</em> Date on which it will be legal to delete or modify the object. You can only specify this or the Retention-Period header. If both are specified a 400 error will be returned. If neither is specified the bucket’s DefaultRetention period will be used.</p></li>
+<li><p><strong>RetentionLegalHoldCount</strong> <em>(integer) –</em> Returns the count of legal holds on the object. If there are no legal holds, the header is not returned</p></li>
+<li><p><strong>RetentionPeriod</strong> <em>(integer) –</em> Retention period to store on the object in seconds. If this field and Retention-Expiration-Date are specified a 400 error is returned. If neither is specified the bucket’s DefaultRetention period will be used. 0 is a legal value assuming the bucket’s minimum retention period is also 0.</p></li>
+<li><p><strong>SSECustomerAlgorithm</strong> <em>(string) –</em></p>
+<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+</li>
+<li><p><strong>SSECustomerKeyMD5</strong> <em>(string) –</em></p>
+<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.</p>
+</li>
+<li><p><strong>SSEKMSKeyId</strong> <em>(string) –</em></p>
+<p>If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key that was used for the object.</p>
+</li>
+<li><p><strong>StorageClass</strong> <em>(string) –</em></p>
+<p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+</li>
+<li><p><strong>RequestCharged</strong> <em>(string) –</em></p>
+<p>If present, indicates that the requester was successfully charged for the request.</p>
+</li>
+<li><p><strong>ReplicationStatus</strong> <em>(string) –</em></p>
+<p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p>
+</li>
+<li><p><strong>PartsCount</strong> <em>(integer) –</em></p>
+<p>The count of parts this object has. This value is only returned if you specify <code class="docutils literal notranslate"><span class="pre">partNumber</span></code> in your request and the object was uploaded as a multipart upload.</p>
+</li>
+<li><p><strong>TagCount</strong> <em>(integer) –</em></p>
+<p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p>
+<p>You can use <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve the tag set associated with an object.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>This functionality is not supported for directory buckets.</p>
+</div>
+</li>
+<li><p><strong>ObjectLockMode</strong> <em>(string) –</em></p>
+<p>The Object Lock mode currently in place for this object.</p>
+</li>
+<li><p><strong>ObjectLockRetainUntilDate</strong> <em>(datetime) –</em></p>
+<p>The date and time when this object’s Object Lock will expire.</p>
+</li>
+<li><p><strong>ObjectLockLegalHoldStatus</strong> <em>(string) –</em></p>
+<p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object’s legal hold status.</p>
+</li>
+<li><p><strong>IbmRestoredCopyStorageClass</strong> <em>(string) –</em> This header is only included if an object has transition metadata. This header will indicate the transition storage class and time of transition. If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.</p></li>
+<li><p><strong>IbmTransition</strong> <em>(string) –</em> This header is only included if an object has transition metadata. This header will indicate the transition storage class and time of transition. If this header and the x-amz-restore header are both included, this header will indicate the time at which the object was originally archived.</p></li>
+</ul>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+<h3>Exceptions</h3>
+<ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">S3.Client.exceptions.NoSuchKey</span></code></p></li>
+</ul>
+<h3>Examples</h3>
+<p>The following example retrieves an object for an S3 bucket.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;examplebucket&#39;</span><span class="p">,</span>
+    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;HappyFace.jpg&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;AcceptRanges&#39;</span><span class="p">:</span> <span class="s1">&#39;bytes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentLength&#39;</span><span class="p">:</span> <span class="s1">&#39;3191&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="s1">&#39;image/jpeg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;&quot;6805f2cfc46c0f04559748bb039d69ae&quot;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="s1">&#39;Metadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;TagCount&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;null&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;examplebucket&#39;</span><span class="p">,</span>
+    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;SampleFile.txt&#39;</span><span class="p">,</span>
+    <span class="n">Range</span><span class="o">=</span><span class="s1">&#39;bytes=0-9&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;AcceptRanges&#39;</span><span class="p">:</span> <span class="s1">&#39;bytes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentLength&#39;</span><span class="p">:</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentRange&#39;</span><span class="p">:</span> <span class="s1">&#39;bytes 0-9/43&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;&quot;0d94420ffd0bc68cd3d152506b97a9cc&quot;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">282</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="s1">&#39;Metadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;null&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="get_object_acl.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">get_object_acl</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="get_bucket_website.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">get_bucket_website</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="../../../../_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="sidebar-div show-div-md justify-content-left">
+            <label class="nav-close-icon" id="toc-menu-close" for="__toc" tabindex="0">
+                <div class="visually-hidden">Toggle site table of content right sidebar</div>
+                <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+            </label>
+        </div>
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">get_object</a><ul>
+<li><a class="reference internal" href="#S3.Client.get_object"><code class="docutils literal notranslate"><span class="pre">S3.Client.get_object()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/furo.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/js/custom.js"></script>
+    </body>
+</html>

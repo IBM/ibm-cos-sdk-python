@@ -1,0 +1,18 @@
+:doc:`ObjectSummary <index>` / Sub-Resource / Bucket
+
+******
+Bucket
+******
+
+
+
+.. py:method:: S3.ObjectSummary.Bucket()
+
+  Creates a Bucket resource.::
+
+    bucket = object_summary.Bucket()
+
+  
+  :rtype: :py:class:`S3.Bucket`
+  :returns: A Bucket resource
+  

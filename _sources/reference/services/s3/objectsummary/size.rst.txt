@@ -1,0 +1,17 @@
+:doc:`ObjectSummary <index>` / Attribute / size
+
+****
+size
+****
+
+
+
+.. py:attribute:: S3.ObjectSummary.size
+
+  
+
+  - *(integer) --* 
+
+    Size in bytes of the object
+
+    

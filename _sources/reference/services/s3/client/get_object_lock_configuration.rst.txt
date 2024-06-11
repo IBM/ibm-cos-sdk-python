@@ -1,0 +1,141 @@
+:doc:`S3 <../../s3>` / Client / get_object_lock_configuration
+
+*****************************
+get_object_lock_configuration
+*****************************
+
+
+
+.. py:method:: S3.Client.get_object_lock_configuration(**kwargs)
+
+  
+
+  Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see `Locking Objects <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__.
+
+   
+
+  The following action is related to ``GetObjectLockConfiguration``:
+
+   
+
+  
+  * `GetObjectAttributes <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectLockConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_object_lock_configuration(
+        Bucket='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket whose Object Lock configuration you want to retrieve.
+
+     
+
+    **Access points** - When you use this action with an access point, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'ObjectLockConfiguration': {
+              'ObjectLockEnabled': 'Enabled',
+              'Rule': {
+                  'DefaultRetention': {
+                      'Mode': 'GOVERNANCE'|'COMPLIANCE',
+                      'Days': 123,
+                      'Years': 123
+                  }
+              }
+          },
+          'IbmProtectionManagementState': 'active'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **ObjectLockConfiguration** *(dict) --* 
+
+        The specified bucket's Object Lock configuration.
+
+        
+        
+
+        - **ObjectLockEnabled** *(string) --* 
+
+          Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+
+          
+        
+
+        - **Rule** *(dict) --* 
+
+          Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket. Bucket settings require both a mode and a period. The period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+
+          
+          
+
+          - **DefaultRetention** *(dict) --* 
+
+            The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. Bucket settings require both a mode and a period. The period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+
+            
+            
+
+            - **Mode** *(string) --* 
+
+              The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
+
+              
+            
+
+            - **Days** *(integer) --* 
+
+              The number of days that you want to specify for the default retention period.
+
+              
+            
+
+            - **Years** *(integer) --* 
+
+              The number of years that you want to specify for the default retention period.
+
+              
+        
+      
+    
+      
+
+      - **IbmProtectionManagementState** *(string) --* 
+
+        Indicates whether this bucket has an active protection management state. This header is only included if protection management is activated on a bucket
+
+        
+  

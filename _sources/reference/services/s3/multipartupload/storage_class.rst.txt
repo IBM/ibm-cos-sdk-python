@@ -1,0 +1,17 @@
+:doc:`MultipartUpload <index>` / Attribute / storage_class
+
+*************
+storage_class
+*************
+
+
+
+.. py:attribute:: S3.MultipartUpload.storage_class
+
+  
+
+  - *(string) --* 
+
+    The class of storage used to store the object.
+
+    

@@ -1,1547 +1,1712 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
 
-<!DOCTYPE html>
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 --><title>Index - ibm-cos-sdk 2.13.5 documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
-  <!-- Licensed under the Apache 2.0 License -->
-  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
-  <!-- Licensed under the SIL Open Font License -->
-  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
-  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
   
-    <title>Index &#8212; ibm-cos-sdk 2.13.4 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/guzzle.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/services/index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/services/s3.html">S3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/core/index.html">Core references</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/core/boto3.html">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/core/collections.html">Collections reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/core/ibm_boto3.html">IBM Boto3 reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/core/resources.html">Resources reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/core/session.html">Session reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartupload/abort.html#S3.MultipartUpload.abort">abort() (S3.MultipartUpload method)</a>
+</li>
+        <li><a href="reference/services/s3/client/abort_multipart_upload.html#S3.Client.abort_multipart_upload">abort_multipart_upload() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/object/accept_ranges.html#S3.Object.accept_ranges">accept_ranges (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/Acl.html#S3.Bucket.Acl">Acl() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/Acl.html#S3.Object.Acl">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/Acl.html#S3.ObjectSummary.Acl">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action">Action (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.actions">actions (ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        <li><a href="reference/services/s3/client/add_legal_hold.html#S3.Client.add_legal_hold">add_legal_hold() (S3.Client method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectprotection/add_legal_hold.html#S3.ObjectProtection.add_legal_hold">(S3.ObjectProtection method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig.ALIAS">ALIAS (ibm_boto3.s3.transfer.TransferConfig attribute)</a>
+</li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.all">all() (ibm_boto3.resources.collection.CollectionManager method)</a>
+
+        <ul>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.all">(ibm_boto3.resources.collection.ResourceCollection method)</a>
+</li>
+          <li><a href="reference/services/s3/bucket/multipart_uploads.html#S3.Bucket.all">(S3.Bucket method)</a>, <a href="reference/services/s3/bucket/object_versions.html#S3.Bucket.all">[1]</a>, <a href="reference/services/s3/bucket/objects.html#S3.Bucket.all">[2]</a>
+</li>
+          <li><a href="reference/services/s3/multipartupload/parts.html#S3.MultipartUpload.all">(S3.MultipartUpload method)</a>
+</li>
+          <li><a href="reference/services/s3/service-resource/buckets.html#S3.ServiceResource.all">(S3.ServiceResource method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.response.all_not_none">all_not_none() (in module ibm_boto3.resources.response)</a>
+</li>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">ALLOWED_DOWNLOAD_ARGS (ibm_boto3.s3.transfer.S3Transfer attribute)</a>
+</li>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">ALLOWED_UPLOAD_ARGS (ibm_boto3.s3.transfer.S3Transfer attribute)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.available_profiles">available_profiles (ibm_boto3.session.Session property)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.batch_actions">batch_actions (ibm_boto3.resources.model.Collection property)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.batch_actions">(ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.action.BatchAction">BatchAction (class in ibm_boto3.resources.action)</a>
+</li>
+        <li><a href="reference/services/s3/bucketacl/Bucket.html#S3.BucketAcl.Bucket">Bucket() (S3.BucketAcl method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketcors/Bucket.html#S3.BucketCors.Bucket">(S3.BucketCors method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/Bucket.html#S3.BucketLifecycleConfiguration.Bucket">(S3.BucketLifecycleConfiguration method)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/Bucket.html#S3.BucketTagging.Bucket">(S3.BucketTagging method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketversioning/Bucket.html#S3.BucketVersioning.Bucket">(S3.BucketVersioning method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/Bucket.html#S3.BucketWebsite.Bucket">(S3.BucketWebsite method)</a>
+</li>
+          <li><a href="reference/services/s3/object/Bucket.html#S3.Object.Bucket">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/Bucket.html#S3.ObjectSummary.Bucket">(S3.ObjectSummary method)</a>
+</li>
+          <li><a href="reference/services/s3/service-resource/Bucket.html#S3.ServiceResource.Bucket">(S3.ServiceResource method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucketacl/bucket_name.html#S3.BucketAcl.bucket_name">bucket_name (S3.BucketAcl attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketcors/bucket_name.html#S3.BucketCors.bucket_name">(S3.BucketCors attribute)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/bucket_name.html#S3.BucketLifecycleConfiguration.bucket_name">(S3.BucketLifecycleConfiguration attribute)</a>
+</li>
+          <li><a href="reference/services/s3/bucketprotection/bucket_name.html#S3.BucketProtection.bucket_name">(S3.BucketProtection attribute)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/bucket_name.html#S3.BucketTagging.bucket_name">(S3.BucketTagging attribute)</a>
+</li>
+          <li><a href="reference/services/s3/bucketversioning/bucket_name.html#S3.BucketVersioning.bucket_name">(S3.BucketVersioning attribute)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/bucket_name.html#S3.BucketWebsite.bucket_name">(S3.BucketWebsite attribute)</a>
+</li>
+          <li><a href="reference/services/s3/multipartupload/bucket_name.html#S3.MultipartUpload.bucket_name">(S3.MultipartUpload attribute)</a>
+</li>
+          <li><a href="reference/services/s3/multipartuploadpart/bucket_name.html#S3.MultipartUploadPart.bucket_name">(S3.MultipartUploadPart attribute)</a>
+</li>
+          <li><a href="reference/services/s3/object/bucket_name.html#S3.Object.bucket_name">(S3.Object attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/bucket_name.html#S3.ObjectAcl.bucket_name">(S3.ObjectAcl attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectprotection/bucket_name.html#S3.ObjectProtection.bucket_name">(S3.ObjectProtection attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/bucket_name.html#S3.ObjectSummary.bucket_name">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/bucket_name.html#S3.ObjectVersion.bucket_name">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/service-resource/BucketAcl.html#S3.ServiceResource.BucketAcl">BucketAcl() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/BucketCors.html#S3.ServiceResource.BucketCors">BucketCors() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/BucketLifecycleConfiguration.html#S3.ServiceResource.BucketLifecycleConfiguration">BucketLifecycleConfiguration() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/BucketProtection.html#S3.ServiceResource.BucketProtection">BucketProtection() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/buckets.html#S3.ServiceResource.buckets">buckets (S3.ServiceResource attribute)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/BucketTagging.html#S3.ServiceResource.BucketTagging">BucketTagging() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/BucketVersioning.html#S3.ServiceResource.BucketVersioning">BucketVersioning() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/BucketWebsite.html#S3.ServiceResource.BucketWebsite">BucketWebsite() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.response.build_empty_response">build_empty_response() (in module ibm_boto3.resources.response)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.response.build_identifiers">build_identifiers() (in module ibm_boto3.resources.response)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.params.build_param_structure">build_param_structure() (in module ibm_boto3.resources.params)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/object/cache_control.html#S3.Object.cache_control">cache_control (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/client/can_paginate.html#S3.Client.can_paginate">can_paginate() (S3.Client method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.client">client (ibm_boto3.resources.base.ResourceMeta attribute)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.client">client() (ibm_boto3.session.Session method)</a>
+
+        <ul>
+          <li><a href="reference/core/boto3.html#ibm_boto3.client">(in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.client">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/close.html#S3.Client.close">close() (S3.Client method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection">Collection (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory">CollectionFactory (class in ibm_boto3.resources.collection)</a>
+</li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager">CollectionManager (class in ibm_boto3.resources.collection)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.collections">collections (ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        <li><a href="reference/services/s3/multipartupload/complete.html#S3.MultipartUpload.complete">complete() (S3.MultipartUpload method)</a>
+</li>
+        <li><a href="reference/services/s3/client/complete_multipart_upload.html#S3.Client.complete_multipart_upload">complete_multipart_upload() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/object/content_disposition.html#S3.Object.content_disposition">content_disposition (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/content_encoding.html#S3.Object.content_encoding">content_encoding (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/content_language.html#S3.Object.content_language">content_language (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/content_length.html#S3.Object.content_length">content_length (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/content_type.html#S3.Object.content_type">content_type (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.copy">copy() (ibm_boto3.resources.base.ResourceMeta method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucket/copy.html#S3.Bucket.copy">(S3.Bucket method)</a>
+</li>
+          <li><a href="reference/services/s3/client/copy.html#S3.Client.copy">(S3.Client method)</a>
+</li>
+          <li><a href="reference/services/s3/object/copy.html#S3.Object.copy">(S3.Object method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartuploadpart/copy_from.html#S3.MultipartUploadPart.copy_from">copy_from() (S3.MultipartUploadPart method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/copy_from.html#S3.Object.copy_from">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/copy_from.html#S3.ObjectSummary.copy_from">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/copy_object.html#S3.Client.copy_object">copy_object() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/Cors.html#S3.Bucket.Cors">Cors() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/services/s3/bucketcors/cors_rules.html#S3.BucketCors.cors_rules">cors_rules (S3.BucketCors attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/create.html#S3.Bucket.create">create() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/services/s3/client/create_bucket.html#S3.Client.create_bucket">create_bucket() (S3.Client method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/service-resource/create_bucket.html#S3.ServiceResource.create_bucket">(S3.ServiceResource method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/create_multipart_upload.html#S3.Client.create_multipart_upload">create_multipart_upload() (S3.Client method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.params.create_request_parameters">create_request_parameters() (in module ibm_boto3.resources.params)</a>
+</li>
+        <li><a href="reference/services/s3/objectprotection/create_time.html#S3.ObjectProtection.create_time">create_time (S3.ObjectProtection attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/creation_date.html#S3.Bucket.creation_date">creation_date (S3.Bucket attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/creation_template_id.html#S3.Bucket.creation_template_id">creation_template_id (S3.Bucket attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction">CustomModeledAction (class in ibm_boto3.resources.action)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.data">data (ibm_boto3.resources.base.ResourceMeta attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketprotection/default_retention.html#S3.BucketProtection.default_retention">default_retention (S3.BucketProtection attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams">DefinitionWithParams (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/object_versions.html#delete">delete()</a>, <a href="reference/services/s3/bucket/objects.html#delete">[1]</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucket/delete.html#S3.Bucket.delete">(S3.Bucket method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketcors/delete.html#S3.BucketCors.delete">(S3.BucketCors method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/delete.html#S3.BucketLifecycleConfiguration.delete">(S3.BucketLifecycleConfiguration method)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/delete.html#S3.BucketTagging.delete">(S3.BucketTagging method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/delete.html#S3.BucketWebsite.delete">(S3.BucketWebsite method)</a>
+</li>
+          <li><a href="reference/services/s3/object/delete.html#S3.Object.delete">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/delete.html#S3.ObjectSummary.delete">(S3.ObjectSummary method)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/delete.html#S3.ObjectVersion.delete">(S3.ObjectVersion method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/delete_bucket.html#S3.Client.delete_bucket">delete_bucket() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_analytics_configuration.html#S3.Client.delete_bucket_analytics_configuration">delete_bucket_analytics_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_cors.html#S3.Client.delete_bucket_cors">delete_bucket_cors() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_inventory_configuration.html#S3.Client.delete_bucket_inventory_configuration">delete_bucket_inventory_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_lifecycle.html#S3.Client.delete_bucket_lifecycle">delete_bucket_lifecycle() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_metrics_configuration.html#S3.Client.delete_bucket_metrics_configuration">delete_bucket_metrics_configuration() (S3.Client method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/client/delete_bucket_policy.html#S3.Client.delete_bucket_policy">delete_bucket_policy() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_replication.html#S3.Client.delete_bucket_replication">delete_bucket_replication() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_tagging.html#S3.Client.delete_bucket_tagging">delete_bucket_tagging() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_bucket_website.html#S3.Client.delete_bucket_website">delete_bucket_website() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_legal_hold.html#S3.Client.delete_legal_hold">delete_legal_hold() (S3.Client method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectprotection/delete_legal_hold.html#S3.ObjectProtection.delete_legal_hold">(S3.ObjectProtection method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/object/delete_marker.html#S3.Object.delete_marker">delete_marker (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_object.html#S3.Client.delete_object">delete_object() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/delete_object_tagging.html#S3.Client.delete_object_tagging">delete_object_tagging() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/delete_objects.html#S3.Bucket.delete_objects">delete_objects() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/client/delete_objects.html#S3.Client.delete_objects">(S3.Client method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/delete_public_access_block.html#S3.Client.delete_public_access_block">delete_public_access_block() (S3.Client method)</a>
+</li>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">download_file() (ibm_boto3.s3.transfer.S3Transfer method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucket/download_file.html#S3.Bucket.download_file">(S3.Bucket method)</a>
+</li>
+          <li><a href="reference/services/s3/client/download_file.html#S3.Client.download_file">(S3.Client method)</a>
+</li>
+          <li><a href="reference/services/s3/object/download_file.html#S3.Object.download_file">(S3.Object method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucket/download_fileobj.html#S3.Bucket.download_fileobj">download_fileobj() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/client/download_fileobj.html#S3.Client.download_fileobj">(S3.Client method)</a>
+</li>
+          <li><a href="reference/services/s3/object/download_fileobj.html#S3.Object.download_fileobj">(S3.Object method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartuploadpart/e_tag.html#S3.MultipartUploadPart.e_tag">e_tag (S3.MultipartUploadPart attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/e_tag.html#S3.Object.e_tag">(S3.Object attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/e_tag.html#S3.ObjectSummary.e_tag">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/e_tag.html#S3.ObjectVersion.e_tag">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/boto3.html#ibm_boto3.NullHandler.emit">emit() (ibm_boto3.NullHandler method)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.NullHandler.emit">[1]</a>
+</li>
+        <li><a href="reference/services/s3/bucketversioning/enable.html#S3.BucketVersioning.enable">enable() (S3.BucketVersioning method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucketprotection/enable_permanent_retention.html#S3.BucketProtection.enable_permanent_retention">enable_permanent_retention (S3.BucketProtection attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketwebsite/error_document.html#S3.BucketWebsite.error_document">error_document (S3.BucketWebsite attribute)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.events">events (ibm_boto3.session.Session property)</a>
+</li>
+        <li><a href="reference/services/s3/object/expiration.html#S3.Object.expiration">expiration (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/expires.html#S3.Object.expires">expires (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/client/extend_object_retention.html#S3.Client.extend_object_retention">extend_object_retention() (S3.Client method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectprotection/extend_object_retention.html#S3.ObjectProtection.extend_object_retention">(S3.ObjectProtection method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucket/multipart_uploads.html#filter">filter()</a>, <a href="reference/services/s3/bucket/object_versions.html#filter">[1]</a>, <a href="reference/services/s3/bucket/objects.html#filter">[2]</a>, <a href="reference/services/s3/multipartupload/parts.html#filter">[3]</a>, <a href="reference/services/s3/service-resource/buckets.html#filter">[4]</a>
+
+        <ul>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.filter">(ibm_boto3.resources.collection.CollectionManager method)</a>
+</li>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.filter">(ibm_boto3.resources.collection.ResourceCollection method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/client/generate_presigned_post.html#S3.Client.generate_presigned_post">generate_presigned_post() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/generate_presigned_url.html#S3.Client.generate_presigned_url">generate_presigned_url() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/object/get.html#S3.Object.get">get() (S3.Object method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectsummary/get.html#S3.ObjectSummary.get">(S3.ObjectSummary method)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/get.html#S3.ObjectVersion.get">(S3.ObjectVersion method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.get_attributes">get_attributes() (ibm_boto3.resources.model.ResourceModel method)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_partitions">get_available_partitions() (ibm_boto3.session.Session method)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_regions">get_available_regions() (ibm_boto3.session.Session method)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_resources">get_available_resources() (ibm_boto3.session.Session method)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_services">get_available_services() (ibm_boto3.session.Session method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/get_available_subresources.html#S3.Bucket.get_available_subresources">get_available_subresources() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketacl/get_available_subresources.html#S3.BucketAcl.get_available_subresources">(S3.BucketAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketcors/get_available_subresources.html#S3.BucketCors.get_available_subresources">(S3.BucketCors method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/get_available_subresources.html#S3.BucketLifecycleConfiguration.get_available_subresources">(S3.BucketLifecycleConfiguration method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketprotection/get_available_subresources.html#S3.BucketProtection.get_available_subresources">(S3.BucketProtection method)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/get_available_subresources.html#S3.BucketTagging.get_available_subresources">(S3.BucketTagging method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketversioning/get_available_subresources.html#S3.BucketVersioning.get_available_subresources">(S3.BucketVersioning method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/get_available_subresources.html#S3.BucketWebsite.get_available_subresources">(S3.BucketWebsite method)</a>
+</li>
+          <li><a href="reference/services/s3/multipartupload/get_available_subresources.html#S3.MultipartUpload.get_available_subresources">(S3.MultipartUpload method)</a>
+</li>
+          <li><a href="reference/services/s3/multipartuploadpart/get_available_subresources.html#S3.MultipartUploadPart.get_available_subresources">(S3.MultipartUploadPart method)</a>
+</li>
+          <li><a href="reference/services/s3/object/get_available_subresources.html#S3.Object.get_available_subresources">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/get_available_subresources.html#S3.ObjectAcl.get_available_subresources">(S3.ObjectAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/objectprotection/get_available_subresources.html#S3.ObjectProtection.get_available_subresources">(S3.ObjectProtection method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/get_available_subresources.html#S3.ObjectSummary.get_available_subresources">(S3.ObjectSummary method)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/get_available_subresources.html#S3.ObjectVersion.get_available_subresources">(S3.ObjectVersion method)</a>
+</li>
+          <li><a href="reference/services/s3/service-resource/get_available_subresources.html#S3.ServiceResource.get_available_subresources">(S3.ServiceResource method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/get_bucket_accelerate_configuration.html#S3.Client.get_bucket_accelerate_configuration">get_bucket_accelerate_configuration() (S3.Client method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/client/get_bucket_acl.html#S3.Client.get_bucket_acl">get_bucket_acl() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_analytics_configuration.html#S3.Client.get_bucket_analytics_configuration">get_bucket_analytics_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_aspera.html#S3.Client.get_bucket_aspera">get_bucket_aspera() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_cors.html#S3.Client.get_bucket_cors">get_bucket_cors() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_inventory_configuration.html#S3.Client.get_bucket_inventory_configuration">get_bucket_inventory_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_lifecycle_configuration.html#S3.Client.get_bucket_lifecycle_configuration">get_bucket_lifecycle_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_location.html#S3.Client.get_bucket_location">get_bucket_location() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_metrics_configuration.html#S3.Client.get_bucket_metrics_configuration">get_bucket_metrics_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_protection_configuration.html#S3.Client.get_bucket_protection_configuration">get_bucket_protection_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_replication.html#S3.Client.get_bucket_replication">get_bucket_replication() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_tagging.html#S3.Client.get_bucket_tagging">get_bucket_tagging() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_versioning.html#S3.Client.get_bucket_versioning">get_bucket_versioning() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_bucket_website.html#S3.Client.get_bucket_website">get_bucket_website() (S3.Client method)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_credentials">get_credentials() (ibm_boto3.session.Session method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.params.get_data_member">get_data_member() (in module ibm_boto3.resources.params)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object.html#S3.Client.get_object">get_object() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object_acl.html#S3.Client.get_object_acl">get_object_acl() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object_legal_hold.html#S3.Client.get_object_legal_hold">get_object_legal_hold() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object_lock_configuration.html#S3.Client.get_object_lock_configuration">get_object_lock_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object_retention.html#S3.Client.get_object_retention">get_object_retention() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object_tagging.html#S3.Client.get_object_tagging">get_object_tagging() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_object_torrent.html#S3.Client.get_object_torrent">get_object_torrent() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_paginator.html#S3.Client.get_paginator">get_paginator() (S3.Client method)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_partition_for_region">get_partition_for_region() (ibm_boto3.session.Session method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_public_access_block.html#S3.Client.get_public_access_block">get_public_access_block() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/get_waiter.html#S3.Client.get_waiter">get_waiter() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/bucketacl/grants.html#S3.BucketAcl.grants">grants (S3.BucketAcl attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectacl/grants.html#S3.ObjectAcl.grants">(S3.ObjectAcl attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler.handle_response_item">handle_response_item() (ibm_boto3.resources.response.ResourceHandler method)</a>
+</li>
+        <li><a href="reference/services/s3/objectversion/head.html#S3.ObjectVersion.head">head() (S3.ObjectVersion method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/client/head_bucket.html#S3.Client.head_bucket">head_bucket() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/head_object.html#S3.Client.head_object">head_object() (S3.Client method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    ibm_boto3
+
+        <ul>
+          <li><a href="reference/core/boto3.html#module-ibm_boto3">module</a>, <a href="reference/core/ibm_boto3.html#module-ibm_boto3">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.action
+
+        <ul>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.action">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.base
+
+        <ul>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.base">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.collection
+
+        <ul>
+          <li><a href="reference/core/collections.html#module-ibm_boto3.resources.collection">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.factory
+
+        <ul>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.factory">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.model
+
+        <ul>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.model">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.params
+
+        <ul>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.params">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.resources.response
+
+        <ul>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.response">module</a>
+</li>
+        </ul></li>
+        <li>
+    ibm_boto3.session
+
+        <ul>
+          <li><a href="reference/core/session.html#module-ibm_boto3.session">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/object/ibm_restored_copy_storage_class.html#S3.Object.ibm_restored_copy_storage_class">ibm_restored_copy_storage_class (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/ibm_transition.html#S3.Object.ibm_transition">ibm_transition (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/multipartupload/id.html#S3.MultipartUpload.id">id (S3.MultipartUpload attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectversion/id.html#S3.ObjectVersion.id">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Identifier">Identifier (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.identifiers">identifiers (ibm_boto3.resources.base.ResourceMeta attribute)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.identifiers">(ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.identifiers">(ibm_boto3.resources.model.ResponseResource property)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucketwebsite/index_document.html#S3.BucketWebsite.index_document">index_document (S3.BucketWebsite attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/initiate_multipart_upload.html#S3.Object.initiate_multipart_upload">initiate_multipart_upload() (S3.Object method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectsummary/initiate_multipart_upload.html#S3.ObjectSummary.initiate_multipart_upload">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/multipartupload/initiated.html#S3.MultipartUpload.initiated">initiated (S3.MultipartUpload attribute)</a>
+</li>
+        <li><a href="reference/services/s3/multipartupload/initiator.html#S3.MultipartUpload.initiator">initiator (S3.MultipartUpload attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction.inject">inject() (ibm_boto3.resources.action.CustomModeledAction method)</a>
+</li>
+        <li><a href="reference/services/s3/objectversion/is_latest.html#S3.ObjectVersion.is_latest">is_latest (S3.ObjectVersion attribute)</a>
+</li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.iterator">iterator() (ibm_boto3.resources.collection.CollectionManager method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="K" class="genindex-section">
+  <h2>K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartupload/key.html#S3.MultipartUpload.key">key (S3.MultipartUpload attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/key.html#S3.Object.key">(S3.Object attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/key.html#S3.ObjectSummary.key">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/key.html#S3.ObjectVersion.key">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartuploadpart/last_modified.html#S3.MultipartUploadPart.last_modified">last_modified (S3.MultipartUploadPart attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/last_modified.html#S3.Object.last_modified">(S3.Object attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/last_modified.html#S3.ObjectSummary.last_modified">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/last_modified.html#S3.ObjectVersion.last_modified">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/objectprotection/legal_holds.html#S3.ObjectProtection.legal_holds">legal_holds (S3.ObjectProtection attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/LifecycleConfiguration.html#S3.Bucket.LifecycleConfiguration">LifecycleConfiguration() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/multipart_uploads.html#limit">limit()</a>, <a href="reference/services/s3/bucket/object_versions.html#limit">[1]</a>, <a href="reference/services/s3/bucket/objects.html#limit">[2]</a>, <a href="reference/services/s3/multipartupload/parts.html#limit">[3]</a>, <a href="reference/services/s3/service-resource/buckets.html#limit">[4]</a>
+
+        <ul>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.limit">(ibm_boto3.resources.collection.CollectionManager method)</a>
+</li>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.limit">(ibm_boto3.resources.collection.ResourceCollection method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/list_bucket_analytics_configurations.html#S3.Client.list_bucket_analytics_configurations">list_bucket_analytics_configurations() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_bucket_inventory_configurations.html#S3.Client.list_bucket_inventory_configurations">list_bucket_inventory_configurations() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_bucket_metrics_configurations.html#S3.Client.list_bucket_metrics_configurations">list_bucket_metrics_configurations() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_buckets.html#S3.Client.list_buckets">list_buckets() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_buckets_extended.html#S3.Client.list_buckets_extended">list_buckets_extended() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_legal_holds.html#S3.Client.list_legal_holds">list_legal_holds() (S3.Client method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectprotection/list_legal_holds.html#S3.ObjectProtection.list_legal_holds">(S3.ObjectProtection method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/list_multipart_uploads.html#S3.Client.list_multipart_uploads">list_multipart_uploads() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_object_versions.html#S3.Client.list_object_versions">list_object_versions() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_objects.html#S3.Client.list_objects">list_objects() (S3.Client method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/client/list_objects_v2.html#S3.Client.list_objects_v2">list_objects_v2() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/list_parts.html#S3.Client.list_parts">list_parts() (S3.Client method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load">load (ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/load.html#S3.Bucket.load">load() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketacl/load.html#S3.BucketAcl.load">(S3.BucketAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketcors/load.html#S3.BucketCors.load">(S3.BucketCors method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/load.html#S3.BucketLifecycleConfiguration.load">(S3.BucketLifecycleConfiguration method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketprotection/load.html#S3.BucketProtection.load">(S3.BucketProtection method)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/load.html#S3.BucketTagging.load">(S3.BucketTagging method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketversioning/load.html#S3.BucketVersioning.load">(S3.BucketVersioning method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/load.html#S3.BucketWebsite.load">(S3.BucketWebsite method)</a>
+</li>
+          <li><a href="reference/services/s3/object/load.html#S3.Object.load">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/load.html#S3.ObjectAcl.load">(S3.ObjectAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/objectprotection/load.html#S3.ObjectProtection.load">(S3.ObjectProtection method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/load.html#S3.ObjectSummary.load">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory.load_from_definition">load_from_definition() (ibm_boto3.resources.collection.CollectionFactory method)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory.load_from_definition">(ibm_boto3.resources.factory.ResourceFactory method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">load_rename_map() (ibm_boto3.resources.model.ResourceModel method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/location_constraint.html#S3.Bucket.location_constraint">location_constraint (S3.Bucket attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/Logging.html#S3.Bucket.Logging">Logging() (S3.Bucket method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucketprotection/maximum_retention.html#S3.BucketProtection.maximum_retention">maximum_retention (S3.BucketProtection attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ServiceResource.meta">meta (ibm_boto3.resources.base.ServiceResource attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/metadata.html#S3.Object.metadata">metadata (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketversioning/mfa_delete.html#S3.BucketVersioning.mfa_delete">mfa_delete (S3.BucketVersioning attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketprotection/minimum_retention.html#S3.BucketProtection.minimum_retention">minimum_retention (S3.BucketProtection attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/missing_meta.html#S3.Object.missing_meta">missing_meta (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.model">model (ibm_boto3.resources.model.ResponseResource property)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="reference/core/boto3.html#module-ibm_boto3">ibm_boto3</a>, <a href="reference/core/ibm_boto3.html#module-ibm_boto3">[1]</a>
+</li>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.action">ibm_boto3.resources.action</a>
+</li>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.base">ibm_boto3.resources.base</a>
+</li>
+          <li><a href="reference/core/collections.html#module-ibm_boto3.resources.collection">ibm_boto3.resources.collection</a>
+</li>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.factory">ibm_boto3.resources.factory</a>
+</li>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.model">ibm_boto3.resources.model</a>
+</li>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.params">ibm_boto3.resources.params</a>
+</li>
+          <li><a href="reference/core/resources.html#module-ibm_boto3.resources.response">ibm_boto3.resources.response</a>
+</li>
+          <li><a href="reference/core/session.html#module-ibm_boto3.session">ibm_boto3.session</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartuploadpart/multipart_upload_id.html#S3.MultipartUploadPart.multipart_upload_id">multipart_upload_id (S3.MultipartUploadPart attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/multipart_uploads.html#S3.Bucket.multipart_uploads">multipart_uploads (S3.Bucket attribute)</a>
+</li>
+        <li><a href="reference/services/s3/multipartuploadpart/MultipartUpload.html#S3.MultipartUploadPart.MultipartUpload">MultipartUpload() (S3.MultipartUploadPart method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/MultipartUpload.html#S3.Object.MultipartUpload">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/MultipartUpload.html#S3.ObjectSummary.MultipartUpload">(S3.ObjectSummary method)</a>
+</li>
+          <li><a href="reference/services/s3/service-resource/MultipartUpload.html#S3.ServiceResource.MultipartUpload">(S3.ServiceResource method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/service-resource/MultipartUploadPart.html#S3.ServiceResource.MultipartUploadPart">MultipartUploadPart() (S3.ServiceResource method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.name">name (ibm_boto3.resources.model.Action attribute)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.name">(ibm_boto3.resources.model.Collection attribute)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Identifier.name">(ibm_boto3.resources.model.Identifier attribute)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.name">(ibm_boto3.resources.model.Parameter attribute)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.name">(ibm_boto3.resources.model.ResourceModel attribute)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.name">(ibm_boto3.resources.model.Waiter attribute)</a>
+</li>
+          <li><a href="reference/services/s3/bucket/name.html#S3.Bucket.name">(S3.Bucket attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucket/Notification.html#S3.Bucket.Notification">Notification() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/core/boto3.html#ibm_boto3.NullHandler">NullHandler (class in ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.NullHandler">[1]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucket/Object.html#S3.Bucket.Object">Object() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/multipartupload/Object.html#S3.MultipartUpload.Object">(S3.MultipartUpload method)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/Object.html#S3.ObjectAcl.Object">(S3.ObjectAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/Object.html#S3.ObjectSummary.Object">(S3.ObjectSummary method)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/Object.html#S3.ObjectVersion.Object">(S3.ObjectVersion method)</a>
+</li>
+          <li><a href="reference/services/s3/service-resource/Object.html#S3.ServiceResource.Object">(S3.ServiceResource method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/multipartupload/object_key.html#S3.MultipartUpload.object_key">object_key (S3.MultipartUpload attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/multipartuploadpart/object_key.html#S3.MultipartUploadPart.object_key">(S3.MultipartUploadPart attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/object_key.html#S3.ObjectAcl.object_key">(S3.ObjectAcl attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectprotection/object_key.html#S3.ObjectProtection.object_key">(S3.ObjectProtection attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/object_key.html#S3.ObjectVersion.object_key">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/object/object_lock_legal_hold_status.html#S3.Object.object_lock_legal_hold_status">object_lock_legal_hold_status (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/object_lock_mode.html#S3.Object.object_lock_mode">object_lock_mode (S3.Object attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/object/object_lock_retain_until_date.html#S3.Object.object_lock_retain_until_date">object_lock_retain_until_date (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/object_versions.html#S3.Bucket.object_versions">object_versions (S3.Bucket attribute)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/ObjectAcl.html#S3.ServiceResource.ObjectAcl">ObjectAcl() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/ObjectProtection.html#S3.ServiceResource.ObjectProtection">ObjectProtection() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/objects.html#S3.Bucket.objects">objects (S3.Bucket attribute)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/ObjectSummary.html#S3.ServiceResource.ObjectSummary">ObjectSummary() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/ObjectVersion.html#S3.ServiceResource.ObjectVersion">ObjectVersion() (S3.ServiceResource method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Request.operation">operation (ibm_boto3.resources.model.Request attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketacl/owner.html#S3.BucketAcl.owner">owner (S3.BucketAcl attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/multipartupload/owner.html#S3.MultipartUpload.owner">(S3.MultipartUpload attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/owner.html#S3.ObjectAcl.owner">(S3.ObjectAcl attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/owner.html#S3.ObjectSummary.owner">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/owner.html#S3.ObjectVersion.owner">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucket/multipart_uploads.html#page_size">page_size()</a>, <a href="reference/services/s3/bucket/object_versions.html#page_size">[1]</a>, <a href="reference/services/s3/bucket/objects.html#page_size">[2]</a>, <a href="reference/services/s3/multipartupload/parts.html#page_size">[3]</a>, <a href="reference/services/s3/service-resource/buckets.html#page_size">[4]</a>
+
+        <ul>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.page_size">(ibm_boto3.resources.collection.CollectionManager method)</a>
+</li>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.page_size">(ibm_boto3.resources.collection.ResourceCollection method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.pages">pages() (ibm_boto3.resources.collection.CollectionManager method)</a>
+
+        <ul>
+          <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.pages">(ibm_boto3.resources.collection.ResourceCollection method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/paginator/ListBucketsExtended.html#S3.Paginator.ListBucketsExtended.paginate">paginate() (S3.Paginator.ListBucketsExtended method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/paginator/ListMultipartUploads.html#S3.Paginator.ListMultipartUploads.paginate">(S3.Paginator.ListMultipartUploads method)</a>
+</li>
+          <li><a href="reference/services/s3/paginator/ListObjects.html#S3.Paginator.ListObjects.paginate">(S3.Paginator.ListObjects method)</a>
+</li>
+          <li><a href="reference/services/s3/paginator/ListObjectsV2.html#S3.Paginator.ListObjectsV2.paginate">(S3.Paginator.ListObjectsV2 method)</a>
+</li>
+          <li><a href="reference/services/s3/paginator/ListObjectVersions.html#S3.Paginator.ListObjectVersions.paginate">(S3.Paginator.ListObjectVersions method)</a>
+</li>
+          <li><a href="reference/services/s3/paginator/ListParts.html#S3.Paginator.ListParts.paginate">(S3.Paginator.ListParts method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter">Parameter (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams.params">params (ibm_boto3.resources.model.DefinitionWithParams property)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Request.params">(ibm_boto3.resources.model.Request property)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.params">(ibm_boto3.resources.model.Waiter property)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/multipartupload/Part.html#S3.MultipartUpload.Part">Part() (S3.MultipartUpload method)</a>
+</li>
+        <li><a href="reference/services/s3/multipartuploadpart/part_number.html#S3.MultipartUploadPart.part_number">part_number (S3.MultipartUploadPart attribute)</a>
+</li>
+        <li><a href="reference/services/s3/multipartupload/parts.html#S3.MultipartUpload.parts">parts (S3.MultipartUpload attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/parts_count.html#S3.Object.parts_count">parts_count (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.path">path (ibm_boto3.resources.model.Action attribute)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.path">(ibm_boto3.resources.model.Collection attribute)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.path">(ibm_boto3.resources.model.Parameter attribute)</a>
+</li>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.path">(ibm_boto3.resources.model.ResponseResource attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucket/Policy.html#S3.Bucket.Policy">Policy() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.PREFIX">PREFIX (ibm_boto3.resources.model.Waiter attribute)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.profile_name">profile_name (ibm_boto3.session.Session property)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/Protection.html#S3.Bucket.Protection">Protection() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/Protection.html#S3.Object.Protection">(S3.Object method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucketacl/put.html#S3.BucketAcl.put">put() (S3.BucketAcl method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketcors/put.html#S3.BucketCors.put">(S3.BucketCors method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/put.html#S3.BucketLifecycleConfiguration.put">(S3.BucketLifecycleConfiguration method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketprotection/put.html#S3.BucketProtection.put">(S3.BucketProtection method)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/put.html#S3.BucketTagging.put">(S3.BucketTagging method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketversioning/put.html#S3.BucketVersioning.put">(S3.BucketVersioning method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/put.html#S3.BucketWebsite.put">(S3.BucketWebsite method)</a>
+</li>
+          <li><a href="reference/services/s3/object/put.html#S3.Object.put">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/put.html#S3.ObjectAcl.put">(S3.ObjectAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/put.html#S3.ObjectSummary.put">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/client/put_bucket_accelerate_configuration.html#S3.Client.put_bucket_accelerate_configuration">put_bucket_accelerate_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_acl.html#S3.Client.put_bucket_acl">put_bucket_acl() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_analytics_configuration.html#S3.Client.put_bucket_analytics_configuration">put_bucket_analytics_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_cors.html#S3.Client.put_bucket_cors">put_bucket_cors() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_inventory_configuration.html#S3.Client.put_bucket_inventory_configuration">put_bucket_inventory_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_lifecycle_configuration.html#S3.Client.put_bucket_lifecycle_configuration">put_bucket_lifecycle_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_metrics_configuration.html#S3.Client.put_bucket_metrics_configuration">put_bucket_metrics_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_protection_configuration.html#S3.Client.put_bucket_protection_configuration">put_bucket_protection_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_replication.html#S3.Client.put_bucket_replication">put_bucket_replication() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_tagging.html#S3.Client.put_bucket_tagging">put_bucket_tagging() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_versioning.html#S3.Client.put_bucket_versioning">put_bucket_versioning() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_bucket_website.html#S3.Client.put_bucket_website">put_bucket_website() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/put_object.html#S3.Bucket.put_object">put_object() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/client/put_object.html#S3.Client.put_object">(S3.Client method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/client/put_object_acl.html#S3.Client.put_object_acl">put_object_acl() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_object_legal_hold.html#S3.Client.put_object_legal_hold">put_object_legal_hold() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_object_lock_configuration.html#S3.Client.put_object_lock_configuration">put_object_lock_configuration() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_object_retention.html#S3.Client.put_object_retention">put_object_retention() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_object_tagging.html#S3.Client.put_object_tagging">put_object_tagging() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/put_public_access_block.html#S3.Client.put_public_access_block">put_public_access_block() (S3.Client method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.response.RawHandler">RawHandler (class in ibm_boto3.resources.response)</a>
+</li>
+        <li><a href="reference/services/s3/bucketwebsite/redirect_all_requests_to.html#S3.BucketWebsite.redirect_all_requests_to">redirect_all_requests_to (S3.BucketWebsite attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.references">references (ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.region_name">region_name (ibm_boto3.session.Session property)</a>
+</li>
+        <li><a href="reference/services/s3/bucketacl/reload.html#S3.BucketAcl.reload">reload() (S3.BucketAcl method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketcors/reload.html#S3.BucketCors.reload">(S3.BucketCors method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketlifecycleconfiguration/reload.html#S3.BucketLifecycleConfiguration.reload">(S3.BucketLifecycleConfiguration method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketprotection/reload.html#S3.BucketProtection.reload">(S3.BucketProtection method)</a>
+</li>
+          <li><a href="reference/services/s3/buckettagging/reload.html#S3.BucketTagging.reload">(S3.BucketTagging method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketversioning/reload.html#S3.BucketVersioning.reload">(S3.BucketVersioning method)</a>
+</li>
+          <li><a href="reference/services/s3/bucketwebsite/reload.html#S3.BucketWebsite.reload">(S3.BucketWebsite method)</a>
+</li>
+          <li><a href="reference/services/s3/object/reload.html#S3.Object.reload">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectacl/reload.html#S3.ObjectAcl.reload">(S3.ObjectAcl method)</a>
+</li>
+          <li><a href="reference/services/s3/objectprotection/reload.html#S3.ObjectProtection.reload">(S3.ObjectProtection method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/object/replication_status.html#S3.Object.replication_status">replication_status (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Request">Request (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.request">request (ibm_boto3.resources.model.Action attribute)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.request">(ibm_boto3.resources.model.Collection attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/object/request_charged.html#S3.Object.request_charged">request_charged (S3.Object attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectacl/request_charged.html#S3.ObjectAcl.request_charged">(S3.ObjectAcl attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.resource">resource (ibm_boto3.resources.model.Action attribute)</a>
+
+        <ul>
+          <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.resource">(ibm_boto3.resources.model.Collection attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session.resource">resource() (ibm_boto3.session.Session method)</a>
+
+        <ul>
+          <li><a href="reference/core/boto3.html#ibm_boto3.resource">(in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.resource">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection">ResourceCollection (class in ibm_boto3.resources.collection)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">ResourceFactory (class in ibm_boto3.resources.factory)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler">ResourceHandler (class in ibm_boto3.resources.response)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta">ResourceMeta (class in ibm_boto3.resources.base)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel">ResourceModel (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource">ResponseResource (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/services/s3/object/restore.html#S3.Object.restore">restore (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/client/restore_object.html#S3.Client.restore_object">restore_object() (S3.Client method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/restore_object.html#S3.Object.restore_object">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/restore_object.html#S3.ObjectSummary.restore_object">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/object/retention_expiration_date.html#S3.Object.retention_expiration_date">retention_expiration_date (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/retention_legal_hold_count.html#S3.Object.retention_legal_hold_count">retention_legal_hold_count (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/retention_period.html#S3.Object.retention_period">retention_period (S3.Object attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectprotection/retention_period.html#S3.ObjectProtection.retention_period">(S3.ObjectProtection attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/objectprotection/retention_period_expiration_date.html#S3.ObjectProtection.retention_period_expiration_date">retention_period_expiration_date (S3.ObjectProtection attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketwebsite/routing_rules.html#S3.BucketWebsite.routing_rules">routing_rules (S3.BucketWebsite attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketlifecycleconfiguration/rules.html#S3.BucketLifecycleConfiguration.rules">rules (S3.BucketLifecycleConfiguration attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucket/index.html#S3.Bucket">S3.Bucket (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/bucketacl/index.html#S3.BucketAcl">S3.BucketAcl (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/bucketcors/index.html#S3.BucketCors">S3.BucketCors (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/bucketlifecycleconfiguration/index.html#S3.BucketLifecycleConfiguration">S3.BucketLifecycleConfiguration (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/bucketprotection/index.html#S3.BucketProtection">S3.BucketProtection (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/buckettagging/index.html#S3.BucketTagging">S3.BucketTagging (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/bucketversioning/index.html#S3.BucketVersioning">S3.BucketVersioning (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/bucketwebsite/index.html#S3.BucketWebsite">S3.BucketWebsite (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3.html#S3.Client">S3.Client (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/multipartupload/index.html#S3.MultipartUpload">S3.MultipartUpload (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/multipartuploadpart/index.html#S3.MultipartUploadPart">S3.MultipartUploadPart (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/object/index.html#S3.Object">S3.Object (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/objectacl/index.html#S3.ObjectAcl">S3.ObjectAcl (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/objectprotection/index.html#S3.ObjectProtection">S3.ObjectProtection (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/objectsummary/index.html#S3.ObjectSummary">S3.ObjectSummary (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/objectversion/index.html#S3.ObjectVersion">S3.ObjectVersion (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/paginator/ListBucketsExtended.html#S3.Paginator.ListBucketsExtended">S3.Paginator.ListBucketsExtended (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/paginator/ListMultipartUploads.html#S3.Paginator.ListMultipartUploads">S3.Paginator.ListMultipartUploads (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/paginator/ListObjects.html#S3.Paginator.ListObjects">S3.Paginator.ListObjects (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/paginator/ListObjectsV2.html#S3.Paginator.ListObjectsV2">S3.Paginator.ListObjectsV2 (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/paginator/ListObjectVersions.html#S3.Paginator.ListObjectVersions">S3.Paginator.ListObjectVersions (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/paginator/ListParts.html#S3.Paginator.ListParts">S3.Paginator.ListParts (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/service-resource/index.html#S3.ServiceResource">S3.ServiceResource (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/waiter/BucketExists.html#S3.Waiter.BucketExists">S3.Waiter.BucketExists (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/waiter/BucketNotExists.html#S3.Waiter.BucketNotExists">S3.Waiter.BucketNotExists (built-in class)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/waiter/ObjectExists.html#S3.Waiter.ObjectExists">S3.Waiter.ObjectExists (built-in class)</a>
+</li>
+        <li><a href="reference/services/s3/waiter/ObjectNotExists.html#S3.Waiter.ObjectNotExists">S3.Waiter.ObjectNotExists (built-in class)</a>
+</li>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">S3Transfer (class in ibm_boto3.s3.transfer)</a>
+</li>
+        <li><a href="reference/services/s3/object/server_side_encryption.html#S3.Object.server_side_encryption">server_side_encryption (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.service_name">service_name (ibm_boto3.resources.base.ResourceMeta attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.action.ServiceAction">ServiceAction (class in ibm_boto3.resources.action)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ServiceResource">ServiceResource (class in ibm_boto3.resources.base)</a>
+</li>
+        <li><a href="reference/core/session.html#ibm_boto3.session.Session">Session (class in ibm_boto3.session)</a>
+</li>
+        <li><a href="reference/core/boto3.html#ibm_boto3.set_stream_logger">set_stream_logger() (in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.set_stream_logger">[1]</a>
+</li>
+        <li><a href="reference/core/boto3.html#ibm_boto3.setup_default_session">setup_default_session() (in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.setup_default_session">[1]</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.shape">shape (ibm_boto3.resources.model.ResourceModel attribute)</a>
+</li>
+        <li><a href="reference/services/s3/multipartuploadpart/size.html#S3.MultipartUploadPart.size">size (S3.MultipartUploadPart attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectsummary/size.html#S3.ObjectSummary.size">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/size.html#S3.ObjectVersion.size">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.source">source (ibm_boto3.resources.model.Parameter attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/sse_customer_algorithm.html#S3.Object.sse_customer_algorithm">sse_customer_algorithm (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/sse_customer_key_md5.html#S3.Object.sse_customer_key_md5">sse_customer_key_md5 (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/ssekms_key_id.html#S3.Object.ssekms_key_id">ssekms_key_id (S3.Object attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucketprotection/status.html#S3.BucketProtection.status">status (S3.BucketProtection attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucketversioning/status.html#S3.BucketVersioning.status">(S3.BucketVersioning attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/multipartupload/storage_class.html#S3.MultipartUpload.storage_class">storage_class (S3.MultipartUpload attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/storage_class.html#S3.Object.storage_class">(S3.Object attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/storage_class.html#S3.ObjectSummary.storage_class">(S3.ObjectSummary attribute)</a>
+</li>
+          <li><a href="reference/services/s3/objectversion/storage_class.html#S3.ObjectVersion.storage_class">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.subresources">subresources (ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        <li><a href="reference/services/s3/bucketversioning/suspend.html#S3.BucketVersioning.suspend">suspend() (S3.BucketVersioning method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/buckettagging/tag_set.html#S3.BucketTagging.tag_set">tag_set (S3.BucketTagging attribute)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/Tagging.html#S3.Bucket.Tagging">Tagging() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.target">target (ibm_boto3.resources.model.Parameter attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">TransferConfig (class in ibm_boto3.s3.transfer)</a>
+</li>
+        <li><a href="reference/core/boto3.html#ibm_boto3.turn_debug_on">turn_debug_on() (in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.turn_debug_on">[1]</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.type">type (ibm_boto3.resources.model.ResponseResource attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/multipartuploadpart/upload.html#S3.MultipartUploadPart.upload">upload() (S3.MultipartUploadPart method)</a>
+</li>
+        <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">upload_file() (ibm_boto3.s3.transfer.S3Transfer method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/bucket/upload_file.html#S3.Bucket.upload_file">(S3.Bucket method)</a>
+</li>
+          <li><a href="reference/services/s3/client/upload_file.html#S3.Client.upload_file">(S3.Client method)</a>
+</li>
+          <li><a href="reference/services/s3/object/upload_file.html#S3.Object.upload_file">(S3.Object method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/bucket/upload_fileobj.html#S3.Bucket.upload_fileobj">upload_fileobj() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/client/upload_fileobj.html#S3.Client.upload_fileobj">(S3.Client method)</a>
+</li>
+          <li><a href="reference/services/s3/object/upload_fileobj.html#S3.Object.upload_fileobj">(S3.Object method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/multipartupload/upload_id.html#S3.MultipartUpload.upload_id">upload_id (S3.MultipartUpload attribute)</a>
+</li>
+        <li><a href="reference/services/s3/client/upload_part.html#S3.Client.upload_part">upload_part() (S3.Client method)</a>
+</li>
+        <li><a href="reference/services/s3/client/upload_part_copy.html#S3.Client.upload_part_copy">upload_part_copy() (S3.Client method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.value">value (ibm_boto3.resources.model.Parameter attribute)</a>
+</li>
+        <li><a href="reference/services/s3/object/Version.html#S3.Object.Version">Version() (S3.Object method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectsummary/Version.html#S3.ObjectSummary.Version">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/object/version_id.html#S3.Object.version_id">version_id (S3.Object attribute)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/objectversion/version_id.html#S3.ObjectVersion.version_id">(S3.ObjectVersion attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucket/Versioning.html#S3.Bucket.Versioning">Versioning() (S3.Bucket method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/services/s3/waiter/BucketExists.html#S3.Waiter.BucketExists.wait">wait() (S3.Waiter.BucketExists method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/waiter/BucketNotExists.html#S3.Waiter.BucketNotExists.wait">(S3.Waiter.BucketNotExists method)</a>
+</li>
+          <li><a href="reference/services/s3/waiter/ObjectExists.html#S3.Waiter.ObjectExists.wait">(S3.Waiter.ObjectExists method)</a>
+</li>
+          <li><a href="reference/services/s3/waiter/ObjectNotExists.html#S3.Waiter.ObjectNotExists.wait">(S3.Waiter.ObjectNotExists method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucket/wait_until_exists.html#S3.Bucket.wait_until_exists">wait_until_exists() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/wait_until_exists.html#S3.Object.wait_until_exists">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/wait_until_exists.html#S3.ObjectSummary.wait_until_exists">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/services/s3/bucket/wait_until_not_exists.html#S3.Bucket.wait_until_not_exists">wait_until_not_exists() (S3.Bucket method)</a>
+
+        <ul>
+          <li><a href="reference/services/s3/object/wait_until_not_exists.html#S3.Object.wait_until_not_exists">(S3.Object method)</a>
+</li>
+          <li><a href="reference/services/s3/objectsummary/wait_until_not_exists.html#S3.ObjectSummary.wait_until_not_exists">(S3.ObjectSummary method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter">Waiter (class in ibm_boto3.resources.model)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.waiter_name">waiter_name (ibm_boto3.resources.model.Waiter attribute)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.action.WaiterAction">WaiterAction (class in ibm_boto3.resources.action)</a>
+</li>
+        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.waiters">waiters (ibm_boto3.resources.model.ResourceModel property)</a>
+</li>
+        <li><a href="reference/services/s3/bucket/Website.html#S3.Bucket.Website">Website() (S3.Bucket method)</a>
+</li>
+        <li><a href="reference/services/s3/object/website_redirect_location.html#S3.Object.website_redirect_location">website_redirect_location (S3.Object attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/sphinx_highlight.js"></script>
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" />
-  
-   
-
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="#" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Index</a></li> 
-      </ul>
-    </div>
-    <div class="container-wrapper">
-
-      <div id="mobile-toggle">
-        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
-      </div>
-  <div id="left-column">
-    <div class="sphinxsidebar"><a href="
-    index.html" class="text-logo">ibm-cos-sdk 2.13.4 documentation</a><div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <h2>Table Of Contents</h2>
-  </div>
-  <div class="sidebar-toc">
-    
-    
-      <ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/services/index.html">Available services</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/core/index.html">Core references</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/customizations/index.html">Customization references</a></li>
-</ul>
-
-    
-  </div>
-</div>
-<div class="sidebar-block">
-  <div class="sidebar-wrapper">
-    <div id="main-search">
-      <form class="form-inline" action="search.html" method="GET" role="form">
-        <div class="input-group">
-          <input name="q" type="text" class="form-control" placeholder="Search...">
-        </div>
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
-</div>
-      
-    </div>
-  </div>
-        <div id="right-column">
-          
-
-          <div role="navigation" aria-label="breadcrumbs navigation">
-            <ol class="breadcrumb">
-              <li><a href="index.html">Docs</a></li>
-              
-              <li>Index</li>
-            </ol>
-          </div>
-          
-<!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
-          <div class="document clearer body">
-            
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
- | <a href="#C"><strong>C</strong></a>
- | <a href="#D"><strong>D</strong></a>
- | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
- | <a href="#G"><strong>G</strong></a>
- | <a href="#H"><strong>H</strong></a>
- | <a href="#I"><strong>I</strong></a>
- | <a href="#K"><strong>K</strong></a>
- | <a href="#L"><strong>L</strong></a>
- | <a href="#M"><strong>M</strong></a>
- | <a href="#N"><strong>N</strong></a>
- | <a href="#O"><strong>O</strong></a>
- | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
- | <a href="#S"><strong>S</strong></a>
- | <a href="#T"><strong>T</strong></a>
- | <a href="#U"><strong>U</strong></a>
- | <a href="#V"><strong>V</strong></a>
- | <a href="#W"><strong>W</strong></a>
- 
-</div>
-<h2 id="A">A</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.abort">abort() (S3.MultipartUpload method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.abort_multipart_upload">abort_multipart_upload() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.accept_ranges">accept_ranges (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Acl">Acl() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.Acl">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.Acl">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action">Action (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.actions">actions (ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.add_legal_hold">add_legal_hold() (S3.Client method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.add_legal_hold">(S3.ObjectProtection method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig.ALIAS">ALIAS (ibm_boto3.s3.transfer.TransferConfig attribute)</a>
-</li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.all">all() (ibm_boto3.resources.collection.CollectionManager method)</a>
-
-      <ul>
-        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.all">(ibm_boto3.resources.collection.ResourceCollection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Bucket.all">(S3.Bucket method)</a>, <a href="reference/services/s3.html#id0">[1]</a>, <a href="reference/services/s3.html#id111">[2]</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.all">(S3.MultipartUpload method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.all">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.response.all_not_none">all_not_none() (in module ibm_boto3.resources.response)</a>
-</li>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">ALLOWED_DOWNLOAD_ARGS (ibm_boto3.s3.transfer.S3Transfer attribute)</a>
-</li>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">ALLOWED_UPLOAD_ARGS (ibm_boto3.s3.transfer.S3Transfer attribute)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.available_profiles">available_profiles (ibm_boto3.session.Session property)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.batch_actions">batch_actions (ibm_boto3.resources.model.Collection property)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.batch_actions">(ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.action.BatchAction">BatchAction (class in ibm_boto3.resources.action)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketAcl.Bucket">Bucket() (S3.BucketAcl method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketCors.Bucket">(S3.BucketCors method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.Bucket">(S3.BucketLifecycleConfiguration method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.Bucket">(S3.BucketTagging method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.Bucket">(S3.BucketVersioning method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.Bucket">(S3.BucketWebsite method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.Bucket">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.Bucket">(S3.ObjectSummary method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.Bucket">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.BucketAcl.bucket_name">bucket_name (S3.BucketAcl attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketCors.bucket_name">(S3.BucketCors attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.bucket_name">(S3.BucketLifecycleConfiguration attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketProtection.bucket_name">(S3.BucketProtection attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.bucket_name">(S3.BucketTagging attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.bucket_name">(S3.BucketVersioning attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.bucket_name">(S3.BucketWebsite attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.bucket_name">(S3.MultipartUpload attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUploadPart.bucket_name">(S3.MultipartUploadPart attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.bucket_name">(S3.Object attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.bucket_name">(S3.ObjectAcl attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.bucket_name">(S3.ObjectProtection attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.bucket_name">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.bucket_name">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketAcl">BucketAcl() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketCors">BucketCors() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketLifecycleConfiguration">BucketLifecycleConfiguration() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketProtection">BucketProtection() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.buckets">buckets (S3.ServiceResource attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketTagging">BucketTagging() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketVersioning">BucketVersioning() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.BucketWebsite">BucketWebsite() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.response.build_empty_response">build_empty_response() (in module ibm_boto3.resources.response)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.response.build_identifiers">build_identifiers() (in module ibm_boto3.resources.response)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.params.build_param_structure">build_param_structure() (in module ibm_boto3.resources.params)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="C">C</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Object.cache_control">cache_control (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.can_paginate">can_paginate() (S3.Client method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.client">client (ibm_boto3.resources.base.ResourceMeta attribute)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.client">client() (ibm_boto3.session.Session method)</a>
-
-      <ul>
-        <li><a href="reference/core/boto3.html#ibm_boto3.client">(in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.client">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.close">close() (S3.Client method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection">Collection (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory">CollectionFactory (class in ibm_boto3.resources.collection)</a>
-</li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager">CollectionManager (class in ibm_boto3.resources.collection)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.collections">collections (ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.complete">complete() (S3.MultipartUpload method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.complete_multipart_upload">complete_multipart_upload() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.content_disposition">content_disposition (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.content_encoding">content_encoding (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.content_language">content_language (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.content_length">content_length (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.content_type">content_type (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.copy">copy() (ibm_boto3.resources.base.ResourceMeta method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Bucket.copy">(S3.Bucket method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Client.copy">(S3.Client method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.copy">(S3.Object method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.copy_from">copy_from() (S3.MultipartUploadPart method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.copy_from">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.copy_from">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.copy_object">copy_object() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Cors">Cors() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketCors.cors_rules">cors_rules (S3.BucketCors attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.create">create() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.create_bucket">create_bucket() (S3.Client method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.create_bucket">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.create_multipart_upload">create_multipart_upload() (S3.Client method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.params.create_request_parameters">create_request_parameters() (in module ibm_boto3.resources.params)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectProtection.create_time">create_time (S3.ObjectProtection attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.creation_date">creation_date (S3.Bucket attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.creation_template_id">creation_template_id (S3.Bucket attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction">CustomModeledAction (class in ibm_boto3.resources.action)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="D">D</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.data">data (ibm_boto3.resources.base.ResourceMeta attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketProtection.default_retention">default_retention (S3.BucketProtection attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams">DefinitionWithParams (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.delete">delete() (S3.Bucket method)</a>, <a href="reference/services/s3.html#id103">[1]</a>, <a href="reference/services/s3.html#id113">[2]</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketCors.delete">(S3.BucketCors method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.delete">(S3.BucketLifecycleConfiguration method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.delete">(S3.BucketTagging method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.delete">(S3.BucketWebsite method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.delete">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.delete">(S3.ObjectSummary method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.delete">(S3.ObjectVersion method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket">delete_bucket() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration">delete_bucket_analytics_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_cors">delete_bucket_cors() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration">delete_bucket_inventory_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_lifecycle">delete_bucket_lifecycle() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration">delete_bucket_metrics_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_policy">delete_bucket_policy() (S3.Client method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_replication">delete_bucket_replication() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_tagging">delete_bucket_tagging() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_bucket_website">delete_bucket_website() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_legal_hold">delete_legal_hold() (S3.Client method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.delete_legal_hold">(S3.ObjectProtection method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Object.delete_marker">delete_marker (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_object">delete_object() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_object_tagging">delete_object_tagging() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.delete_objects">delete_objects() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Client.delete_objects">(S3.Client method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.delete_public_access_block">delete_public_access_block() (S3.Client method)</a>
-</li>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">download_file() (ibm_boto3.s3.transfer.S3Transfer method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Bucket.download_file">(S3.Bucket method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Client.download_file">(S3.Client method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.download_file">(S3.Object method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Bucket.download_fileobj">download_fileobj() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Client.download_fileobj">(S3.Client method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.download_fileobj">(S3.Object method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="E">E</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.e_tag">e_tag (S3.MultipartUploadPart attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.e_tag">(S3.Object attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.e_tag">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.e_tag">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/boto3.html#ibm_boto3.NullHandler.emit">emit() (ibm_boto3.NullHandler method)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.NullHandler.emit">[1]</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketVersioning.enable">enable() (S3.BucketVersioning method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.BucketProtection.enable_permanent_retention">enable_permanent_retention (S3.BucketProtection attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketWebsite.error_document">error_document (S3.BucketWebsite attribute)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.events">events (ibm_boto3.session.Session property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.expiration">expiration (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.expires">expires (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.extend_object_retention">extend_object_retention() (S3.Client method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.extend_object_retention">(S3.ObjectProtection method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.filter">filter() (ibm_boto3.resources.collection.CollectionManager method)</a>
-
-      <ul>
-        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.filter">(ibm_boto3.resources.collection.ResourceCollection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Bucket.filter">(S3.Bucket method)</a>, <a href="reference/services/s3.html#id105">[1]</a>, <a href="reference/services/s3.html#id115">[2]</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.filter">(S3.MultipartUpload method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.filter">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="G">G</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Client.generate_presigned_post">generate_presigned_post() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.generate_presigned_url">generate_presigned_url() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.get">get() (S3.Object method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.get">(S3.ObjectSummary method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.get">(S3.ObjectVersion method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.get_attributes">get_attributes() (ibm_boto3.resources.model.ResourceModel method)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_partitions">get_available_partitions() (ibm_boto3.session.Session method)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_regions">get_available_regions() (ibm_boto3.session.Session method)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_resources">get_available_resources() (ibm_boto3.session.Session method)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_available_services">get_available_services() (ibm_boto3.session.Session method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.get_available_subresources">get_available_subresources() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketAcl.get_available_subresources">(S3.BucketAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketCors.get_available_subresources">(S3.BucketCors method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.get_available_subresources">(S3.BucketLifecycleConfiguration method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketProtection.get_available_subresources">(S3.BucketProtection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.get_available_subresources">(S3.BucketTagging method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.get_available_subresources">(S3.BucketVersioning method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.get_available_subresources">(S3.BucketWebsite method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.get_available_subresources">(S3.MultipartUpload method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUploadPart.get_available_subresources">(S3.MultipartUploadPart method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.get_available_subresources">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.get_available_subresources">(S3.ObjectAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.get_available_subresources">(S3.ObjectProtection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.get_available_subresources">(S3.ObjectSummary method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.get_available_subresources">(S3.ObjectVersion method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.get_available_subresources">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration">get_bucket_accelerate_configuration() (S3.Client method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_acl">get_bucket_acl() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_analytics_configuration">get_bucket_analytics_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_aspera">get_bucket_aspera() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_cors">get_bucket_cors() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_inventory_configuration">get_bucket_inventory_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration">get_bucket_lifecycle_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_location">get_bucket_location() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_metrics_configuration">get_bucket_metrics_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_protection_configuration">get_bucket_protection_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_replication">get_bucket_replication() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_tagging">get_bucket_tagging() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_versioning">get_bucket_versioning() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_bucket_website">get_bucket_website() (S3.Client method)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_credentials">get_credentials() (ibm_boto3.session.Session method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.params.get_data_member">get_data_member() (in module ibm_boto3.resources.params)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object">get_object() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object_acl">get_object_acl() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object_legal_hold">get_object_legal_hold() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object_lock_configuration">get_object_lock_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object_retention">get_object_retention() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object_tagging">get_object_tagging() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_object_torrent">get_object_torrent() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_paginator">get_paginator() (S3.Client method)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.get_partition_for_region">get_partition_for_region() (ibm_boto3.session.Session method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_public_access_block">get_public_access_block() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.get_waiter">get_waiter() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketAcl.grants">grants (S3.BucketAcl attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.grants">(S3.ObjectAcl attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="H">H</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler.handle_response_item">handle_response_item() (ibm_boto3.resources.response.ResourceHandler method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectVersion.head">head() (S3.ObjectVersion method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Client.head_bucket">head_bucket() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.head_object">head_object() (S3.Client method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    ibm_boto3
-
-      <ul>
-        <li><a href="reference/core/boto3.html#module-ibm_boto3">module</a>, <a href="reference/core/ibm_boto3.html#module-ibm_boto3">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.action
-
-      <ul>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.action">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.base
-
-      <ul>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.base">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.collection
-
-      <ul>
-        <li><a href="reference/core/collections.html#module-ibm_boto3.resources.collection">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.factory
-
-      <ul>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.factory">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.model
-
-      <ul>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.model">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.params
-
-      <ul>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.params">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.resources.response
-
-      <ul>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.response">module</a>
-</li>
-      </ul></li>
-      <li>
-    ibm_boto3.session
-
-      <ul>
-        <li><a href="reference/core/session.html#module-ibm_boto3.session">module</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Object.ibm_restored_copy_storage_class">ibm_restored_copy_storage_class (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.ibm_transition">ibm_transition (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.id">id (S3.MultipartUpload attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.id">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Identifier">Identifier (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.identifiers">identifiers (ibm_boto3.resources.base.ResourceMeta attribute)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.identifiers">(ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.identifiers">(ibm_boto3.resources.model.ResponseResource property)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.BucketWebsite.index_document">index_document (S3.BucketWebsite attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.initiate_multipart_upload">initiate_multipart_upload() (S3.Object method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.initiate_multipart_upload">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.initiated">initiated (S3.MultipartUpload attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.initiator">initiator (S3.MultipartUpload attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.action.CustomModeledAction.inject">inject() (ibm_boto3.resources.action.CustomModeledAction method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectVersion.is_latest">is_latest (S3.ObjectVersion attribute)</a>
-</li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.iterator">iterator() (ibm_boto3.resources.collection.CollectionManager method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="K">K</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.key">key (S3.MultipartUpload attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.key">(S3.Object attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.key">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.key">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="L">L</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.last_modified">last_modified (S3.MultipartUploadPart attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.last_modified">(S3.Object attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.last_modified">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.last_modified">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.ObjectProtection.legal_holds">legal_holds (S3.ObjectProtection attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.LifecycleConfiguration">LifecycleConfiguration() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.limit">limit() (ibm_boto3.resources.collection.CollectionManager method)</a>
-
-      <ul>
-        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.limit">(ibm_boto3.resources.collection.ResourceCollection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Bucket.limit">(S3.Bucket method)</a>, <a href="reference/services/s3.html#id107">[1]</a>, <a href="reference/services/s3.html#id117">[2]</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.limit">(S3.MultipartUpload method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.limit">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.list_bucket_analytics_configurations">list_bucket_analytics_configurations() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_bucket_inventory_configurations">list_bucket_inventory_configurations() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_bucket_metrics_configurations">list_bucket_metrics_configurations() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_buckets">list_buckets() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_buckets_extended">list_buckets_extended() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_legal_holds">list_legal_holds() (S3.Client method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.list_legal_holds">(S3.ObjectProtection method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.list_multipart_uploads">list_multipart_uploads() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_object_versions">list_object_versions() (S3.Client method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Client.list_objects">list_objects() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_objects_v2">list_objects_v2() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.list_parts">list_parts() (S3.Client method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load">load (ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.load">load() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketAcl.load">(S3.BucketAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketCors.load">(S3.BucketCors method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.load">(S3.BucketLifecycleConfiguration method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketProtection.load">(S3.BucketProtection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.load">(S3.BucketTagging method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.load">(S3.BucketVersioning method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.load">(S3.BucketWebsite method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.load">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.load">(S3.ObjectAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.load">(S3.ObjectProtection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.load">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionFactory.load_from_definition">load_from_definition() (ibm_boto3.resources.collection.CollectionFactory method)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory.load_from_definition">(ibm_boto3.resources.factory.ResourceFactory method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">load_rename_map() (ibm_boto3.resources.model.ResourceModel method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.location_constraint">location_constraint (S3.Bucket attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Logging">Logging() (S3.Bucket method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="M">M</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.BucketProtection.maximum_retention">maximum_retention (S3.BucketProtection attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ServiceResource.meta">meta (ibm_boto3.resources.base.ServiceResource attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.metadata">metadata (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketVersioning.mfa_delete">mfa_delete (S3.BucketVersioning attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketProtection.minimum_retention">minimum_retention (S3.BucketProtection attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.missing_meta">missing_meta (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.model">model (ibm_boto3.resources.model.ResponseResource property)</a>
-</li>
-      <li>
-    module
-
-      <ul>
-        <li><a href="reference/core/boto3.html#module-ibm_boto3">ibm_boto3</a>, <a href="reference/core/ibm_boto3.html#module-ibm_boto3">[1]</a>
-</li>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.action">ibm_boto3.resources.action</a>
-</li>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.base">ibm_boto3.resources.base</a>
-</li>
-        <li><a href="reference/core/collections.html#module-ibm_boto3.resources.collection">ibm_boto3.resources.collection</a>
-</li>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.factory">ibm_boto3.resources.factory</a>
-</li>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.model">ibm_boto3.resources.model</a>
-</li>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.params">ibm_boto3.resources.params</a>
-</li>
-        <li><a href="reference/core/resources.html#module-ibm_boto3.resources.response">ibm_boto3.resources.response</a>
-</li>
-        <li><a href="reference/core/session.html#module-ibm_boto3.session">ibm_boto3.session</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.multipart_upload_id">multipart_upload_id (S3.MultipartUploadPart attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.multipart_uploads">multipart_uploads (S3.Bucket attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.MultipartUpload">MultipartUpload() (S3.MultipartUploadPart method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.MultipartUpload">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.MultipartUpload">(S3.ObjectSummary method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.MultipartUpload">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.MultipartUploadPart">MultipartUploadPart() (S3.ServiceResource method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="N">N</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.name">name (ibm_boto3.resources.model.Action attribute)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.name">(ibm_boto3.resources.model.Collection attribute)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Identifier.name">(ibm_boto3.resources.model.Identifier attribute)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.name">(ibm_boto3.resources.model.Parameter attribute)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.name">(ibm_boto3.resources.model.ResourceModel attribute)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.name">(ibm_boto3.resources.model.Waiter attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Bucket.name">(S3.Bucket attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Bucket.Notification">Notification() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/core/boto3.html#ibm_boto3.NullHandler">NullHandler (class in ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.NullHandler">[1]</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="O">O</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Bucket.Object">Object() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.Object">(S3.MultipartUpload method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.Object">(S3.ObjectAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.Object">(S3.ObjectSummary method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.Object">(S3.ObjectVersion method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.Object">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.object_key">object_key (S3.MultipartUpload attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.MultipartUploadPart.object_key">(S3.MultipartUploadPart attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.object_key">(S3.ObjectAcl attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.object_key">(S3.ObjectProtection attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.object_key">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Object.object_lock_legal_hold_status">object_lock_legal_hold_status (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.object_lock_mode">object_lock_mode (S3.Object attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Object.object_lock_retain_until_date">object_lock_retain_until_date (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.object_versions">object_versions (S3.Bucket attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.ObjectAcl">ObjectAcl() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.ObjectProtection">ObjectProtection() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.objects">objects (S3.Bucket attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.ObjectSummary">ObjectSummary() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource.ObjectVersion">ObjectVersion() (S3.ServiceResource method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Request.operation">operation (ibm_boto3.resources.model.Request attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketAcl.owner">owner (S3.BucketAcl attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.owner">(S3.MultipartUpload attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.owner">(S3.ObjectAcl attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.owner">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.owner">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.page_size">page_size() (ibm_boto3.resources.collection.CollectionManager method)</a>
-
-      <ul>
-        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.page_size">(ibm_boto3.resources.collection.ResourceCollection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Bucket.page_size">(S3.Bucket method)</a>, <a href="reference/services/s3.html#id109">[1]</a>, <a href="reference/services/s3.html#id119">[2]</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.MultipartUpload.page_size">(S3.MultipartUpload method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ServiceResource.page_size">(S3.ServiceResource method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.CollectionManager.pages">pages() (ibm_boto3.resources.collection.CollectionManager method)</a>
-
-      <ul>
-        <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection.pages">(ibm_boto3.resources.collection.ResourceCollection method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListBucketsExtended.paginate">paginate() (S3.Paginator.ListBucketsExtended method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Paginator.ListMultipartUploads.paginate">(S3.Paginator.ListMultipartUploads method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Paginator.ListObjects.paginate">(S3.Paginator.ListObjects method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Paginator.ListObjectsV2.paginate">(S3.Paginator.ListObjectsV2 method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Paginator.ListObjectVersions.paginate">(S3.Paginator.ListObjectVersions method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Paginator.ListParts.paginate">(S3.Paginator.ListParts method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter">Parameter (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams.params">params (ibm_boto3.resources.model.DefinitionWithParams property)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Request.params">(ibm_boto3.resources.model.Request property)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.params">(ibm_boto3.resources.model.Waiter property)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.Part">Part() (S3.MultipartUpload method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.part_number">part_number (S3.MultipartUploadPart attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.parts">parts (S3.MultipartUpload attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.parts_count">parts_count (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.path">path (ibm_boto3.resources.model.Action attribute)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.path">(ibm_boto3.resources.model.Collection attribute)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.path">(ibm_boto3.resources.model.Parameter attribute)</a>
-</li>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.path">(ibm_boto3.resources.model.ResponseResource attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Policy">Policy() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.PREFIX">PREFIX (ibm_boto3.resources.model.Waiter attribute)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.profile_name">profile_name (ibm_boto3.session.Session property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Protection">Protection() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.Protection">(S3.Object method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.BucketAcl.put">put() (S3.BucketAcl method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketCors.put">(S3.BucketCors method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.put">(S3.BucketLifecycleConfiguration method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketProtection.put">(S3.BucketProtection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.put">(S3.BucketTagging method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.put">(S3.BucketVersioning method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.put">(S3.BucketWebsite method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.put">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.put">(S3.ObjectAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.put">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration">put_bucket_accelerate_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_acl">put_bucket_acl() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_analytics_configuration">put_bucket_analytics_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_cors">put_bucket_cors() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_inventory_configuration">put_bucket_inventory_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration">put_bucket_lifecycle_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_metrics_configuration">put_bucket_metrics_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_protection_configuration">put_bucket_protection_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_replication">put_bucket_replication() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_tagging">put_bucket_tagging() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_versioning">put_bucket_versioning() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_bucket_website">put_bucket_website() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.put_object">put_object() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Client.put_object">(S3.Client method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Client.put_object_acl">put_object_acl() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_object_legal_hold">put_object_legal_hold() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_object_lock_configuration">put_object_lock_configuration() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_object_retention">put_object_retention() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_object_tagging">put_object_tagging() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.put_public_access_block">put_public_access_block() (S3.Client method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.response.RawHandler">RawHandler (class in ibm_boto3.resources.response)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketWebsite.redirect_all_requests_to">redirect_all_requests_to (S3.BucketWebsite attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.references">references (ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.region_name">region_name (ibm_boto3.session.Session property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketAcl.reload">reload() (S3.BucketAcl method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketCors.reload">(S3.BucketCors method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.reload">(S3.BucketLifecycleConfiguration method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketProtection.reload">(S3.BucketProtection method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketTagging.reload">(S3.BucketTagging method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.reload">(S3.BucketVersioning method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.BucketWebsite.reload">(S3.BucketWebsite method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.reload">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.reload">(S3.ObjectAcl method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.reload">(S3.ObjectProtection method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Object.replication_status">replication_status (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Request">Request (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.request">request (ibm_boto3.resources.model.Action attribute)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.request">(ibm_boto3.resources.model.Collection attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Object.request_charged">request_charged (S3.Object attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectAcl.request_charged">(S3.ObjectAcl attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Action.resource">resource (ibm_boto3.resources.model.Action attribute)</a>
-
-      <ul>
-        <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Collection.resource">(ibm_boto3.resources.model.Collection attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session.resource">resource() (ibm_boto3.session.Session method)</a>
-
-      <ul>
-        <li><a href="reference/core/boto3.html#ibm_boto3.resource">(in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.resource">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/collections.html#ibm_boto3.resources.collection.ResourceCollection">ResourceCollection (class in ibm_boto3.resources.collection)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.factory.ResourceFactory">ResourceFactory (class in ibm_boto3.resources.factory)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler">ResourceHandler (class in ibm_boto3.resources.response)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta">ResourceMeta (class in ibm_boto3.resources.base)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel">ResourceModel (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource">ResponseResource (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.restore">restore (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.restore_object">restore_object() (S3.Client method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.restore_object">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.restore_object">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Object.retention_expiration_date">retention_expiration_date (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.retention_legal_hold_count">retention_legal_hold_count (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.retention_period">retention_period (S3.Object attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectProtection.retention_period">(S3.ObjectProtection attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.ObjectProtection.retention_period_expiration_date">retention_period_expiration_date (S3.ObjectProtection attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketWebsite.routing_rules">routing_rules (S3.BucketWebsite attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration.rules">rules (S3.BucketLifecycleConfiguration attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="S">S</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Bucket">S3.Bucket (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketAcl">S3.BucketAcl (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketCors">S3.BucketCors (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketLifecycleConfiguration">S3.BucketLifecycleConfiguration (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketProtection">S3.BucketProtection (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketTagging">S3.BucketTagging (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketVersioning">S3.BucketVersioning (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketWebsite">S3.BucketWebsite (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client">S3.Client (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload">S3.MultipartUpload (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart">S3.MultipartUploadPart (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object">S3.Object (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectAcl">S3.ObjectAcl (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectProtection">S3.ObjectProtection (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectSummary">S3.ObjectSummary (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ObjectVersion">S3.ObjectVersion (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListBucketsExtended">S3.Paginator.ListBucketsExtended (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListMultipartUploads">S3.Paginator.ListMultipartUploads (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListObjects">S3.Paginator.ListObjects (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListObjectsV2">S3.Paginator.ListObjectsV2 (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListObjectVersions">S3.Paginator.ListObjectVersions (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Paginator.ListParts">S3.Paginator.ListParts (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.ServiceResource">S3.ServiceResource (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Waiter.BucketExists">S3.Waiter.BucketExists (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Waiter.BucketNotExists">S3.Waiter.BucketNotExists (built-in class)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Waiter.ObjectExists">S3.Waiter.ObjectExists (built-in class)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Waiter.ObjectNotExists">S3.Waiter.ObjectNotExists (built-in class)</a>
-</li>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">S3Transfer (class in ibm_boto3.s3.transfer)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.server_side_encryption">server_side_encryption (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ResourceMeta.service_name">service_name (ibm_boto3.resources.base.ResourceMeta attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.action.ServiceAction">ServiceAction (class in ibm_boto3.resources.action)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.base.ServiceResource">ServiceResource (class in ibm_boto3.resources.base)</a>
-</li>
-      <li><a href="reference/core/session.html#ibm_boto3.session.Session">Session (class in ibm_boto3.session)</a>
-</li>
-      <li><a href="reference/core/boto3.html#ibm_boto3.set_stream_logger">set_stream_logger() (in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.set_stream_logger">[1]</a>
-</li>
-      <li><a href="reference/core/boto3.html#ibm_boto3.setup_default_session">setup_default_session() (in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.setup_default_session">[1]</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.shape">shape (ibm_boto3.resources.model.ResourceModel attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.size">size (S3.MultipartUploadPart attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.size">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.size">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.source">source (ibm_boto3.resources.model.Parameter attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.sse_customer_algorithm">sse_customer_algorithm (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.sse_customer_key_md5">sse_customer_key_md5 (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.ssekms_key_id">ssekms_key_id (S3.Object attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketProtection.status">status (S3.BucketProtection attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.BucketVersioning.status">(S3.BucketVersioning attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.storage_class">storage_class (S3.MultipartUpload attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.storage_class">(S3.Object attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.storage_class">(S3.ObjectSummary attribute)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.storage_class">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.subresources">subresources (ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.BucketVersioning.suspend">suspend() (S3.BucketVersioning method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="T">T</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.BucketTagging.tag_set">tag_set (S3.BucketTagging attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Tagging">Tagging() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.target">target (ibm_boto3.resources.model.Parameter attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">TransferConfig (class in ibm_boto3.s3.transfer)</a>
-</li>
-      <li><a href="reference/core/boto3.html#ibm_boto3.turn_debug_on">turn_debug_on() (in module ibm_boto3)</a>, <a href="reference/core/ibm_boto3.html#ibm_boto3.turn_debug_on">[1]</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResponseResource.type">type (ibm_boto3.resources.model.ResponseResource attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="U">U</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.MultipartUploadPart.upload">upload() (S3.MultipartUploadPart method)</a>
-</li>
-      <li><a href="reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">upload_file() (ibm_boto3.s3.transfer.S3Transfer method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Bucket.upload_file">(S3.Bucket method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Client.upload_file">(S3.Client method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.upload_file">(S3.Object method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Bucket.upload_fileobj">upload_fileobj() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Client.upload_fileobj">(S3.Client method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Object.upload_fileobj">(S3.Object method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.MultipartUpload.upload_id">upload_id (S3.MultipartUpload attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.upload_part">upload_part() (S3.Client method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Client.upload_part_copy">upload_part_copy() (S3.Client method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="V">V</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Parameter.value">value (ibm_boto3.resources.model.Parameter attribute)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.Version">Version() (S3.Object method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.Version">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Object.version_id">version_id (S3.Object attribute)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.ObjectVersion.version_id">(S3.ObjectVersion attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Versioning">Versioning() (S3.Bucket method)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="W">W</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/services/s3.html#S3.Waiter.BucketExists.wait">wait() (S3.Waiter.BucketExists method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Waiter.BucketNotExists.wait">(S3.Waiter.BucketNotExists method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Waiter.ObjectExists.wait">(S3.Waiter.ObjectExists method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.Waiter.ObjectNotExists.wait">(S3.Waiter.ObjectNotExists method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Bucket.wait_until_exists">wait_until_exists() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.wait_until_exists">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.wait_until_exists">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-      <li><a href="reference/services/s3.html#S3.Bucket.wait_until_not_exists">wait_until_not_exists() (S3.Bucket method)</a>
-
-      <ul>
-        <li><a href="reference/services/s3.html#S3.Object.wait_until_not_exists">(S3.Object method)</a>
-</li>
-        <li><a href="reference/services/s3.html#S3.ObjectSummary.wait_until_not_exists">(S3.ObjectSummary method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter">Waiter (class in ibm_boto3.resources.model)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.Waiter.waiter_name">waiter_name (ibm_boto3.resources.model.Waiter attribute)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.action.WaiterAction">WaiterAction (class in ibm_boto3.resources.action)</a>
-</li>
-      <li><a href="reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.waiters">waiters (ibm_boto3.resources.model.ResourceModel property)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Bucket.Website">Website() (S3.Bucket method)</a>
-</li>
-      <li><a href="reference/services/s3.html#S3.Object.website_redirect_location">website_redirect_location (S3.Object attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-
-
-          </div>
-            
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="#" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ibm-cos-sdk 2.13.4 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Index</a></li> 
-      </ul>
-    </div>
-<div class="footer">
-    <script type="text/javascript" src="_static/shortbreadv1.js"></script>
-    <script type="text/javascript">
-            const shortbread = AWSCShortbread({
-                domain: ".amazonaws.com",  // Review this
-});
-            shortbread.checkForCookieConsent();
-    </script>
-    <!--Review links below-->
-    <a href="http://aws.amazon.com/privacy">Privacy</a> | <a href="http://aws.amazon.com/terms">Site Terms</a> | <a
-        href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a> |
-    &copy; Copyright 2021 IBM. Created using <a href="https://www.sphinx-doc.org/">Sphinx</a>.
-</div>
-  </body>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/js/custom.js"></script>
+    </body>
 </html>

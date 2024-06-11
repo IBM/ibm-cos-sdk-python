@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / content_encoding
+
+****************
+content_encoding
+****************
+
+
+
+.. py:attribute:: S3.Object.content_encoding
+
+  
+
+  - *(string) --* 
+
+    Indicates what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+
+    

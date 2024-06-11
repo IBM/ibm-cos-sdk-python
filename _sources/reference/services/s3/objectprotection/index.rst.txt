@@ -1,0 +1,97 @@
+:doc:`S3 <../../s3>` / Resource / ObjectProtection
+
+================
+ObjectProtection
+================
+
+
+
+.. note::
+
+  Before using anything on this page, please refer to the resources :doc:`user guide <../../../../guide/resources>` for the most recent guidance on using resources.
+
+
+
+.. py:class:: S3.ObjectProtection(bucket_name,object_key)
+
+  A resource representing an Amazon Simple Storage Service (S3) ObjectProtection::
+
+    
+    import ibm_boto3
+    
+    s3 = ibm_boto3.resource('s3')
+    object_protection = s3.ObjectProtection('bucket_name','object_key')
+
+  :type bucket_name: string
+  :param bucket_name: The ObjectProtection's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The ObjectProtection's object_key identifier. This **must** be set.
+  
+
+
+
+
+-----------
+Identifiers
+-----------
+
+
+
+Identifiers are properties of a resource that are set upon instantiation of the resource.
+For more information about identifiers refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+
+These are the resource's available identifiers:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  bucket_name
+  object_key
+
+
+
+----------
+Attributes
+----------
+
+
+
+Attributes provide access to the properties of a resource. Attributes are lazy-loaded the first time one is accessed via the :py:meth:`load` method.
+For more information about attributes refer to the :ref:`Resources Introduction Guide<identifiers_attributes_intro>`.
+
+These are the resource's available attributes:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  create_time
+  legal_holds
+  retention_period
+  retention_period_expiration_date
+
+
+
+-------
+Actions
+-------
+
+
+
+Actions call operations on resources.  They may automatically handle the passing in of arguments set from identifiers and some attributes.
+For more information about actions refer to the :ref:`Resources Introduction Guide<actions_intro>`.
+
+These are the resource's available actions:
+
+.. toctree::
+  :maxdepth: 1
+  :titlesonly:
+
+  add_legal_hold
+  delete_legal_hold
+  extend_object_retention
+  get_available_subresources
+  list_legal_holds
+  load
+  reload

@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / sse_customer_key_md5
+
+********************
+sse_customer_key_md5
+********************
+
+
+
+.. py:attribute:: S3.Object.sse_customer_key_md5
+
+  
+
+  - *(string) --* 
+
+    If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
+
+    

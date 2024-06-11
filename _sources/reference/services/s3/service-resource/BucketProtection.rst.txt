@@ -1,0 +1,20 @@
+:doc:`ServiceResource <index>` / Sub-Resource / BucketProtection
+
+****************
+BucketProtection
+****************
+
+
+
+.. py:method:: S3.ServiceResource.BucketProtection(bucket_name)
+
+  Creates a BucketProtection resource.::
+
+    bucket_protection = s3.BucketProtection('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketProtection's bucket_name identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.BucketProtection`
+  :returns: A BucketProtection resource
+  

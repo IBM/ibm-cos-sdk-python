@@ -1,0 +1,132 @@
+:doc:`Object <index>` / Action / delete
+
+******
+delete
+******
+
+
+
+.. py:method:: S3.Object.delete(**kwargs)
+
+  
+
+  Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects but will still respond that the command was successful.
+
+   
+
+  To remove a specific version, you must be the bucket owner and you must use the version Id subresource. Using this subresource permanently deletes the version. If the object deleted is a delete marker, Amazon S3 sets the response header, ``x-amz-delete-marker``, to true.
+
+   
+
+  If the object you want to delete is in a bucket where the bucket versioning configuration is MFA Delete enabled, you must include the ``x-amz-mfa`` request header in the DELETE ``versionId`` request. Requests that include ``x-amz-mfa`` must use HTTPS.
+
+   
+
+  For more information about MFA Delete, see `Using MFA Delete <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html>`__. To see sample requests that use versioning, see `Sample Request <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete>`__.
+
+   
+
+  You can delete objects by explicitly calling DELETE Object or configure its lifecycle ( `PutBucketLifecycle <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html>`__) to enable Amazon S3 to remove them for you. If you want to block users or accounts from removing or deleting objects from your bucket, you must deny them the ``s3:DeleteObject``, ``s3:DeleteObjectVersion``, and ``s3:PutLifeCycleConfiguration`` actions.
+
+   
+
+  The following action is related to ``DeleteObject``:
+
+   
+
+  
+  * `PutObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteObject>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = object.delete(
+        MFA='string',
+        VersionId='string',
+        RequestPayer='requester',
+        BypassGovernanceRetention=True|False,
+        ExpectedBucketOwner='string'
+    )
+    
+  :type MFA: string
+  :param MFA: 
+
+    The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled.
+
+    
+
+  
+  :type VersionId: string
+  :param VersionId: 
+
+    Version ID used to reference a specific version of the object.
+
+     
+
+    .. note::
+
+      
+
+      For directory buckets in this API operation, only the ``null`` value of the version ID is supported.
+
+      
+
+    
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type BypassGovernanceRetention: boolean
+  :param BypassGovernanceRetention: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'DeleteMarker': True|False,
+          'VersionId': 'string',
+          'RequestCharged': 'requester'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **DeleteMarker** *(boolean) --* 
+
+        Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
+
+        
+      
+
+      - **VersionId** *(string) --* 
+
+        Returns the version ID of the delete marker created as a result of the DELETE operation.
+
+        
+      
+
+      - **RequestCharged** *(string) --* Not returned by COS.
+  

@@ -1,0 +1,18 @@
+:doc:`ObjectSummary <index>` / Sub-Resource / Object
+
+******
+Object
+******
+
+
+
+.. py:method:: S3.ObjectSummary.Object()
+
+  Creates a Object resource.::
+
+    object = object_summary.Object()
+
+  
+  :rtype: :py:class:`S3.Object`
+  :returns: A Object resource
+  

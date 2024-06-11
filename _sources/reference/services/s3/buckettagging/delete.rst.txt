@@ -1,0 +1,58 @@
+:doc:`BucketTagging <index>` / Action / delete
+
+******
+delete
+******
+
+
+
+.. py:method:: S3.BucketTagging.delete(**kwargs)
+
+  
+
+  .. note::
+
+    
+
+    This operation is not supported by directory buckets.
+
+    
+
+   
+
+  Deletes the tags from the bucket.
+
+   
+
+  To use this operation, you must have permission to perform the ``s3:PutBucketTagging`` action. By default, the bucket owner has this permission and can grant this permission to others.
+
+   
+
+  The following operations are related to ``DeleteBucketTagging``:
+
+   
+
+  
+  * `GetBucketTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html>`__
+   
+  * `PutBucketTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/DeleteBucketTagging>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = bucket_tagging.delete(
+        ExpectedBucketOwner='string'
+    )
+    
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None

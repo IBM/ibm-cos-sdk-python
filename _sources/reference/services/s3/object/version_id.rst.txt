@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / version_id
+
+**********
+version_id
+**********
+
+
+
+.. py:attribute:: S3.Object.version_id
+
+  
+
+  - *(string) --* 
+
+    Version of the object.
+
+    

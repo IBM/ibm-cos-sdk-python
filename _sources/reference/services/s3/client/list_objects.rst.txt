@@ -1,0 +1,424 @@
+:doc:`S3 <../../s3>` / Client / list_objects
+
+************
+list_objects
+************
+
+
+
+.. py:method:: S3.Client.list_objects(**kwargs)
+
+  
+
+  Returns some or all (up to 1,000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK response can contain valid or invalid XML. Be sure to design your application to parse the contents of the response and handle it appropriately.
+
+   
+
+  .. warning::
+
+     
+
+    This action has been revised. We recommend that you use the newer version, `ListObjectsV2 <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html>`__, when developing applications. For backward compatibility, Amazon S3 continues to support ``ListObjects``.
+
+     
+
+   
+
+  The following operations are related to ``ListObjects``:
+
+   
+
+  
+  * `ListObjectsV2 <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html>`__
+   
+  * `GetObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html>`__
+   
+  * `PutObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html>`__
+   
+  * `CreateBucket <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html>`__
+   
+  * `ListBuckets <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListObjects>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.list_objects(
+        Bucket='string',
+        Delimiter='string',
+        EncodingType='url',
+        Marker='string',
+        MaxKeys=123,
+        MirrorDestination='string',
+        Prefix='string',
+        RequestPayer='requester',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket containing the objects.
+
+     
+
+    When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type Delimiter: string
+  :param Delimiter: 
+
+    A delimiter is a character that you use to group keys.
+
+    
+
+  
+  :type EncodingType: string
+  :param EncodingType: 
+
+    Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key can contain any Unicode character; however, the XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+
+    
+
+  
+  :type Marker: string
+  :param Marker: 
+
+    Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. Marker can be any key in the bucket.
+
+    
+
+  
+  :type MaxKeys: integer
+  :param MaxKeys: 
+
+    Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more.
+
+    
+
+  
+  :type MirrorDestination: string
+  :param MirrorDestination: Mirror source for object reads.
+
+  
+  :type Prefix: string
+  :param Prefix: 
+
+    Limits the response to keys that begin with the specified prefix.
+
+    
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'IsTruncated': True|False,
+          'Marker': 'string',
+          'NextMarker': 'string',
+          'Contents': [
+              {
+                  'Key': 'string',
+                  'LastModified': datetime(2015, 1, 1),
+                  'ETag': 'string',
+                  'Size': 123,
+                  'StorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'GLACIER'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR',
+                  'Owner': {
+                      'DisplayName': 'string',
+                      'ID': 'string'
+                  }
+              },
+          ],
+          'Name': 'string',
+          'IBMSSEKPEnabled': True|False,
+          'IBMSSEKPCrkId': 'string',
+          'Prefix': 'string',
+          'Delimiter': 'string',
+          'MaxKeys': 123,
+          'CommonPrefixes': [
+              {
+                  'Prefix': 'string'
+              },
+          ],
+          'EncodingType': 'url'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **IsTruncated** *(boolean) --* 
+
+        A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
+
+        
+      
+
+      - **Marker** *(string) --* 
+
+        Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
+
+        
+      
+
+      - **NextMarker** *(string) --* 
+
+        When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
+
+        
+      
+
+      - **Contents** *(list) --* 
+
+        Metadata about each object returned.
+
+        
+        
+
+        - *(dict) --* 
+
+          An object consists of data and its descriptive metadata.
+
+          
+          
+
+          - **Key** *(string) --* 
+
+            The name that you assign to an object. You use the object key to retrieve the object.
+
+            
+          
+
+          - **LastModified** *(datetime) --* 
+
+            Creation date of the object.
+
+            
+          
+
+          - **ETag** *(string) --* 
+
+            The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:
+
+             
+
+            
+            * Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest of their object data.
+             
+            * Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest of their object data.
+             
+            * If an object is created by either the Multipart Upload or Part Copy operation, the ETag is not an MD5 digest, regardless of the method of encryption. If an object is larger than 16 MB, the Amazon Web Services Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest.
+            
+
+             
+
+            .. note::
+
+              
+
+              **Directory buckets** - MD5 is not supported by directory buckets.
+
+              
+
+            
+          
+
+          - **Size** *(integer) --* 
+
+            Size in bytes of the object
+
+            
+          
+
+          - **StorageClass** *(string) --* 
+
+            The class of storage used to store the object.
+
+            
+          
+
+          - **Owner** *(dict) --* 
+
+            The owner of the object
+
+            
+            
+
+            - **DisplayName** *(string) --* 
+
+              Container for the display name of the owner.
+
+              
+            
+
+            - **ID** *(string) --* 
+
+              Container for the ID of the owner.
+
+              
+        
+      
+    
+      
+
+      - **Name** *(string) --* 
+
+        The bucket name.
+
+        
+      
+
+      - **IBMSSEKPEnabled** *(boolean) --* The bucket encryption enabled or not.
+      
+
+      - **IBMSSEKPCrkId** *(string) --* CRK ID of the Bucket encryption
+      
+
+      - **Prefix** *(string) --* 
+
+        Keys that begin with the indicated prefix.
+
+        
+      
+
+      - **Delimiter** *(string) --* 
+
+        Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the ``CommonPrefixes`` collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the ``MaxKeys`` value.
+
+        
+      
+
+      - **MaxKeys** *(integer) --* 
+
+        The maximum number of keys returned in the response body.
+
+        
+      
+
+      - **CommonPrefixes** *(list) --* 
+
+        All of the keys (up to 1,000) rolled up in a common prefix count as a single return when calculating the number of returns.
+
+         
+
+        A response can contain CommonPrefixes only if you specify a delimiter.
+
+         
+
+        CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.
+
+         
+
+        CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.
+
+         
+
+        For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
+
+        
+        
+
+        - *(dict) --* 
+
+          Container for all (if there are any) keys between Prefix and the next occurrence of the string specified by a delimiter. CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix. For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/.
+
+          
+          
+
+          - **Prefix** *(string) --* 
+
+            Container for the specified common prefix.
+
+            
+      
+    
+      
+
+      - **EncodingType** *(string) --* 
+
+        Encoding type used by Amazon S3 to encode object keys in the response.
+
+        
+  
+  **Exceptions**
+  
+  *   :py:class:`S3.Client.exceptions.NoSuchBucket`
+
+  
+
+  **Examples**
+
+  The following example list two objects in a bucket.
+  ::
+
+    response = client.list_objects(
+        Bucket='examplebucket',
+        MaxKeys='2',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'Contents': [
+            {
+                'ETag': '"70ee1738b6b21e2c8a43f3a5ab0eee71"',
+                'Key': 'example1.jpg',
+                'LastModified': datetime(2014, 11, 21, 19, 40, 5, 4, 325, 0),
+                'Owner': {
+                    'DisplayName': 'myname',
+                    'ID': '12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc',
+                },
+                'Size': 11,
+                'StorageClass': 'STANDARD',
+            },
+            {
+                'ETag': '"9c8af9a76df052144598c115ef33e511"',
+                'Key': 'example2.jpg',
+                'LastModified': datetime(2013, 11, 15, 1, 10, 49, 4, 319, 0),
+                'Owner': {
+                    'DisplayName': 'myname',
+                    'ID': '12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc',
+                },
+                'Size': 713193,
+                'StorageClass': 'STANDARD',
+            },
+        ],
+        'NextMarker': 'eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ==',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

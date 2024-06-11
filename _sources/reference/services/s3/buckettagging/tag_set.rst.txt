@@ -1,0 +1,39 @@
+:doc:`BucketTagging <index>` / Attribute / tag_set
+
+*******
+tag_set
+*******
+
+
+
+.. py:attribute:: S3.BucketTagging.tag_set
+
+  
+
+  - *(list) --* 
+
+    Contains the tag set.
+
+    
+    
+
+    - *(dict) --* 
+
+      A container of a key value name pair.
+
+      
+      
+
+      - **Key** *(string) --* 
+
+        Name of the object key.
+
+        
+      
+
+      - **Value** *(string) --* 
+
+        Value of the tag.
+
+        
+  

@@ -1,0 +1,28 @@
+:doc:`ObjectProtection <index>` / Action / add_legal_hold
+
+**************
+add_legal_hold
+**************
+
+
+
+.. py:method:: S3.ObjectProtection.add_legal_hold(**kwargs)
+
+  Add a legal hold on an object. The legal hold identifiers are stored in the object metadata along with the timestamp of when they are POSTed to the object. The presence of any legal hold identifiers prevents the modification or deletion of the object data, even if the retention period has expired. Legal Holds can only be added to objects in a bucket with a protection policy. Otherwise a 400 error will be returned.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/AddLegalHold>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = object_protection.add_legal_hold(
+        RetentionLegalHoldId='string'
+    )
+    
+  :type RetentionLegalHoldId: string
+  :param RetentionLegalHoldId: **[REQUIRED]** 
+
+  
+  
+  :returns: None

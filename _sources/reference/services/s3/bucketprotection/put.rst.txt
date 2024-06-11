@@ -1,0 +1,68 @@
+:doc:`BucketProtection <index>` / Action / put
+
+***
+put
+***
+
+
+
+.. py:method:: S3.BucketProtection.put(**kwargs)
+
+  Sets the protection configuration of an existing bucket. EnablePermanentRetention is optional and if not included is considered to be false. Once set to true, must be included in any subsequent PUT Bucket?protection requests for that bucket.
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketProtectionConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = bucket_protection.put(
+        ProtectionConfiguration={
+            'Status': 'Retention',
+            'MinimumRetention': {
+                'Days': 123
+            },
+            'DefaultRetention': {
+                'Days': 123
+            },
+            'MaximumRetention': {
+                'Days': 123
+            },
+            'EnablePermanentRetention': True|False
+        }
+    )
+    
+  :type ProtectionConfiguration: dict
+  :param ProtectionConfiguration: **[REQUIRED]** Container for setting retention settings.
+
+  
+    - **Status** *(string) --* Retention status of a bucket.
+
+    
+    - **MinimumRetention** *(dict) --* Minimum retention period for an object, if a PUT of an object specifies a shorter retention period the PUT object will fail.
+
+    
+      - **Days** *(integer) --* **[REQUIRED]** 
+
+      
+    
+    - **DefaultRetention** *(dict) --* Default retention period for an object, if a PUT of an object does not specify a retention period this value will be converted to seconds and used.
+
+    
+      - **Days** *(integer) --* **[REQUIRED]** 
+
+      
+    
+    - **MaximumRetention** *(dict) --* Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+
+    
+      - **Days** *(integer) --* **[REQUIRED]** 
+
+      
+    
+    - **EnablePermanentRetention** *(boolean) --* Enable permanent retention for an object.
+
+    
+  
+  
+  :returns: None

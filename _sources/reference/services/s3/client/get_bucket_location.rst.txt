@@ -1,0 +1,117 @@
+:doc:`S3 <../../s3>` / Client / get_bucket_location
+
+*******************
+get_bucket_location
+*******************
+
+
+
+.. py:method:: S3.Client.get_bucket_location(**kwargs)
+
+  
+
+  Returns the Region the bucket resides in. You set the bucket's Region using the ``LocationConstraint`` request parameter in a ``CreateBucket`` request. For more information, see `CreateBucket <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html>`__.
+
+   
+
+  To use this implementation of the operation, you must be the bucket owner.
+
+   
+
+  To use this API against an access point, provide the alias of the access point in place of the bucket name.
+
+   
+
+  The following operations are related to ``GetBucketLocation``:
+
+   
+
+  
+  * `GetObject <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html>`__
+   
+  * `CreateBucket <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetBucketLocation>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_bucket_location(
+        Bucket='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket for which to get the location.
+
+     
+
+    When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.
+
+     
+
+    When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code ``InvalidAccessPointAliasError`` is returned. For more information about ``InvalidAccessPointAliasError``, see `List of Error Codes <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList>`__.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'LocationConstraint': 'au-syd-onerate_active'|'ca-tor-onerate_active'|'br-sao-onerate_active'|'jp-osa-onerate_active'|'jp-tok-onerate_active'|'us-standard'|'us-vault'|'us-cold'|'us-flex'|'us-east-standard'|'us-east-vault'|'us-east-cold'|'us-east-flex'|'us-east-onerate_active'|'us-south-standard'|'us-south-vault'|'us-south-cold'|'us-south-flex'|'us-south-onerate_active'|'eu-standard'|'eu-vault'|'eu-cold'|'eu-flex'|'eu-gb-standard'|'eu-gb-vault'|'eu-gb-cold'|'eu-gb-flex'|'eu-gb-onerate_active'|'eu-de-standard'|'eu-de-vault'|'eu-de-cold'|'eu-de-flex'|'eu-de-onerate_active'|'ap-standard'|'ap-vault'|'ap-cold'|'ap-flex'|'ams03-standard'|'ams03-vault'|'ams03-cold'|'ams03-flex'|'ams03-onerate_active'|'che01-standard'|'che01-vault'|'che01-cold'|'che01-flex'|'che01-onerate_active'|'mel01-standard'|'mel01-vault'|'mel01-cold'|'mel01-flex'|'mil01-onerate_active'|'mon01-onerate_active'|'osl01-standard'|'osl01-vault'|'osl01-cold'|'osl01-flex'|'par01-onerate_active'|'sao01-standard'|'sao01-vault'|'sao01-cold'|'sao01-flex'|'sjc04-onerate_active'|'sng01-onerate_active'|'tor01-standard'|'tor01-vault'|'tor01-cold'|'tor01-flex'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **LocationConstraint** *(string) --* 
+
+        Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see `Regions and Endpoints <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region>`__. Buckets in Region ``us-east-1`` have a LocationConstraint of ``null``.
+
+        
+  
+
+  **Examples**
+
+  The following example returns bucket location.
+  ::
+
+    response = client.get_bucket_location(
+        Bucket='examplebucket',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'LocationConstraint': 'us-west-2',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

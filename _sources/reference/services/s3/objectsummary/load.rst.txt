@@ -1,0 +1,13 @@
+:doc:`ObjectSummary <index>` / Action / load
+
+****
+load
+****
+
+
+
+.. py:method:: S3.ObjectSummary.load(*args, **kwargs)
+
+    
+  Calls s3.Client.head_object to update the attributes of the ObjectSummary
+  resource.

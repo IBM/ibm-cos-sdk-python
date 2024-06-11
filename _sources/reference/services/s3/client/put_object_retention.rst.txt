@@ -1,0 +1,141 @@
+:doc:`S3 <../../s3>` / Client / put_object_retention
+
+********************
+put_object_retention
+********************
+
+
+
+.. py:method:: S3.Client.put_object_retention(**kwargs)
+
+  
+
+  Places an Object Retention configuration on an object. For more information, see `Locking Objects <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__. Users or accounts require the ``s3:PutObjectRetention`` permission in order to place an Object Retention configuration on objects.
+
+   
+
+  This action is not supported by Amazon S3 on Outposts.
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutObjectRetention>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.put_object_retention(
+        Bucket='string',
+        Key='string',
+        Retention={
+            'Mode': 'GOVERNANCE'|'COMPLIANCE',
+            'RetainUntilDate': datetime(2015, 1, 1)
+        },
+        RequestPayer='requester',
+        VersionId='string',
+        BypassGovernanceRetention=True|False,
+        ContentMD5='string',
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket name that contains the object you want to apply this Object Retention configuration to.
+
+     
+
+    **Access points** - When you use this action with an access point, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    The key name for the object that you want to apply this Object Retention configuration to.
+
+    
+
+  
+  :type Retention: dict
+  :param Retention: 
+
+    The container element for the Object Retention configuration.
+
+    
+
+  
+    - **Mode** *(string) --* 
+
+      Indicates the Retention mode for the specified object.
+
+      
+
+    
+    - **RetainUntilDate** *(datetime) --* 
+
+      The date on which this Object Lock Retention will expire.
+
+      
+
+    
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  :type VersionId: string
+  :param VersionId: 
+
+    The version ID for the object that you want to apply this Object Retention configuration to.
+
+    
+
+  
+  :type BypassGovernanceRetention: boolean
+  :param BypassGovernanceRetention: Ignored by COS if present.
+
+  
+  :type ContentMD5: string
+  :param ContentMD5: 
+
+    The MD5 hash for the request body.
+
+     
+
+    For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'RequestCharged': 'requester'
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **RequestCharged** *(string) --* 
+
+        If present, indicates that the requester was successfully charged for the request.
+
+        
+  

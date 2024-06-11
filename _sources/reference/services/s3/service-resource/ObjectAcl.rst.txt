@@ -1,0 +1,22 @@
+:doc:`ServiceResource <index>` / Sub-Resource / ObjectAcl
+
+*********
+ObjectAcl
+*********
+
+
+
+.. py:method:: S3.ServiceResource.ObjectAcl(bucket_name,object_key)
+
+  Creates a ObjectAcl resource.::
+
+    object_acl = s3.ObjectAcl('bucket_name','object_key')
+
+  :type bucket_name: string
+  :param bucket_name: The ObjectAcl's bucket_name identifier. This **must** be set.
+  :type object_key: string
+  :param object_key: The ObjectAcl's object_key identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.ObjectAcl`
+  :returns: A ObjectAcl resource
+  

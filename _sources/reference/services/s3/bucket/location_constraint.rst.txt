@@ -1,0 +1,13 @@
+:doc:`Bucket <index>` / Attribute / location_constraint
+
+*******************
+location_constraint
+*******************
+
+
+
+.. py:attribute:: S3.Bucket.location_constraint
+
+  
+
+  - *(string) --* Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.

@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / missing_meta
+
+************
+missing_meta
+************
+
+
+
+.. py:attribute:: S3.Object.missing_meta
+
+  
+
+  - *(integer) --* 
+
+    This is set to the number of metadata entries not returned in ``x-amz-meta`` headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+
+    

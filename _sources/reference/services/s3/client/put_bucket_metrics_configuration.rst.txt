@@ -1,0 +1,207 @@
+:doc:`S3 <../../s3>` / Client / put_bucket_metrics_configuration
+
+********************************
+put_bucket_metrics_configuration
+********************************
+
+
+
+.. py:method:: S3.Client.put_bucket_metrics_configuration(**kwargs)
+
+  
+
+  Sets a metrics configuration (specified by the metrics configuration ID) for the bucket. You can have up to 1,000 metrics configurations per bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased.
+
+   
+
+  To use this operation, you must have permissions to perform the ``s3:PutMetricsConfiguration`` action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see `Permissions Related to Bucket Subresource Operations <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources>`__ and `Managing Access Permissions to Your Amazon S3 Resources <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>`__.
+
+   
+
+  For information about CloudWatch request metrics for Amazon S3, see `Monitoring Metrics with Amazon CloudWatch <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html>`__.
+
+   
+
+  The following operations are related to ``PutBucketMetricsConfiguration``:
+
+   
+
+  
+  * `DeleteBucketMetricsConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html>`__
+   
+  * `GetBucketMetricsConfiguration <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html>`__
+   
+  * `ListBucketMetricsConfigurations <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html>`__
+  
+
+   
+
+  ``GetBucketLifecycle`` has the following special error:
+
+   
+
+  
+  * Error code: ``TooManyConfigurations`` 
+
+    
+    * Description: You are attempting to create a new configuration but have already reached the 1,000-configuration limit.
+     
+    * HTTP Status Code: HTTP 400 Bad Request
+    
+
+  
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketMetricsConfiguration>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.put_bucket_metrics_configuration(
+        Bucket='string',
+        Id='string',
+        MetricsConfiguration={
+            'Id': 'string',
+            'Filter': {
+                'Prefix': 'string',
+                'Tag': {
+                    'Key': 'string',
+                    'Value': 'string'
+                },
+                'And': {
+                    'Prefix': 'string',
+                    'Tags': [
+                        {
+                            'Key': 'string',
+                            'Value': 'string'
+                        },
+                    ]
+                }
+            }
+        },
+        ExpectedBucketOwner='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The name of the bucket for which the metrics configuration is set.
+
+    
+
+  
+  :type Id: string
+  :param Id: **[REQUIRED]** 
+
+    The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
+
+    
+
+  
+  :type MetricsConfiguration: dict
+  :param MetricsConfiguration: **[REQUIRED]** 
+
+    Specifies the metrics configuration.
+
+    
+
+  
+    - **Id** *(string) --* **[REQUIRED]** 
+
+      The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
+
+      
+
+    
+    - **Filter** *(dict) --* 
+
+      Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction (MetricsAndOperator).
+
+      
+
+    
+      - **Prefix** *(string) --* 
+
+        The prefix used when evaluating a metrics filter.
+
+        
+
+      
+      - **Tag** *(dict) --* 
+
+        The tag used when evaluating a metrics filter.
+
+        
+
+      
+        - **Key** *(string) --* **[REQUIRED]** 
+
+          Name of the object key.
+
+          
+
+        
+        - **Value** *(string) --* **[REQUIRED]** 
+
+          Value of the tag.
+
+          
+
+        
+      
+      - **And** *(dict) --* 
+
+        A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+
+        
+
+      
+        - **Prefix** *(string) --* 
+
+          The prefix used when evaluating an AND predicate.
+
+          
+
+        
+        - **Tags** *(list) --* 
+
+          The list of tags used when evaluating an AND predicate.
+
+          
+
+        
+          - *(dict) --* 
+
+            A container of a key value name pair.
+
+            
+
+          
+            - **Key** *(string) --* **[REQUIRED]** 
+
+              Name of the object key.
+
+              
+
+            
+            - **Value** *(string) --* **[REQUIRED]** 
+
+              Value of the tag.
+
+              
+
+            
+          
+      
+      
+    
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  
+  :returns: None

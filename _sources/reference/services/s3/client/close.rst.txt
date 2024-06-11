@@ -1,0 +1,12 @@
+:doc:`S3 <../../s3>` / Client / close
+
+*****
+close
+*****
+
+
+
+.. py:method:: S3.Client.close()
+
+    
+  Closes underlying endpoint connections.

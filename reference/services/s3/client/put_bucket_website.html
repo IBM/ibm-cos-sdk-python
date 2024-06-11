@@ -1,0 +1,540 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="put_object" href="put_object.html" /><link rel="prev" title="put_bucket_versioning" href="put_bucket_versioning.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>put_bucket_website - ibm-cos-sdk 2.13.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+    document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-close" viewBox="0 0 24 24">
+        <title>Close Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+            <line x1="2" y1="22" x2="22" y2="2"/>
+            <line x1="2" y1="2" x2="22" y2="22"/>
+        </svg>
+    </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" id="nav-menu-open" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.13.5 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" id="toc-menu-open-sm" for="__toc" tabindex="0">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-div show-div-sm justify-content-right">
+    <label class="nav-close-icon" id="nav-menu-close" for="__navigation" tabindex="0">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+    </label>
+</div><a class="sidebar-brand" href="../../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.5 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-div">
+    <p class="sidebar-heading">Feedback</p>
+    <p class="sidebar-text">
+        Do you have a suggestion to improve this website or ibm_boto3?
+        <a href="https://github.com/IBM/ibm-cos-sdk-python/issues">Give us feedback</a>.
+    </p>
+</div><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../index.html">Available services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../s3.html">S3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../core/index.html">Core references</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/boto3.html">ibm-cos-sdk Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/collections.html">Collections reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/ibm_boto3.html">IBM Boto3 reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/resources.html">Resources reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../core/session.html">Session reference</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../customizations/index.html">Customization references</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../customizations/s3.html">S3 customization reference</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" id="toc-menu-open-md" for="__toc" tabindex="0">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <p><a class="reference internal" href="../../s3.html"><span class="doc">S3</span></a> / Client / put_bucket_website</p>
+<section id="put-bucket-website">
+<h1>put_bucket_website<a class="headerlink" href="#put-bucket-website" title="Permalink to this heading">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="S3.Client.put_bucket_website">
+<span class="sig-prename descclassname"><span class="pre">S3.Client.</span></span><span class="sig-name descname"><span class="pre">put_bucket_website</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#S3.Client.put_bucket_website" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets the configuration of the website that is specified in the <code class="docutils literal notranslate"><span class="pre">website</span></code> subresource. To configure a bucket as a website, you can add this subresource on the bucket with website configuration information such as the file name of the index document and any redirect rules. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>.</p>
+<p>This PUT action requires the <code class="docutils literal notranslate"><span class="pre">S3:PutBucketWebsite</span></code> permission. By default, only the bucket owner can configure the website attached to a bucket; however, bucket owners can allow other users to set the website configuration by writing a bucket policy that grants them the <code class="docutils literal notranslate"><span class="pre">S3:PutBucketWebsite</span></code> permission.</p>
+<p>To redirect all website requests sent to the bucket’s website endpoint, you add a website configuration with the following elements. Because all requests are sent to another website, you don’t need to provide index document name for the bucket.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WebsiteConfiguration</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RedirectAllRequestsTo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HostName</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Protocol</span></code></p></li>
+</ul>
+<p>If you want granular control over redirects, you can use the following elements to add routing rules that describe conditions for redirecting requests and information about the redirect destination. In this case, the website configuration must provide an index document for the bucket, because some requests might not be redirected.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WebsiteConfiguration</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IndexDocument</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Suffix</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ErrorDocument</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Key</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RoutingRules</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RoutingRule</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Condition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HttpErrorCodeReturnedEquals</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KeyPrefixEquals</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Redirect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Protocol</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HostName</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReplaceKeyPrefixWith</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReplaceKeyWith</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HttpRedirectCode</span></code></p></li>
+</ul>
+<p>Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more than 50 routing rules, you can use object redirect. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an Object Redirect</a> in the <em>Amazon S3 User Guide</em>.</p>
+<p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite">AWS API Documentation</a></p>
+<h3>Request Syntax</h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put_bucket_website</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">WebsiteConfiguration</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;ErrorDocument&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;IndexDocument&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Suffix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;RedirectAllRequestsTo&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;HostName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Protocol&#39;</span><span class="p">:</span> <span class="s1">&#39;http&#39;</span><span class="o">|</span><span class="s1">&#39;https&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;RoutingRules&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;Condition&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;HttpErrorCodeReturnedEquals&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;KeyPrefixEquals&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;Redirect&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;HostName&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;HttpRedirectCode&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Protocol&#39;</span><span class="p">:</span> <span class="s1">&#39;http&#39;</span><span class="o">|</span><span class="s1">&#39;https&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;ReplaceKeyPrefixWith&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;ReplaceKeyWith&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="n">ExpectedBucketOwner</span><span class="o">=</span><span class="s1">&#39;string&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Bucket</strong> (<em>string</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>The bucket name.</p>
+</p></li>
+<li><p><strong>WebsiteConfiguration</strong> (<em>dict</em>) – <p><strong>[REQUIRED]</strong></p>
+<p>Container for the request.</p>
+<ul>
+<li><p><strong>ErrorDocument</strong> <em>(dict) –</em></p>
+<p>The name of the error document for the website.</p>
+<ul>
+<li><p><strong>Key</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>The object key name to use when a 4XX class error occurs.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>IndexDocument</strong> <em>(dict) –</em></p>
+<p>The name of the index document for the website.</p>
+<ul>
+<li><p><strong>Suffix</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>RedirectAllRequestsTo</strong> <em>(dict) –</em></p>
+<p>The redirect behavior for every request to this bucket’s website endpoint.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>If you specify this property, you can’t specify any other property.</p>
+</div>
+<ul>
+<li><p><strong>HostName</strong> <em>(string) –</em> <strong>[REQUIRED]</strong></p>
+<p>Name of the host where requests are redirected.</p>
+</li>
+<li><p><strong>Protocol</strong> <em>(string) –</em></p>
+<p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>RoutingRules</strong> <em>(list) –</em></p>
+<p>Rules that define when a redirect is applied and the redirect behavior.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects">Configuring advanced conditional redirects</a> in the <em>Amazon S3 User Guide</em>.</p>
+<ul>
+<li><p><strong>Condition</strong> <em>(dict) –</em></p>
+<p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code class="docutils literal notranslate"><span class="pre">/docs</span></code> folder, redirect to the <code class="docutils literal notranslate"><span class="pre">/documents</span></code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
+<ul>
+<li><p><strong>HttpErrorCodeReturnedEquals</strong> <em>(string) –</em></p>
+<p>The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element <code class="docutils literal notranslate"><span class="pre">Condition</span></code> is specified and sibling <code class="docutils literal notranslate"><span class="pre">KeyPrefixEquals</span></code> is not specified. If both are specified, then both must be true for the redirect to be applied.</p>
+</li>
+<li><p><strong>KeyPrefixEquals</strong> <em>(string) –</em></p>
+<p>The object key name prefix when the redirect is applied. For example, to redirect requests for <code class="docutils literal notranslate"><span class="pre">ExamplePage.html</span></code>, the key prefix will be <code class="docutils literal notranslate"><span class="pre">ExamplePage.html</span></code>. To redirect request for all pages with the prefix <code class="docutils literal notranslate"><span class="pre">docs/</span></code>, the key prefix will be <code class="docutils literal notranslate"><span class="pre">/docs</span></code>, which identifies all objects in the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder. Required when the parent element <code class="docutils literal notranslate"><span class="pre">Condition</span></code> is specified and sibling <code class="docutils literal notranslate"><span class="pre">HttpErrorCodeReturnedEquals</span></code> is not specified. If both conditions are specified, both must be true for the redirect to be applied.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Redirect</strong> <em>(dict) –</em> <strong>[REQUIRED]</strong></p>
+<p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>
+<ul>
+<li><p><strong>HostName</strong> <em>(string) –</em></p>
+<p>The host name to use in the redirect request.</p>
+</li>
+<li><p><strong>HttpRedirectCode</strong> <em>(string) –</em></p>
+<p>The HTTP redirect code to use on the response. Not required if one of the siblings is present.</p>
+</li>
+<li><p><strong>Protocol</strong> <em>(string) –</em></p>
+<p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+</li>
+<li><p><strong>ReplaceKeyPrefixWith</strong> <em>(string) –</em></p>
+<p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code class="docutils literal notranslate"><span class="pre">docs/</span></code> (objects in the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder) to <code class="docutils literal notranslate"><span class="pre">documents/</span></code>, you can set a condition block with <code class="docutils literal notranslate"><span class="pre">KeyPrefixEquals</span></code> set to <code class="docutils literal notranslate"><span class="pre">docs/</span></code> and in the Redirect set <code class="docutils literal notranslate"><span class="pre">ReplaceKeyPrefixWith</span></code> to <code class="docutils literal notranslate"><span class="pre">/documents</span></code>. Not required if one of the siblings is present. Can be present only if <code class="docutils literal notranslate"><span class="pre">ReplaceKeyWith</span></code> is not provided.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
+<li><p><strong>ReplaceKeyWith</strong> <em>(string) –</em></p>
+<p>The specific object key to use in the redirect request. For example, redirect request to <code class="docutils literal notranslate"><span class="pre">error.html</span></code>. Not required if one of the siblings is present. Can be present only if <code class="docutils literal notranslate"><span class="pre">ReplaceKeyPrefixWith</span></code> is not provided.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p></li>
+<li><p><strong>ExpectedBucketOwner</strong> (<em>string</em>) – Ignored by COS if present.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<h3>Examples</h3>
+<p>The following example adds website configuration to a bucket.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put_bucket_website</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;examplebucket&#39;</span><span class="p">,</span>
+    <span class="n">ContentMD5</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">WebsiteConfiguration</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;ErrorDocument&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;error.html&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;IndexDocument&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;Suffix&#39;</span><span class="p">:</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Expected Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;ResponseMetadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;...&#39;</span><span class="p">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="put_object.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">put_object</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="put_bucket_versioning.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">put_bucket_versioning</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021 IBM
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+            
+            <div class="legal-info">
+                <script type="text/javascript" src="../../../../_static/shortbreadv1.js"></script>
+                <script type="text/javascript">
+                        const shortbread = AWSCShortbread({
+                            domain: ".amazonaws.com",
+            });
+                        shortbread.checkForCookieConsent();
+                </script>
+                <a href="https://aws.amazon.com/privacy">Privacy</a> | <a href="https://aws.amazon.com/terms">Site Terms</a> | <a
+                    href="#" onclick="shortbread.customizeCookies();">Cookie preferences</a>
+            </div>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/IBM/ibm-cos-sdk-python" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="sidebar-div show-div-md justify-content-left">
+            <label class="nav-close-icon" id="toc-menu-close" for="__toc" tabindex="0">
+                <div class="visually-hidden">Toggle site table of content right sidebar</div>
+                <i class="icon"><svg><use href="#svg-close"></use></svg></i>
+            </label>
+        </div>
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">put_bucket_website</a><ul>
+<li><a class="reference internal" href="#S3.Client.put_bucket_website"><code class="docutils literal notranslate"><span class="pre">S3.Client.put_bucket_website()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/scripts/furo.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/js/custom.js"></script>
+    </body>
+</html>

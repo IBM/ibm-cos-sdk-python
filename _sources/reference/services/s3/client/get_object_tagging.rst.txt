@@ -1,0 +1,223 @@
+:doc:`S3 <../../s3>` / Client / get_object_tagging
+
+******************
+get_object_tagging
+******************
+
+
+
+.. py:method:: S3.Client.get_object_tagging(**kwargs)
+
+  
+
+  Returns the tag-set of an object. You send the GET request against the tagging subresource associated with the object.
+
+   
+
+  To use this operation, you must have permission to perform the ``s3:GetObjectTagging`` action. By default, the GET action returns information about current version of an object. For a versioned bucket, you can have multiple versions of an object in your bucket. To retrieve tags of any other version, use the versionId query parameter. You also need permission for the ``s3:GetObjectVersionTagging`` action.
+
+   
+
+  By default, the bucket owner has this permission and can grant this permission to others.
+
+   
+
+  For information about the Amazon S3 object tagging feature, see `Object Tagging <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html>`__.
+
+   
+
+  The following actions are related to ``GetObjectTagging``:
+
+   
+
+  
+  * `DeleteObjectTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html>`__
+   
+  * `GetObjectAttributes <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html>`__
+   
+  * `PutObjectTagging <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html>`__
+  
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/GetObjectTagging>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.get_object_tagging(
+        Bucket='string',
+        Key='string',
+        VersionId='string',
+        ExpectedBucketOwner='string',
+        RequestPayer='requester'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket name containing the object for which to get the tagging information.
+
+     
+
+    When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form *AccessPointName*-*AccountId*.s3-accesspoint.*Region*.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see `Using access points <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form ``AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com``. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see `Using Amazon S3 on Outposts <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type Key: string
+  :param Key: **[REQUIRED]** 
+
+    Object key for which to get the tagging information.
+
+    
+
+  
+  :type VersionId: string
+  :param VersionId: 
+
+    The versionId of the object for which to get the tagging information.
+
+    
+
+  
+  :type ExpectedBucketOwner: string
+  :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type RequestPayer: string
+  :param RequestPayer: Ignored by COS if present.
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'VersionId': 'string',
+          'TagSet': [
+              {
+                  'Key': 'string',
+                  'Value': 'string'
+              },
+          ]
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **VersionId** *(string) --* 
+
+        The versionId of the object for which you got the tagging information.
+
+        
+      
+
+      - **TagSet** *(list) --* 
+
+        Contains the tag set.
+
+        
+        
+
+        - *(dict) --* 
+
+          A container of a key value name pair.
+
+          
+          
+
+          - **Key** *(string) --* 
+
+            Name of the object key.
+
+            
+          
+
+          - **Value** *(string) --* 
+
+            Value of the tag.
+
+            
+      
+    
+  
+
+  **Examples**
+
+  The following example retrieves tag set of an object.
+  ::
+
+    response = client.get_object_tagging(
+        Bucket='examplebucket',
+        Key='HappyFace.jpg',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'TagSet': [
+            {
+                'Key': 'Key4',
+                'Value': 'Value4',
+            },
+            {
+                'Key': 'Key3',
+                'Value': 'Value3',
+            },
+        ],
+        'VersionId': 'null',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  
+
+  The following example retrieves tag set of an object. The request specifies object version.
+  ::
+
+    response = client.get_object_tagging(
+        Bucket='examplebucket',
+        Key='exampleobject',
+        VersionId='ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI',
+    )
+    
+    print(response)
+
+  
+  Expected Output:
+  ::
+
+    {
+        'TagSet': [
+            {
+                'Key': 'Key1',
+                'Value': 'Value1',
+            },
+        ],
+        'VersionId': 'ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI',
+        'ResponseMetadata': {
+            '...': '...',
+        },
+    }
+
+  

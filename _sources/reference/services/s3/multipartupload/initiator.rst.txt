@@ -1,0 +1,41 @@
+:doc:`MultipartUpload <index>` / Attribute / initiator
+
+*********
+initiator
+*********
+
+
+
+.. py:attribute:: S3.MultipartUpload.initiator
+
+  
+
+  - *(dict) --* 
+
+    Identifies who initiated the multipart upload.
+
+    
+    
+
+    - **ID** *(string) --* 
+
+      If the principal is an Amazon Web Services account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
+
+       
+
+      .. note::
+
+        
+
+        **Directory buckets** - If the principal is an Amazon Web Services account, it provides the Amazon Web Services account ID. If the principal is an IAM User, it provides a user ARN value.
+
+        
+
+      
+    
+
+    - **DisplayName** *(string) --* 
+
+      Name of the Principal.
+
+      

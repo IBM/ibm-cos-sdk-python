@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Cors
+
+****
+Cors
+****
+
+
+
+.. py:method:: S3.Bucket.Cors()
+
+  Creates a BucketCors resource.::
+
+    bucket_cors = bucket.Cors()
+
+  
+  :rtype: :py:class:`S3.BucketCors`
+  :returns: A BucketCors resource
+  

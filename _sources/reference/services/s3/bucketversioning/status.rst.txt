@@ -1,0 +1,17 @@
+:doc:`BucketVersioning <index>` / Attribute / status
+
+******
+status
+******
+
+
+
+.. py:attribute:: S3.BucketVersioning.status
+
+  
+
+  - *(string) --* 
+
+    The versioning state of the bucket.
+
+    

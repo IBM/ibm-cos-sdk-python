@@ -1,0 +1,13 @@
+:doc:`Bucket <index>` / Action / load
+
+****
+load
+****
+
+
+
+.. py:method:: S3.Bucket.load(*args, **kwargs)
+
+    
+  Calls s3.Client.list_buckets() to update the attributes of the Bucket
+  resource.

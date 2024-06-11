@@ -1,0 +1,16 @@
+:doc:`BucketProtection <index>` / Attribute / maximum_retention
+
+*****************
+maximum_retention
+*****************
+
+
+
+.. py:attribute:: S3.BucketProtection.maximum_retention
+
+  
+
+  - *(dict) --* Maximum retention period for an object, if a PUT of an object specifies a longer retention period the PUT object will fail.
+    
+
+    - **Days** *(integer) --* 

@@ -1,0 +1,31 @@
+:doc:`ObjectVersion <index>` / Attribute / owner
+
+*****
+owner
+*****
+
+
+
+.. py:attribute:: S3.ObjectVersion.owner
+
+  
+
+  - *(dict) --* 
+
+    Specifies the owner of the object.
+
+    
+    
+
+    - **DisplayName** *(string) --* 
+
+      Container for the display name of the owner.
+
+      
+    
+
+    - **ID** *(string) --* 
+
+      Container for the ID of the owner.
+
+      

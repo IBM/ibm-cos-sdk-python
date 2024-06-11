@@ -1,0 +1,21 @@
+:doc:`Object <index>` / Attribute / storage_class
+
+*************
+storage_class
+*************
+
+
+
+.. py:attribute:: S3.Object.storage_class
+
+  
+
+  - *(string) --* 
+
+    Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
+
+     
+
+    For more information, see `Storage Classes <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html>`__.
+
+    

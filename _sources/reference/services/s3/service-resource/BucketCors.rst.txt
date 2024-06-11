@@ -1,0 +1,20 @@
+:doc:`ServiceResource <index>` / Sub-Resource / BucketCors
+
+**********
+BucketCors
+**********
+
+
+
+.. py:method:: S3.ServiceResource.BucketCors(bucket_name)
+
+  Creates a BucketCors resource.::
+
+    bucket_cors = s3.BucketCors('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketCors's bucket_name identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.BucketCors`
+  :returns: A BucketCors resource
+  

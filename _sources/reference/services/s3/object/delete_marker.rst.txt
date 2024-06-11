@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / delete_marker
+
+*************
+delete_marker
+*************
+
+
+
+.. py:attribute:: S3.Object.delete_marker
+
+  
+
+  - *(boolean) --* 
+
+    Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
+
+    

@@ -1,0 +1,31 @@
+:doc:`BucketWebsite <index>` / Attribute / redirect_all_requests_to
+
+************************
+redirect_all_requests_to
+************************
+
+
+
+.. py:attribute:: S3.BucketWebsite.redirect_all_requests_to
+
+  
+
+  - *(dict) --* 
+
+    Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+
+    
+    
+
+    - **HostName** *(string) --* 
+
+      Name of the host where requests are redirected.
+
+      
+    
+
+    - **Protocol** *(string) --* 
+
+      Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+
+      

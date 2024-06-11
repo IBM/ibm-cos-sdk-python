@@ -1,0 +1,18 @@
+:doc:`ObjectAcl <index>` / Sub-Resource / Object
+
+******
+Object
+******
+
+
+
+.. py:method:: S3.ObjectAcl.Object()
+
+  Creates a Object resource.::
+
+    object = object_acl.Object()
+
+  
+  :rtype: :py:class:`S3.Object`
+  :returns: A Object resource
+  

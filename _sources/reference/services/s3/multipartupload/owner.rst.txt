@@ -1,0 +1,31 @@
+:doc:`MultipartUpload <index>` / Attribute / owner
+
+*****
+owner
+*****
+
+
+
+.. py:attribute:: S3.MultipartUpload.owner
+
+  
+
+  - *(dict) --* 
+
+    Specifies the owner of the object that is part of the multipart upload.
+
+    
+    
+
+    - **DisplayName** *(string) --* 
+
+      Container for the display name of the owner.
+
+      
+    
+
+    - **ID** *(string) --* 
+
+      Container for the ID of the owner.
+
+      

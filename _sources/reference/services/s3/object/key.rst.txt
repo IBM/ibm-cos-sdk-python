@@ -1,0 +1,11 @@
+:doc:`Object <index>` / Identifier / key
+
+***
+key
+***
+
+
+
+.. py:attribute:: S3.Object.key
+
+  *(string)* The Object's key identifier. This **must** be set.

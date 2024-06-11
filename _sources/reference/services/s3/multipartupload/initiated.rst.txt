@@ -1,0 +1,17 @@
+:doc:`MultipartUpload <index>` / Attribute / initiated
+
+*********
+initiated
+*********
+
+
+
+.. py:attribute:: S3.MultipartUpload.initiated
+
+  
+
+  - *(datetime) --* 
+
+    Date and time at which the multipart upload was initiated.
+
+    

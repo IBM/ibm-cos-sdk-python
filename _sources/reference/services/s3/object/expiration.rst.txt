@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / expiration
+
+**********
+expiration
+**********
+
+
+
+.. py:attribute:: S3.Object.expiration
+
+  
+
+  - *(string) --* 
+
+    If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the ``expiry-date`` and ``rule-id`` key-value pairs providing object expiration information. The value of the ``rule-id`` is URL-encoded.
+
+    

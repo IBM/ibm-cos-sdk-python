@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / ssekms_key_id
+
+*************
+ssekms_key_id
+*************
+
+
+
+.. py:attribute:: S3.Object.ssekms_key_id
+
+  
+
+  - *(string) --* 
+
+    If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed key that was used for the object.
+
+    

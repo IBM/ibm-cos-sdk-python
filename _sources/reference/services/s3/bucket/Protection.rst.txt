@@ -1,0 +1,18 @@
+:doc:`Bucket <index>` / Sub-Resource / Protection
+
+**********
+Protection
+**********
+
+
+
+.. py:method:: S3.Bucket.Protection()
+
+  Creates a BucketProtection resource.::
+
+    bucket_protection = bucket.Protection()
+
+  
+  :rtype: :py:class:`S3.BucketProtection`
+  :returns: A BucketProtection resource
+  

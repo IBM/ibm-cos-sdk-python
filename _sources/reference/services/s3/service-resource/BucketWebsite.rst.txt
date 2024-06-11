@@ -1,0 +1,20 @@
+:doc:`ServiceResource <index>` / Sub-Resource / BucketWebsite
+
+*************
+BucketWebsite
+*************
+
+
+
+.. py:method:: S3.ServiceResource.BucketWebsite(bucket_name)
+
+  Creates a BucketWebsite resource.::
+
+    bucket_website = s3.BucketWebsite('bucket_name')
+
+  :type bucket_name: string
+  :param bucket_name: The BucketWebsite's bucket_name identifier. This **must** be set.
+  
+  :rtype: :py:class:`S3.BucketWebsite`
+  :returns: A BucketWebsite resource
+  

@@ -1,0 +1,17 @@
+:doc:`ObjectSummary <index>` / Attribute / storage_class
+
+*************
+storage_class
+*************
+
+
+
+.. py:attribute:: S3.ObjectSummary.storage_class
+
+  
+
+  - *(string) --* 
+
+    The class of storage used to store the object.
+
+    
