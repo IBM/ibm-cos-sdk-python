@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.14.0
+
+### Content
+
+#### Features
+
+* Tag Based Filtering for Object Expiration
+
+#### Defect Fixes
+
+* Support for python 3.13
+
 ## 2.13.6
 
 ### Content
