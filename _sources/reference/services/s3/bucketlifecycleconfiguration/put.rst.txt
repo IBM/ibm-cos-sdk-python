@@ -102,11 +102,25 @@ put
                         'ExpiredObjectDeleteMarker': True|False
                     },
                     'ID': 'string',
+                    'Prefix': 'string',
                     'Filter': {
                         'Prefix': 'string',
                         'Tag': {
                             'Key': 'string',
                             'Value': 'string'
+                        },
+                        'ObjectSizeGreaterThan': 123,
+                        'ObjectSizeLessThan': 123,
+                        'And': {
+                            'Prefix': 'string',
+                            'Tags': [
+                                {
+                                    'Key': 'string',
+                                    'Value': 'string'
+                                },
+                            ],
+                            'ObjectSizeGreaterThan': 123,
+                            'ObjectSizeLessThan': 123
                         }
                     },
                     'Status': 'Enabled'|'Disabled',
@@ -118,7 +132,8 @@ put
                         },
                     ],
                     'NoncurrentVersionExpiration': {
-                        'NoncurrentDays': 123
+                        'NoncurrentDays': 123,
+                        'NewerNoncurrentVersions': 123
                     },
                     'AbortIncompleteMultipartUpload': {
                         'DaysAfterInitiation': 123
@@ -147,6 +162,10 @@ put
       - *(dict) --* 
 
         A lifecycle rule for individual objects in an Amazon S3 bucket.
+
+         
+
+        For more information see, `Managing your storage lifecycle <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html>`__ in the *Amazon S3 User Guide*.
 
         
 
@@ -187,9 +206,26 @@ put
           
 
         
+        - **Prefix** *(string) --* 
+
+          Prefix identifying one or more objects to which the rule applies. This is no longer used; use ``Filter`` instead.
+
+           
+
+          .. warning::
+
+             
+
+            Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see `XML related object key constraints <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints>`__.
+
+            
+
+          
+
+        
         - **Filter** *(dict) --* **[REQUIRED]** 
 
-          The ``Filter`` is used to identify objects that a Lifecycle Rule applies to. A ``Filter`` must have exactly one of ``Prefix``, ``Tag``, or ``And`` specified. ``Filter`` is required if the ``LifecycleRule`` does not containt a ``Prefix`` element.
+          The ``Filter`` is used to identify objects that a Lifecycle Rule applies to. A ``Filter`` must have exactly one of ``Prefix``, ``Tag``, or ``And`` specified. ``Filter`` is required if the ``LifecycleRule`` does not contain a ``Prefix`` element.
 
           
 
@@ -228,6 +264,79 @@ put
             - **Value** *(string) --* **[REQUIRED]** 
 
               Value of the tag.
+
+              
+
+            
+          
+          - **ObjectSizeGreaterThan** *(integer) --* 
+
+            Minimum object size to which the rule applies.
+
+            
+
+          
+          - **ObjectSizeLessThan** *(integer) --* 
+
+            Maximum object size to which the rule applies.
+
+            
+
+          
+          - **And** *(dict) --* 
+
+            This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
+
+            
+
+          
+            - **Prefix** *(string) --* 
+
+              Prefix identifying one or more objects to which the rule applies.
+
+              
+
+            
+            - **Tags** *(list) --* 
+
+              All of these tags must exist in the object's tag set in order for the rule to apply.
+
+              
+
+            
+              - *(dict) --* 
+
+                A container of a key value name pair.
+
+                
+
+              
+                - **Key** *(string) --* **[REQUIRED]** 
+
+                  Name of the object key.
+
+                  
+
+                
+                - **Value** *(string) --* **[REQUIRED]** 
+
+                  Value of the tag.
+
+                  
+
+                
+              
+          
+            - **ObjectSizeGreaterThan** *(integer) --* 
+
+              Minimum object size to which the rule applies.
+
+              
+
+            
+            - **ObjectSizeLessThan** *(integer) --* 
+
+              Maximum object size to which the rule applies.
 
               
 
@@ -290,6 +399,9 @@ put
             Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. The value must be a non-zero positive integer. For information about the noncurrent days calculations, see `How Amazon S3 Calculates When an Object Became Noncurrent <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations>`__ in the *Amazon S3 User Guide*.
 
             
+
+          
+          - **NewerNoncurrentVersions** *(integer) --* Ignored by COS if present.
 
           
         

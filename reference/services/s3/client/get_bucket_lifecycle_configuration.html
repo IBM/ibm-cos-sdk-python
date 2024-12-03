@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="get_bucket_location" href="get_bucket_location.html" /><link rel="prev" title="get_bucket_inventory_configuration" href="get_bucket_inventory_configuration.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>get_bucket_lifecycle_configuration - ibm-cos-sdk 2.13.6 documentation</title>
+        <title>get_bucket_lifecycle_configuration - ibm-cos-sdk 2.14.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.13.6 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.14.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -161,7 +161,7 @@
 </div><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.13.6 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -286,11 +286,25 @@
                 <span class="s1">&#39;ExpiredObjectDeleteMarker&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="o">|</span><span class="kc">False</span>
             <span class="p">},</span>
             <span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Filter&#39;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;Tag&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
                     <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;ObjectSizeGreaterThan&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">&#39;ObjectSizeLessThan&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">&#39;And&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;Prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;Tags&#39;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
+                        <span class="p">},</span>
+                    <span class="p">],</span>
+                    <span class="s1">&#39;ObjectSizeGreaterThan&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                    <span class="s1">&#39;ObjectSizeLessThan&#39;</span><span class="p">:</span> <span class="mi">123</span>
                 <span class="p">}</span>
             <span class="p">},</span>
             <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="s1">&#39;Enabled&#39;</span><span class="o">|</span><span class="s1">&#39;Disabled&#39;</span><span class="p">,</span>
@@ -302,7 +316,8 @@
                 <span class="p">},</span>
             <span class="p">],</span>
             <span class="s1">&#39;NoncurrentVersionExpiration&#39;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s1">&#39;NoncurrentDays&#39;</span><span class="p">:</span> <span class="mi">123</span>
+                <span class="s1">&#39;NoncurrentDays&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+                <span class="s1">&#39;NewerNoncurrentVersions&#39;</span><span class="p">:</span> <span class="mi">123</span>
             <span class="p">},</span>
             <span class="s1">&#39;AbortIncompleteMultipartUpload&#39;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="s1">&#39;DaysAfterInitiation&#39;</span><span class="p">:</span> <span class="mi">123</span>
@@ -321,6 +336,7 @@
 <ul>
 <li><p><em>(dict) –</em></p>
 <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
+<p>For more information see, <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing your storage lifecycle</a> in the <em>Amazon S3 User Guide</em>.</p>
 <ul>
 <li><p><strong>Expiration</strong> <em>(dict) –</em></p>
 <p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.</p>
@@ -339,8 +355,14 @@
 <li><p><strong>ID</strong> <em>(string) –</em></p>
 <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
 </li>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>Prefix identifying one or more objects to which the rule applies. This is no longer used; use <code class="docutils literal notranslate"><span class="pre">Filter</span></code> instead.</p>
+<div class="admonition warning">
+<h3 class='admonition-title'> Warning</h3><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p>
+</div>
+</li>
 <li><p><strong>Filter</strong> <em>(dict) –</em></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Filter</span></code> is used to identify objects that a Lifecycle Rule applies to. A <code class="docutils literal notranslate"><span class="pre">Filter</span></code> must have exactly one of <code class="docutils literal notranslate"><span class="pre">Prefix</span></code>, <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, or <code class="docutils literal notranslate"><span class="pre">And</span></code> specified. <code class="docutils literal notranslate"><span class="pre">Filter</span></code> is required if the <code class="docutils literal notranslate"><span class="pre">LifecycleRule</span></code> does not containt a <code class="docutils literal notranslate"><span class="pre">Prefix</span></code> element.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Filter</span></code> is used to identify objects that a Lifecycle Rule applies to. A <code class="docutils literal notranslate"><span class="pre">Filter</span></code> must have exactly one of <code class="docutils literal notranslate"><span class="pre">Prefix</span></code>, <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, or <code class="docutils literal notranslate"><span class="pre">And</span></code> specified. <code class="docutils literal notranslate"><span class="pre">Filter</span></code> is required if the <code class="docutils literal notranslate"><span class="pre">LifecycleRule</span></code> does not contain a <code class="docutils literal notranslate"><span class="pre">Prefix</span></code> element.</p>
 <ul>
 <li><p><strong>Prefix</strong> <em>(string) –</em></p>
 <p>Prefix identifying one or more objects to which the rule applies.</p>
@@ -356,6 +378,42 @@
 </li>
 <li><p><strong>Value</strong> <em>(string) –</em></p>
 <p>Value of the tag.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ObjectSizeGreaterThan</strong> <em>(integer) –</em></p>
+<p>Minimum object size to which the rule applies.</p>
+</li>
+<li><p><strong>ObjectSizeLessThan</strong> <em>(integer) –</em></p>
+<p>Maximum object size to which the rule applies.</p>
+</li>
+<li><p><strong>And</strong> <em>(dict) –</em></p>
+<p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>
+<ul>
+<li><p><strong>Prefix</strong> <em>(string) –</em></p>
+<p>Prefix identifying one or more objects to which the rule applies.</p>
+</li>
+<li><p><strong>Tags</strong> <em>(list) –</em></p>
+<p>All of these tags must exist in the object’s tag set in order for the rule to apply.</p>
+<ul>
+<li><p><em>(dict) –</em></p>
+<p>A container of a key value name pair.</p>
+<ul>
+<li><p><strong>Key</strong> <em>(string) –</em></p>
+<p>Name of the object key.</p>
+</li>
+<li><p><strong>Value</strong> <em>(string) –</em></p>
+<p>Value of the tag.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ObjectSizeGreaterThan</strong> <em>(integer) –</em></p>
+<p>Minimum object size to which the rule applies.</p>
+</li>
+<li><p><strong>ObjectSizeLessThan</strong> <em>(integer) –</em></p>
+<p>Maximum object size to which the rule applies.</p>
 </li>
 </ul>
 </li>
@@ -389,6 +447,7 @@
 <li><p><strong>NoncurrentDays</strong> <em>(integer) –</em></p>
 <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. The value must be a non-zero positive integer. For information about the noncurrent days calculations, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the <em>Amazon S3 User Guide</em>.</p>
 </li>
+<li><p><strong>NewerNoncurrentVersions</strong> <em>(integer) –</em> Ignored by COS if present.</p></li>
 </ul>
 </li>
 <li><p><strong>AbortIncompleteMultipartUpload</strong> <em>(dict) –</em></p>
