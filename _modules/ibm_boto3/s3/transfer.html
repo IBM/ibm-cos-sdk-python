@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>ibm_boto3.s3.transfer - ibm-cos-sdk 2.14.0 documentation</title>
+        <title>ibm_boto3.s3.transfer - ibm-cos-sdk 2.14.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -132,7 +132,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">ibm-cos-sdk 2.14.0 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">ibm-cos-sdk 2.14.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -160,7 +160,7 @@
 </div><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.0 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -351,21 +351,21 @@
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">PathLike</span><span class="p">,</span> <span class="n">fspath</span><span class="p">,</span> <span class="n">getpid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">PathLike</span><span class="p">,</span> <span class="n">fspath</span><span class="p">,</span> <span class="n">getpid</span>
 
-<span class="kn">from</span> <span class="nn">ibm_botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_botocore.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClientError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_s3transfer.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">RetriesExceededError</span> <span class="k">as</span> <span class="n">S3TransferRetriesExceededError</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.futures</span> <span class="kn">import</span> <span class="n">NonThreadedExecutor</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferConfig</span> <span class="k">as</span> <span class="n">S3TransferConfig</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.manager</span> <span class="kn">import</span> <span class="n">TransferManager</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.subscribers</span> <span class="kn">import</span> <span class="n">BaseSubscriber</span>
-<span class="kn">from</span> <span class="nn">ibm_s3transfer.utils</span> <span class="kn">import</span> <span class="n">OSUtils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_s3transfer.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">NonThreadedExecutor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_s3transfer.manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransferConfig</span> <span class="k">as</span> <span class="n">S3TransferConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_s3transfer.manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransferManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_s3transfer.subscribers</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSubscriber</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_s3transfer.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">OSUtils</span>
 
-<span class="kn">from</span> <span class="nn">ibm_boto3.exceptions</span> <span class="kn">import</span> <span class="n">RetriesExceededError</span><span class="p">,</span> <span class="n">S3UploadFailedError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_boto3.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">RetriesExceededError</span><span class="p">,</span> <span class="n">S3UploadFailedError</span>
 
 <span class="n">KB</span> <span class="o">=</span> <span class="mi">1024</span>
 <span class="n">MB</span> <span class="o">=</span> <span class="n">KB</span> <span class="o">*</span> <span class="n">KB</span>
@@ -373,7 +373,7 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">create_transfer_manager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_transfer_manager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a transfer manager based on configuration</span>
 
 <span class="sd">    :type client: ibm_boto3.client</span>
@@ -394,13 +394,13 @@
     <span class="k">return</span> <span class="n">TransferManager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">,</span> <span class="n">executor_cls</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="TransferConfig"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">[docs]</a><span class="k">class</span> <span class="nc">TransferConfig</span><span class="p">(</span><span class="n">S3TransferConfig</span><span class="p">):</span>
+<div class="viewcode-block" id="TransferConfig"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.TransferConfig">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">TransferConfig</span><span class="p">(</span><span class="n">S3TransferConfig</span><span class="p">):</span>
     <span class="n">ALIAS</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;max_concurrency&#39;</span><span class="p">:</span> <span class="s1">&#39;max_request_concurrency&#39;</span><span class="p">,</span>
         <span class="s1">&#39;max_io_queue&#39;</span><span class="p">:</span> <span class="s1">&#39;max_io_queue_size&#39;</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">multipart_threshold</span><span class="o">=</span><span class="mi">8</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
         <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -467,7 +467,7 @@
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">[</span><span class="n">alias</span><span class="p">]))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">use_threads</span> <span class="o">=</span> <span class="n">use_threads</span>
 
-    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="c1"># If the alias name is used, make sure we set the name that it points</span>
         <span class="c1"># to as that is what actually is used in governing the TransferManager.</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ALIAS</span><span class="p">:</span>
@@ -476,11 +476,11 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span> <span class="nc">S3Transfer</span><span class="p">:</span>
+<div class="viewcode-block" id="S3Transfer"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">S3Transfer</span><span class="p">:</span>
     <span class="n">ALLOWED_DOWNLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_DOWNLOAD_ARGS</span>
     <span class="n">ALLOWED_UPLOAD_ARGS</span> <span class="o">=</span> <span class="n">TransferManager</span><span class="o">.</span><span class="n">ALLOWED_UPLOAD_ARGS</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">osutil</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">client</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">manager</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s1">&#39;Either a ibm_boto3.Client or ibm_s3transfer.manager.TransferManager &#39;</span>
@@ -500,7 +500,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span> <span class="o">=</span> <span class="n">create_transfer_manager</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">osutil</span><span class="p">)</span>
 
-<div class="viewcode-block" id="S3Transfer.upload_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">[docs]</a>    <span class="k">def</span> <span class="nf">upload_file</span><span class="p">(</span>
+<div class="viewcode-block" id="S3Transfer.upload_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.upload_file">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">upload_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Upload a file to an S3 object.</span>
@@ -534,7 +534,7 @@
                 <span class="p">)</span>
             <span class="p">)</span></div>
 
-<div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span>
+<div class="viewcode-block" id="S3Transfer.download_file"><a class="viewcode-back" href="../../../reference/customizations/s3.html#ibm_boto3.s3.transfer.S3Transfer.download_file">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">download_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Download an S3 object to a file.</span>
@@ -565,29 +565,29 @@
         <span class="k">except</span> <span class="n">S3TransferRetriesExceededError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">RetriesExceededError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">last_exception</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">_get_subscribers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_subscribers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">callback</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">ProgressCallbackInvoker</span><span class="p">(</span><span class="n">callback</span><span class="p">)]</span>
 
-    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">ProgressCallbackInvoker</span><span class="p">(</span><span class="n">BaseSubscriber</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProgressCallbackInvoker</span><span class="p">(</span><span class="n">BaseSubscriber</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A back-compat wrapper to invoke a provided callback via a subscriber</span>
 
 <span class="sd">    :param callback: A callable that takes a single positional argument for</span>
 <span class="sd">        how many bytes were transferred.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_callback</span> <span class="o">=</span> <span class="n">callback</span>
 
-    <span class="k">def</span> <span class="nf">on_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytes_transferred</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bytes_transferred</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_callback</span><span class="p">(</span><span class="n">bytes_transferred</span><span class="p">)</span>
 </pre></div>
         </article>

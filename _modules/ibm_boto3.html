@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>ibm_boto3 - ibm-cos-sdk 2.14.0 documentation</title>
+        <title>ibm_boto3 - ibm-cos-sdk 2.14.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -132,7 +132,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">ibm-cos-sdk 2.14.0 documentation</div></a>
+      <a href="../index.html"><div class="brand">ibm-cos-sdk 2.14.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -160,7 +160,7 @@
 </div><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.0 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -240,22 +240,22 @@
 <span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
 <span class="c1"># language governing permissions and limitations under the License.</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">from</span> <span class="nn">ibm_boto3.session</span> <span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_boto3.session</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
 <span class="c1"># IBM TODO: We are not currently using this function but may in the future</span>
 <span class="c1"># from ibm_boto3.compat import _warn_deprecated_python</span>
 
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;IBM&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;2.14.0&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;2.14.1&#39;</span>
 
 
 <span class="c1"># The default Boto3 session; autoloaded when needed.</span>
 <span class="n">DEFAULT_SESSION</span> <span class="o">=</span> <span class="kc">None</span>
 
 
-<div class="viewcode-block" id="setup_default_session"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.setup_default_session">[docs]</a><span class="k">def</span> <span class="nf">setup_default_session</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="setup_default_session"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.setup_default_session">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">setup_default_session</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Set up a default session, passing through any parameters to the session</span>
 <span class="sd">    constructor. There is no need to call this unless you wish to pass custom</span>
@@ -265,7 +265,7 @@
     <span class="n">DEFAULT_SESSION</span> <span class="o">=</span> <span class="n">Session</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="set_stream_logger"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.set_stream_logger">[docs]</a><span class="k">def</span> <span class="nf">set_stream_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">format_string</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="set_stream_logger"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.set_stream_logger">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">set_stream_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ibm_boto3&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">format_string</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add a stream handler for the given name and level to the logging module.</span>
 <span class="sd">    By default, this logs all ibm_boto3 messages to ``stdout``.</span>
@@ -299,10 +299,10 @@
     <span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="turn_debug_on"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.turn_debug_on">[docs]</a><span class="k">def</span> <span class="nf">turn_debug_on</span><span class="p">():</span>
+<div class="viewcode-block" id="turn_debug_on"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.turn_debug_on">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">turn_debug_on</span><span class="p">():</span>
     <span class="n">set_stream_logger</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span></div>
 
-<span class="k">def</span> <span class="nf">_get_default_session</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_default_session</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the default session, creating one if needed.</span>
 
@@ -317,7 +317,7 @@
     <span class="k">return</span> <span class="n">DEFAULT_SESSION</span>
 
 
-<div class="viewcode-block" id="client"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.client">[docs]</a><span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="client"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.client">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a low-level service client by name using the default session.</span>
 
@@ -326,7 +326,7 @@
     <span class="k">return</span> <span class="n">_get_default_session</span><span class="p">()</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="resource"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.resource">[docs]</a><span class="k">def</span> <span class="nf">resource</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="resource"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.resource">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">resource</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a resource service client by name using the default session.</span>
 
@@ -337,8 +337,8 @@
 
 <span class="c1"># Set up logging to ``/dev/null`` like a library is supposed to.</span>
 <span class="c1"># https://docs.python.org/3.3/howto/logging.html#configuring-logging-for-a-library</span>
-<div class="viewcode-block" id="NullHandler"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.NullHandler">[docs]</a><span class="k">class</span> <span class="nc">NullHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
-<div class="viewcode-block" id="NullHandler.emit"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.NullHandler.emit">[docs]</a>    <span class="k">def</span> <span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+<div class="viewcode-block" id="NullHandler"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.NullHandler">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">NullHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
+<div class="viewcode-block" id="NullHandler.emit"><a class="viewcode-back" href="../reference/core/ibm_boto3.html#ibm_boto3.NullHandler.emit">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
         <span class="k">pass</span></div></div>
 
 

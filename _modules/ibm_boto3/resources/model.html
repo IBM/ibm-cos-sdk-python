@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>ibm_boto3.resources.model - ibm-cos-sdk 2.14.0 documentation</title>
+        <title>ibm_boto3.resources.model - ibm-cos-sdk 2.14.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -132,7 +132,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">ibm-cos-sdk 2.14.0 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">ibm-cos-sdk 2.14.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -160,7 +160,7 @@
 </div><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.0 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -252,14 +252,14 @@
 <span class="sd">classes as well as by the documentation generator.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 
-<span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_botocore</span><span class="w"> </span><span class="kn">import</span> <span class="n">xform_name</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="Identifier"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Identifier">[docs]</a><span class="k">class</span> <span class="nc">Identifier</span><span class="p">:</span>
+<div class="viewcode-block" id="Identifier"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Identifier">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Identifier</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A resource identifier, given by its name.</span>
 
@@ -267,13 +267,13 @@
 <span class="sd">    :param name: The name of the identifier</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">member_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1">#: (``string``) The name of the identifier</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">member_name</span> <span class="o">=</span> <span class="n">member_name</span></div>
 
 
-<div class="viewcode-block" id="Action"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Action">[docs]</a><span class="k">class</span> <span class="nc">Action</span><span class="p">:</span>
+<div class="viewcode-block" id="Action"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Action">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Action</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A service operation action.</span>
 
@@ -285,7 +285,7 @@
 <span class="sd">    :param resource_defs: All resources defined in the service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
 
         <span class="c1">#: (``string``) The name of the action</span>
@@ -304,7 +304,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="DefinitionWithParams"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams">[docs]</a><span class="k">class</span> <span class="nc">DefinitionWithParams</span><span class="p">:</span>
+<div class="viewcode-block" id="DefinitionWithParams"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.DefinitionWithParams">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">DefinitionWithParams</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An item which has parameters exposed via the ``params`` property.</span>
 <span class="sd">    A request has an operation and parameters, while a waiter has</span>
@@ -314,11 +314,11 @@
 <span class="sd">    :param definition: The JSON definition</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of auto-filled parameters for this request.</span>
 
@@ -332,7 +332,7 @@
         <span class="k">return</span> <span class="n">params</span></div>
 
 
-<div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">:</span>
+<div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Parameter">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Parameter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An auto-filled parameter which has a source and target. For example,</span>
 <span class="sd">    the ``QueueUrl`` may be auto-filled from a resource&#39;s ``url`` identifier</span>
@@ -346,7 +346,7 @@
 <span class="sd">    :param source: The source name, e.g. ``Url``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">):</span>
         <span class="c1">#: (``string``) The destination parameter name</span>
@@ -365,7 +365,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Unknown parameter options found: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Request"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Request">[docs]</a><span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
+<div class="viewcode-block" id="Request"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Request">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Request</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A service operation action request.</span>
 
@@ -373,14 +373,14 @@
 <span class="sd">    :param definition: The JSON definition</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
 
         <span class="c1">#: (``string``) The name of the low-level service operation</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;operation&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Waiter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Waiter">[docs]</a><span class="k">class</span> <span class="nc">Waiter</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
+<div class="viewcode-block" id="Waiter"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Waiter">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Waiter</span><span class="p">(</span><span class="n">DefinitionWithParams</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An event waiter specification.</span>
 
@@ -392,7 +392,7 @@
 
     <span class="n">PREFIX</span> <span class="o">=</span> <span class="s1">&#39;WaitUntil&#39;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">definition</span><span class="p">)</span>
 
         <span class="c1">#: (``string``) The name of this waiter</span>
@@ -402,7 +402,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">waiter_name</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;waiterName&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ResponseResource"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource">[docs]</a><span class="k">class</span> <span class="nc">ResponseResource</span><span class="p">:</span>
+<div class="viewcode-block" id="ResponseResource"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResponseResource">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ResponseResource</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A resource response to create after performing an action.</span>
 
@@ -412,7 +412,7 @@
 <span class="sd">    :param resource_defs: All resources defined in the service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span> <span class="o">=</span> <span class="n">resource_defs</span>
 
@@ -423,7 +423,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A list of resource identifiers.</span>
 
@@ -437,7 +437,7 @@
         <span class="k">return</span> <span class="n">identifiers</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the resource model for the response resource.</span>
 
@@ -448,7 +448,7 @@
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Collection"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Collection">[docs]</a><span class="k">class</span> <span class="nc">Collection</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+<div class="viewcode-block" id="Collection"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.Collection">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Collection</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A group of resources. See :py:class:`Action`.</span>
 
@@ -461,7 +461,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of batch actions supported by the resource type</span>
 <span class="sd">        contained in this action. This is a shortcut for accessing</span>
@@ -472,7 +472,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">batch_actions</span></div>
 
 
-<div class="viewcode-block" id="ResourceModel"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel">[docs]</a><span class="k">class</span> <span class="nc">ResourceModel</span><span class="p">:</span>
+<div class="viewcode-block" id="ResourceModel"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ResourceModel</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A model representing a resource, defined via a JSON description</span>
 <span class="sd">    format. A resource has identifiers, attributes, actions,</span>
@@ -487,7 +487,7 @@
 <span class="sd">    :param resource_defs: All resources defined in the service</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">definition</span><span class="p">,</span> <span class="n">resource_defs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_definition</span> <span class="o">=</span> <span class="n">definition</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_resource_defs</span> <span class="o">=</span> <span class="n">resource_defs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span> <span class="o">=</span> <span class="p">{}</span>
@@ -497,7 +497,7 @@
         <span class="c1">#: (``string``) The service shape name for this resource or ``None``</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ResourceModel.load_rename_map"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">[docs]</a>    <span class="k">def</span> <span class="nf">load_rename_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourceModel.load_rename_map"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.load_rename_map">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_rename_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a name translation map given a shape. This will set</span>
 <span class="sd">        up renamed values for any collisions, e.g. if the shape,</span>
@@ -575,7 +575,7 @@
             <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">shape</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_load_name_with_category</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">_load_name_with_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_name_with_category</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load a name with a given category, possibly renaming it</span>
 <span class="sd">        if that name is already in use. The name will be stored</span>
@@ -610,7 +610,7 @@
 
         <span class="n">names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">snake_case</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a possibly renamed value given a category and name. This</span>
 <span class="sd">        uses the rename map set up in ``load_rename_map``, so that</span>
@@ -631,7 +631,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renamed</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">category</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ResourceModel.get_attributes"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.get_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<div class="viewcode-block" id="ResourceModel.get_attributes"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.model.ResourceModel.get_attributes">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a dictionary of attribute names to original name and shape</span>
 <span class="sd">        models that represent the attributes of this resource. Looks</span>
@@ -662,7 +662,7 @@
         <span class="k">return</span> <span class="n">attributes</span></div>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">identifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of resource identifiers.</span>
 
@@ -680,7 +680,7 @@
         <span class="k">return</span> <span class="n">identifiers</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the load action for this resource, if it is defined.</span>
 
@@ -694,7 +694,7 @@
         <span class="k">return</span> <span class="n">action</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of actions for this resource.</span>
 
@@ -709,7 +709,7 @@
         <span class="k">return</span> <span class="n">actions</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">batch_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of batch actions for this resource.</span>
 
@@ -723,7 +723,7 @@
 
         <span class="k">return</span> <span class="n">actions</span>
 
-    <span class="k">def</span> <span class="nf">_get_has_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_has_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a ``has`` relationship definition from a model, where the</span>
 <span class="sd">        service resource model is treated special in that it contains</span>
@@ -781,7 +781,7 @@
 
         <span class="k">return</span> <span class="n">definition</span>
 
-    <span class="k">def</span> <span class="nf">_get_related_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subresources</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_related_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subresources</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of sub-resources or references.</span>
 
@@ -813,7 +813,7 @@
         <span class="k">return</span> <span class="n">resources</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">subresources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">subresources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of sub-resources.</span>
 
@@ -822,7 +822,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_resources</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">references</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">references</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of reference resources.</span>
 
@@ -831,7 +831,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_related_resources</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of collections for this resource.</span>
 
@@ -846,7 +846,7 @@
         <span class="k">return</span> <span class="n">collections</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">waiters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">waiters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of waiters for this resource.</span>
 

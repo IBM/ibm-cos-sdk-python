@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>ibm_boto3.resources.response - ibm-cos-sdk 2.14.0 documentation</title>
+        <title>ibm_boto3.resources.response - ibm-cos-sdk 2.14.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -132,7 +132,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../index.html"><div class="brand">ibm-cos-sdk 2.14.0 documentation</div></a>
+      <a href="../../../index.html"><div class="brand">ibm-cos-sdk 2.14.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -160,7 +160,7 @@
 </div><a class="sidebar-brand" href="../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.0 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.1 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -240,13 +240,13 @@
 <span class="c1"># ANY KIND, either express or implied. See the License for the specific</span>
 <span class="c1"># language governing permissions and limitations under the License.</span>
 
-<span class="kn">import</span> <span class="nn">jmespath</span>
-<span class="kn">from</span> <span class="nn">ibm_botocore</span> <span class="kn">import</span> <span class="n">xform_name</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jmespath</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ibm_botocore</span><span class="w"> </span><span class="kn">import</span> <span class="n">xform_name</span>
 
-<span class="kn">from</span> <span class="nn">.params</span> <span class="kn">import</span> <span class="n">get_data_member</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.params</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_data_member</span>
 
 
-<div class="viewcode-block" id="all_not_none"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.all_not_none">[docs]</a><span class="k">def</span> <span class="nf">all_not_none</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+<div class="viewcode-block" id="all_not_none"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.all_not_none">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">all_not_none</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return True if all elements of the iterable are not None (or if the</span>
 <span class="sd">    iterable is empty). This is like the built-in ``all``, except checks</span>
@@ -258,7 +258,7 @@
     <span class="k">return</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="build_identifiers"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.build_identifiers">[docs]</a><span class="k">def</span> <span class="nf">build_identifiers</span><span class="p">(</span><span class="n">identifiers</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">raw_response</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="build_identifiers"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.build_identifiers">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">build_identifiers</span><span class="p">(</span><span class="n">identifiers</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">raw_response</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Builds a mapping of identifier names to values based on the</span>
 <span class="sd">    identifier source location, type, and target. Identifier</span>
@@ -304,7 +304,7 @@
     <span class="k">return</span> <span class="n">results</span></div>
 
 
-<div class="viewcode-block" id="build_empty_response"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.build_empty_response">[docs]</a><span class="k">def</span> <span class="nf">build_empty_response</span><span class="p">(</span><span class="n">search_path</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">service_model</span><span class="p">):</span>
+<div class="viewcode-block" id="build_empty_response"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.build_empty_response">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">build_empty_response</span><span class="p">(</span><span class="n">search_path</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">service_model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates an appropriate empty response for the type that is expected,</span>
 <span class="sd">    based on the service model&#39;s shape type. For example, a value that</span>
@@ -355,7 +355,7 @@
     <span class="k">return</span> <span class="n">response</span></div>
 
 
-<div class="viewcode-block" id="RawHandler"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.RawHandler">[docs]</a><span class="k">class</span> <span class="nc">RawHandler</span><span class="p">:</span>
+<div class="viewcode-block" id="RawHandler"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.RawHandler">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">RawHandler</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A raw action response handler. This passed through the response</span>
 <span class="sd">    dictionary, optionally after performing a JMESPath search if one</span>
@@ -367,10 +367,10 @@
 <span class="sd">    :return: Service response</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_path</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">search_path</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">search_path</span> <span class="o">=</span> <span class="n">search_path</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type parent: ServiceResource</span>
 <span class="sd">        :param parent: The resource instance to which this action is attached.</span>
@@ -386,7 +386,7 @@
         <span class="k">return</span> <span class="n">response</span></div>
 
 
-<div class="viewcode-block" id="ResourceHandler"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler">[docs]</a><span class="k">class</span> <span class="nc">ResourceHandler</span><span class="p">:</span>
+<div class="viewcode-block" id="ResourceHandler"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">ResourceHandler</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates a new resource or list of new resources from the low-level</span>
 <span class="sd">    response based on the given response resource definition.</span>
@@ -412,7 +412,7 @@
 <span class="sd">    :return: New resource instance(s).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">search_path</span><span class="p">,</span>
         <span class="n">factory</span><span class="p">,</span>
@@ -426,7 +426,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">operation_name</span> <span class="o">=</span> <span class="n">operation_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">service_context</span> <span class="o">=</span> <span class="n">service_context</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type parent: ServiceResource</span>
 <span class="sd">        :param parent: The resource instance to which this action is attached.</span>
@@ -510,7 +510,7 @@
 
         <span class="k">return</span> <span class="n">response</span>
 
-<div class="viewcode-block" id="ResourceHandler.handle_response_item"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler.handle_response_item">[docs]</a>    <span class="k">def</span> <span class="nf">handle_response_item</span><span class="p">(</span>
+<div class="viewcode-block" id="ResourceHandler.handle_response_item"><a class="viewcode-back" href="../../../reference/core/resources.html#ibm_boto3.resources.response.ResourceHandler.handle_response_item">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle_response_item</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">resource_cls</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">identifiers</span><span class="p">,</span> <span class="n">resource_data</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
