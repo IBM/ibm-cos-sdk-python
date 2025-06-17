@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.14.2
+
+### Content
+
+#### Defect Fixes
+
+* COSSDK-103851: <https://github.com/IBM/ibm-cos-sdk-python/issues/70>
+* COSSDK-103853: <https://github.com/IBM/ibm-cos-sdk-python-core/issues/30>
+* Internal fixes and improvements
+
 ## 2.14.1
 
 ### Content
