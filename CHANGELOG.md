@@ -1,10 +1,22 @@
 # CHANGELOG
 
+## 2.15.0
+
+### Content
+
+#### Features
+
+* Checksums Support
+
+#### Defect Fixes
+
+* Support for python 3.14
+
 ## 2.14.3
 
 ### Content
 
-### Defect Fixes
+#### Defect Fixes
 
 * Internal fixes and improvements
 
@@ -22,7 +34,7 @@
 
 ### Content
 
-### Defect Fixes
+#### Defect Fixes
 
 * Internal fixes and improvements
 
