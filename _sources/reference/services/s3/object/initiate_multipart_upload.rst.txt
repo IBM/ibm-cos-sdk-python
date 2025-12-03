@@ -260,7 +260,9 @@ initiate_multipart_upload
         ObjectLockMode='GOVERNANCE'|'COMPLIANCE',
         ObjectLockRetainUntilDate=datetime(2015, 1, 1),
         ObjectLockLegalHoldStatus='ON'|'OFF',
-        ExpectedBucketOwner='string'
+        ExpectedBucketOwner='string',
+        ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
+        ChecksumType='COMPOSITE'|'FULL_OBJECT'
     )
     
   :type ACL: string
@@ -493,6 +495,22 @@ initiate_multipart_upload
   
   :type ExpectedBucketOwner: string
   :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type ChecksumAlgorithm: string
+  :param ChecksumAlgorithm: 
+
+    Indicates the algorithm that you want Amazon S3 to use to create the checksum for the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumType: string
+  :param ChecksumType: 
+
+    Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see `Checking object integrity in the Amazon S3 User Guide <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__.
+
+    
 
   
   

@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / checksum_crc64_nvme
+
+*******************
+checksum_crc64_nvme
+*******************
+
+
+
+.. py:attribute:: S3.Object.checksum_crc64_nvme
+
+  
+
+  - *(string) --* 
+
+    The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the object. For more information, see `Checking object integrity in the Amazon S3 User Guide <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__.
+
+    

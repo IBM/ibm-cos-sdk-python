@@ -225,6 +225,7 @@ copy_from
     response = object.copy_from(
         ACL='private'|'public-read'|'public-read-write'|'authenticated-read'|'aws-exec-read'|'bucket-owner-read'|'bucket-owner-full-control',
         CacheControl='string',
+        ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
         ContentDisposition='string',
         ContentEncoding='string',
         ContentLanguage='string',
@@ -301,6 +302,28 @@ copy_from
   :param CacheControl: 
 
     Specifies the caching behavior along the request/reply chain.
+
+    
+
+  
+  :type ChecksumAlgorithm: string
+  :param ChecksumAlgorithm: 
+
+    Indicates the algorithm that you want Amazon S3 to use to create the checksum for the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    When you copy an object, if the source object has a checksum, that checksum value will be copied to the new object by default. If the ``CopyObject`` request does not include this ``x-amz-checksum-algorithm`` header, the checksum algorithm will be copied from the source object to the destination object (if it's present on the source object). You can optionally specify a different checksum algorithm to use with the ``x-amz-checksum-algorithm`` header. Unrecognized or unsupported values will respond with the HTTP status code ``400 Bad Request``.
+
+     
+
+    .. note::
+
+      
+
+      For directory buckets, when you use Amazon Web Services SDKs, ``CRC32`` is the default checksum algorithm that's used for performance.
+
+      
 
     
 
@@ -735,7 +758,13 @@ copy_from
       {
           'CopyObjectResult': {
               'ETag': 'string',
-              'LastModified': datetime(2015, 1, 1)
+              'LastModified': datetime(2015, 1, 1),
+              'ChecksumType': 'COMPOSITE'|'FULL_OBJECT',
+              'ChecksumCRC32': 'string',
+              'ChecksumCRC32C': 'string',
+              'ChecksumCRC64NVME': 'string',
+              'ChecksumSHA1': 'string',
+              'ChecksumSHA256': 'string'
           },
           'Expiration': 'string',
           'CopySourceVersionId': 'string',
@@ -771,6 +800,48 @@ copy_from
         - **LastModified** *(datetime) --* 
 
           Creation date of the object.
+
+          
+        
+
+        - **ChecksumType** *(string) --* 
+
+          The checksum type that is used to calculate the object’s checksum value. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumCRC32** *(string) --* 
+
+          The Base64 encoded, 32-bit ``CRC32`` checksum of the object. This checksum is only present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumCRC32C** *(string) --* 
+
+          The Base64 encoded, 32-bit ``CRC32C`` checksum of the object. This will only be present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumCRC64NVME** *(string) --* 
+
+          The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the object. This checksum is present if the object being copied was uploaded with the ``CRC64NVME`` checksum algorithm, or if the object was uploaded without a checksum (and Amazon S3 added the default checksum, ``CRC64NVME``, to the uploaded object). For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumSHA1** *(string) --* 
+
+          The Base64 encoded, 160-bit ``SHA1`` digest of the object. This will only be present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumSHA256** *(string) --* 
+
+          The Base64 encoded, 256-bit ``SHA256`` digest of the object. This will only be present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
 
           
     

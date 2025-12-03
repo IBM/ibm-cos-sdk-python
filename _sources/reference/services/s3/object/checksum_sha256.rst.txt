@@ -1,0 +1,17 @@
+:doc:`Object <index>` / Attribute / checksum_sha256
+
+***************
+checksum_sha256
+***************
+
+
+
+.. py:attribute:: S3.Object.checksum_sha256
+
+  
+
+  - *(string) --* 
+
+    The Base64 encoded, 256-bit ``SHA256`` digest of the object. This will only be present if the object was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums>`__ in the *Amazon S3 User Guide*.
+
+    

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="put_object_acl" href="put_object_acl.html" /><link rel="prev" title="put_bucket_website" href="put_bucket_website.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>put_object - ibm-cos-sdk 2.14.3 documentation</title>
+        <title>put_object - ibm-cos-sdk 2.15.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.14.3 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.15.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -161,7 +161,7 @@
 </div><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.3 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.15.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -278,6 +278,12 @@
     <span class="n">ContentLength</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
     <span class="n">ContentMD5</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">ContentType</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ChecksumAlgorithm</span><span class="o">=</span><span class="s1">&#39;CRC32&#39;</span><span class="o">|</span><span class="s1">&#39;CRC32C&#39;</span><span class="o">|</span><span class="s1">&#39;SHA1&#39;</span><span class="o">|</span><span class="s1">&#39;SHA256&#39;</span><span class="o">|</span><span class="s1">&#39;CRC64NVME&#39;</span><span class="p">,</span>
+    <span class="n">ChecksumCRC32</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ChecksumCRC32C</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ChecksumCRC64NVME</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ChecksumSHA1</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="n">ChecksumSHA256</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">Expires</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
     <span class="n">GrantFullControl</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="n">GrantRead</span><span class="o">=</span><span class="s1">&#39;string&#39;</span><span class="p">,</span>
@@ -335,6 +341,27 @@
 <li><p><strong>ContentLength</strong> (<em>integer</em>) – Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13</a>.</p></li>
 <li><p><strong>ContentMD5</strong> (<em>string</em>) – The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p></li>
 <li><p><strong>ContentType</strong> (<em>string</em>) – A standard MIME type describing the format of the contents. For more information, see <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>.</p></li>
+<li><p><strong>ChecksumAlgorithm</strong> (<em>string</em>) – <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don’t use the SDK. When you send this header, there must be a corresponding <code class="docutils literal notranslate"><span class="pre">x-amz-checksum-algorithm</span></code> or <code class="docutils literal notranslate"><span class="pre">x-amz-trailer</span></code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">x-amz-checksum-algorithm</span></code> header, replace <code class="docutils literal notranslate"><span class="pre">algorithm</span></code> with the supported algorithm from the following list:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CRC32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CRC32C</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHA1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHA256</span></code></p></li>
+</ul>
+<p>For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+<p>If the individual checksum value you provide through <code class="docutils literal notranslate"><span class="pre">x-amz-checksum-algorithm</span></code> doesn’t match the checksum algorithm you set through <code class="docutils literal notranslate"><span class="pre">x-amz-sdk-checksum-algorithm</span></code>, Amazon S3 fails the request with a <code class="docutils literal notranslate"><span class="pre">BadDigest</span></code> error.</p>
+<div class="admonition note">
+<h3 class='admonition-title'> Note</h3><p>The <code class="docutils literal notranslate"><span class="pre">Content-MD5</span></code> or <code class="docutils literal notranslate"><span class="pre">x-amz-sdk-checksum-algorithm</span></code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket</a> in the <em>Amazon S3 User Guide</em>.</p>
+</div>
+<p>For directory buckets, when you use Amazon Web Services SDKs, <code class="docutils literal notranslate"><span class="pre">CRC32</span></code> is the default checksum algorithm that’s used for performance.</p>
+</p></li>
+<li><p><strong>ChecksumCRC32</strong> (<em>string</em>) – This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code class="docutils literal notranslate"><span class="pre">CRC32</span></code> checksum of the object. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p></li>
+<li><p><strong>ChecksumCRC32C</strong> (<em>string</em>) – This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code class="docutils literal notranslate"><span class="pre">CRC32C</span></code> checksum of the object. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p></li>
+<li><p><strong>ChecksumCRC64NVME</strong> (<em>string</em>) – This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code> checksum of the object. The <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code> checksum is always a full object checksum. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p></li>
+<li><p><strong>ChecksumSHA1</strong> (<em>string</em>) – This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit <code class="docutils literal notranslate"><span class="pre">SHA1</span></code> digest of the object. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p></li>
+<li><p><strong>ChecksumSHA256</strong> (<em>string</em>) – This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit <code class="docutils literal notranslate"><span class="pre">SHA256</span></code> digest of the object. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p></li>
 <li><p><strong>Expires</strong> (<em>datetime</em>) – The date and time at which the object is no longer cacheable. For more information, see <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>.</p></li>
 <li><p><strong>GrantFullControl</strong> (<em>string</em>) – <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
 <div class="admonition note">
@@ -420,6 +447,12 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s1">&#39;Expiration&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChecksumCRC32&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChecksumCRC32C&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChecksumCRC64NVME&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChecksumSHA1&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChecksumSHA256&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ChecksumType&#39;</span><span class="p">:</span> <span class="s1">&#39;COMPOSITE&#39;</span><span class="o">|</span><span class="s1">&#39;FULL_OBJECT&#39;</span><span class="p">,</span>
     <span class="s1">&#39;ServerSideEncryption&#39;</span><span class="p">:</span> <span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
     <span class="s1">&#39;VersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;SSECustomerAlgorithm&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
@@ -438,6 +471,24 @@
 </li>
 <li><p><strong>ETag</strong> <em>(string) –</em></p>
 <p>Entity tag for the uploaded object.</p>
+</li>
+<li><p><strong>ChecksumCRC32</strong> <em>(string) –</em></p>
+<p>The Base64 encoded, 32-bit <code class="docutils literal notranslate"><span class="pre">CRC32</span> <span class="pre">checksum</span></code> of the object. This checksum is only be present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it’s a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumCRC32C</strong> <em>(string) –</em></p>
+<p>The Base64 encoded, 32-bit <code class="docutils literal notranslate"><span class="pre">CRC32C</span></code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it’s a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumCRC64NVME</strong> <em>(string) –</em></p>
+<p>The Base64 encoded, 64-bit <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code> checksum of the object. This header is present if the object was uploaded with the <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code> checksum algorithm, or if it was uploaded without a checksum (and Amazon S3 added the default checksum, <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code>, to the uploaded object). For more information about how checksums are calculated with multipart uploads, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
+</li>
+<li><p><strong>ChecksumSHA1</strong> <em>(string) –</em></p>
+<p>The Base64 encoded, 160-bit <code class="docutils literal notranslate"><span class="pre">SHA1</span></code> digest of the object. This will only be present if the object was uploaded with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it’s a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumSHA256</strong> <em>(string) –</em></p>
+<p>The Base64 encoded, 256-bit <code class="docutils literal notranslate"><span class="pre">SHA256</span></code> digest of the object. This will only be present if the object was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it’s a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumType</strong> <em>(string) –</em></p>
+<p>This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. For <code class="docutils literal notranslate"><span class="pre">PutObject</span></code> uploads, the checksum type is always <code class="docutils literal notranslate"><span class="pre">FULL_OBJECT</span></code>. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
 </li>
 <li><p><strong>ServerSideEncryption</strong> <em>(string) –</em></p>
 <p>If you specified server-side encryption either with an Amazon Web Services KMS key or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>

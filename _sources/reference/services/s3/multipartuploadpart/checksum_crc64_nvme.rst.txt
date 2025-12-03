@@ -1,0 +1,17 @@
+:doc:`MultipartUploadPart <index>` / Attribute / checksum_crc64_nvme
+
+*******************
+checksum_crc64_nvme
+*******************
+
+
+
+.. py:attribute:: S3.MultipartUploadPart.checksum_crc64_nvme
+
+  
+
+  - *(string) --* 
+
+    The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the part. This checksum is present if the multipart upload request was created with the ``CRC64NVME`` checksum algorithm, or if the object was uploaded without a checksum (and Amazon S3 added the default checksum, ``CRC64NVME``, to the uploaded object). For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    

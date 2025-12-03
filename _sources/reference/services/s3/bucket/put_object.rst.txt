@@ -128,6 +128,12 @@ put_object
         ContentLength=123,
         ContentMD5='string',
         ContentType='string',
+        ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
+        ChecksumCRC32='string',
+        ChecksumCRC32C='string',
+        ChecksumCRC64NVME='string',
+        ChecksumSHA1='string',
+        ChecksumSHA256='string',
         Expires=datetime(2015, 1, 1),
         GrantFullControl='string',
         GrantRead='string',
@@ -244,6 +250,94 @@ put_object
   :param ContentType: 
 
     A standard MIME type describing the format of the contents. For more information, see `http\://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>`__.
+
+    
+
+  
+  :type ChecksumAlgorithm: string
+  :param ChecksumAlgorithm: 
+
+    Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding ``x-amz-checksum-algorithm`` or ``x-amz-trailer`` header sent. Otherwise, Amazon S3 fails the request with the HTTP status code ``400 Bad Request``.
+
+     
+
+    For the ``x-amz-checksum-algorithm`` header, replace ``algorithm`` with the supported algorithm from the following list:
+
+     
+
+    
+    * ``CRC32``
+     
+    * ``CRC32C``
+     
+    * ``CRC64NVME``
+     
+    * ``SHA1``
+     
+    * ``SHA256``
+    
+
+     
+
+    For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    If the individual checksum value you provide through ``x-amz-checksum-algorithm`` doesn't match the checksum algorithm you set through ``x-amz-sdk-checksum-algorithm``, Amazon S3 fails the request with a ``BadDigest`` error.
+
+     
+
+    .. note::
+
+      
+
+      The ``Content-MD5`` or ``x-amz-sdk-checksum-algorithm`` header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see `Uploading objects to an Object Lock enabled bucket <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object>`__ in the *Amazon S3 User Guide*.
+
+      
+
+     
+
+    For directory buckets, when you use Amazon Web Services SDKs, ``CRC32`` is the default checksum algorithm that's used for performance.
+
+    
+
+  
+  :type ChecksumCRC32: string
+  :param ChecksumCRC32: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit ``CRC32`` checksum of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumCRC32C: string
+  :param ChecksumCRC32C: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit ``CRC32C`` checksum of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumCRC64NVME: string
+  :param ChecksumCRC64NVME: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit ``CRC64NVME`` checksum of the object. The ``CRC64NVME`` checksum is always a full object checksum. For more information, see `Checking object integrity in the Amazon S3 User Guide <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__.
+
+    
+
+  
+  :type ChecksumSHA1: string
+  :param ChecksumSHA1: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit ``SHA1`` digest of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumSHA256: string
+  :param ChecksumSHA256: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit ``SHA256`` digest of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
 
     
 

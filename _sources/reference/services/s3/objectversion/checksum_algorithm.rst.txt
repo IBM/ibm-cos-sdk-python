@@ -1,0 +1,20 @@
+:doc:`ObjectVersion <index>` / Attribute / checksum_algorithm
+
+******************
+checksum_algorithm
+******************
+
+
+
+.. py:attribute:: S3.ObjectVersion.checksum_algorithm
+
+  
+
+  - *(list) --* 
+
+    The algorithm that was used to create a checksum of the object.
+
+    
+    
+
+    - *(string) --* 

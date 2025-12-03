@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="reload" href="reload.html" /><link rel="prev" title="load" href="load.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>put - ibm-cos-sdk 2.14.3 documentation</title>
+        <title>put - ibm-cos-sdk 2.15.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.14.3 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.15.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -161,7 +161,7 @@
 </div><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.3 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.15.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -266,6 +266,7 @@
 <p>See also: <a class="reference external" href="https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketWebsite">AWS API Documentation</a></p>
 <h3>Request Syntax</h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">bucket_website</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+    <span class="n">ChecksumAlgorithm</span><span class="o">=</span><span class="s1">&#39;CRC32&#39;</span><span class="o">|</span><span class="s1">&#39;CRC32C&#39;</span><span class="o">|</span><span class="s1">&#39;SHA1&#39;</span><span class="o">|</span><span class="s1">&#39;SHA256&#39;</span><span class="o">|</span><span class="s1">&#39;CRC64NVME&#39;</span><span class="p">,</span>
     <span class="n">WebsiteConfiguration</span><span class="o">=</span><span class="p">{</span>
         <span class="s1">&#39;ErrorDocument&#39;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
@@ -300,6 +301,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>ChecksumAlgorithm</strong> (<em>string</em>) – <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don’t use the SDK. When you send this header, there must be a corresponding <code class="docutils literal notranslate"><span class="pre">x-amz-checksum</span></code> or <code class="docutils literal notranslate"><span class="pre">x-amz-trailer</span></code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+<p>If you provide an individual checksum, Amazon S3 ignores any provided <code class="docutils literal notranslate"><span class="pre">ChecksumAlgorithm</span></code> parameter.</p>
+</p></li>
 <li><p><strong>WebsiteConfiguration</strong> (<em>dict</em>) – <p><strong>[REQUIRED]</strong></p>
 <p>Container for the request.</p>
 <ul>

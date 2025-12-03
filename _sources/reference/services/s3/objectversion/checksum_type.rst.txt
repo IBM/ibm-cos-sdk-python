@@ -1,0 +1,17 @@
+:doc:`ObjectVersion <index>` / Attribute / checksum_type
+
+*************
+checksum_type
+*************
+
+
+
+.. py:attribute:: S3.ObjectVersion.checksum_type
+
+  
+
+  - *(string) --* 
+
+    The checksum type that is used to calculate the object’s checksum value. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    

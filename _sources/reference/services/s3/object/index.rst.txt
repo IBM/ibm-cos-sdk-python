@@ -68,6 +68,12 @@ These are the resource's available attributes:
 
   accept_ranges
   cache_control
+  checksum_crc32
+  checksum_crc32_c
+  checksum_crc64_nvme
+  checksum_sha1
+  checksum_sha256
+  checksum_type
   content_disposition
   content_encoding
   content_language

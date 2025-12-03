@@ -88,6 +88,7 @@ These are the available methods:
   s3/client/list_bucket_analytics_configurations
   s3/client/list_bucket_inventory_configurations
   s3/client/list_bucket_metrics_configurations
+  s3/client/list_bucket_replication_failures
   s3/client/list_buckets
   s3/client/list_buckets_extended
   s3/client/list_legal_holds
@@ -105,6 +106,7 @@ These are the available methods:
   s3/client/put_bucket_metrics_configuration
   s3/client/put_bucket_protection_configuration
   s3/client/put_bucket_replication
+  s3/client/put_bucket_replication_reattempt
   s3/client/put_bucket_tagging
   s3/client/put_bucket_versioning
   s3/client/put_bucket_website

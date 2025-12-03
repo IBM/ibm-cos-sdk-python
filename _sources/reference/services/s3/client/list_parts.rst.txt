@@ -145,7 +145,12 @@ list_parts
                   'PartNumber': 123,
                   'LastModified': datetime(2015, 1, 1),
                   'ETag': 'string',
-                  'Size': 123
+                  'Size': 123,
+                  'ChecksumCRC32': 'string',
+                  'ChecksumCRC32C': 'string',
+                  'ChecksumCRC64NVME': 'string',
+                  'ChecksumSHA1': 'string',
+                  'ChecksumSHA256': 'string'
               },
           ],
           'Initiator': {
@@ -157,7 +162,9 @@ list_parts
               'ID': 'string'
           },
           'StorageClass': 'ACCELERATED'|'STANDARD'|'REDUCED_REDUNDANCY'|'STANDARD_IA'|'ONEZONE_IA'|'INTELLIGENT_TIERING'|'GLACIER'|'DEEP_ARCHIVE'|'OUTPOSTS'|'GLACIER_IR',
-          'RequestCharged': 'requester'
+          'RequestCharged': 'requester',
+          'ChecksumAlgorithm': 'CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
+          'ChecksumType': 'COMPOSITE'|'FULL_OBJECT'
       }
       
     **Response Structure**
@@ -274,6 +281,41 @@ list_parts
             Size in bytes of the uploaded part data.
 
             
+          
+
+          - **ChecksumCRC32** *(string) --* 
+
+            The Base64 encoded, 32-bit ``CRC32`` checksum of the part. This checksum is present if the object was uploaded with the ``CRC32`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+            
+          
+
+          - **ChecksumCRC32C** *(string) --* 
+
+            The Base64 encoded, 32-bit ``CRC32C`` checksum of the part. This checksum is present if the object was uploaded with the ``CRC32C`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+            
+          
+
+          - **ChecksumCRC64NVME** *(string) --* 
+
+            The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the part. This checksum is present if the multipart upload request was created with the ``CRC64NVME`` checksum algorithm, or if the object was uploaded without a checksum (and Amazon S3 added the default checksum, ``CRC64NVME``, to the uploaded object). For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+            
+          
+
+          - **ChecksumSHA1** *(string) --* 
+
+            The Base64 encoded, 160-bit ``SHA1`` checksum of the part. This checksum is present if the object was uploaded with the ``SHA1`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+            
+          
+
+          - **ChecksumSHA256** *(string) --* 
+
+            The Base64 encoded, 256-bit ``SHA256`` checksum of the part. This checksum is present if the object was uploaded with the ``SHA256`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+            
       
     
       
@@ -342,6 +384,20 @@ list_parts
       - **RequestCharged** *(string) --* 
 
         If present, indicates that the requester was successfully charged for the request.
+
+        
+      
+
+      - **ChecksumAlgorithm** *(string) --* 
+
+        The algorithm that was used to create a checksum of the object.
+
+        
+      
+
+      - **ChecksumType** *(string) --* 
+
+        The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in ``CreateMultipartUpload`` request. For more information, see `Checking object integrity in the Amazon S3 User Guide <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__.
 
         
   

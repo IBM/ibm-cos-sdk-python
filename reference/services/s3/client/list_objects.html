@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="list_objects_v2" href="list_objects_v2.html" /><link rel="prev" title="list_object_versions" href="list_object_versions.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>list_objects - ibm-cos-sdk 2.14.3 documentation</title>
+        <title>list_objects - ibm-cos-sdk 2.15.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.14.3 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.15.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -161,7 +161,7 @@
 </div><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.3 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.15.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -293,6 +293,10 @@
             <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
             <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
             <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;ChecksumAlgorithm&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;CRC32&#39;</span><span class="o">|</span><span class="s1">&#39;CRC32C&#39;</span><span class="o">|</span><span class="s1">&#39;SHA1&#39;</span><span class="o">|</span><span class="s1">&#39;SHA256&#39;</span><span class="o">|</span><span class="s1">&#39;CRC64NVME&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;ChecksumType&#39;</span><span class="p">:</span> <span class="s1">&#39;COMPOSITE&#39;</span><span class="o">|</span><span class="s1">&#39;FULL_OBJECT&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Size&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
             <span class="s1">&#39;StorageClass&#39;</span><span class="p">:</span> <span class="s1">&#39;ACCELERATED&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD&#39;</span><span class="o">|</span><span class="s1">&#39;REDUCED_REDUNDANCY&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER&#39;</span><span class="o">|</span><span class="s1">&#39;STANDARD_IA&#39;</span><span class="o">|</span><span class="s1">&#39;ONEZONE_IA&#39;</span><span class="o">|</span><span class="s1">&#39;INTELLIGENT_TIERING&#39;</span><span class="o">|</span><span class="s1">&#39;DEEP_ARCHIVE&#39;</span><span class="o">|</span><span class="s1">&#39;OUTPOSTS&#39;</span><span class="o">|</span><span class="s1">&#39;GLACIER_IR&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Owner&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -351,6 +355,15 @@
 <div class="admonition note">
 <h3 class='admonition-title'> Note</h3><p><strong>Directory buckets</strong> - MD5 is not supported by directory buckets.</p>
 </div>
+</li>
+<li><p><strong>ChecksumAlgorithm</strong> <em>(list) –</em></p>
+<p>The algorithm that was used to create a checksum of the object.</p>
+<ul class="simple">
+<li><p><em>(string) –</em></p></li>
+</ul>
+</li>
+<li><p><strong>ChecksumType</strong> <em>(string) –</em></p>
+<p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
 </li>
 <li><p><strong>Size</strong> <em>(integer) –</em></p>
 <p>Size in bytes of the object</p>

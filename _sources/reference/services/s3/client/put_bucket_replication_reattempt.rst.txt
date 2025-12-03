@@ -1,0 +1,36 @@
+:doc:`S3 <../../s3>` / Client / put_bucket_replication_reattempt
+
+********************************
+put_bucket_replication_reattempt
+********************************
+
+
+
+.. py:method:: S3.Client.put_bucket_replication_reattempt(**kwargs)
+
+  
+
+  Schedules reattempt of cold replication failures on the next reattempt cycle.
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/PutBucketReplicationReattempt>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.put_bucket_replication_reattempt(
+        Bucket='string'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    The bucket name.
+
+    
+
+  
+  
+  :returns: None

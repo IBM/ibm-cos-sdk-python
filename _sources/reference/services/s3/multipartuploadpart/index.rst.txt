@@ -72,6 +72,11 @@ These are the resource's available attributes:
   :maxdepth: 1
   :titlesonly:
 
+  checksum_crc32
+  checksum_crc32_c
+  checksum_crc64_nvme
+  checksum_sha1
+  checksum_sha256
   e_tag
   last_modified
   size

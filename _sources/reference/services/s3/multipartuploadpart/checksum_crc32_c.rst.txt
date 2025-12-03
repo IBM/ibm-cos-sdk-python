@@ -1,0 +1,17 @@
+:doc:`MultipartUploadPart <index>` / Attribute / checksum_crc32_c
+
+****************
+checksum_crc32_c
+****************
+
+
+
+.. py:attribute:: S3.MultipartUploadPart.checksum_crc32_c
+
+  
+
+  - *(string) --* 
+
+    The Base64 encoded, 32-bit ``CRC32C`` checksum of the part. This checksum is present if the object was uploaded with the ``CRC32C`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    

@@ -51,7 +51,8 @@ delete
         VersionId='string',
         RequestPayer='requester',
         BypassGovernanceRetention=True|False,
-        ExpectedBucketOwner='string'
+        ExpectedBucketOwner='string',
+        ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME'
     )
     
   :type MFA: string
@@ -90,6 +91,44 @@ delete
   
   :type ExpectedBucketOwner: string
   :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type ChecksumAlgorithm: string
+  :param ChecksumAlgorithm: 
+
+    Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding ``x-amz-checksum-algorithm`` or ``x-amz-trailer`` header sent. Otherwise, Amazon S3 fails the request with the HTTP status code ``400 Bad Request``.
+
+     
+
+    For the ``x-amz-checksum-algorithm`` header, replace ``algorithm`` with the supported algorithm from the following list:
+
+     
+
+    
+    * ``CRC32``
+     
+    * ``CRC32C``
+     
+    * ``CRC64NVME``
+     
+    * ``SHA1``
+     
+    * ``SHA256``
+    
+
+     
+
+    For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    If the individual checksum value you provide through ``x-amz-checksum-algorithm`` doesn't match the checksum algorithm you set through ``x-amz-sdk-checksum-algorithm``, Amazon S3 fails the request with a ``BadDigest`` error.
+
+     
+
+    If you provide an individual checksum, Amazon S3 ignores any provided ``ChecksumAlgorithm`` parameter.
+
+    
 
   
   

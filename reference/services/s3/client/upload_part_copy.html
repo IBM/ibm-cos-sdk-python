@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ListBucketsExtended" href="../paginator/ListBucketsExtended.html" /><link rel="prev" title="upload_part" href="upload_part.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>upload_part_copy - ibm-cos-sdk 2.14.3 documentation</title>
+        <title>upload_part_copy - ibm-cos-sdk 2.15.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.14.3 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ibm-cos-sdk 2.15.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -161,7 +161,7 @@
 </div><a class="sidebar-brand" href="../../../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.3 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.15.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -354,7 +354,12 @@
     <span class="s1">&#39;CopySourceVersionId&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
     <span class="s1">&#39;CopyPartResult&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;ETag&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="s1">&#39;LastModified&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="s1">&#39;ChecksumCRC32&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ChecksumCRC32C&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ChecksumCRC64NVME&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ChecksumSHA1&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ChecksumSHA256&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span>
     <span class="p">},</span>
     <span class="s1">&#39;ServerSideEncryption&#39;</span><span class="p">:</span> <span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
     <span class="s1">&#39;SSECustomerAlgorithm&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
@@ -379,6 +384,21 @@
 </li>
 <li><p><strong>LastModified</strong> <em>(datetime) –</em></p>
 <p>Date and time at which the object was uploaded.</p>
+</li>
+<li><p><strong>ChecksumCRC32</strong> <em>(string) –</em></p>
+<p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code class="docutils literal notranslate"><span class="pre">CRC32</span></code> checksum of the part. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumCRC32C</strong> <em>(string) –</em></p>
+<p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code class="docutils literal notranslate"><span class="pre">CRC32C</span></code> checksum of the part. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumCRC64NVME</strong> <em>(string) –</em></p>
+<p>The Base64 encoded, 64-bit <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code> checksum of the part. This checksum is present if the multipart upload request was created with the <code class="docutils literal notranslate"><span class="pre">CRC64NVME</span></code> checksum algorithm to the uploaded object). For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumSHA1</strong> <em>(string) –</em></p>
+<p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit <code class="docutils literal notranslate"><span class="pre">SHA1</span></code> checksum of the part. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
+</li>
+<li><p><strong>ChecksumSHA256</strong> <em>(string) –</em></p>
+<p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit <code class="docutils literal notranslate"><span class="pre">SHA256</span></code> checksum of the part. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <em>Amazon S3 User Guide</em>.</p>
 </li>
 </ul>
 </li>

@@ -66,6 +66,8 @@ These are the resource's available attributes:
   :maxdepth: 1
   :titlesonly:
 
+  checksum_algorithm
+  checksum_type
   e_tag
   last_modified
   owner

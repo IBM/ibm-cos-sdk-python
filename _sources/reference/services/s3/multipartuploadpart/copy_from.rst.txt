@@ -275,7 +275,12 @@ copy_from
           'CopySourceVersionId': 'string',
           'CopyPartResult': {
               'ETag': 'string',
-              'LastModified': datetime(2015, 1, 1)
+              'LastModified': datetime(2015, 1, 1),
+              'ChecksumCRC32': 'string',
+              'ChecksumCRC32C': 'string',
+              'ChecksumCRC64NVME': 'string',
+              'ChecksumSHA1': 'string',
+              'ChecksumSHA256': 'string'
           },
           'ServerSideEncryption': 'AES256',
           'SSECustomerAlgorithm': 'string',
@@ -315,6 +320,41 @@ copy_from
         - **LastModified** *(datetime) --* 
 
           Date and time at which the object was uploaded.
+
+          
+        
+
+        - **ChecksumCRC32** *(string) --* 
+
+          This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit ``CRC32`` checksum of the part. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumCRC32C** *(string) --* 
+
+          This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit ``CRC32C`` checksum of the part. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumCRC64NVME** *(string) --* 
+
+          The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the part. This checksum is present if the multipart upload request was created with the ``CRC64NVME`` checksum algorithm to the uploaded object). For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumSHA1** *(string) --* 
+
+          This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit ``SHA1`` checksum of the part. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+        
+
+        - **ChecksumSHA256** *(string) --* 
+
+          This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit ``SHA256`` checksum of the part. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
 
           
     

@@ -28,7 +28,8 @@ wait_until_not_exists
         SSECustomerKey='string',
         RequestPayer='requester',
         PartNumber=123,
-        ExpectedBucketOwner='string'
+        ExpectedBucketOwner='string',
+        ChecksumMode='ENABLED'
     )
     
   :type IfMatch: string
@@ -123,6 +124,22 @@ wait_until_not_exists
   
   :type ExpectedBucketOwner: string
   :param ExpectedBucketOwner: Ignored by COS if present.
+
+  
+  :type ChecksumMode: string
+  :param ChecksumMode: 
+
+    To retrieve the checksum, this parameter must be enabled.
+
+     
+
+    **General purpose buckets** - If you enable checksum mode and the object is uploaded with a `checksum <https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html>`__ and encrypted with an Key Management Service (KMS) key, you must have permission to use the ``kms:Decrypt`` action to retrieve the checksum.
+
+     
+
+    **Directory buckets** - If you enable ``ChecksumMode`` and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must also have the ``kms:GenerateDataKey`` and ``kms:Decrypt`` permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.
+
+    
 
   
   :returns: None

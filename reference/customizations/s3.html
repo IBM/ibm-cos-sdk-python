@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="prev" title="Customization references" href="index.html" />
 
     <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
-        <title>S3 customization reference - ibm-cos-sdk 2.14.3 documentation</title>
+        <title>S3 customization reference - ibm-cos-sdk 2.15.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -133,7 +133,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">ibm-cos-sdk 2.14.3 documentation</div></a>
+      <a href="../../index.html"><div class="brand">ibm-cos-sdk 2.15.0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -161,7 +161,7 @@
 </div><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">ibm-cos-sdk 2.14.3 documentation</span>
+  <span class="sidebar-brand-text">ibm-cos-sdk 2.15.0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -291,12 +291,12 @@ in terms of bytes per second.</p></li>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ibm_boto3.s3.transfer.</span></span><span class="sig-name descname"><span class="pre">S3Transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">osutil</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manager</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/ibm_boto3/s3/transfer.html#S3Transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer" title="Permalink to this definition">#</a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS">
-<span class="sig-name descname"><span class="pre">ALLOWED_DOWNLOAD_ARGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['VersionId',</span> <span class="pre">'SSECustomerAlgorithm',</span> <span class="pre">'SSECustomerKey',</span> <span class="pre">'SSECustomerKeyMD5',</span> <span class="pre">'RequestPayer',</span> <span class="pre">'ExpectedBucketOwner']</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ALLOWED_DOWNLOAD_ARGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ChecksumMode',</span> <span class="pre">'VersionId',</span> <span class="pre">'SSECustomerAlgorithm',</span> <span class="pre">'SSECustomerKey',</span> <span class="pre">'SSECustomerKeyMD5',</span> <span class="pre">'RequestPayer',</span> <span class="pre">'ExpectedBucketOwner']</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_DOWNLOAD_ARGS" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS">
-<span class="sig-name descname"><span class="pre">ALLOWED_UPLOAD_ARGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ACL',</span> <span class="pre">'CacheControl',</span> <span class="pre">'ContentDisposition',</span> <span class="pre">'ContentEncoding',</span> <span class="pre">'ContentLanguage',</span> <span class="pre">'ContentType',</span> <span class="pre">'ExpectedBucketOwner',</span> <span class="pre">'Expires',</span> <span class="pre">'GrantFullControl',</span> <span class="pre">'GrantRead',</span> <span class="pre">'GrantReadACP',</span> <span class="pre">'GrantWriteACP',</span> <span class="pre">'Metadata',</span> <span class="pre">'ObjectLockLegalHoldStatus',</span> <span class="pre">'ObjectLockMode',</span> <span class="pre">'ObjectLockRetainUntilDate',</span> <span class="pre">'RequestPayer',</span> <span class="pre">'RetentionExpirationDate',</span> <span class="pre">'RetentionLegalHoldId',</span> <span class="pre">'RetentionPeriod',</span> <span class="pre">'ServerSideEncryption',</span> <span class="pre">'StorageClass',</span> <span class="pre">'SSECustomerAlgorithm',</span> <span class="pre">'SSECustomerKey',</span> <span class="pre">'SSECustomerKeyMD5',</span> <span class="pre">'SSEKMSKeyId',</span> <span class="pre">'SSEKMSEncryptionContext',</span> <span class="pre">'Tagging',</span> <span class="pre">'WebsiteRedirectLocation']</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ALLOWED_UPLOAD_ARGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['ACL',</span> <span class="pre">'CacheControl',</span> <span class="pre">'ChecksumAlgorithm',</span> <span class="pre">'ContentDisposition',</span> <span class="pre">'ContentEncoding',</span> <span class="pre">'ContentLanguage',</span> <span class="pre">'ContentType',</span> <span class="pre">'ExpectedBucketOwner',</span> <span class="pre">'Expires',</span> <span class="pre">'GrantFullControl',</span> <span class="pre">'GrantRead',</span> <span class="pre">'GrantReadACP',</span> <span class="pre">'GrantWriteACP',</span> <span class="pre">'Metadata',</span> <span class="pre">'ObjectLockLegalHoldStatus',</span> <span class="pre">'ObjectLockMode',</span> <span class="pre">'ObjectLockRetainUntilDate',</span> <span class="pre">'RequestPayer',</span> <span class="pre">'RetentionExpirationDate',</span> <span class="pre">'RetentionLegalHoldId',</span> <span class="pre">'RetentionPeriod',</span> <span class="pre">'ServerSideEncryption',</span> <span class="pre">'StorageClass',</span> <span class="pre">'SSECustomerAlgorithm',</span> <span class="pre">'SSECustomerKey',</span> <span class="pre">'SSECustomerKeyMD5',</span> <span class="pre">'SSEKMSKeyId',</span> <span class="pre">'SSEKMSEncryptionContext',</span> <span class="pre">'Tagging',</span> <span class="pre">'WebsiteRedirectLocation',</span> <span class="pre">'ChecksumType',</span> <span class="pre">'MpuObjectSize',</span> <span class="pre">'ChecksumCRC32',</span> <span class="pre">'ChecksumCRC32C',</span> <span class="pre">'ChecksumCRC64NVME',</span> <span class="pre">'ChecksumSHA1',</span> <span class="pre">'ChecksumSHA256']</span></em><a class="headerlink" href="#ibm_boto3.s3.transfer.S3Transfer.ALLOWED_UPLOAD_ARGS" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

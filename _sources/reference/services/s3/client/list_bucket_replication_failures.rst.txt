@@ -1,0 +1,226 @@
+:doc:`S3 <../../s3>` / Client / list_bucket_replication_failures
+
+********************************
+list_bucket_replication_failures
+********************************
+
+
+
+.. py:method:: S3.Client.list_bucket_replication_failures(**kwargs)
+
+  
+
+  List long-term replication failures for a given bucket. Specifically, this lists failures from the per-bucket failure queue and does not list short-term failures from the global replication queue that are pending once-per-hour retries.
+
+  
+
+  See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ListBucketReplicationFailures>`_  
+
+
+  **Request Syntax**
+  ::
+
+    response = client.list_bucket_replication_failures(
+        Bucket='string',
+        ContinuationToken='string',
+        MaxKeys=123,
+        FirstSyncAttemptedBefore='string',
+        EncodingType='url'
+    )
+    
+  :type Bucket: string
+  :param Bucket: **[REQUIRED]** 
+
+    List long-term replication failures for a given bucket. Specifically, this lists failures from the per-bucket failure queue and does not list short-term failures from the global replication queue that are pending once-per-hour retries.
+
+    
+
+  
+  :type ContinuationToken: string
+  :param ContinuationToken: 
+
+    Obfuscated string token for pagination. This is returned on incomplete listing responses.
+
+    
+
+  
+  :type MaxKeys: integer
+  :param MaxKeys: 
+
+    Maximum number of entries to return (default 1000).
+
+    
+
+  
+  :type FirstSyncAttemptedBefore: string
+  :param FirstSyncAttemptedBefore: 
+
+    Epoch ms time from which to start the listing (inclusive if time exactly matches an entry). The failures are sorted by the time at which the syncs were originally triggered on the source bucket.
+
+    
+
+  
+  :type EncodingType: string
+  :param EncodingType: 
+
+    Encoding type to use for Key. Only valid value is url.
+
+    
+
+  
+  
+  :rtype: dict
+  :returns: 
+    
+    **Response Syntax**
+
+    
+    ::
+
+      {
+          'ListReplicationFailureResult': {
+              'Name': 'string',
+              'FirstSyncAttemptedBefore': 'string',
+              'MaxKeys': 123,
+              'IsTruncated': True|False,
+              'EncodingType': 'url',
+              'KeyCount': 123,
+              'ContinuationToken': 'string',
+              'NextContinuationToken': 'string',
+              'Contents': [
+                  {
+                      'Key': 'string',
+                      'VersionId': 'string',
+                      'SyncType': 'string',
+                      'FirstSyncAttempted': datetime(2015, 1, 1),
+                      'LastSyncAttempted': datetime(2015, 1, 1),
+                      'SyncFailureCause': 'string'
+                  },
+              ]
+          }
+      }
+      
+    **Response Structure**
+
+    
+
+    - *(dict) --* 
+      
+
+      - **ListReplicationFailureResult** *(dict) --* 
+        
+
+        - **Name** *(string) --* 
+
+          Name of bucket being listed.
+
+          
+        
+
+        - **FirstSyncAttemptedBefore** *(string) --* 
+
+          Value provided via the ``first-sync-attempted-before`` request param.
+
+          
+        
+
+        - **MaxKeys** *(integer) --* 
+
+          Value provided via the ``max-keys`` request param. Maximum accepted value is 1000.
+
+          
+        
+
+        - **IsTruncated** *(boolean) --* 
+
+          Whether or not the results are truncated.
+
+          
+        
+
+        - **EncodingType** *(string) --* 
+
+          Encoding type, if specified in the request.
+
+          
+        
+
+        - **KeyCount** *(integer) --* 
+
+          ``KeyCount`` is the number of keys returned with this request. ``KeyCount`` will always be less than or equal to the ``MaxKeys`` field. For example, if you ask for 50 keys, your result will include 50 keys or fewer.
+
+          
+        
+
+        - **ContinuationToken** *(string) --* 
+
+          If ``ContinuationToken`` was sent with the request, it is included in the response. You can use the returned ``ContinuationToken`` for pagination of the list response. You can use this ``ContinuationToken`` for pagination of the list results.
+
+          
+        
+
+        - **NextContinuationToken** *(string) --* 
+
+          ``NextContinuationToken`` is sent when ``isTruncated`` is true, Next continuation token. Present if this result was truncated.
+
+          
+        
+
+        - **Contents** *(list) --* 
+
+          Metadata about each object returned.
+
+          
+          
+
+          - *(dict) --* 
+
+            Container.
+
+            
+            
+
+            - **Key** *(string) --* 
+
+              Name of object that has failed sync.
+
+              
+            
+
+            - **VersionId** *(string) --* 
+
+              UUID of object version that has failed sync.
+
+              
+            
+
+            - **SyncType** *(string) --* 
+
+              The type of sync that has failed. This shall be either ``content`` , ``metadata``  or ``objectLock ``.
+
+              
+            
+
+            - **FirstSyncAttempted** *(datetime) --* 
+
+              Timestamp of last sync attempt from primary sync queue.
+
+              
+            
+
+            - **LastSyncAttempted** *(datetime) --* 
+
+              Timestamp of most recent sync attempt from failure sync queue.
+
+              
+            
+
+            - **SyncFailureCause** *(string) --* 
+
+              Descriptive message regarding the cause of the most recent sync attempt failure.
+
+              
+        
+      
+    
+  

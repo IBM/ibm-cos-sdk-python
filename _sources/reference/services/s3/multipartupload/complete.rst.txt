@@ -121,10 +121,23 @@ complete
             'Parts': [
                 {
                     'ETag': 'string',
+                    'ChecksumCRC32': 'string',
+                    'ChecksumCRC32C': 'string',
+                    'ChecksumCRC64NVME': 'string',
+                    'ChecksumSHA1': 'string',
+                    'ChecksumSHA256': 'string',
                     'PartNumber': 123
                 },
             ]
         },
+        ChecksumCRC32='string',
+        ChecksumCRC32C='string',
+        ChecksumCRC64NVME='string',
+        ChecksumSHA1='string',
+        ChecksumSHA256='string',
+        ChecksumType='COMPOSITE'|'FULL_OBJECT',
+        SSECustomerAlgorithm='string',
+        SSECustomerKey='string',
         RequestPayer='requester',
         ExpectedBucketOwner='string',
         RetentionExpirationDate=datetime(2015, 1, 1),
@@ -165,6 +178,41 @@ complete
           
 
         
+        - **ChecksumCRC32** *(string) --* 
+
+          The Base64 encoded, 32-bit ``CRC32`` checksum of the part. This checksum is present if the multipart upload request was created with the ``CRC32`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+
+        
+        - **ChecksumCRC32C** *(string) --* 
+
+          The Base64 encoded, 32-bit ``CRC32C`` checksum of the part. This checksum is present if the multipart upload request was created with the ``CRC32C`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+
+        
+        - **ChecksumCRC64NVME** *(string) --* 
+
+          The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the part. This checksum is present if the multipart upload request was created with the ``CRC64NVME`` checksum algorithm to the uploaded object). For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+
+        
+        - **ChecksumSHA1** *(string) --* 
+
+          The Base64 encoded, 160-bit ``SHA1`` checksum of the part. This checksum is present if the multipart upload request was created with the ``SHA1`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+
+        
+        - **ChecksumSHA256** *(string) --* 
+
+          The Base64 encoded, 256-bit ``SHA256`` checksum of the part. This checksum is present if the multipart upload request was created with the ``SHA256`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+          
+
+        
         - **PartNumber** *(integer) --* 
 
           Part number that identifies the part. This is a positive integer between 1 and 10,000.
@@ -188,6 +236,110 @@ complete
         
       
   
+  
+  :type ChecksumCRC32: string
+  :param ChecksumCRC32: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit ``CRC32`` checksum of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumCRC32C: string
+  :param ChecksumCRC32C: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit ``CRC32C`` checksum of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumCRC64NVME: string
+  :param ChecksumCRC64NVME: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit ``CRC64NVME`` checksum of the object. The ``CRC64NVME`` checksum is always a full object checksum. For more information, see `Checking object integrity in the Amazon S3 User Guide <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__.
+
+    
+
+  
+  :type ChecksumSHA1: string
+  :param ChecksumSHA1: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit ``SHA1`` digest of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumSHA256: string
+  :param ChecksumSHA256: 
+
+    This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit ``SHA256`` digest of the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    
+
+  
+  :type ChecksumType: string
+  :param ChecksumType: 
+
+    This header specifies the checksum type of the object, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum that was specified. If the checksum type doesn’t match the checksum type that was specified for the object during the ``CreateMultipartUpload`` request, it’ll result in a ``BadDigest`` error. For more information, see Checking object integrity in the Amazon S3 User Guide.
+
+    
+
+  
+  :type SSECustomerAlgorithm: string
+  :param SSECustomerAlgorithm: 
+
+    The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is required only when the object was created using a checksum algorithm or if your bucket policy requires the use of SSE-C. For more information, see `Protecting data using SSE-C keys <https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html#ssec-require-condition-key>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    .. note::
+
+      
+
+      This functionality is not supported for directory buckets.
+
+      
+
+    
+
+  
+  :type SSECustomerKey: string
+  :param SSECustomerKey: 
+
+    The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see `Protecting data using SSE-C keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    .. note::
+
+      
+
+      This functionality is not supported for directory buckets.
+
+      
+
+    
+
+  
+  :type SSECustomerKeyMD5: string
+  :param SSECustomerKeyMD5: 
+
+    The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm. For more information, see `Protecting data using SSE-C keys <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    .. note::
+
+      
+
+      This functionality is not supported for directory buckets.
+
+      
+
+        Please note that this parameter is automatically populated if it is not provided. Including this parameter is not required
+
+
+
   
   :type RequestPayer: string
   :param RequestPayer: Ignored by COS if present.

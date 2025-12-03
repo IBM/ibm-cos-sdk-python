@@ -190,7 +190,8 @@ get_object
         SSECustomerKey='string',
         RequestPayer='requester',
         PartNumber=123,
-        ExpectedBucketOwner='string'
+        ExpectedBucketOwner='string',
+        ChecksumMode='ENABLED'
     )
     
   :type Bucket: string
@@ -481,6 +482,14 @@ get_object
   :param ExpectedBucketOwner: Ignored by COS if present.
 
   
+  :type ChecksumMode: string
+  :param ChecksumMode: 
+
+    To retrieve the checksum, this mode must be enabled.
+
+    
+
+  
   
   :rtype: dict
   :returns: 
@@ -499,6 +508,12 @@ get_object
           'LastModified': datetime(2015, 1, 1),
           'ContentLength': 123,
           'ETag': 'string',
+          'ChecksumCRC32': 'string',
+          'ChecksumCRC32C': 'string',
+          'ChecksumCRC64NVME': 'string',
+          'ChecksumSHA1': 'string',
+          'ChecksumSHA256': 'string',
+          'ChecksumType': 'COMPOSITE'|'FULL_OBJECT',
           'MissingMeta': 123,
           'VersionId': 'string',
           'CacheControl': 'string',
@@ -604,6 +619,48 @@ get_object
       - **ETag** *(string) --* 
 
         An entity tag (ETag) is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
+
+        
+      
+
+      - **ChecksumCRC32** *(string) --* 
+
+        The Base64 encoded, 32-bit ``CRC32`` checksum of the object. This checksum is only present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+        
+      
+
+      - **ChecksumCRC32C** *(string) --* 
+
+        The Base64 encoded, 32-bit ``CRC32C`` checksum of the object. This will only be present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+        
+      
+
+      - **ChecksumCRC64NVME** *(string) --* 
+
+        The Base64 encoded, 64-bit ``CRC64NVME`` checksum of the object. For more information, see `Checking object integrity in the Amazon S3 User Guide <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__.
+
+        
+      
+
+      - **ChecksumSHA1** *(string) --* 
+
+        The Base64 encoded, 160-bit ``SHA1`` digest of the object. This will only be present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+        
+      
+
+      - **ChecksumSHA256** *(string) --* 
+
+        The Base64 encoded, 256-bit ``SHA256`` digest of the object. This will only be present if the object was uploaded with the object. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+        
+      
+
+      - **ChecksumType** *(string) --* 
+
+        The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in the ``CreateMultipartUpload`` request. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
 
         
       

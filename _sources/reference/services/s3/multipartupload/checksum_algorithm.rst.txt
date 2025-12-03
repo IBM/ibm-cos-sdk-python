@@ -1,0 +1,17 @@
+:doc:`MultipartUpload <index>` / Attribute / checksum_algorithm
+
+******************
+checksum_algorithm
+******************
+
+
+
+.. py:attribute:: S3.MultipartUpload.checksum_algorithm
+
+  
+
+  - *(string) --* 
+
+    The algorithm that was used to create a checksum of the object.
+
+    

@@ -134,7 +134,11 @@ ListObjectVersions
                     'Owner': {
                         'DisplayName': 'string',
                         'ID': 'string'
-                    }
+                    },
+                    'ChecksumAlgorithm': [
+                        'CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
+                    ],
+                    'ChecksumType': 'COMPOSITE'|'FULL_OBJECT'
                 },
             ],
             'DeleteMarkers': [
@@ -273,6 +277,24 @@ ListObjectVersions
 
                 
           
+            
+
+            - **ChecksumAlgorithm** *(list) --* 
+
+              The algorithm that was used to create a checksum of the object.
+
+              
+              
+
+              - *(string) --* 
+          
+            
+
+            - **ChecksumType** *(string) --* 
+
+              The checksum type that is used to calculate the object’s checksum value. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+              
         
       
         

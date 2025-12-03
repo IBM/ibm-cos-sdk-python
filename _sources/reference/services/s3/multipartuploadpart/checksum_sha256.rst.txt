@@ -1,0 +1,17 @@
+:doc:`MultipartUploadPart <index>` / Attribute / checksum_sha256
+
+***************
+checksum_sha256
+***************
+
+
+
+.. py:attribute:: S3.MultipartUploadPart.checksum_sha256
+
+  
+
+  - *(string) --* 
+
+    The Base64 encoded, 256-bit ``SHA256`` checksum of the part. This checksum is present if the object was uploaded with the ``SHA256`` checksum algorithm. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+    

@@ -85,6 +85,7 @@ put
                 },
             ]
         },
+        ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
         ExpectedBucketOwner='string'
     )
     
@@ -170,6 +171,18 @@ put
         
       
   
+  
+  :type ChecksumAlgorithm: string
+  :param ChecksumAlgorithm: 
+
+    Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding ``x-amz-checksum`` or ``x-amz-trailer`` header sent. Otherwise, Amazon S3 fails the request with the HTTP status code ``400 Bad Request``. For more information, see `Checking object integrity <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html>`__ in the *Amazon S3 User Guide*.
+
+     
+
+    If you provide an individual checksum, Amazon S3 ignores any provided ``ChecksumAlgorithm`` parameter.
+
+    
+
   
   :type ExpectedBucketOwner: string
   :param ExpectedBucketOwner: Ignored by COS if present.
