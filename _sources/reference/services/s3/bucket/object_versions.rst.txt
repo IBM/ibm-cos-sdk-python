@@ -79,6 +79,7 @@ object_versions
       response = bucket.object_versions.delete(
           MFA='string',
           RequestPayer='requester',
+          BypassGovernanceRetention=True|False,
           ExpectedBucketOwner='string'
       )
       
@@ -106,6 +107,24 @@ object_versions
     
     :type RequestPayer: string
     :param RequestPayer: Ignored by COS if present.
+
+    
+    :type BypassGovernanceRetention: boolean
+    :param BypassGovernanceRetention: 
+
+      Specifies whether you want to delete this object even if it has a Governance-type Object Lock in place. To use this header, you must have the ``s3:BypassGovernanceRetention`` permission.
+
+       
+
+      .. note::
+
+        
+
+        This functionality is not supported for directory buckets.
+
+        
+
+      
 
     
     :type ExpectedBucketOwner: string

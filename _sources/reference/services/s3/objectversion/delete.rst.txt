@@ -67,7 +67,21 @@ delete
 
   
   :type BypassGovernanceRetention: boolean
-  :param BypassGovernanceRetention: Ignored by COS if present.
+  :param BypassGovernanceRetention: 
+
+    Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation. To use this header, you must have the ``s3:BypassGovernanceRetention`` permission.
+
+     
+
+    .. note::
+
+      
+
+      This functionality is not supported for directory buckets.
+
+      
+
+    
 
   
   :type ExpectedBucketOwner: string

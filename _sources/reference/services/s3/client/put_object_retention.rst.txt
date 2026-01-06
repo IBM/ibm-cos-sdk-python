@@ -10,11 +10,21 @@ put_object_retention
 
   
 
-  Places an Object Retention configuration on an object. For more information, see `Locking Objects <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__. Users or accounts require the ``s3:PutObjectRetention`` permission in order to place an Object Retention configuration on objects.
+  .. note::
+
+    
+
+    This operation is not supported for directory buckets.
+
+    
 
    
 
-  This action is not supported by Amazon S3 on Outposts.
+  Places an Object Retention configuration on an object. For more information, see `Locking Objects <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html>`__. Users or accounts require the ``s3:PutObjectRetention`` permission in order to place an Object Retention configuration on objects. Bypassing a Governance Retention configuration requires the ``s3:BypassGovernanceRetention`` permission.
+
+   
+
+  This functionality is not supported for Amazon S3 on Outposts.
 
   
 
@@ -94,7 +104,11 @@ put_object_retention
 
   
   :type BypassGovernanceRetention: boolean
-  :param BypassGovernanceRetention: Ignored by COS if present.
+  :param BypassGovernanceRetention: 
+
+    Indicates whether this action should bypass Governance-mode restrictions.
+
+    
 
   
   :type ContentMD5: string
