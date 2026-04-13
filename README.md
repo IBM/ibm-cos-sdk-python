@@ -31,7 +31,7 @@ These values can be found in the IBM Cloud Console by [generating a \'service cr
 
 ## Using Python
 
-Use of the Python SDK and example code can be found [here](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python).
+Use of the Python SDK and example code can be found at [IBM COS Python SDK Documentation](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-python).
 
 ## Using a Service Credential
 
